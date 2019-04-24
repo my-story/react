@@ -1,10 +1,11 @@
 import  React , { Component }  from 'react';
 import ProductService from '../../services/ProductServices';
-
+// import AuthServices from '../../services/AuthServices'
 
 class ProductList extends Component {
   state = {
-    products: []
+    products: [],
+    user:{}
   }
 
   fetchProducts = () => {
@@ -14,13 +15,25 @@ class ProductList extends Component {
         products
       }))
   }
-
+  // getUser = ()=>{
+  //   AuthServices.loggedin()
+  //     .then((user)=>
+  //     this.setState({
+  //       ...this.state,
+  //       user
+  //     }))
+  //     console.log(this.state.user);
+  // }
   componentDidMount() {
     this.fetchProducts();
+    // this.getUser()
   }
 
   render(){
-    console.log(this.state.products)
+    const {products,user} = this.state
+    if(!user)return <div>Loadingg....</div>
+    // if(!products)return <div>Loading...S</div>
+  
     return(
       <div>HEY</div>
     )
