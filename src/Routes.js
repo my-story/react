@@ -16,7 +16,6 @@ export default () => (
   <Route path="/products" component={ProductList} />
   <Route path="/signup" component={signup} />
   <Route path="/login" component={Login} />
-
 </Switch>
 
 );
