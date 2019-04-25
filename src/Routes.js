@@ -6,6 +6,7 @@ import ProductList from './components/products/ProductList'
 import signup from './components/auth/signup';
 import Login from './components/auth/login';
 import LinkProduct from './components/influencer/LinkProduct';
+import ProductCreate from './components/products/ProductCreate';
 
 export default () => (
 <Switch>
@@ -15,7 +16,7 @@ export default () => (
   <Route path="/signup" component={signup} />
   <Route path="/login" component={Login} />
   <Route path="/create" component={LinkProduct} />
-
+  <Route path="/productCreate" component={ProductCreate} />
 </Switch>
 
 );
