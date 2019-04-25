@@ -32,11 +32,23 @@ class ProductList extends Component {
   render(){
     const {products,user} = this.state
     console.log(products)
+    console.log(products.influencer)
     if(!user)return <div>Loadingg....</div>
     // if(!products)return <div>Loading...S</div>
-  
+    
     return(
-      <div>HEY</div>
+      <div>
+        HEY
+      {products.map((i,index)=>{
+        return(
+            <div key={index} className="influencer-card">
+            <p>model: {i.model}</p>
+            <p>description: {i.description}</p>
+            <p>influencer: {i.influencer.name}</p>
+            </div>
+        )
+    })}
+    </div>
     )
   }
 }
