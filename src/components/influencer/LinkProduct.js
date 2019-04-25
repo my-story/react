@@ -6,6 +6,7 @@ import InfluencerServices from '../../services/InfluencerServices'
 import { Button } from 'antd';
 
 
+
 class LinkProduct extends Component{
     state={
         influencer:{},
@@ -30,10 +31,13 @@ class LinkProduct extends Component{
         console.log(influencer,product)
         return(
             <div>
+
+
                 <InfluencerCreate onCreation={this.handleChange}/>
                 <ProductCreate onCreation={this.handleChange}/>
 
                 <Button onClick={this.onSubmit} type="dashed">Dashed</Button>
+
 
             </div>
 
