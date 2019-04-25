@@ -14,7 +14,8 @@ class ProductCreate extends Component {
       prize:0,
       images:[],
       description:"",
-      category:[]
+      category:[],
+      influencer: this.props.influencer._id
     },
     selectedItems: []
   };
@@ -44,7 +45,8 @@ class ProductCreate extends Component {
   render(){
     const { selectedItems, product } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-    console.log(product)
+    // console.log(product)
+    // console.log(this.props.influencer._id);
     return(
       <div>
           <h2>Create Product</h2>

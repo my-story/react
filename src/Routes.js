@@ -6,7 +6,7 @@ import ProductList from './components/products/ProductList'
 import signup from './components/auth/signup';
 import Login from './components/auth/login';
 import InfluencerCreate from './components/influencer/InfluencerCreate';
-import ProductCreate from './components/products/ProductCreate';
+// import ProductCreate from './components/products/ProductCreate';
 
 
 export default () => (
@@ -17,7 +17,7 @@ export default () => (
   <Route path="/signup" component={signup} />
   <Route path="/login" component={Login} />
   <Route path="/create" component={InfluencerCreate} />
-  <Route path="/crear/product" component={ProductCreate} />
+  {/* <Route path="/crear/product" component={ProductCreate} /> */}
 
 
 </Switch>
