@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import InfluencerServices from '../../services/InfluencerServices'
 import { Input, Tooltip, Icon, Select } from 'antd';
+import { Redirect } from 'react-router-dom';
 
 const OPTIONS = ["Athlete","Musician","Tech","Artist"];
 
@@ -11,7 +12,8 @@ class InfluencerCreate extends Component{
             name: "",
             review:""
         },
-        selectedItems: []
+        selectedItems: [],
+        done: false
     }
 
  
@@ -30,9 +32,10 @@ class InfluencerCreate extends Component{
       onSubmit=()=>{
         let { data } = this.state
         InfluencerServices.createInfluencer(data)
-            .then((influencer)=>console.log("influencer is " + influencer))
+            .then((influencer)=>console.log("influencer is " + influencer) ,this.setState({
+                done: true
+            }))
             .catch((e)=>console.log(e))
-
     }
 
 
@@ -41,8 +44,8 @@ class InfluencerCreate extends Component{
         const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o))
         console.log(data)
 
-    return(
-        
+  if(!this.state.done) {
+      return(
         <div>   
                 <h1>Create Influencer</h1>
 
@@ -70,6 +73,9 @@ class InfluencerCreate extends Component{
                 </div>
         </div>
     )
+    } else {
+        return (<Redirect to="crear/product" />);
     }
+}
 }
 export default InfluencerCreate
