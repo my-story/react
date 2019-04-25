@@ -22,3 +22,9 @@ code {
   height: 20vh;
   width: 20vw;
 }
+.create-card{
+  /* display: flex; */
+  height: 30vh;
+  width: 30vw;
+
+}

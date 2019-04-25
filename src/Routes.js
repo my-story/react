@@ -5,6 +5,8 @@ import InfluencerList from './components/influencer/InfluencerList'
 import ProductList from './components/products/ProductList'
 import signup from './components/auth/signup';
 import Login from './components/auth/login';
+// import InfluencerCreate from './components/influencer/InfluencerCreate';
+
 import LinkProduct from './components/influencer/LinkProduct';
 import ProductCreate from './components/products/ProductCreate';
 
