@@ -1,4 +1,5 @@
 import React,{ Component } from 'react';
+import ProductServices from '../../services/ProductServices'
 import { Input } from 'antd';
 import { Select } from 'antd';
 
@@ -9,7 +10,7 @@ const OPTIONS = ["Sports","Music","Tech","Clothes"];
 class ProductCreate extends Component {
   state = {
     product:{
-      name:"",
+      model:"",
       prize:0,
       images:[],
       description:"",
@@ -21,28 +22,34 @@ class ProductCreate extends Component {
   onChange = (e) => {
     let { product } = this.state
     product[e.target.name] = e.target.value
-    this.setState({ product })
+    this.setState( {product} )
   };
 
   handleChange = selectedItems => {
-    const { product } = this.state
     this.setState({product:{
-        ...this.state.data,
+        ...this.state.product,
         category: selectedItems} })
-        this.props.onCreation(product);
-  }
 
+  }
+  onSubmit=()=>{
+    let { product } = this.state
+    
+        ProductServices.productForm(product)
+            .then((product)=> console.log(product))
+            .catch((e)=>console.log(e))
+
+}
 
 
   render(){
     const { selectedItems, product } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-
+    console.log(product)
     return(
       <div>
           <h2>Create Product</h2>
         <div className="create-card">
-          <Input name="name" placeholder="Please enter product name" allowClear onChange={this.onChange} />
+          <Input name="model" placeholder="Please enter product name" allowClear onChange={this.onChange} />
           <Input name="prize" type="number" placeholder="Please enter product price" allowClear onChange={this.onChange} />
           <Input name="description" placeholder="Please enter product description" allowClear onChange={this.onChange} />
           <Select
@@ -60,6 +67,7 @@ class ProductCreate extends Component {
         </Select>
         <TextArea placeholder="please enter product description" rows={4} />
       </div>
+      <button onClick={this.onSubmit}>Submit</button>
 
       </div>
     )

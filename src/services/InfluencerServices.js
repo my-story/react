@@ -1,7 +1,7 @@
 import http from './BaseServices'
 
-const createInfluencer = () =>
-  http.post('/influencer/create')
+const createInfluencer = (data) =>
+  http.post('/influencer/create', data)
     .then((res)=> res.data);
 
 const getAll = () => 
