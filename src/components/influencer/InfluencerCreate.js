@@ -1,15 +1,15 @@
 import React,{ Component } from 'react'
-// import InfluencerServices from '../../services/InfluencerServices'
-import { Input, Tooltip, Icon, Select, Button } from 'antd';
+import InfluencerServices from '../../services/InfluencerServices'
+import { Input, Tooltip, Icon, Select } from 'antd';
 
 const OPTIONS = ["Athlete","Musician","Tech","Artist"];
 
 class InfluencerCreate extends Component{
     state={
         data:{
-            category:[],
+            expertise:[],
             name: "",
-            description:""
+            review:""
         },
         selectedItems: []
     }
@@ -23,12 +23,17 @@ class InfluencerCreate extends Component{
     }
 
     handleChange = selectedItems => {
-        const { data } = this.state
         this.setState({data:{
             ...this.state.data,
-            category: selectedItems} })
-            this.props.onCreation(data);
-      }
+            expertise: selectedItems} })
+    }
+      onSubmit=()=>{
+        let { data } = this.state
+        InfluencerServices.createInfluencer(data)
+            .then((influencer)=>console.log("influencer is " + influencer))
+            .catch((e)=>console.log(e))
+
+    }
 
 
     render(){
@@ -48,11 +53,11 @@ class InfluencerCreate extends Component{
                 <Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)' }} />
             </Tooltip>
             }/>
-                 <Input name="description" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
+                 <Input name="review" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
                  <Select
                      mode="multiple"
                     placeholder="This is his/her Category. ADMIN can create new categories"
-                    value={data.category}
+                    value={data.expertise}
                     onChange={this.handleChange}
                     style={{ width: '100%' }}>
                     {filteredOptions.map(item => (
@@ -61,6 +66,7 @@ class InfluencerCreate extends Component{
                     </Select.Option>
                     ))}
                 </Select>
+                <button onClick={this.onSubmit}>Submit</button>
                 </div>
         </div>
     )
