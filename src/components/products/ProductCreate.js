@@ -6,34 +6,49 @@ const { TextArea } = Input;
 const OPTIONS = ["Sports","Music","Tech","Clothes"];
 
 
-
 class ProductCreate extends Component {
   state = {
-    selectedItems: [],
-  };
-
-  handleChange = selectedItems => {
-    this.setState({ selectedItems });
+    product:{
+      name:"",
+      prize:0,
+      images:[],
+      description:"",
+      category:[]
+    },
+    selectedItems: []
   };
 
   onChange = (e) => {
-    console.log(e);
+    let { product } = this.state
+    product[e.target.name] = e.target.value
+    this.setState({ product })
   };
 
+  handleChange = selectedItems => {
+    const { product } = this.state
+    this.setState({product:{
+        ...this.state.data,
+        category: selectedItems} })
+        this.props.onCreation(product);
+  }
+
+
+
   render(){
-    const { selectedItems } = this.state;
+    const { selectedItems, product } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
     return(
       <div>
           <h2>Create Product</h2>
+        <div className="create-card">
           <Input name="name" placeholder="Please enter product name" allowClear onChange={this.onChange} />
-          <Input name="prize" placeholder="Please enter product price" allowClear onChange={this.onChange} />
+          <Input name="prize" type="number" placeholder="Please enter product price" allowClear onChange={this.onChange} />
           <Input name="description" placeholder="Please enter product description" allowClear onChange={this.onChange} />
           <Select
           mode="multiple"
           placeholder="Inserted are removed"
-          value={selectedItems}
+          value={product.category}
           onChange={this.handleChange}
           style={{ width: '100%' }}
         >
@@ -44,6 +59,8 @@ class ProductCreate extends Component {
           ))}
         </Select>
         <TextArea placeholder="please enter product description" rows={4} />
+      </div>
+
       </div>
     )
   }

@@ -1,18 +1,20 @@
 import React,{ Component } from 'react'
-import InfluencerServices from '../../services/InfluencerServices'
-import { Input, Tooltip, Icon, Select } from 'antd';
+// import InfluencerServices from '../../services/InfluencerServices'
+import { Input, Tooltip, Icon, Select, Button } from 'antd';
 
 const OPTIONS = ["Athlete","Musician","Tech","Artist"];
 
 class InfluencerCreate extends Component{
     state={
-        data:{},
+        data:{
+            category:[],
+            name: "",
+            description:""
+        },
         selectedItems: []
     }
 
-    handleChange = selectedItems => {
-        this.setState({ selectedItems });
-      }
+ 
 
     onChange = e => {
         let { data } = this.state
@@ -20,29 +22,37 @@ class InfluencerCreate extends Component{
         this.setState({ data })
     }
 
-    createInfluencer(){
-        InfluencerServices.createInfluencer()
-    }
+    handleChange = selectedItems => {
+        const { data } = this.state
+        this.setState({data:{
+            ...this.state.data,
+            category: selectedItems} })
+            this.props.onCreation(data);
+      }
+
 
     render(){
-
-        const { selectedItems } = this.state;
+        const { selectedItems,data } = this.state;
         const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o))
+        console.log(data)
+
     return(
+        
         <div>   
-            <div>
-                <h1>Create product</h1>
+                <h1>Create Influencer</h1>
+
+            <div className="create-card">
     
-                <Input name="name" placeholder="Enter Influencer Name" prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} onChange={this.onChange} />} suffix={
+                <Input name="name" placeholder="Enter Person's Name" onChange={this.onChange} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} suffix={
                 <Tooltip title="Make Sure to write with Capitals">
                 <Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)' }} />
             </Tooltip>
             }/>
-                 <Input placeholder="input with clear icon" allowClear onChange={this.onChange} />
+                 <Input name="description" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
                  <Select
-                    name="category" mode="multiple"
-                    placeholder="Inserted are removed"
-                    value={selectedItems}
+                     mode="multiple"
+                    placeholder="This is his/her Category. ADMIN can create new categories"
+                    value={data.category}
                     onChange={this.handleChange}
                     style={{ width: '100%' }}>
                     {filteredOptions.map(item => (
