@@ -43,13 +43,13 @@ class Signup extends Component {
 
         })
         .catch((err)=>{
-            console.log('error plus the status', err.data)
             if (err = 403){
-                console.log('this is the error you are looking for', err.status)
+                console.log('this is the error you are looking for', err)
                 toastr.error('Email invalid or password too short.') 
                 // window.alert(err)
+            } else{
+                console.log('sorry something went wrong', err)
             }
-            console.log('sorry something went wrong', err)
 
         })
 

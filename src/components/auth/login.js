@@ -42,6 +42,7 @@ class Login extends Component {
             toastr.error('Something went wrong authenticating the user.')
           }
             console.log('sorry something went wrong', err)
+            // toastr.error('something went wrong authenticating the user.')
 
         })
 
@@ -86,3 +87,8 @@ class Login extends Component {
   }
   
   export default Login;
+
+
+
+
+
