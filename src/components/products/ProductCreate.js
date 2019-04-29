@@ -12,12 +12,12 @@ class ProductCreate extends Component {
     product:{
       model:"",
       prize:0,
-      profilePic:"",
       description:"",
       category:[],
       influencer: this.props.influencer._id
     },
-    selectedItems: []
+    selectedItems: [],
+    profilePic: null
   };
 
   onChange = (e) => {
@@ -50,6 +50,10 @@ class ProductCreate extends Component {
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
     // console.log(product)
     console.log(product.profilePic);
+
+    if(this.state.profilePic !== null){
+      console.log(this.state.profilePic);
+    }
     return(
       <div>
           <h2>Create Product</h2>
