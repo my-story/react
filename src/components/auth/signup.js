@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import authService from '../../services/AuthServices';
 import { Redirect, Link } from 'react-router-dom';
 
+import Axios from 'axios';
+
 const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
 
 const validators = {
@@ -38,15 +40,20 @@ export default class signup extends Component {
   }
 
   onSubmit = (event) => {
+    
     event.preventDefault();
-
-    if (!this.hasErrors()) {
-      authService.signup(this.state.user)
-      .then(
-        (user) => this.setState({ authenticated: true }),
-        (error) => {
-          const { message, errors } = error.response.data;
+    
+    // if (!this.hasErrors()) {
+      // authService.signup({user})
+      Axios.post('https://localhost:3002/api/signup', {username: this.state.user.username, password: this.state.user.password}, {withCredentials: true})
+      .then((user) => {
+          const { message, errors } = this.state.errors;
+          this.props.logTheUserIntoAppComponent(user)
           this.setState({
+            user: {
+              username: '',
+              password: ''
+            },
             errors: {
               ...this.state.errors,
               ...errors,
@@ -55,7 +62,7 @@ export default class signup extends Component {
           })
         }
       )
-    }
+    // }
     
   }
 
@@ -88,9 +95,9 @@ export default class signup extends Component {
   
   render() {
     const { touch, errors, user } = this.state;
-    if (this.state.authenticated) {
-      return (<Redirect to="/login" />);
-    } else {
+    // if (this.state.authenticated) {
+    //   return (<Redirect to="/login" />);
+    // } else {
       return (
         <div className="row justify-content-center mt-5">
           <div className="col-xs-12 col-3">
@@ -112,7 +119,7 @@ export default class signup extends Component {
               </div>
 
               <div className="from-actions">
-                <button type="submit" className="btn btn-primary btn-block" disabled={this.hasErrors()}>signup</button>
+                <button type="submit" className="btn btn-primary btn-block">signup</button>
               </div>
             </form>
             <hr />
@@ -122,4 +129,4 @@ export default class signup extends Component {
       );
     }
   }
-}
+// }
