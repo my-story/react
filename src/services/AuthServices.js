@@ -4,7 +4,7 @@ const signup = (user)  => http.post('api/signup', user)
   .then(response => response.data);
 
 const login = (user) => http.post('api/login', user)
-  .then(response => response.data);
+  .then(response => response.data)
 
 const logout = (user) => http.post('api/logout')
   .then(response => response.data);
