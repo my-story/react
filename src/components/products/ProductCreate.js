@@ -12,12 +12,12 @@ class ProductCreate extends Component {
     product:{
       model:"",
       prize:0,
-      images:[],
       description:"",
       category:[],
       influencer: this.props.influencer._id
     },
-    selectedItems: []
+    selectedItems: [],
+    profilePic: null
   };
 
   onChange = (e) => {
@@ -29,9 +29,12 @@ class ProductCreate extends Component {
   handleChange = selectedItems => {
     this.setState({product:{
         ...this.state.product,
-        category: selectedItems} })
-
+        category: selectedItems,
+      } })
   }
+  handleImageChange = (e) => {
+    this.setState({profilePic: e.target.files[0]})
+}
   onSubmit=()=>{
     let { product } = this.state
     
@@ -46,7 +49,11 @@ class ProductCreate extends Component {
     const { selectedItems, product } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
     // console.log(product)
-    // console.log(this.props.influencer._id);
+    console.log(product.profilePic);
+
+    if(this.state.profilePic !== null){
+      console.log(this.state.profilePic);
+    }
     return(
       <div>
           <h2>Create Product</h2>
@@ -67,8 +74,9 @@ class ProductCreate extends Component {
             </Select.Option>
           ))}
         </Select>
-        <TextArea placeholder="please enter product description" rows={4} />
+        {/* <TextArea placeholder="please enter product description" rows={4} /> */}
       </div>
+      <input type="file" onChange={this.handleImageChange}/>   
       <button onClick={this.onSubmit}>Submit</button>
 
       </div>
