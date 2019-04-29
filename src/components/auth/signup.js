@@ -1,125 +1,83 @@
-import React, { Component } from 'react'
-import authService from '../../services/AuthServices';
-import { Redirect, Link } from 'react-router-dom';
+import React, {Component} from 'react';
+// import "../App.css";
+import Axios from 'axios';
+import UserService from '../../services/UserServices';
+import {Link} from 'react-router-dom';
 
-const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/i;
+import * as toastr from 'toastr';
 
-const validators = {
-  email: (value) => {
-    let error;
-    if (!value || value === '') {
-      error = 'Email is required';
-    } else if (!emailPattern.test(value)) {
-      error = 'Invalid email format'; 
+
+class Signup extends Component {
+      state = { usernameInput: '', passwordInput: ''};
+      service = new UserService();
+    
+  
+    handleChange = (e) =>{
+        this.setState({[e.target.name]: e.target.value})
     }
-    return error;
-  },
-  password: (value) => {
-    let error;
-    if (!value) {
-      error = 'Password is required';
-    } else if (!value.length >= 8) {
-      error = 'Password must contains at least 8 characters';
-    }
-    return error;
-  }
-}
 
-export default class signup extends Component {
+    //use toasters for messages
 
-  state = {
-    user: {
-      username: '',
-      password: ''
-    },
-    errors: {},
-    touch: {},
-    authenticated: false
-  }
 
-  onSubmit = (event) => {
-    event.preventDefault();
+    handleFormSubmit = (e) =>{
+        e.preventDefault();
+        Axios.post('http://localhost:3002/api/signup', {username: this.state.usernameInput, password: this.state.passwordInput}, {withCredentials: true})
+        
+        // this.service.signup(this.state.usernameInput, this.state.passwordInput)
+        .then((userFromDB)=>{
+            // if (userFromDB.status === 403){
+            //     console.log('this is the error you are looking for', userFromDB.status)
+            //     toastr.error('Email invalid or password too short.') 
+            //     window.alert(userFromDB.data.errors)
+            // }
+            console.log('------------------------', userFromDB)
+            this.props.logTheUserIntoAppComponent(userFromDB)
+            // here we wait for the API to give us the user object back after logging in
+            // then we pass that user object back to app component
+            this.setState({usernameInput: '', passwordInput: ''})
 
-    if (!this.hasErrors()) {
-      authService.signup(this.state.user)
-      .then(
-        (user) => this.setState({ authenticated: true }),
-        (error) => {
-          const { message, errors } = error.response.data;
-          this.setState({
-            errors: {
-              ...this.state.errors,
-              ...errors,
-              password: message
+
+            // redirect 
+            this.props.history.push('/');
+
+
+        })
+        .catch((err)=>{
+            if (err = 403){
+                console.log('this is the error you are looking for', err)
+                toastr.error('Email invalid or password too short.') 
+                // window.alert(err)
+            } else{
+                console.log('sorry something went wrong', err)
             }
-          })
-        }
+
+        })
+
+    }
+  
+    render(){
+      return(
+        <div className="login-form-parent">
+            <form className="login-form" onSubmit={this.handleFormSubmit}>
+
+            <div>
+
+     
+                <input  placeholder="USERNAME"type="text" name="usernameInput" value={this.state.usernameInput} onChange={ e => this.handleChange(e)}/>
+                
+                <input placeholder="PASSWORD" name="passwordInput" value={this.state.passwordInput} onChange={ e => this.handleChange(e)} />
+                
+            </div>
+                <button type="submit" className="button-id">Submit</button>
+            <p>Already have account? 
+                <Link to={"/login"}> Login</Link>
+            </p>
+            </form>
+
+
+    </div>
       )
     }
-    
   }
-
-  handleChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      user: {
-        ...this.state.user,
-        [name]: value
-      },
-      errors: {
-        ...this.state.errors,
-        [name]: validators[name] && validators[name](value)
-      }
-    })
-  }
-
-  handleBlur = (event) => {
-    const { name } = event.target;
-    this.setState({
-      touch: {
-        ...this.state.touch,
-        [name]: true
-      }
-    })
-  }
-
-  hasErrors = () => Object.keys(this.state.user)
-    .some(attr => validators[attr] && validators[attr](this.state.user[attr]))
   
-  render() {
-    const { touch, errors, user } = this.state;
-    if (this.state.authenticated) {
-      return (<Redirect to="/login" />);
-    } else {
-      return (
-        <div className="row justify-content-center mt-5">
-          <div className="col-xs-12 col-3">
-            <form onSubmit={this.onSubmit}>
-              <div className="input-group mb-2">
-                <div className="input-group-prepend">
-                  <div className="input-group-text"><i className="fa fa-envelope-o"></i></div>
-                </div>
-                <input type="text" className={`form-control ${touch.username && errors.username && 'is-invalid'}`} name="username" placeholder="username" onChange={this.handleChange} value={user.username} onBlur={this.handleBlur} />
-                <div className="invalid-feedback">{errors.username}</div>
-              </div>
-              
-              <div className="input-group mb-2">
-                <div className="input-group-prepend">
-                  <div className="input-group-text" style={{width: '42px'}}><i className="fa fa-lock"></i></div>
-                </div>
-                <input type="password" className={`form-control ${touch.password && errors.password && 'is-invalid'}`} name="password" placeholder="Password" onChange={this.handleChange} value={user.password} onBlur={this.handleBlur}/>
-                <div className="invalid-feedback">{errors.password}</div>
-              </div>
-
-              <div className="from-actions">
-                <button type="submit" className="btn btn-primary btn-block" disabled={this.hasErrors()}>signup</button>
-              </div>
-            </form>
-            <hr />
-            <p className="text-center">Already logged in? <Link to="/login">Login</Link></p>
-          </div>
-        </div>
-      );
-    }
-  }
-}
+  export default Signup;

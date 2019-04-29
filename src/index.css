@@ -9,14 +9,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-.App{
-  margin: 0;
-  padding: 0;
-}
 .influencer-card{
   border: solid 1px black;
   height: 20vh;
@@ -27,4 +19,16 @@ code {
   height: 30vh;
   width: 30vw;
 
+}
+
+nav{
+  height: 7vh;
+  background-color: black;
+  color: white;
+}
+
+nav button{
+  height: 3vh;
+  width: 4vw;
+  color: black;
 }
