@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import InfluencerServices from '../../services/InfluencerServices'
 
+
 class InfluencerList extends Component{
     state={
         influencers:[]
@@ -28,10 +29,10 @@ class InfluencerList extends Component{
                         <div key={index} className="influencer-card">
                         <p>name: {i.name}</p>
                         <p>description: {i.description}</p>
-
                         </div>
                     )
                 })}
+
             </div>
         )
     }
