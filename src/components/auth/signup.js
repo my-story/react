@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 // import "../App.css";
 import Axios from 'axios';
 import UserService from '../../services/UserServices';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
+import * as toastr from 'toastr';
 
 
 class Signup extends Component {
-      state = { usernameInput: '', passwordInput: '' };
+      state = { usernameInput: '', passwordInput: ''};
       service = new UserService();
     
   
@@ -19,9 +21,15 @@ class Signup extends Component {
 
     handleFormSubmit = (e) =>{
         e.preventDefault();
-        // you could just do axios.post('http://localhost:5000/api/signup, {username: this.state.userNameInput, password: this.state.passWordInput}, {withCredentials: true})
-        this.service.signup(this.state.usernameInput, this.state.passwordInput)
+        Axios.post('http://localhost:3002/api/signup', {username: this.state.usernameInput, password: this.state.passwordInput}, {withCredentials: true})
+        
+        // this.service.signup(this.state.usernameInput, this.state.passwordInput)
         .then((userFromDB)=>{
+            // if (userFromDB.status === 403){
+            //     console.log('this is the error you are looking for', userFromDB.status)
+            //     toastr.error('Email invalid or password too short.') 
+            //     window.alert(userFromDB.data.errors)
+            // }
             console.log('------------------------', userFromDB)
             this.props.logTheUserIntoAppComponent(userFromDB)
             // here we wait for the API to give us the user object back after logging in
@@ -35,6 +43,12 @@ class Signup extends Component {
 
         })
         .catch((err)=>{
+            console.log('error plus the status', err.data)
+            if (err = 403){
+                console.log('this is the error you are looking for', err.status)
+                toastr.error('Email invalid or password too short.') 
+                // window.alert(err)
+            }
             console.log('sorry something went wrong', err)
 
         })
@@ -54,7 +68,7 @@ class Signup extends Component {
                 <input placeholder="PASSWORD" name="passwordInput" value={this.state.passwordInput} onChange={ e => this.handleChange(e)} />
                 
             </div>
-                <button className="button-id">Submit</button>
+                <button type="submit" className="button-id">Submit</button>
             <p>Already have account? 
                 <Link to={"/login"}> Login</Link>
             </p>

@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 // import "../App.css";
 import UserService from '../../services/UserServices';
+import Axios from 'axios';
+
+import * as toastr from 'toastr';
 
 
 class Login extends Component {
@@ -15,8 +18,8 @@ class Login extends Component {
 
     handleFormSubmit = (e) =>{
         e.preventDefault();
-        // you could just do axios.post('http://localhost:5000/api/signup, {username: this.state.userNameInput, password: this.state.passWordInput}, {withCredentials: true})
-        this.userService.login(this.state.usernameInput, this.state.passwordInput)
+        Axios.post('http://localhost:3002/api/login', {username: this.state.userNameInput, password: this.state.passWordInput}, {withCredentials: true})
+        // this.userService.login(this.state.usernameInput, this.state.passwordInput)
         .then((userFromDB)=>{
             console.log(userFromDB);
             // here we wait for the API to give us the user object back after logging in
@@ -35,6 +38,9 @@ class Login extends Component {
 
         })
         .catch((err)=>{
+          if (err = 402){
+            toastr.error('Something went wrong authenticating the user.')
+          }
             console.log('sorry something went wrong', err)
 
         })
