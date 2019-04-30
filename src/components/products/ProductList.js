@@ -45,6 +45,7 @@ class ProductList extends Component {
             <p>model: {i.model}</p>
             <p>description: {i.description}</p>
             <p>influencer: {i.influencer.name}</p>
+            <img height="100" src={i.images} alt="{i.name}" />
             </div>
         )
     })}
