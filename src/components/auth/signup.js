@@ -1,82 +1,76 @@
 import React, {Component} from 'react';
 // import "../App.css";
-import Axios from 'axios';
-import UserService from '../../services/UserServices';
-import {Link} from 'react-router-dom';
-
+import axios from 'axios';
+// import UserService from '../../services/UserServices';
+import { Link, Redirect } from 'react-router-dom';
 import * as toastr from 'toastr';
 
 
 class Signup extends Component {
-      state = { usernameInput: '', passwordInput: ''};
-      service = new UserService();
+      state = { 
+          username: '', 
+          password: '',
+          signedup: false
+        };
+    //   service = new UserService();
     
   
     handleChange = (e) =>{
         this.setState({[e.target.name]: e.target.value})
+        console.log(this.state);
     }
 
     //use toasters for messages
 
 
-    handleFormSubmit = (e) =>{
-        e.preventDefault();
-        Axios.post('http://localhost:3002/api/signup', {username: this.state.usernameInput, password: this.state.passwordInput}, {withCredentials: true})
-        
-        // this.service.signup(this.state.usernameInput, this.state.passwordInput)
-        .then((userFromDB)=>{
-            // if (userFromDB.status === 403){
-            //     console.log('this is the error you are looking for', userFromDB.status)
-            //     toastr.error('Email invalid or password too short.') 
-            //     window.alert(userFromDB.data.errors)
-            // }
-            console.log('------------------------', userFromDB)
-            this.props.logTheUserIntoAppComponent(userFromDB)
-            // here we wait for the API to give us the user object back after logging in
-            // then we pass that user object back to app component
-            this.setState({usernameInput: '', passwordInput: ''})
-
-
-            // redirect 
-            this.props.history.push('/');
-
-
+    handleFormSubmit = (event) =>{
+        event.preventDefault();
+        axios.post('http://localhost:3002/api',{
+            username: this.state.username,
+            password: this.state.password
         })
-        .catch((err)=>{
-            if (err = 403){
-                console.log('this is the error you are looking for', err)
-                toastr.error('Email invalid or password too short.') 
-                // window.alert(err)
-            } else{
-                console.log('sorry something went wrong', err)
+        .then(response => {
+            console.log(response)
+            if(response.data){
+                console.log("sucessful signup");
+                this.setState({
+                    signedup: true
+                })
+            } else {
+                console.log("signup error")
             }
-
+        }).catch(error => {
+            console.log("signup error")
+            console.log(error);
         })
-
     }
   
     render(){
-      return(
-        <div className="login-form-parent">
-            <form className="login-form" onSubmit={this.handleFormSubmit}>
-
-            <div>
-
-     
-                <input  placeholder="USERNAME"type="text" name="usernameInput" value={this.state.usernameInput} onChange={ e => this.handleChange(e)}/>
-                
-                <input placeholder="PASSWORD" name="passwordInput" value={this.state.passwordInput} onChange={ e => this.handleChange(e)} />
-                
+    if(!this.state.signedup){
+        return(
+            <div className="login-form-parent">
+                <form className="login-form" onSubmit={this.handleFormSubmit}>
+    
+                <div>
+    
+         
+                    <input  placeholder="USERNAME"type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
+                    
+                    <input placeholder="PASSWORD" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
+                    
+                </div>
+                    <button type="submit" className="button-id">Submit</button>
+                <p>Already have account? 
+                    <Link to={"/login"}> Login</Link>
+                </p>
+                </form>
+    
+    
             </div>
-                <button type="submit" className="button-id">Submit</button>
-            <p>Already have account? 
-                <Link to={"/login"}> Login</Link>
-            </p>
-            </form>
-
-
-    </div>
-      )
+          )
+    } else {
+        return(<Redirect to="/login"></Redirect>)
+    }
     }
   }
   

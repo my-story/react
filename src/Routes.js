@@ -15,7 +15,7 @@ export default () => (
   {/* <Route exact path="/" component={Index} /> */}
   <Route path="/products" component={ProductList} />
   {/* <Route path="/signup" component={signup} /> */}
-  {/* <Route path="/login" component={Login} /> */}
+  <Route path="/login" component={Login} />
   <Route path="/create" component={InfluencerCreate} />
   {/* <Route path="/crear/product" component={ProductCreate} /> */}
 
