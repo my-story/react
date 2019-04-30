@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import * as toastr from 'toastr';
 
 class Login extends Component {
   state = { 
@@ -12,8 +13,7 @@ class Login extends Component {
 
 
 handleChange = (e) =>{
-    this.setState({[e.target.name]: e.target.value})
-    console.log(this.state);
+    this.setState({[e.target.name]: e.target.value});
 }
 
 //use toasters for messages
@@ -35,8 +35,7 @@ handleFormSubmit = (event) =>{
         } 
 
     }).catch(error => {
-        console.log("loggin error")
-        console.log(error);
+        toastr.error("invalid username or password");
     })
 }
 
