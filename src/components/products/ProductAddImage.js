@@ -11,10 +11,6 @@ class  AddImage extends Component{
         images:{},
         done: false,
     }
-    // componentDidMount(){
-        // const {privateInfo} = this.state
-        // this.setState({privateInfo:this.props.product})
-    // }
     handleChange = (e) => {
         this.setState({images: e.target.files[0]})
     }
@@ -22,7 +18,7 @@ class  AddImage extends Component{
         const { privateInfo,images } = this.state
         this.subeImagen(images, url)
             .then((res) => {
-                // console.log(res)
+                console.log(res)
                 privateInfo.images = res.picture
                 this.setState({ privateInfo })
             })
@@ -35,9 +31,7 @@ class  AddImage extends Component{
         return serviceUpload.post(url, formData, {headers: {
             'Content-Type': 'multipart/form-data',
           },})
-          .then( (res) => {
-            //   console.log(res)
-            // this.props.history.push('/')
+          .then( () => {
             this.setState({done:true})
           })
           .catch( e => console.log(e))
@@ -45,16 +39,17 @@ class  AddImage extends Component{
 
         render(){
             const {privateInfo,images,done} = this.state
+            console.log(images)
             if(done){
              return (<Redirect to="/" />)      
             }
             return(
                 <div className="image-page">
                 <div className="image-container">
-                <h1>Add Image</h1>
+                <h1>Add Image For Product</h1>
 
                     <input type="file" onChange={this.handleChange}/>    
-                    <button onClick={this.handleSubmit}>Add image</button>          
+                    <button onClick={this.handleSubmit}>Add image</button>    
                 </div>
                 </div>
             )

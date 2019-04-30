@@ -1,8 +1,10 @@
 import React,{ Component } from 'react'
 import InfluencerServices from '../../services/InfluencerServices'
-import { Input, Tooltip, Icon, Select } from 'antd';
-// import { Redirect } from 'react-router-dom';
 import ProductCreate from '../products/ProductCreate';
+
+import { Input, Tooltip, Icon, Select } from 'antd';
+import * as toastr from 'toastr'
+// import { Redirect } from 'react-router-dom';
 
 const OPTIONS = ["Athlete","Musician","Tech","Artist"];
 
@@ -33,6 +35,10 @@ class InfluencerCreate extends Component{
     }
       onSubmit=()=>{
         let { data } = this.state
+        if(data.expertise.length === 0 || data.name.length === 0 || data.review.length === 0){
+            toastr.error("Please complete all required fields")
+            return
+        }
         InfluencerServices.createInfluencer(data)
             .then((influencer)=> this.setState({
                 influencerDone: influencer,

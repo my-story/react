@@ -1,11 +1,11 @@
 import React,{ Component } from 'react';
 import ProductServices from '../../services/ProductServices'
 import ProductAddImage from './ProductAddImage'
-import { Input } from 'antd';
-import { Select } from 'antd';
-import { Redirect } from 'react-router-dom'
+import { Input, Select } from 'antd';
+// import { Redirect } from 'react-router-dom'
+import * as toastr from 'toastr'
 
-const { TextArea } = Input;
+// const { TextArea } = Input;
 const OPTIONS = ["Sports","Music","Tech","Clothes"];
 
 
@@ -39,11 +39,13 @@ class ProductCreate extends Component {
 // }
   onSubmit=()=>{
     let { product } = this.state
-
     
+    if(product.model.length === 0||product.prize === 0 || product.description.length === 0 || product.category.length === 0){
+      toastr.error("Please complete all required fields")
+      return
+    }
         ProductServices.productForm(product)
             .then( res => {
-              console.log(res.data)
             this.setState({productCreated:true})
       })
             .catch((e)=>console.log(e))
