@@ -4,6 +4,7 @@ import ProductCreate from '../products/ProductCreate';
 
 import { Input, Tooltip, Icon, Select } from 'antd';
 import * as toastr from 'toastr'
+import AddImageInflu from './InfluencerAddImages';
 // import { Redirect } from 'react-router-dom';
 
 const OPTIONS = ["Athlete","Musician","Tech","Artist"];
@@ -17,7 +18,7 @@ class InfluencerCreate extends Component{
         },
         selectedItems: [],
         done: false,
-        influencerDone: {}
+        influencerDone: {},
     }
 
  
@@ -42,7 +43,7 @@ class InfluencerCreate extends Component{
         InfluencerServices.createInfluencer(data)
             .then((influencer)=> this.setState({
                 influencerDone: influencer,
-                done: true
+                done: true,
             }))
             .catch((e)=>console.log(e))
     }
@@ -51,9 +52,8 @@ class InfluencerCreate extends Component{
     render(){
         const { selectedItems,data } = this.state;
         const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o))
-        console.log(data)
 
-  if(!this.state.done) {
+    if(!this.state.done) {
       return(
         <div>   
                 <h1>Create Influencer</h1>
@@ -83,7 +83,7 @@ class InfluencerCreate extends Component{
         </div>
     )
     } else {
-        return (<ProductCreate influencer={this.state.influencerDone}></ProductCreate>);
+        return (<AddImageInflu influencer={this.state.influencerDone}></AddImageInflu>);
     }
 }
 }
