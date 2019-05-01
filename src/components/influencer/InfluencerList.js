@@ -20,7 +20,6 @@ class InfluencerList extends Component{
 
     render(){
         const {influencers} = this.state
-        console.log(influencers)
         return(
             <div>
                 <h1>Influencer landing</h1>
@@ -28,11 +27,11 @@ class InfluencerList extends Component{
                     return(
                         <div key={index} className="influencer-card">
                         <p>name: {i.name}</p>
-                        <p>description: {i.description}</p>
+                        <p>description: {i.review}</p>
+                        <img height="100" src={i.profilePic} alt={i.name} />
                         </div>
                     )
                 })}
-
             </div>
         )
     }
