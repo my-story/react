@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import InfluencerServices from '../../services/InfluencerServices'
+import AuthServices from '../../services/AuthServices'
 
 
 class InfluencerList extends Component{
@@ -14,8 +15,18 @@ class InfluencerList extends Component{
             influencers
           }))
       }
+
+      checkLogged=()=>{
+        AuthServices.loggedin()
+            .then(user => console.log(user))
+            .catch((e)=>console.log(e))
+       
+      }
+
+
     componentDidMount(){
         this.fetchInfluencer()
+        this.checkLogged()
     }
 
     render(){
