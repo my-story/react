@@ -6,7 +6,8 @@ import ProductList from './components/products/ProductList'
 import Signup from './components/auth/signup';
 import Login from './components/auth/login';
 import InfluencerCreate from './components/influencer/InfluencerCreate';
-import AddImage from './components/products/ProductAddImage';
+import InfluencerReviewForm from './components/influencer/InfluencerReviewForms';
+// import AddImage from './components/products/ProductAddImage';
 // import ProductCreate from './components/products/ProductCreate';
 
 
@@ -18,6 +19,7 @@ export default () => (
   <Route path="/signup" component={Signup} />
   <Route path="/login" component={Login} />
   <Route path="/create" component={InfluencerCreate} />
+  <Route path="/reviewForm" component={InfluencerReviewForm} />
   {/* <Route path="/crear/product" component={ProductCreate} /> */}
   {/* <Route path="/product/upload" component={AddImage} /> */}
 
