@@ -47,16 +47,12 @@ class InfluencerReviewForm extends Component{
     
 
     render(){
-      if (this.state.id !== ""){
-        console.log(this.state.file);
-      }
         return(
           <div>  
             <input type="file" onChange={this.handleChange}></input>
             <button onClick={this.handleSubmit}>Add Voicento</button>  
           </div>
-        )
-      
+        )   
 }
 }
 
