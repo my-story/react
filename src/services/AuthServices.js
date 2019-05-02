@@ -9,7 +9,7 @@ const login = (user) => http.post('api/login', user)
 const logout = (user) => http.post('api/logout')
   .then(response => response.data);
 
-const loggedin = () => http.get('api/loggedin')
+const loggedin = () => http.get('api/private')
   .then(response => response.data);
 
 export default {
