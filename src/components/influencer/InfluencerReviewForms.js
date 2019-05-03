@@ -1,6 +1,7 @@
 import React,{ Component } from 'react'
 import axios from 'axios';
-// import Sound from "react-sound";
+import AudioPlayer from "react-h5-audio-player";
+import ReactAudioPlayer from "react-audio-player";
 
 class InfluencerReviewForm extends Component{
     state= {
@@ -51,6 +52,12 @@ class InfluencerReviewForm extends Component{
           <div>  
             <input type="file" onChange={this.handleChange}></input>
             <button onClick={this.handleSubmit}>Add Voicento</button>  
+            <AudioPlayer
+              autoPlay
+              src="https://res.cloudinary.com/dcopnvq47/video/upload/v1556903515/BEBE_-_6ix9ine_Ft._Anuel_AA_Prod._By_Ronny_J_Official_Music_Video_ccohlm.mp3"
+              onPlay={e => console.log("onPlay")}
+              // other props here
+            />
           </div>
         )   
 }

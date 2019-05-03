@@ -9,6 +9,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.react-h5-audio-player .toggle-play-wrapper .toggle-play-button {
+  background-color: red !important;
+}
+
+.react-h5-audio-player .flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.react-h5-audio-player .flex .toggle-play-wrapper {
+  flex: 1 0 60px;
+  -webkit-box-flex: 1 0 60px;
+  -moz-box-flex: 1 0 60px;
+  -ms-flex: 1 0 60px;
+}
+.react-h5-audio-player .flex .progress-bar-wrapper {
+  flex: 10 0 auto;
+  -webkit-box-flex: 10 0 auto;
+  -moz-box-flex: 10 0 auto;
+  -ms-flex: 10 0 auto;
+}
+
 .influencer-card{
   border: solid 1px black;
   height: 20vh;
