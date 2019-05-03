@@ -19,8 +19,7 @@ class InfluencerList extends Component{
       checkLogged=()=>{
         AuthServices.loggedin()
             .then(user => console.log(user))
-            .catch((e)=>console.log(e))
-       
+            .catch((e)=>console.log(e)) 
       }
 
 
