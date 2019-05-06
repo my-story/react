@@ -6,7 +6,7 @@ import ProductList from './components/products/ProductList'
 import Signup from './components/auth/signup';
 import Login from './components/auth/login';
 import InfluencerCreate from './components/influencer/InfluencerCreate';
-import InfluencerReviewForm from './components/influencer/InfluencerReviewForms';
+import InfluencerReviewForm from './components/reviews/ReviewForm'
 // import AddImage from './components/products/ProductAddImage';
 // import ProductCreate from './components/products/ProductCreate';
 

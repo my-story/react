@@ -44,11 +44,7 @@ class ProductCreate extends Component {
       toastr.error("Please complete all required fields")
       return
     }
-        ProductServices.productForm(product)
-            .then( res => {
-            this.setState({productCreated:true})
-      })
-            .catch((e)=>console.log(e))
+
 }
 
     // addImage = (file, url) => {

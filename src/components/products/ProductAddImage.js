@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 // import ProductServices from '../../services/ProductServices'
+
 const url = "http://localhost:3002/product/upload/picture" 
 const serviceUpload  = axios.create({url, withCredentials: true})
 
