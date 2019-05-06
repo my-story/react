@@ -1,17 +1,30 @@
 import React,{ Component } from 'react'
 import axios from 'axios';
 import AudioPlayer from "react-h5-audio-player";
-import ReactAudioPlayer from "react-audio-player";
+import ReactPlayer from 'react-player';
+import { Input } from 'antd';
+
+const { TextArea } = Input;
+
+
 
 class InfluencerReviewForm extends Component{
     state= {
       file: "",
       id: "",
-      finalFile: ""
+      finalFile: "",
+      review: ""
     }
 
     handleChange = (e) => {
       this.setState({file: e.target.files[0]});
+    }
+
+    handleTextArea = (e) => {
+      this.setState({
+        ...this.state,
+        review: e.target.value
+      })
     }
 
     handleSubmit = (e) => {
@@ -58,6 +71,8 @@ class InfluencerReviewForm extends Component{
               onPlay={e => console.log("onPlay")}
               // other props here
             />
+            <ReactPlayer url='https://www.youtube.com/watch?v=iKfgcdtOfVY' playing />
+            <TextArea rows={4} onChange={this.handleTextArea}/>
           </div>
         )   
 }
