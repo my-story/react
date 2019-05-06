@@ -7,7 +7,7 @@ import * as toastr from 'toastr'
 
 // const { TextArea } = Input;
 const OPTIONS = ["Sports","Music","Tech","Clothes"];
-
+const { TextArea } = Input;
 
 class ProductCreate extends Component {
   state = {
@@ -78,9 +78,9 @@ class ProductCreate extends Component {
         <div>
             <h2>Create Product</h2>
           <div className="create-card">
-            <Input name="model" placeholder="Please enter product name" allowClear onChange={this.onChange} />
-            <Input name="prize" type="number" placeholder="Please enter product price" allowClear onChange={this.onChange} />
-            <Input name="description" placeholder="Please enter product description" allowClear onChange={this.onChange} />
+            <Input name="model" placeholder="Please enter product name"  onChange={this.onChange} />
+            <Input name="prize" type="number" placeholder="Please enter product price"  onChange={this.onChange} />
+            <TextArea name="description"  rows={4} placeholder="Please enter product description"  onChange={this.onChange} />
             <Select
             mode="multiple"
             placeholder="Inserted are removed"
