@@ -10,6 +10,7 @@ import addVoicenote from './components/reviews/ReviewForm'
 // import AddImage from './components/products/ProductAddImage';
 // import ProductCreate from './components/products/ProductCreate';
 import InfluencerReviewForm from './components/influencer/InfluencerReviewForms';
+import ReviewOne from './components/reviews/ReviewOne'
 
 
 export default () => (
@@ -22,6 +23,7 @@ export default () => (
   <Route path="/create" component={InfluencerCreate} />
   <Route path="/addVoicenote" component={addVoicenote} />
   <Route path="/reviewForm" component={InfluencerReviewForm}/>
+  <Route path="/review/:id" component={ReviewOne} />
   {/* <Route path="/crear/product" component={ProductCreate} /> */}
   {/* <Route path="/product/upload" component={AddImage} /> */}
 

@@ -13,13 +13,13 @@ class ReviewAudio extends Component{
     }
     handleChange = (e) => {
         this.setState({voicenote: e.target.files[0]})
+
     }
     handleSubmit = () => {
         const { privateInfo,voicenote } = this.state
         this.subeImagen(voicenote, url)
             .then((res) => {
-                console.log(res)
-                privateInfo.images = res.picture
+                privateInfo.voicenote = res.voicenote
                 this.setState({ privateInfo })
             })
             .catch((e)=>console.log(e))
@@ -27,21 +27,23 @@ class ReviewAudio extends Component{
 
     subeImagen = (file, url) => {
         const formData = new FormData()
-        formData.append('mp3', file)
+        formData.append('voicenote', file)
         return serviceUpload.post(url, formData, {headers: {
             'Content-Type': 'multipart/form-data',
+            'resource-type': 'auto'
           },})
-          .then( () => {
+          .then(() => {
+
             this.setState({done:true})
           })
           .catch( e => console.log(e))
         }
     render(){
-        const {voicenote} = this.state
-        console.log(voicenote)
+        const {voicenote,privateInfo} = this.state
+        console.log(voicenote, privateInfo)
         return(
             <div>
-                <input type="file" onChange={this.handleChange}/>    
+                <input type="file" name="voicenote" onChange={this.handleChange}/>    
                 <button onClick={this.handleSubmit}>Add image</button>  
             </div>
 
