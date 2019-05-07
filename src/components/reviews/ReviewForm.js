@@ -1,17 +1,20 @@
 import React,{ Component } from 'react'
-import axios from 'axios';
 import ReviewServices from "../../services/ReviewServices"
 // import AudioPlayer from "react-h5-audio-player";
 // import ReactAudioPlayer from "react-audio-player";
-import ReviewAudio from './ReviewAudio';
-import { Input, Select } from 'antd';
-
+// import ReviewAudio from './ReviewAudio';
+import { Redirect} from 'react-router-dom'
+import { Input } from 'antd';
+const { TextArea } = Input;
 
 class InfluencerReviewForm extends Component{
     state= {
       
         title:"",
         review:"",
+        influencer:"",
+        video:"",
+        voicenote:"",
      
 
       // file: "",
@@ -60,12 +63,16 @@ class InfluencerReviewForm extends Component{
 
       ReviewServices.createReview({
           title: this.state.title,
-          review: this.state.review
+          review: this.state.review,
+          influencer: this.state.influencer,
+          video: this.state.video,
+          voicenote: this.state.voicenote
+
         })
         .then( res => {
           this.setState({created:true,reviewDone:res})
           })
-                .catch((e)=>console.log(e))
+        .catch((e)=>console.log(e))
       
       
   }
@@ -73,9 +80,9 @@ class InfluencerReviewForm extends Component{
     
 
     render(){
-      const { reviewDone } = this.state
+
       if(this.state.created){
-        return(<ReviewAudio review={reviewDone}></ReviewAudio>)
+        return(<Redirect to="/"></Redirect>)
       }else{
         return(
           <div>  
@@ -88,7 +95,12 @@ class InfluencerReviewForm extends Component{
               // other props here
             /> */}
             <Input name="title" placeholder="Please enter title " allowClear onChange={this.onChange} />
-            <Input name="review" placeholder="Please enter review of review" allowClear onChange={this.onChange} />
+            <TextArea rows={4} name="review" placeholder="Please enter review of review" onChange={this.onChange} />
+            <Input name="influencer" placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
+            <Input name="video" placeholder="Please enter VIDEO URL CLOUDINARY " allowClear onChange={this.onChange} />
+            <Input name="voicenote" placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
+
+
             {/* <Input name="voicenote" placeholder="Please enter product description" allowClear onChange={this.onChange} /> */}
            <button onClick={this.handleSubmit}>Submit</button>
           </div>
