@@ -16,7 +16,7 @@ class InfluencerList extends Component{
           }))
       }
 
-      checkLogged=()=>{
+      checkLogged = () => {
         AuthServices.loggedin()
             .then(user => console.log(user))
             .catch((e)=>console.log(e)) 
