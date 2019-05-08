@@ -10,31 +10,39 @@ import AuthServices from './services/AuthServices'
 class App extends Component {
 
 
-  state={
+  state = {
     loggedInUser: {},
+    islogged: false,
     error:null,
     details:''
   }
- 
 
-  // checkLogged=()=>{
-  //   AuthServices.loggedin()
-  //   .then(user => this.setState({
-  //     // ...this.state,
-  //     loggedInUser:{user}
-  //   }))
-  //   .catch((e)=>console.log(e))
-  // }
-  // componentDidMount = ()=> {
-  //   this.checkLogged()
-  // }
+  getUser = (user) => {
+    this.setState({
+      loggedInUser: user,
+      islogged: true,
+    });
+
+    console.log("this is the app state:" , this.state.loggedInUser);
+  }
+ 
+  checkLogged = () => {
+    return this.state.islogged;
+  }
+
+  logout = () => {
+    this.setState({
+      islogged: false
+    })
+  }
+
 
   render(){
-    // const { loggedInUser } = this.state
-    // console.log("logged user" , loggedInUser)
+
+
     return (
       <div>
-      <Routes />
+      <Routes giveuser={this.getUser} logout={this.logout} checklogged={this.checkLogged} user={this.state.loggedInUser}/>
       </div>
     );
   } 
