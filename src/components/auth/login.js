@@ -24,7 +24,7 @@ handleFormSubmit = (event) =>{
     axios.post('http://localhost:3002/api/login',{
         username: this.state.username,
         password: this.state.password
-    })
+    },{withCredentials:true})
     .then(response => {
         console.log(response)
         if(response.status === 200){

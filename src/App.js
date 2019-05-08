@@ -31,15 +31,18 @@ class App extends Component {
   }
 
   logout = () => {
-    this.setState({
-      islogged: false
-    })
+    if (this.state.islogged){
+      this.setState({
+        loggedInUser: {},
+        islogged: false
+      })
+    } else {
+      console.log("already logged out")
+    }
   }
 
 
   render(){
-
-
     return (
       <div>
       <Routes giveuser={this.getUser} logout={this.logout} checklogged={this.checkLogged} user={this.state.loggedInUser}/>
