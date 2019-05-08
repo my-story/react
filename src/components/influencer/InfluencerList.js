@@ -16,16 +16,10 @@ class InfluencerList extends Component{
           }))
       }
 
-      checkLogged = () => {
-        AuthServices.loggedin()
-            .then(user => console.log(user))
-            .catch((e)=>console.log(e)) 
-      }
-
 
     componentDidMount(){
         this.fetchInfluencer()
-        this.checkLogged()
+        // this.checkLogged()
     }
 
     render(){

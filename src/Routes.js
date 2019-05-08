@@ -13,13 +13,13 @@ import InfluencerReviewForm from './components/influencer/InfluencerReviewForms'
 import ReviewOne from './components/reviews/ReviewOne'
 
 
-export default () => (
+export default (props) => (
 <Switch>
   <Route exact path="/" component={InfluencerList} />
   {/* <Route exact path="/" component={Index} /> */}
   <Route path="/products" component={ProductList} />
   <Route path="/signup" component={Signup} />
-  <Route path="/login" component={Login} />
+  <Route path="/login"  render={() => <Login {...props} />} />
   <Route path="/create" component={InfluencerCreate} />
   <Route path="/addVoicenote" component={addVoicenote} />
   <Route path="/reviewForm" component={InfluencerReviewForm}/>

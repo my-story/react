@@ -28,6 +28,7 @@ handleFormSubmit = (event) =>{
     .then(response => {
         console.log(response)
         if(response.status === 200){
+            this.props.giveuser(response.data);
             console.log("sucessful loggin");
             this.setState({
                 loggedin: true
@@ -38,6 +39,8 @@ handleFormSubmit = (event) =>{
         toastr.error("invalid username or password");
     })
 }
+
+
 
 render(){
 if(!this.state.loggedin){
