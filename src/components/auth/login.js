@@ -44,6 +44,7 @@ handleFormSubmit = (event) =>{
 
 render(){
 if(!this.state.loggedin){
+    console.log(this.props);
     return(
         <div className="login-form-parent">
             <form className="login-form" onSubmit={this.handleFormSubmit}>
