@@ -4,22 +4,28 @@ import {Route, Switch, Link} from 'react-router-dom';
 import Logout from './auth/logout';
 
 class NavBar extends Component {
-    state={
-        logged:this.props.islogged,
-        user:this.props.loggeduser,
+    state = {
+
     }
-    // componentDidMount(){
-    //     this.props.checklogged()
-    // }
+
+    adjustState = () =>{
+        this.setState({
+            logged: this.props.islogged,
+            user: this.props.user
+        })
+    }
+    componentDidMount = ()=> {
+        this.adjustState()
+    }
+
     render(){
-        const {logged} = this.state
         console.log(this.props)
         if(this.props.islogged){
             return(
                 <div>
                     <div className="nav-bar">
                         <span>
-                        <Logout>Logout</Logout>
+                        <Logout {...this.props}>Logout</Logout>
                         </span>
                         <Link to="/">
                         <span>

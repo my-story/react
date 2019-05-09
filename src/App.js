@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 // import './App.css';
 // import { Route, Switch, Link } from 'react-router-dom'
 import Routes from './Routes';
+import axios from "axios";
 import AuthServices from './services/AuthServices'
 import NavBar from './components/NavBar';
 // import Login from './components/auth/login';
@@ -12,8 +13,8 @@ class App extends Component {
 
 
   state = {
-    loggedInUser: {},
-    islogged: false,
+    loggedInUser: "",
+    islogged: "",
     error:null,
     details:''
   }
@@ -26,12 +27,21 @@ class App extends Component {
 
     console.log("this is the app state:" , this.state.loggedInUser);
   }
- 
-  checkLogged = () => {
-    return this.state.islogged;
-  }
 
-  logout = () => {
+  checkLogged() {
+    axios
+    .get("http://localhost:3002/api/private", { withCredentials: true })
+    .then(res => {
+      console.log(res);
+      this.setState({ islogged: true , loggedInUser : res.data});
+    })
+    .catch(e => {
+      this.setState({ islogged: false });
+      // this.render();
+    });
+  };
+
+  bye = () =>{
     if (this.state.islogged){
       this.setState({
         loggedInUser: {},
@@ -40,17 +50,28 @@ class App extends Component {
     } else {
       console.log("already logged out")
     }
+    // this.checkLogged()
+  }
+
+  componentDidMount = ()=>{
+    this.checkLogged()
   }
 
 
   render(){
     console.log(this.state.islogged)
-    return (
-      <div>
-      <NavBar islogged={this.state.islogged} loggeduser={this.state.loggedInUser}></NavBar>
-      <Routes giveuser={this.getUser} logout={this.logout} checklogged={this.checkLogged} user={this.state.loggedInUser}/>
-      </div>
-    );
+    if(this.state.islogged === ""){
+      return(
+        <div>loading...</div>
+      )
+    } else {
+      return (
+        <div>
+        <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
+        <Routes giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser}/>
+        </div>
+      );
+    }
   } 
 }
 
