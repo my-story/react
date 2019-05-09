@@ -1,3 +1,5 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 body {
   margin: 0;
@@ -53,5 +55,14 @@ nav{
 nav button{
   height: 3vh;
   width: 4vw;
+  color: black;
+}
+
+.nav-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 5vh;
+  text-decoration: white;
   color: black;
 }
