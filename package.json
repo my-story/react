@@ -15,7 +15,9 @@
     "react-player": "^1.11.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
+    "react-slick": "^0.24.0",
     "react-sound": "^1.2.0",
+    "slick-carousel": "^1.8.1",
     "toastr": "^2.1.4"
   },
   "scripts": {

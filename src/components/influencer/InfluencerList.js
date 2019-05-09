@@ -2,6 +2,16 @@ import React, { Component } from 'react'
 import InfluencerServices from '../../services/InfluencerServices'
 import AuthServices from '../../services/AuthServices'
 import {Link} from 'react-router-dom'
+import Slider from "react-slick";
+
+const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    accessibility:true
+  };
 
 class InfluencerList extends Component{
     state={
@@ -27,8 +37,11 @@ class InfluencerList extends Component{
         return(
             <div>
                 <h1>Influencer landing</h1>
+                <Slider {...settings}>
+
                 {influencers.map((i,index)=>{
                     return(
+
                         <Link key={i}to={`review/${i._id}`}>
                         <div key={index} className="influencer-card">
                         <p>name: {i.name}</p>
@@ -38,6 +51,8 @@ class InfluencerList extends Component{
                         </Link>
                     )
                 })}
+                </Slider>
+
             </div>
         )
     }

@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 // import { Route, Switch, Link } from 'react-router-dom'
 import Routes from './Routes';
 import AuthServices from './services/AuthServices'
+import NavBar from './components/NavBar';
 // import Login from './components/auth/login';
 // import Signup from './components/auth/signup';
 
@@ -43,8 +44,10 @@ class App extends Component {
 
 
   render(){
+    console.log(this.state.islogged)
     return (
       <div>
+      <NavBar islogged={this.state.islogged} loggeduser={this.state.loggedInUser}></NavBar>
       <Routes giveuser={this.getUser} logout={this.logout} checklogged={this.checkLogged} user={this.state.loggedInUser}/>
       </div>
     );
