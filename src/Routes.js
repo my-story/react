@@ -7,27 +7,22 @@ import Signup from './components/auth/signup';
 import Login from './components/auth/login';
 import Logout from './components/auth/logout'
 import InfluencerCreate from './components/influencer/InfluencerCreate';
-import addVoicenote from './components/reviews/ReviewForm'
+import ReviewForm from './components/reviews/ReviewForm'
 // import AddImage from './components/products/ProductAddImage';
 // import ProductCreate from './components/products/ProductCreate';
-import InfluencerReviewForm from './components/influencer/InfluencerReviewForms';
 import ReviewOne from './components/reviews/ReviewOne'
 
 
 export default (props) => (
 <Switch>
   <Route exact path="/" component={InfluencerList} />
-  {/* <Route exact path="/" component={Index} /> */}
   <Route path="/products" component={ProductList} />
   <Route path="/signup" component={Signup} />
   <Route path="/login"  render={() => <Login {...props} />} />
   <Route path="/logout" render={() => <Logout {...props} />} />
   <Route path="/create" component={InfluencerCreate} />
-  <Route path="/addVoicenote" component={addVoicenote} />
-  <Route path="/reviewForm" component={InfluencerReviewForm}/>
+  <Route path="/reviewForm" render={() => <ReviewForm {...props} />} />
   <Route path="/review/:id" component={ReviewOne} />
-  {/* <Route path="/crear/product" component={ProductCreate} /> */}
-  {/* <Route path="/product/upload" component={AddImage} /> */}
 
 
 </Switch>
