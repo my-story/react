@@ -20,7 +20,7 @@ export default (props) => (
   <Route path="/signup" component={Signup} />
   <Route path="/login"  render={() => <Login {...props} />} />
   <Route path="/logout" render={() => <Logout {...props} />} />
-  <Route path="/create" component={InfluencerCreate} />
+  <Route path="/create" component={() => <InfluencerCreate {...props} />} />
   <Route path="/reviewForm" render={() => <ReviewForm {...props} />} />
   <Route path="/review/:id" component={ReviewOne} />
 
