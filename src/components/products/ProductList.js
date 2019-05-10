@@ -10,6 +10,7 @@ class ProductList extends Component {
 
   fetchProducts = () => {
     ProductService.getAll()
+    
       .then(products => this.setState({
         ...this.state,
         products
@@ -32,7 +33,7 @@ class ProductList extends Component {
   render(){
     const {products,user} = this.state
     console.log(products)
-    console.log(products.influencer)
+    // console.log(products.influencer)
     if(!user)return <div>Loadingg....</div>
     // if(!products)return <div>Loading...S</div>
     
