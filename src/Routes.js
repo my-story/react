@@ -11,7 +11,7 @@ import ReviewForm from './components/reviews/ReviewForm'
 // import AddImage from './components/products/ProductAddImage';
 // import ProductCreate from './components/products/ProductCreate';
 import ReviewOne from './components/reviews/ReviewOne'
-
+import ProductDetail from './components/products/ProductDetail';
 
 export default (props) => (
 <Switch>
@@ -23,8 +23,7 @@ export default (props) => (
   <Route path="/create" component={() => <InfluencerCreate {...props} />} />
   <Route path="/reviewForm" render={() => <ReviewForm {...props} />} />
   <Route path="/review/:id" component={ReviewOne} />
-
-
+  <Route path="/product/:id" component={ProductDetail} />
 </Switch>
 
 );
