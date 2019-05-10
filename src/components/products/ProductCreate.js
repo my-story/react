@@ -43,6 +43,13 @@ class ProductCreate extends Component {
     if(product.model.length === 0||product.prize === 0 || product.description.length === 0 || product.category.length === 0){
       toastr.error("Please complete all required fields")
       return
+    }else{
+      ProductServices.productForm(product)
+        .then((product)=>{
+          console.log(product.data)
+          this.setState({productCreated:true})
+        })
+        .catch((e)=>console.log(e))
     }
 
 }
