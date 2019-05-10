@@ -36,11 +36,13 @@ class ProductList extends Component {
     if(!user)return <div>Loadingg....</div>
     // if(!products)return <div>Loading...S</div>
     
+    
     return(
       <div>
         HEY
       {products.map((i,index)=>{
         return(
+            
             <div key={index} className="influencer-card">
             <p>model: {i.model}</p>
             <p>description: {i.description}</p>
