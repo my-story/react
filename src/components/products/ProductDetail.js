@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import Checkout from '../Stripe/Checkout'
+import Checkout from '../Payment/Checkout'
 class  ProductDetail extends Component{
   state = {
     category: "",
