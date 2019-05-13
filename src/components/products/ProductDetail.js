@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-
+import Checkout from '../Stripe/Checkout'
 class  ProductDetail extends Component{
   state = {
     category: "",
@@ -50,8 +50,9 @@ class  ProductDetail extends Component{
     console.log("hey");
   }
   render(){
+
     console.log(this.props);
-    
+
     return(
       <div>
         <h3>Product Detail</h3>
@@ -63,7 +64,12 @@ class  ProductDetail extends Component{
           <li>model: {this.state.model}</li>
           <li>price: {this.state.prize}</li>
         </ul>
-        <button onClick={() => this.handleClick()}>Buy Now</button>
+        <Checkout
+            name={this.state.model}
+            description={this.state.description}
+            amount={this.state.prize}
+          />
+
       </div>
 
     )

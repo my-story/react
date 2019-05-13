@@ -13,6 +13,7 @@ class ProductList extends Component {
 
   fetchProducts = () => {
     ProductService.getAll()
+    
       .then(products => this.setState({
         ...this.state,
         products
