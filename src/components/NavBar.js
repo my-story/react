@@ -32,9 +32,11 @@ class NavBar extends Component {
                         <p>Home</p>
                         </span>
                         </Link>
+                        <Link to="/products">
                         <span>
                         <p>Products</p>
                         </span>
+                        </Link>
                         <span>
                         <p>About us</p>
                         </span>
@@ -55,9 +57,11 @@ class NavBar extends Component {
                         <p>Home</p>
                         </span>
                         </Link>
+                        <Link to="/products">
                         <span>
                         <p>Products</p>
                         </span>
+                        </Link>
                         <span>
                         <p>About us</p>
                         </span>

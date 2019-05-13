@@ -12,6 +12,7 @@ import ReviewForm from './components/reviews/ReviewForm'
 // import ProductCreate from './components/products/ProductCreate';
 import ReviewOne from './components/reviews/ReviewOne'
 import ProductDetail from './components/products/ProductDetail';
+import Checkout from './components/Stripe/Checkout';
 
 export default (props) => (
 <Switch>
@@ -24,6 +25,7 @@ export default (props) => (
   <Route path="/reviewForm" render={() => <ReviewForm {...props} />} />
   <Route path="/review/:id" component={ReviewOne} />
   <Route path="/product/:id" component={ProductDetail} />
+  <Route path="/checkout" component={Checkout} />
 </Switch>
 
 );
