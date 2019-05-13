@@ -10,7 +10,7 @@ class  ProductDetail extends Component{
     prize: "",
     images:"",
     _id:"",
-    user: this.props.user
+    user:"",
   }
 
   // data:
@@ -36,22 +36,27 @@ class  ProductDetail extends Component{
           influencer: res.data.influencer,
           model: res.data.model,
           prize: res.data.prize,
-          images: res.data.images
+          images: res.data.images,
+          _id: res.data._id,
+          user: this.props.location.state.user
         })   
         console.log(res)
     })
     .catch(err=>console.log(err))
   }
 
-  handleClick = (e) =>{
-    // axios.post("http://localhost:3002/product/details/" , this.state, {withCredentials:true})
-    //   .then((res) => console.log(res))
-    //   .catch((err) => err)
+  addCart = () =>{
+    axios.post("http://localhost:3002/order" , {
+      user: this.state.user._id,
+      _id: this.state._id
+    }, {withCredentials:true})
+      .then((res) => console.log(res))
+      .catch((err) => err)
     console.log("hey");
   }
   render(){
 
-    console.log(this.props);
+    console.log(this.state);
 
     return(
       <div>
@@ -69,6 +74,7 @@ class  ProductDetail extends Component{
             description={this.state.description}
             amount={this.state.prize}
           />
+        <button onClick={this.addCart}>add to cart</button>
 
       </div>
 
