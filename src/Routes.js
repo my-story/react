@@ -12,12 +12,16 @@ import ReviewForm from './components/reviews/ReviewForm'
 // import ProductCreate from './components/products/ProductCreate';
 import ReviewOne from './components/reviews/ReviewOne'
 import ProductDetail from './components/products/ProductDetail';
+
 import Checkout from './components/Stripe/Checkout';
+
+// import ProductOne from "./components/products/ProductOne"
+
 
 export default (props) => (
 <Switch>
   <Route exact path="/" component={InfluencerList} />
-  <Route path="/products" component={ProductList} />
+  <Route path="/products" render={() => <ProductList {...props} />} />
   <Route path="/signup" component={Signup} />
   <Route path="/login"  render={() => <Login {...props} />} />
   <Route path="/logout" render={() => <Logout {...props} />} />

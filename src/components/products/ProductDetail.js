@@ -8,7 +8,9 @@ class  ProductDetail extends Component{
     influencer: "",
     model: "",
     prize: "",
-    images:""
+    images:"",
+    _id:"",
+    user: this.props.user
   }
 
   // data:
@@ -39,9 +41,18 @@ class  ProductDetail extends Component{
         console.log(res)
     })
     .catch(err=>console.log(err))
-}
+  }
+
+  handleClick = (e) =>{
+    // axios.post("http://localhost:3002/product/details/" , this.state, {withCredentials:true})
+    //   .then((res) => console.log(res))
+    //   .catch((err) => err)
+    console.log("hey");
+  }
   render(){
-    console.log(this.props)
+
+    console.log(this.props);
+
     return(
       <div>
         <h3>Product Detail</h3>
@@ -58,6 +69,7 @@ class  ProductDetail extends Component{
             description={this.state.description}
             amount={this.state.prize}
           />
+
       </div>
 
     )

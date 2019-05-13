@@ -1,6 +1,8 @@
 import  React , { Component }  from 'react';
 import ProductService from '../../services/ProductServices';
 import {Link} from 'react-router-dom'
+// import ProductDetail from './ProductDetail';
+// import ProductOne from "./ProductOne";
 // import AuthServices from '../../services/AuthServices'
 
 class ProductList extends Component {
@@ -17,38 +19,45 @@ class ProductList extends Component {
         products
       }))
   }
-  // getUser = ()=>{
-  //   AuthServices.loggedin()
-  //     .then((user)=>
-  //     this.setState({
-  //       ...this.state,
-  //       user
-  //     }))
-  //     console.log(this.state.user);
-  // }
+  getUser = ()=>{
+    this.setState({
+      ...this.state,
+      user: this.props.user
+    })
+  }
   componentDidMount() {
     this.fetchProducts();
-    // this.getUser()
+    this.getUser()
+  }
+
+  onClick = (i) =>{
+    console.log("hey");
+    console.log(i);
   }
 
   render(){
+    console.log(this.state)
     const {products,user} = this.state
-    console.log(products)
-    console.log(products.influencer)
+    
     
     return(
       <div>
         HEY
       {products.map((i,index)=>{
         return(
-            <Link key={index}to={`product/${i._id}`}>
-            <div key={index} className="influencer-card">
-              <p>model: {i.model}</p>
-              <p>description: {i.description}</p>
-              <p>influencer: {i.influencer.name}</p>
-              <img height="100" src={i.images} alt="{i.name}" />
-            </div>
-            </Link>
+          <Link key={index} to={{
+            pathname:`product/${i._id}`,
+            state: {
+              user: this.state.user,
+            }
+            }}>
+             <div key={index} className="influencer-card">
+               <p>model: {i.model}</p>
+               <p>description: {i.description}</p>
+               <p>influencer: {i.influencer.name}</p>
+               <img height="100" src={i.images} alt={i.name} />
+             </div>
+          </Link>
         )
     })}
       </div>
