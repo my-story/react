@@ -1,6 +1,5 @@
 import React from 'react'
 import {Route, Switch } from 'react-router-dom'
-// import ProductList from './components/products/ProductList'
 import InfluencerList from './components/influencer/InfluencerList'
 import ProductList from './components/products/ProductList'
 import Signup from './components/auth/signup';
@@ -12,10 +11,8 @@ import ReviewForm from './components/reviews/ReviewForm'
 // import ProductCreate from './components/products/ProductCreate';
 import ReviewOne from './components/reviews/ReviewOne'
 import ProductDetail from './components/products/ProductDetail';
-
 import Checkout from './components/Stripe/Checkout';
-
-// import ProductOne from "./components/products/ProductOne"
+import CartLanding from './components/cart/CartLading';
 
 
 export default (props) => (
@@ -30,6 +27,7 @@ export default (props) => (
   <Route path="/review/:id" component={ReviewOne} />
   <Route path="/product/:id" component={ProductDetail} />
   <Route path="/checkout" component={Checkout} />
+  <Route path="/cart" component={() => <CartLanding {...props} />}/>
 </Switch>
 
 );
