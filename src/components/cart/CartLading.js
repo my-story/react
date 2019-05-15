@@ -2,6 +2,8 @@ import  React , { Component }  from 'react';
 import OrderServices from "../../services/OrderServices";
 import CartItem from "./CartItem";
 import {Link} from 'react-router-dom'
+import Checkout from '../Payment/Checkout'
+
 import axios from "axios";
 
 class CartLanding extends Component {
@@ -99,7 +101,7 @@ class CartLanding extends Component {
           })}
           <h3>Total:{this.getTotal()}</h3>
 
-          <Link to={{
+          {/* <Link to={{
             pathname:'/payment',
             state: {
               user: this.state.user,
@@ -107,7 +109,13 @@ class CartLanding extends Component {
             }
             }}>
           <button>Proceed to Checkout</button>
-          </Link>
+          </Link> */}
+                <Checkout 
+                name={`You have ${this.state.products.length}# of item(s)`}
+                description={"thank you for buying with my story"}
+                amount={this.getTotal()}           
+                >
+                </Checkout>
         </div>
       )
     } else {

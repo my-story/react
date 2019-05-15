@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import IsEmpty from 'is-empty-object'
+
 class  ProductDetail extends Component{
   state = {
     category: "",
@@ -55,7 +57,7 @@ class  ProductDetail extends Component{
   }
   render(){
 
-    console.log(this.props);
+    console.log(IsEmpty(this.state.user));
 
     return(
       <div>
@@ -68,7 +70,7 @@ class  ProductDetail extends Component{
           <li>model: {this.state.model}</li>
           <li>price: {this.state.prize}</li>
         </ul>
-
+      
         <button onClick={this.addCart}>add to cart</button>
 
       </div>
