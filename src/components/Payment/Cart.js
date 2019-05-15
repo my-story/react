@@ -24,13 +24,7 @@ class Cart extends Component{
         
         return(
             <div> 
-                <Checkout 
-                name={`You have ${this.state.products.length}# of item(s)`}
-                description={"thank you for buying with my story"}
-                amount={this.getTotal()}           
-                >
 
-                </Checkout>
                 
             </div>
 

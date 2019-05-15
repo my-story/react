@@ -4,6 +4,7 @@ import Cookies from 'universal-cookie';
 import isEmptyObj from "is-empty-object"
 
 
+
 class  ProductDetail extends Component{
   state = {
     category: "",
@@ -76,8 +77,6 @@ class  ProductDetail extends Component{
   }
   render(){
 
-    console.log("props order detail", this.props);
-
     return(
       <div>
         <h3>Product Detail</h3>
@@ -89,7 +88,7 @@ class  ProductDetail extends Component{
           <li>model: {this.state.model}</li>
           <li>price: {this.state.prize}</li>
         </ul>
-
+      
         <button onClick={this.addCart}>add to cart</button>
 
       </div>
