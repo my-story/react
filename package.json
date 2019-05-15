@@ -6,6 +6,7 @@
     "antd": "^3.16.5",
     "axios": "^0.18.0",
     "email-validator": "^2.0.4",
+    "is-empty-object": "^1.1.1",
     "js-cookie": "^2.2.0",
     "password-validator": "^4.1.1",
     "react": "^16.8.6",
@@ -20,7 +21,8 @@
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^3.0.0",
     "slick-carousel": "^1.8.1",
-    "toastr": "^2.1.4"
+    "toastr": "^2.1.4",
+    "universal-cookie": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
