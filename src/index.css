@@ -65,3 +65,14 @@ nav button{
   text-decoration: white;
   color: black;
 }
+.see-cart{
+position: fixed;
+top:500;
+/* height:25%; */
+background-color: black;
+}
+.products-card{
+height: 14vh;
+border: solid 1px black;
+margin: 5vh 0 2vh 0;
+}

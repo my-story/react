@@ -1,14 +1,19 @@
 import  React , { Component }  from 'react';
 import OrderServices from "../../services/OrderServices";
 import CartItem from "./CartItem";
+import {Link} from 'react-router-dom'
 import axios from "axios";
 
 class CartLanding extends Component {
-  state = {
-    products: "",
-    user:"",
-    fetchedUser: false
-  }
+
+    state = {
+      products: "",
+      user:"",
+      fetchedUser: false,
+      seecart: false  
+    }
+  
+  
 
   fetchCart = (user) => {
     OrderServices.getCart(user)
@@ -46,6 +51,19 @@ class CartLanding extends Component {
     this.setUser()
   }
 
+  // openCart=()=>{
+  //   if(this.state.seecart === true){
+  //     this.setState({seecart:false})
+  //   }else if(this.state.seecart === false){
+  //     this.setState({seecart:true})
+
+  //   }
+  
+
+
+  //   }
+  
+
   delete(e, i){
     e.preventDefault()
     console.log(i._id)
@@ -62,7 +80,7 @@ class CartLanding extends Component {
 
 
   render(){
-    console.log(this.state.products)
+    console.log(this.state)
     if(this.state.fetchedUser){
       this.fetchCart(this.state.user._id)
     }
@@ -70,16 +88,26 @@ class CartLanding extends Component {
     if(this.state.products !== ""){
       this.getTotal();
       return(
-        <div>
+        <div className="cart-page">
         {this.state.products.map((i,index)=>{
           return(
-          <div>
+          <div key={index} className="products-card">
              <CartItem user={this.props.user} key={index} product={i}/>
              <button onClick={(e) => this.delete(e, i)}>Delete</button>
           </div>
           )
           })}
           <h3>Total:{this.getTotal()}</h3>
+
+          <Link to={{
+            pathname:'/payment',
+            state: {
+              user: this.state.user,
+              products: this.state.products,
+            }
+            }}>
+          <button>Proceed to Checkout</button>
+          </Link>
         </div>
       )
     } else {

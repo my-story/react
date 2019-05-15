@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import Checkout from '../Payment/Checkout'
 class  ProductDetail extends Component{
   state = {
     category: "",
@@ -56,7 +55,7 @@ class  ProductDetail extends Component{
   }
   render(){
 
-    console.log(this.state);
+    console.log(this.props);
 
     return(
       <div>
@@ -69,11 +68,7 @@ class  ProductDetail extends Component{
           <li>model: {this.state.model}</li>
           <li>price: {this.state.prize}</li>
         </ul>
-        <Checkout
-            name={this.state.model}
-            description={this.state.description}
-            amount={this.state.prize}
-          />
+
         <button onClick={this.addCart}>add to cart</button>
 
       </div>

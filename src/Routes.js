@@ -11,8 +11,9 @@ import ReviewForm from './components/reviews/ReviewForm'
 // import ProductCreate from './components/products/ProductCreate';
 import ReviewOne from './components/reviews/ReviewOne'
 import ProductDetail from './components/products/ProductDetail';
-import Checkout from './components/Stripe/Checkout';
+import Checkout from './components/Payment/Checkout';
 import CartLanding from './components/cart/CartLading';
+import Cart from './components/Payment/Cart';
 
 
 export default (props) => (
@@ -28,6 +29,7 @@ export default (props) => (
   <Route path="/product/:id" component={ProductDetail} />
   <Route path="/checkout" component={Checkout} />
   <Route path="/cart" component={() => <CartLanding {...props} />}/>
+  <Route path="/payment" component={Cart} />
 </Switch>
 
 );
