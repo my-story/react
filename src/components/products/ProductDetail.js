@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import IsEmpty from 'is-empty-object'
+import Cookies from 'universal-cookie';
+import isEmptyObj from "is-empty-object"
+
+
 
 class  ProductDetail extends Component{
   state = {
@@ -47,17 +50,32 @@ class  ProductDetail extends Component{
   }
 
   addCart = () =>{
-    axios.post("http://localhost:3002/order" , {
-      user: this.state.user._id,
-      _id: this.state._id
-    }, {withCredentials:true})
-      .then((res) => console.log(res))
-      .catch((err) => err)
-    console.log("hey");
+    if(this.state.user === "" || isEmptyObj(this.state.user)){
+      const cookies = new Cookies();
+      console.log(cookies.get('Products'));
+      if(cookies.get("Products") !== undefined){
+        var currentProducts = cookies.get('Products');
+
+        // if (Array.isArray(currentProducts) === false){
+        //   currentProducts.split(" ")
+        // }
+        
+        currentProducts.push(this.state._id);
+  
+        cookies.set("Products", currentProducts, { path: '/' });
+      } else {
+        cookies.set("Products", [this.state._id], { path: '/' });
+      }
+    } else {
+      axios.post("http://localhost:3002/order" , {
+        user: this.state.user._id,
+        _id: this.state._id
+      }, {withCredentials:true})
+        .then((res) => console.log(res))
+        .catch((err) => err)
+    }
   }
   render(){
-
-    console.log(IsEmpty(this.state.user));
 
     return(
       <div>
