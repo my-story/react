@@ -27,7 +27,7 @@ export default (props) => (
   <Route path="/reviewForm" render={() => <ReviewForm {...props} />} />
   <Route path="/review/:id" component={ReviewOne} />
   <Route path="/product/:id" component={ProductDetail} />
-  <Route path="/checkout" component={Checkout} />
+  <Route path="/checkout" render={() => <Checkout {...props} />} />
   <Route path="/cart" component={() => <CartLanding {...props} />}/>
   <Route path="/payment" component={Cart} />
 </Switch>
