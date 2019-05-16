@@ -25,8 +25,8 @@ const onToken = (amount, description) => token =>
       currency: CURRENCY,
       amount: fromEuroToCent(amount)
     })
-    .then(successPayment,console.log(token.card),
-      OrderServices.payCart({address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
+    .then(successPayment,console.log(token),
+      OrderServices.payCart({cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
     )
     .catch(errorPayment);
 
