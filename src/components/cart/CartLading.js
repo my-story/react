@@ -6,6 +6,8 @@ import Checkout from '../Payment/Checkout'
 
 import axios from "axios";
 
+
+
 class CartLanding extends Component {
 
     state = {
@@ -18,6 +20,7 @@ class CartLanding extends Component {
   
 
   fetchCart = (user) => {
+    console.log("this fetch cart user:", user)
     OrderServices.getCart(user)
       .then(response => {
         this.setState({
@@ -41,12 +44,14 @@ class CartLanding extends Component {
   }
 
   getTotal(){
+    console.log(this.state)
     var counter = 0;
 
     for (var i = 0; i < this.state.products.length; i++){
       counter += this.state.products[i].prize;
     }
-    console.log("total");
+    console.log(this.state);
+
     return counter;
   }
   componentDidMount() {
@@ -82,11 +87,14 @@ class CartLanding extends Component {
 
 
   render(){
-    console.log(this.state)
+    console.log("state:",this.state);
+    console.log("props", this.props);
     if(this.state.fetchedUser){
+      console.log("this is the user:", this.state.user);
       this.fetchCart(this.state.user._id)
     }
 
+  if(this.state.products[0] !== null){
     if(this.state.products !== ""){
       this.getTotal();
       return(
@@ -123,6 +131,11 @@ class CartLanding extends Component {
         <div>Loading....</div>
       )
     }
+  }  else {
+    return(
+      <div>Your cart is empty</div>
+    )
+  }
   }
 }
 

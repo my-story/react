@@ -21,7 +21,8 @@
     "react-stripe-checkout": "^2.6.3",
     "react-stripe-elements": "^3.0.0",
     "slick-carousel": "^1.8.1",
-    "toastr": "^2.1.4"
+    "toastr": "^2.1.4",
+    "universal-cookie": "^4.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
