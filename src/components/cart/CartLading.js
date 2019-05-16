@@ -3,6 +3,7 @@ import OrderServices from "../../services/OrderServices";
 import CartItem from "./CartItem";
 import {Link} from 'react-router-dom'
 import Checkout from '../Payment/Checkout'
+import Cookies from 'universal-cookie';
 
 import axios from "axios";
 
@@ -14,7 +15,8 @@ class CartLanding extends Component {
       products: "",
       user:"",
       fetchedUser: false,
-      seecart: false  
+      seecart: false,
+      userLogged: false  
     }
   
   
@@ -26,12 +28,27 @@ class CartLanding extends Component {
         this.setState({
           ...this.state,
           products: response.product,
-          fetchedUser: false
+          fetchedUser: false,
+          userLogged: true
         })
         
       }).catch(error => {
-          console.log("no products")
-          console.log(error);
+          console.log("not signed in")
+          
+          const cookies = new Cookies();
+          if(cookies.get('Products') !== undefined){
+            this.setState({
+              ...this.state,
+              products:cookies.get('Products'),
+              fetchedUser: false
+            })
+          } else {
+            this.setState({
+              ...this.state,
+              products:null,
+              fetchedUser: false
+            })
+          }
       })
   }
 
@@ -45,15 +62,24 @@ class CartLanding extends Component {
 
   getTotal(){
     console.log(this.state)
-    var counter = 0;
+      var counter = 0;
 
-    for (var i = 0; i < this.state.products.length; i++){
-      counter += this.state.products[i].prize;
-    }
-    console.log(this.state);
+    
+  
+      for (var i = 0; i < this.state.products.length; i++){
+        counter += this.state.products[i].prize;
+      }
+      console.log(this.state);
+      
+      if (counter === 0){
+        this.setState({
+          ...this.state,
+          products:null
+        })
+      }
+      return counter;
+}
 
-    return counter;
-  }
   componentDidMount() {
     this.setUser()
   }
@@ -73,16 +99,37 @@ class CartLanding extends Component {
 
   delete(e, i){
     e.preventDefault()
-    console.log(i._id)
-    const url = `http://localhost:3002/order/delete/${i._id}`;
 
-    axios.post(url , {
-      user: this.props.user
-    }, {withCredentials:true})
-      .then((res) => this.setState({
-        products: res.data.product
-      }))
-      .catch((err) => err)
+    if (this.state.userLogged){
+      console.log(i._id)
+      const url = `http://localhost:3002/order/delete/${i._id}`;
+  
+      axios.post(url , {
+        user: this.props.user
+      }, {withCredentials:true})
+        .then((res) => this.setState({
+          products: res.data.product
+        }))
+        .catch((err) => err)
+    } else {
+      const cookies = new Cookies();
+      const cookieArr = cookies.get("Products");
+
+      for (var j = 0; j < cookieArr.length; j++){
+        console.log("this is i", i);
+        console.log(cookieArr[j])
+
+        if (i.influencer === cookieArr[j].influencer){
+          cookieArr.splice(j, 1);
+          cookies.set("Products", cookieArr, { path: '/' });
+        }
+      }
+
+      this.setState({
+        ...this.state,
+        products: cookies.get("Products")
+      })
+    }
   }
 
 
@@ -93,7 +140,12 @@ class CartLanding extends Component {
       console.log("this is the user:", this.state.user);
       this.fetchCart(this.state.user._id)
     }
-
+  
+  if (this.state.products == null){
+      return(
+        <div>Your cart is empty</div>
+      )
+  }
   if(this.state.products[0] !== null){
     if(this.state.products !== ""){
       this.getTotal();
