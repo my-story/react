@@ -4,12 +4,16 @@ import StripeCheckout from 'react-stripe-checkout';
 import OrderServices from '../../services/OrderServices'
 import STRIPE_PUBLISHABLE from '../../constants/stripe';
 import PAYMENT_SERVER_URL from '../../constants/server';
+import Cookies from 'universal-cookie';
 
 const CURRENCY = 'USD';
 
 const fromEuroToCent = amount => amount * 100;
 
 const successPayment = data => {
+  // const cookies = new Cookies();
+  // cookies.remove("Products");
+  // this.props.deleteProducts();
   alert('Payment Successful');
 };
 
