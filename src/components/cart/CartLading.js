@@ -22,7 +22,6 @@ class CartLanding extends Component {
   
 
   fetchCart = (user) => {
-    console.log("this fetch cart user:", user)
     OrderServices.getCart(user)
       .then(response => {
         this.setState({
@@ -101,7 +100,6 @@ class CartLanding extends Component {
     e.preventDefault()
 
     if (this.state.userLogged){
-      console.log(i._id)
       const url = `http://localhost:3002/order/delete/${i._id}`;
   
       axios.post(url , {
@@ -116,8 +114,6 @@ class CartLanding extends Component {
       const cookieArr = cookies.get("Products");
 
       for (var j = 0; j < cookieArr.length; j++){
-        console.log("this is i", i);
-        console.log(cookieArr[j])
 
         if (i.influencer === cookieArr[j].influencer){
           cookieArr.splice(j, 1);
@@ -141,10 +137,8 @@ class CartLanding extends Component {
 
 
   render(){
-    console.log("state:",this.state);
-    console.log("props", this.props);
+
     if(this.state.fetchedUser){
-      console.log("this is the user:", this.state.user);
       this.fetchCart(this.state.user._id)
     }
   
