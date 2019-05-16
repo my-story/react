@@ -52,7 +52,6 @@ class  ProductDetail extends Component{
   addCart = () =>{
     if(this.state.user === "" || isEmptyObj(this.state.user)){
       const cookies = new Cookies();
-      console.log(cookies.get('Products'));
       if(cookies.get("Products") !== undefined){
         var currentProducts = cookies.get('Products');
 
@@ -60,11 +59,11 @@ class  ProductDetail extends Component{
         //   currentProducts.split(" ")
         // }
         
-        currentProducts.push(this.state._id);
+        currentProducts.push(this.state);
   
         cookies.set("Products", currentProducts, { path: '/' });
       } else {
-        cookies.set("Products", [this.state._id], { path: '/' });
+        cookies.set("Products", [this.state], { path: '/' });
       }
     } else {
       axios.post("http://localhost:3002/order" , {
