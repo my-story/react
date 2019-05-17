@@ -16,7 +16,8 @@ class CartLanding extends Component {
       user:"",
       fetchedUser: false,
       seecart: false,
-      userLogged: false  
+      userLogged: false ,
+      newProducts: "",
     }
   
   
@@ -135,6 +136,32 @@ class CartLanding extends Component {
     })
   }
 
+  howManyTimes(model){
+    var counter = 0;
+    for (var j = 0; j < this.state.products.length; j++){
+      if(this.state.products[j].model === model){
+        counter++;
+      }
+    }
+    return counter;
+  }
+  arrangeDuplicates(){
+    var productArr = this.state.products;
+    var newArr = [];
+    for(var i = 0; i < productArr.length; i++){
+      var model = productArr[i].model;
+      // var times = this.howManyTimes(model);
+      if (newArr.map(x => x.model).indexOf(model) === -1){
+        newArr.push(productArr[i]);
+      }
+    }
+    return newArr;
+    // this.setState({
+    //   ...this.state,
+    //   newProducts: newArr
+    // })
+    
+  }
 
   render(){
 
@@ -150,12 +177,13 @@ class CartLanding extends Component {
   if(this.state.products[0] !== null){
     if(this.state.products !== ""){
       this.getTotal();
+      // this.arrangeDuplicates();
       return(
         <div className="cart-page">
-        {this.state.products.map((i,index)=>{
+        {this.arrangeDuplicates().map((i,index)=>{
           return(
           <div key={index} className="products-card">
-             <CartItem user={this.props.user} key={index} product={i}/>
+             <CartItem user={this.props.user} key={index} product={i} times={this.howManyTimes(i.model)}/>
              <button onClick={(e) => this.delete(e, i)}>Delete</button>
           </div>
           )

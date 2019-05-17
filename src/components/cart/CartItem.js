@@ -35,6 +35,7 @@ class CardItem extends Component {
       <ul>
         <li>{this.props.product.model}</li>
         <li>Price:{this.props.product.prize}</li>
+        <li>times: {this.props.times}</li>
       </ul>
     )
   }
