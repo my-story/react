@@ -15,11 +15,10 @@ const fromEuroToCent = amount => amount * 100;
 
 let loggedUser = ""
 
-const successPayment = (token) => {
+const successPayment = () => {
   // const cookies = new Cookies();
   // cookies.remove("Products");
   // this.props.deleteProducts();
-  orderUpdate(token)
   toastr.success('Payment Successful');
 };
 
@@ -28,28 +27,30 @@ const errorPayment = data => {
 };
 
 const orderUpdate = (token,user) => {
+console.log("this is order Update funciton")
+if(user === "" || user === undefined){
+    //ITS CREATING TWICE WHEN U USE COOKIES
+    console.log("no hay user" , user)
+    const cookies = new Cookies();
+    let products = [cookies.get("Products")]
+    let productIds = []
+      products[0].forEach(function(product){
+        productIds.push(product._id)
+      })
+    OrderServices.createOrder({products: productIds, cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
+    .then((res)=> {
+      const cookies = new Cookies();
+      cookies.remove("Products");
+      this.props.deleteProducts();
+    })
+    .catch((e)=> console.log(e))
+}else{
 
-if(user !== "" && user !== undefined){
+  console.log("si hay user", user)
   OrderServices.payCart({user: user ,cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
     .then((res)=> console.log(res))
     .catch((e)=> console.log(e))
-}else{
-  //ITS CREATING TWICE WHEN U USE COOKIES
-  const cookies = new Cookies();
-  let products = [cookies.get("Products")]
-  let productIds = []
-    products[0].forEach(function(product){
-      productIds.push(product._id)
-    })
-  OrderServices.createOrder({products: productIds, cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
-  .then((res)=> {
-    const cookies = new Cookies();
-    cookies.remove("Products");
-    this.props.deleteProducts();
-  })
-  .catch((e)=> console.log(e))
 }
-
 }
 
 const onToken = (amount, description, user) => token =>
@@ -60,7 +61,7 @@ const onToken = (amount, description, user) => token =>
       currency: CURRENCY,
       amount: fromEuroToCent(amount)
     })
-    .then(successPayment(token),orderUpdate(token,user))
+    .then(successPayment,orderUpdate(token,user))
       // OrderServices.payCart({cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
     
     .catch(errorPayment);
