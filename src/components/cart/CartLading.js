@@ -129,7 +129,6 @@ class CartLanding extends Component {
   }
 
   deleteProducts(){
-    console.log("hey delete products");
     this.setState({
       products: null,
     })
@@ -175,7 +174,8 @@ class CartLanding extends Component {
                 name={`You have ${this.state.products.length}# of item(s)`}
                 description={"thank you for buying with my story"}
                 amount={this.getTotal()}
-                deleteProducts={this.deleteProducts}           
+                deleteProducts={this.deleteProducts}
+                user={this.props.user}          
                 >
                 </Checkout>
         </div>

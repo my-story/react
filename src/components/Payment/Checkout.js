@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{Component} from 'react'
 import axios from 'axios';
 import OrderServices from '../../services/OrderServices'
 
@@ -13,13 +13,13 @@ const CURRENCY = 'USD';
 const fromEuroToCent = amount => amount * 100;
 
 
+let loggedUser = ""
 
-
-const successPayment = (data) => {
+const successPayment = (token) => {
   // const cookies = new Cookies();
   // cookies.remove("Products");
   // this.props.deleteProducts();
-  // console.log(this.props)
+  orderUpdate(token)
   toastr.success('Payment Successful');
 };
 
@@ -27,7 +27,32 @@ const errorPayment = data => {
   toastr.error('Payment Error');
 };
 
-const onToken = (amount, description) => token =>
+const orderUpdate = (token,user) => {
+
+if(user !== "" && user !== undefined){
+  OrderServices.payCart({user: user ,cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
+    .then((res)=> console.log(res))
+    .catch((e)=> console.log(e))
+}else{
+  //ITS CREATING TWICE WHEN U USE COOKIES
+  const cookies = new Cookies();
+  let products = [cookies.get("Products")]
+  let productIds = []
+    products[0].forEach(function(product){
+      productIds.push(product._id)
+    })
+  OrderServices.createOrder({products: productIds, cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
+  .then((res)=> {
+    const cookies = new Cookies();
+    cookies.remove("Products");
+    this.props.deleteProducts();
+  })
+  .catch((e)=> console.log(e))
+}
+
+}
+
+const onToken = (amount, description, user) => token =>
   axios.post(PAYMENT_SERVER_URL,
     {
       description,
@@ -35,21 +60,30 @@ const onToken = (amount, description) => token =>
       currency: CURRENCY,
       amount: fromEuroToCent(amount)
     })
-    .then(successPayment)
+    .then(successPayment(token),orderUpdate(token,user))
       // OrderServices.payCart({cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
     
     .catch(errorPayment);
 
-const Checkout = ({ name, description, amount }) =>
+const Checkout = ({ name, description, amount, user }) =>{
+   
 
-  <StripeCheckout
+  return(
+    <StripeCheckout
     name={name}
     description={description}
     amount={fromEuroToCent(amount)}
-    token={onToken(amount, description)}
+    token={onToken(amount, description,user)}
     currency={CURRENCY}
     stripeKey={STRIPE_PUBLISHABLE}
     billingAddress={true}
     shippingAddress={true}
   />
+
+  )
+ 
+  }
+
+
+
 export default Checkout;
