@@ -33,25 +33,54 @@ class CardItem extends Component {
 
 
   onChange(value) {
-    console.log('changed', value);
-    console.log("state", this.state.value);
-    var newAmount = value - this.state.value;
-    console.log("new amount", newAmount);
+    if (value > this.state.value){
+      console.log('value', value);
+      console.log("state", this.state.value);
+      var newAmount = value - this.state.value;
+      console.log("new amount", newAmount);
+  
+      if(value !== ""){
+        this.setState({
+          value: value
+        })
+      }
+      console.log("this is the new amount", newAmount);
+      
+  
+      for (var i = this.state.value; i < value; i++){
+        axios.post("http://localhost:3002/order" , {
+          user: this.props.user._id,
+          _id: this.props.product._id
+        }, {withCredentials:true})
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err))
+      }
+    } else {
 
-    if(value !== ""){
-      this.setState({
-        value: value
-      })
-    }
-    console.log("this is the new amount", newAmount);
+      if (value !== ""){
+        const url = `http://localhost:3002/order/delete/${this.props.product._id}`;
 
-    for (var i = 0; i < newAmount; i++){
-      axios.post("http://localhost:3002/order" , {
-        user: this.props.user._id,
-        _id: this.props.product._id
-      }, {withCredentials:true})
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
+        axios.post(url , {
+          user: this.props.user
+        }, {withCredentials:true})
+          .then((res) => {
+            for (var i = 0; i < value; i++){
+              axios.post("http://localhost:3002/order" , {
+                user: this.props.user._id,
+                _id: this.props.product._id
+              }, {withCredentials:true})
+                .then((res) => console.log(res))
+                .catch((err) => console.log(err))
+            }
+          })
+          .catch((err) => err)
+
+          this.setState({
+            value: value
+          })
+
+
+      }
     }
   }
 
@@ -63,7 +92,7 @@ class CardItem extends Component {
       <ul>
         <li>{this.props.product.model}</li>
         <li>Price:{this.props.product.prize}</li>
-        <li>Quantity:<InputNumber min={0} max={10} defaultValue={this.props.times} onChange={this.onChange.bind(this)} /></li>
+        <li>Quantity:<InputNumber min={0} max={9} defaultValue={this.props.times} onChange={this.onChange.bind(this)} /></li>
         
       </ul>
     )
