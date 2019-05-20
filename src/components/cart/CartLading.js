@@ -84,19 +84,6 @@ class CartLanding extends Component {
     this.setUser()
   }
 
-  // openCart=()=>{
-  //   if(this.state.seecart === true){
-  //     this.setState({seecart:false})
-  //   }else if(this.state.seecart === false){
-  //     this.setState({seecart:true})
-
-  //   }
-  
-
-
-  //   }
-  
-
   delete(e, i){
     e.preventDefault()
 
@@ -189,15 +176,6 @@ class CartLanding extends Component {
           })}
           <h3>Total:{this.getTotal()}</h3>
 
-          {/* <Link to={{
-            pathname:'/payment',
-            state: {
-              user: this.state.user,
-              products: this.state.products,
-            }
-            }}>
-          <button>Proceed to Checkout</button>
-          </Link> */}
                 <Checkout 
                 name={`You have ${this.state.products.length}# of item(s)`}
                 description={"thank you for buying with my story"}

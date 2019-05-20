@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import axios from 'axios';
 import OrderServices from '../../services/OrderServices'
+import MailerServices from '../../services/MailerServices'
 
 import * as toastr from 'toastr'
 import StripeCheckout from 'react-stripe-checkout';
@@ -27,28 +28,29 @@ const errorPayment = data => {
 };
 
 const orderUpdate = (token,user) => {
-console.log("this is order Update funciton")
+
 if(user === "" || user === undefined){
-    //ITS CREATING TWICE WHEN U USE COOKIES
-    console.log("no hay user" , user)
     const cookies = new Cookies();
     let products = [cookies.get("Products")]
     let productIds = []
       products[0].forEach(function(product){
         productIds.push(product._id)
       })
-    OrderServices.createOrder({products: productIds, cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
+    OrderServices.createOrder({products: productIds, email:token.email, cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
     .then((res)=> {
+      console.log(res.product)
+      MailerServices.sendMail({name:token.card.name , email:token.email})
       const cookies = new Cookies();
       cookies.remove("Products");
-      this.props.deleteProducts();
     })
     .catch((e)=> console.log(e))
 }else{
 
-  console.log("si hay user", user)
   OrderServices.payCart({user: user ,cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
-    .then((res)=> console.log(res))
+    .then((res)=> {
+      MailerServices.sendMail(token.card.name,token.email)
+      console.log(res)
+    })
     .catch((e)=> console.log(e))
 }
 }
