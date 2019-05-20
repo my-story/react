@@ -1,10 +1,8 @@
 import  React , { Component }  from 'react';
 import OrderServices from "../../services/OrderServices";
 import CartItem from "./CartItem";
-import {Link} from 'react-router-dom'
 import Checkout from '../Payment/Checkout'
 import Cookies from 'universal-cookie';
-
 import axios from "axios";
 
 
@@ -83,18 +81,6 @@ class CartLanding extends Component {
   componentDidMount() {
     this.setUser()
   }
-
-  // openCart=()=>{
-  //   if(this.state.seecart === true){
-  //     this.setState({seecart:false})
-  //   }else if(this.state.seecart === false){
-  //     this.setState({seecart:true})
-
-  //   }
-  
-
-
-  //   }
   
 
   delete(e, i){
@@ -162,6 +148,7 @@ class CartLanding extends Component {
     
   }
 
+
   render(){
 
     if(this.state.fetchedUser){
@@ -188,16 +175,6 @@ class CartLanding extends Component {
           )
           })}
           <h3>Total:{this.getTotal()}</h3>
-
-          {/* <Link to={{
-            pathname:'/payment',
-            state: {
-              user: this.state.user,
-              products: this.state.products,
-            }
-            }}>
-          <button>Proceed to Checkout</button>
-          </Link> */}
                 <Checkout 
                 name={`You have ${this.state.products.length}# of item(s)`}
                 description={"thank you for buying with my story"}
