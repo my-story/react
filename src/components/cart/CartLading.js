@@ -81,7 +81,7 @@ class CartLanding extends Component {
   componentDidMount() {
     this.setUser()
   }
-  
+
 
   delete(e, i){
     e.preventDefault()
@@ -175,6 +175,7 @@ class CartLanding extends Component {
           )
           })}
           <h3>Total:{this.getTotal()}</h3>
+
                 <Checkout 
                 name={`You have ${this.state.products.length}# of item(s)`}
                 description={"thank you for buying with my story"}
