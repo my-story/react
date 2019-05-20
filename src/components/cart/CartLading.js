@@ -1,10 +1,8 @@
 import  React , { Component }  from 'react';
 import OrderServices from "../../services/OrderServices";
 import CartItem from "./CartItem";
-import {Link} from 'react-router-dom'
 import Checkout from '../Payment/Checkout'
 import Cookies from 'universal-cookie';
-
 import axios from "axios";
 
 
@@ -84,6 +82,7 @@ class CartLanding extends Component {
     this.setUser()
   }
 
+
   delete(e, i){
     e.preventDefault()
 
@@ -148,6 +147,7 @@ class CartLanding extends Component {
     // })
     
   }
+
 
   render(){
 
