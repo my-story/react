@@ -6,7 +6,7 @@ const getCart = (userId) => http.get(`order/${userId}`)
 const payCart = (user,cardname,address,addressCity,addressZip) => http.post(`order/payment`,user,cardname,address,addressCity,addressZip)
   .then(response=>response.data)
 
-  const createOrder = (products ,cardname,address,addressCity,addressZip) => http.post(`order/add`,products,cardname,address,addressCity,addressZip)
+  const createOrder = (products ,email, cardname,address,addressCity,addressZip) => http.post(`order/add`,products,email, cardname,address,addressCity,addressZip)
   .then(response=>response.data)
 
 export default {
