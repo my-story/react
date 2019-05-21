@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^3.16.5",
     "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
     "email-validator": "^2.0.4",
     "is-empty-object": "^1.1.1",
     "js-cookie": "^2.2.0",
