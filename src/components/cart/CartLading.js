@@ -16,6 +16,7 @@ class CartLanding extends Component {
       seecart: false,
       userLogged: false ,
       newProducts: "",
+      productsQty: []
     }
   
   
@@ -148,6 +149,65 @@ class CartLanding extends Component {
     
   }
 
+  onCheckout(){
+    if(this.state.productsQty.length > 0){
+
+      for (var o = 0; o < this.state.productsQty.length; o++){
+        const url = `http://localhost:3002/order/delete/${this.state.productsQty[o]._id}`;
+        axios.post(url , {
+            user: this.props.user
+          }, {withCredentials:true})
+            .then((res) => console.log(res))
+            .catch((err) => err)
+      }
+      for (var i = 0; i < this.state.productsQty.length; i++){
+
+        for (var j = 0; j < this.state.productsQty[i].qty; j++){
+          axios.post("http://localhost:3002/order" , {
+            user: this.props.user._id,
+            _id: this.state.productsQty[i]._id
+          }, {withCredentials:true})
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err))
+        }
+      }
+    }
+  }
+
+  passState(value, id, model){
+    var productsArr = this.state.productsQty;
+    if (productsArr.length === 0){
+      productsArr = [{
+        name: model,
+        _id: id,
+        qty: value
+      }]
+
+      this.setState({
+        productsQty : productsArr,
+      })
+    } else {
+      var repeated = false;
+  
+      for (var i = 0; i < productsArr.length; i++){
+        if(productsArr[i].name === model){
+          productsArr[i].qty = value
+          repeated = true;
+        }
+      }
+
+      if (repeated){
+        this.setState({
+          productsQty: productsArr
+        })
+      } else {
+        this.state.productsQty.push({name: model, _id: id, qty: value});
+      }
+
+    }
+    console.log(this.state)
+  }
+
 
   render(){
 
@@ -169,7 +229,7 @@ class CartLanding extends Component {
         {this.arrangeDuplicates().map((i,index)=>{
           return(
           <div key={index} className="products-card">
-             <CartItem user={this.props.user} key={index} product={i} times={this.howManyTimes(i.model)}/>
+             <CartItem passState={this.passState.bind(this)} user={this.props.user} key={index} product={i} times={this.howManyTimes(i.model)}/>
              <button onClick={(e) => this.delete(e, i)}>Delete</button>
           </div>
           )
@@ -183,7 +243,8 @@ class CartLanding extends Component {
                 deleteProducts={this.deleteProducts}
                 user={this.props.user}          
                 >
-                </Checkout>
+                </Checkout> 
+                <button onClick={this.onCheckout.bind(this)}>Checkout</button>
         </div>
       )
     } else {

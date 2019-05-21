@@ -13,10 +13,11 @@ class CardItem extends Component {
     this.setState({
       product: this.props.product
     })
+
   }
 
   componentDidMount() {
-    this.setProduct()
+    this.setProduct();
   }
 
   delete(e){
@@ -32,13 +33,15 @@ class CardItem extends Component {
   }
 
 
-  onChange = (e) => {
+  onChange = (e, id, model) => {
 
     this.setState({
-      value: e.target.value
+      value: parseInt(e.target.value)
     })
 
-    console.log(e.target.value);
+    this.props.passState(parseInt(e.target.value), id, model)
+
+    
     // if (value !== "" && value <= 9 || value !== null && value <= 9 ){
     //   this.setState({
     //     value: value
@@ -105,8 +108,7 @@ class CardItem extends Component {
         {/* <li>Quantity:<InputNumber min={0} max={9} defaultValue={this.props.times} onChange={this.onChange.bind(this)} /></li> */}
         <li>
           <div className="input-group mb-3">
-            <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.times} onChange={(e) => this.onChange(e)}>
-              {/* <option selected>Choose...</option> */}
+            <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.times} onChange={(e) => this.onChange(e, this.props.product._id ,this.props.product.model)}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="4">4</option>
