@@ -28,31 +28,24 @@ const errorPayment = data => {
 };
 
 const orderUpdate = (token,user) => {
-
-if(user === "" || user === undefined){
     const cookies = new Cookies();
-    let products = [cookies.get("Products")]
-    let productIds = []
-      products[0].forEach(function(product){
-        productIds.push(product._id)
-      })
-    OrderServices.createOrder({products: productIds, email:token.email, cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
+    let products = cookies.get("Products")
+    
+    // let productIds = []
+    //   products[0].forEach(function(product){
+    //     productIds.push(product._id)
+    //   })
+    // let usuario = t
+
+    OrderServices.createOrder({user:user, products: products, email:token.email, cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
     .then((res)=> {
-      console.log(res.product)
+      console.log(res)
       MailerServices.sendMail({name:token.card.name , email:token.email})
       const cookies = new Cookies();
       cookies.remove("Products");
     })
     .catch((e)=> console.log(e))
-}else{
 
-  OrderServices.payCart({user: user ,cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
-    .then((res)=> {
-      MailerServices.sendMail(token.card.name,token.email)
-      console.log(res)
-    })
-    .catch((e)=> console.log(e))
-}
 }
 
 const onToken = (amount, description, user) => token =>

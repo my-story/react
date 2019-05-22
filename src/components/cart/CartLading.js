@@ -1,6 +1,7 @@
 import  React , { Component }  from 'react';
+
+import {Link} from 'react-router-dom'
 import CartItem from "./CartItem";
-import Checkout from '../Payment/Checkout'
 import Cookies from 'universal-cookie';
 
 
@@ -13,7 +14,7 @@ class CartLanding extends Component {
       seecart: false,
       userLogged: false ,
       newProducts: "",
-      productsQty: []
+      productsQty: [],
     }
   
   
@@ -123,8 +124,10 @@ class CartLanding extends Component {
   }
 
   onCheckout(){
-
+    const cookies = new Cookies();
+    cookies.get("Products")
   }
+  
   render(){
 
     if(this.state.fetchedUser){
@@ -152,15 +155,13 @@ class CartLanding extends Component {
           })}
           <h3>Total:{this.getTotal()}</h3>
 
-                <Checkout 
-                name={`You have ${this.state.products.length}# of item(s)`}
-                description={"thank you for buying with my story"}
-                amount={this.getTotal()}
-                deleteProducts={this.deleteProducts}
-                user={this.props.user}          
-                >
-                </Checkout> 
-                <button onClick={this.onCheckout.bind(this)}>Checkout</button>
+          <Link to={{
+            pathname:"/shipping",
+            }}>
+          <button onClick={this.onCheckout}>Checkout</button>
+          </Link>
+
+
         </div>
       )
     } else {

@@ -14,7 +14,7 @@ import ProductDetail from './components/products/ProductDetail';
 import Checkout from './components/Payment/Checkout';
 import CartLanding from './components/cart/CartLading';
 import Cart from './components/Payment/Cart';
-
+import ShippingRates from './components/cart/ShippingItems'
 
 export default (props) => (
 <Switch>
@@ -29,6 +29,8 @@ export default (props) => (
   <Route path="/product/:id" component={ProductDetail} />
   <Route path="/checkout" render={() => <Checkout {...props} />} />
   <Route path="/cart" component={() => <CartLanding {...props} />}/>
+  <Route path="/shipping" component={() => <ShippingRates {...props} />}/>
+
   <Route path="/payment" component={Cart} />
 </Switch>
 
