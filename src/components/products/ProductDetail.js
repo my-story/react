@@ -14,7 +14,6 @@ class  ProductDetail extends Component{
     prize: "",
     images:"",
     _id:"",
-    user:"",
     qty: 1,
   }
 
@@ -43,7 +42,6 @@ class  ProductDetail extends Component{
           prize: res.data.prize,
           images: res.data.images,
           _id: res.data._id,
-          user: this.props.location.state.user
         })   
         console.log(res)
     })

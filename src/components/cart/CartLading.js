@@ -15,7 +15,7 @@ class CartLanding extends Component {
       seecart: false,
       userLogged: false ,
       newProducts: "",
-      productsQty: []
+      productsQty: [],
     }
   
   
@@ -123,8 +123,10 @@ class CartLanding extends Component {
   }
 
   onCheckout(){
-
+    const cookies = new Cookies();
+    cookies.get("Products")
   }
+  
   render(){
 
     if(this.state.fetchedUser){
@@ -151,8 +153,11 @@ class CartLanding extends Component {
           )
           })}
           <h3>Total:{this.getTotal()}</h3>
-          <Link to="/shipping">
-          <button>Checkout</button>
+
+          <Link to={{
+            pathname:"/shipping",
+            }}>
+          <button onClick={this.onCheckout}>Checkout</button>
           </Link>
 
 
