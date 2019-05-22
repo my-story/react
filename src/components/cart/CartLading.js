@@ -83,10 +83,19 @@ class CartLanding extends Component {
         }
       }
 
-      this.setState({
-        ...this.state,
-        products: cookies.get("Products")
-      })
+      if(cookieArr.length === 0){
+        const cookies = new Cookies();
+        cookies.remove("Products");
+        this.setState({
+          ...this.state,
+          products: null
+        })
+      } else {
+        this.setState({
+          ...this.state,
+          products: cookies.get("Products")
+        })
+      }
   }
 
   deleteProducts(){
@@ -148,7 +157,7 @@ class CartLanding extends Component {
       // this.arrangeDuplicates();
       return(
         <div className="cart-page">
-        {this.arrangeDuplicates().map((i,index)=>{
+        {this.state.products.map((i,index)=>{
           return(
           <div key={index} className="products-card">
              <CartItem passState={this.passState.bind(this)} user={this.props.user} key={index} product={i} times={this.howManyTimes(i.model)}/>

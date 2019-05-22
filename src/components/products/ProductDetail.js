@@ -15,6 +15,7 @@ class  ProductDetail extends Component{
     images:"",
     _id:"",
     user:"",
+    qty: 1,
   }
 
   // data:
@@ -50,13 +51,25 @@ class  ProductDetail extends Component{
   }
 
   addCart = () =>{
-
     const cookies = new Cookies();
+    console.log(cookies.get("Products"));
+
     if(cookies.get("Products") !== undefined){
       var currentProducts = cookies.get('Products');
-      currentProducts.push(this.state);
+      var isRepeated = false;
+      for (var i = 0; i < currentProducts.length; i++){
+        if (currentProducts[i].influencer === this.state.influencer){
+          currentProducts[i].qty = currentProducts[i].qty + 1
+          isRepeated = true;
+        }
+      }
 
-      cookies.set("Products", currentProducts, { path: '/' });
+      if (isRepeated){
+        cookies.set("Products", currentProducts, { path: '/' });
+      } else {
+        currentProducts.push(this.state);
+        cookies.set("Products", currentProducts, { path: '/' });
+      }      
     } else {
       cookies.set("Products", [this.state], { path: '/' });
     }
