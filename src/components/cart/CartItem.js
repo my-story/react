@@ -1,7 +1,5 @@
 import  React , { Component }  from 'react';
-import axios from "axios";
-import {InputNumber} from "antd";
-
+import Cookies from 'universal-cookie';
 
 class CardItem extends Component {
   state = {
@@ -20,15 +18,42 @@ class CardItem extends Component {
     this.setProduct();
   }
 
+//   var currentProducts = cookies.get('Products');
+//   var isRepeated = false;
+//   for (var i = 0; i < currentProducts.length; i++){
+//     if (currentProducts[i].influencer === this.state.influencer){
+//       currentProducts[i].qty = currentProducts[i].qty + 1
+//       isRepeated = true;
+//     }
+//   }
 
-  onChange = (e, id, model) => {
+//   if (isRepeated){
+//     cookies.set("Products", currentProducts, { path: '/' });
+//   } else {
+//     currentProducts.push(this.state);
+//     cookies.set("Products", currentProducts, { path: '/' });
+//   }      
+// } else {
+//   cookies.set("Products", [this.state], { path: '/' });
+// }
+
+  onChange = (e, influencerId) => {
 
     this.setState({
       value: parseInt(e.target.value)
     })
 
-    this.props.passState(parseInt(e.target.value), id, model)
+    const cookies = new Cookies();
+    var currentProducts = cookies.get('Products');
+       
+    for (var i = 0; i < currentProducts.length; i++){
+      if (currentProducts[i].influencer === influencerId){
+        currentProducts[i].qty = parseInt(e.target.value)
+      }
+    }
 
+    cookies.set("Products", currentProducts, { path: '/' });
+    console.log(cookies.get('Products'));
   }
 
   render(){
@@ -42,7 +67,7 @@ class CardItem extends Component {
         {/* <li>Quantity:<InputNumber min={0} max={9} defaultValue={this.props.times} onChange={this.onChange.bind(this)} /></li> */}
         <li>
           <div className="input-group mb-3">
-            <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.times} onChange={(e) => this.onChange(e, this.props.product._id ,this.props.product.model)}>
+            <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer)}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="4">4</option>
