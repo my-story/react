@@ -4,7 +4,6 @@ import Checkout from '../Payment/Checkout'
 import Cookies from 'universal-cookie';
 
 
-
 class CartLanding extends Component {
 
     state = {
@@ -59,6 +58,8 @@ class CartLanding extends Component {
           products:null
         })
       }
+
+      
       return counter;
 }
 
