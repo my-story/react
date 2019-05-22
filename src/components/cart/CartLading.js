@@ -1,9 +1,7 @@
 import  React , { Component }  from 'react';
-import OrderServices from "../../services/OrderServices";
 import CartItem from "./CartItem";
 import Checkout from '../Payment/Checkout'
 import Cookies from 'universal-cookie';
-import axios from "axios";
 
 
 
@@ -21,34 +19,21 @@ class CartLanding extends Component {
   
   
 
-  fetchCart = (user) => {
-    OrderServices.getCart(user)
-      .then(response => {
+  fetchCart = () => { 
+    const cookies = new Cookies();
+      if(cookies.get('Products') !== undefined){
         this.setState({
           ...this.state,
-          products: response.product,
-          fetchedUser: false,
-          userLogged: true
+          products:cookies.get('Products'),
+          fetchedUser: false
         })
-        
-      }).catch(error => {
-          console.log("not signed in")
-          
-          const cookies = new Cookies();
-          if(cookies.get('Products') !== undefined){
-            this.setState({
-              ...this.state,
-              products:cookies.get('Products'),
-              fetchedUser: false
-            })
-          } else {
-            this.setState({
-              ...this.state,
-              products:null,
-              fetchedUser: false
-            })
-          }
-      })
+      } else {
+        this.setState({
+          ...this.state,
+          products:null,
+          fetchedUser: false
+        })
+      }
   }
 
   setUser = ()=>{
@@ -87,17 +72,6 @@ class CartLanding extends Component {
   delete(e, i){
     e.preventDefault()
 
-    if (this.state.userLogged){
-      const url = `http://localhost:3002/order/delete/${i._id}`;
-  
-      axios.post(url , {
-        user: this.props.user
-      }, {withCredentials:true})
-        .then((res) => this.setState({
-          products: res.data.product
-        }))
-        .catch((err) => err)
-    } else {
       const cookies = new Cookies();
       const cookieArr = cookies.get("Products");
 
@@ -113,7 +87,6 @@ class CartLanding extends Component {
         ...this.state,
         products: cookies.get("Products")
       })
-    }
   }
 
   deleteProducts(){
@@ -150,69 +123,18 @@ class CartLanding extends Component {
   }
 
   onCheckout(){
-    if(this.state.productsQty.length > 0){
 
-      for (var o = 0; o < this.state.productsQty.length; o++){
-        const url = `http://localhost:3002/order/delete/${this.state.productsQty[o]._id}`;
-        axios.post(url , {
-            user: this.props.user
-          }, {withCredentials:true})
-            .then((res) => console.log(res))
-            .catch((err) => err)
-      }
-      for (var i = 0; i < this.state.productsQty.length; i++){
-
-        for (var j = 0; j < this.state.productsQty[i].qty; j++){
-          axios.post("http://localhost:3002/order" , {
-            user: this.props.user._id,
-            _id: this.state.productsQty[i]._id
-          }, {withCredentials:true})
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err))
-        }
-      }
-    }
   }
 
-  passState(value, id, model){
-    var productsArr = this.state.productsQty;
-    if (productsArr.length === 0){
-      productsArr = [{
-        name: model,
-        _id: id,
-        qty: value
-      }]
+  passState(){
 
-      this.setState({
-        productsQty : productsArr,
-      })
-    } else {
-      var repeated = false;
-  
-      for (var i = 0; i < productsArr.length; i++){
-        if(productsArr[i].name === model){
-          productsArr[i].qty = value
-          repeated = true;
-        }
-      }
-
-      if (repeated){
-        this.setState({
-          productsQty: productsArr
-        })
-      } else {
-        this.state.productsQty.push({name: model, _id: id, qty: value});
-      }
-
-    }
-    console.log(this.state)
   }
 
 
   render(){
 
     if(this.state.fetchedUser){
-      this.fetchCart(this.state.user._id)
+      this.fetchCart()
     }
   
   if (this.state.products == null){

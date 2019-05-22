@@ -50,28 +50,15 @@ class  ProductDetail extends Component{
   }
 
   addCart = () =>{
-    if(this.state.user === "" || isEmptyObj(this.state.user)){
-      const cookies = new Cookies();
-      if(cookies.get("Products") !== undefined){
-        var currentProducts = cookies.get('Products');
 
-        // if (Array.isArray(currentProducts) === false){
-        //   currentProducts.split(" ")
-        // }
-        
-        currentProducts.push(this.state);
-  
-        cookies.set("Products", currentProducts, { path: '/' });
-      } else {
-        cookies.set("Products", [this.state], { path: '/' });
-      }
+    const cookies = new Cookies();
+    if(cookies.get("Products") !== undefined){
+      var currentProducts = cookies.get('Products');
+      currentProducts.push(this.state);
+
+      cookies.set("Products", currentProducts, { path: '/' });
     } else {
-      axios.post("http://localhost:3002/order" , {
-        user: this.state.user._id,
-        _id: this.state._id
-      }, {withCredentials:true})
-        .then((res) => console.log(res))
-        .catch((err) => err)
+      cookies.set("Products", [this.state], { path: '/' });
     }
   }
   render(){
