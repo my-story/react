@@ -45,15 +45,13 @@ class CartLanding extends Component {
   }
 
   getTotal(){
-    console.log(this.state)
       var counter = 0;
+      const cookies = new Cookies();
+      const cookieArr = cookies.get("Products");
 
-    
-  
-      for (var i = 0; i < this.state.products.length; i++){
-        counter += this.state.products[i].prize;
+      for (var i = 0; i < cookieArr.length; i++){
+        counter += (cookieArr[i].prize * cookieArr[i].qty)
       }
-      console.log(this.state);
       
       if (counter === 0){
         this.setState({
@@ -104,15 +102,7 @@ class CartLanding extends Component {
     })
   }
 
-  howManyTimes(model){
-    var counter = 0;
-    for (var j = 0; j < this.state.products.length; j++){
-      if(this.state.products[j].model === model){
-        counter++;
-      }
-    }
-    return counter;
-  }
+
   arrangeDuplicates(){
     var productArr = this.state.products;
     var newArr = [];
@@ -134,12 +124,6 @@ class CartLanding extends Component {
   onCheckout(){
 
   }
-
-  passState(){
-
-  }
-
-
   render(){
 
     if(this.state.fetchedUser){
@@ -160,7 +144,7 @@ class CartLanding extends Component {
         {this.state.products.map((i,index)=>{
           return(
           <div key={index} className="products-card">
-             <CartItem passState={this.passState.bind(this)} user={this.props.user} key={index} product={i} times={this.howManyTimes(i.model)}/>
+             <CartItem user={this.props.user} key={index} product={i} />
              <button onClick={(e) => this.delete(e, i)}>Delete</button>
           </div>
           )
