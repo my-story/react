@@ -1,6 +1,7 @@
 import  React , { Component }  from 'react';
+
+import {Link} from 'react-router-dom'
 import CartItem from "./CartItem";
-import Checkout from '../Payment/Checkout'
 import Cookies from 'universal-cookie';
 
 
@@ -47,9 +48,6 @@ class CartLanding extends Component {
   getTotal(){
     console.log(this.state)
       var counter = 0;
-
-    
-  
       for (var i = 0; i < this.state.products.length; i++){
         counter += this.state.products[i].prize;
       }
@@ -124,18 +122,6 @@ class CartLanding extends Component {
       }
     }
     return newArr;
-    // this.setState({
-    //   ...this.state,
-    //   newProducts: newArr
-    // })
-    
-  }
-
-  onCheckout(){
-
-  }
-
-  passState(){
 
   }
 
@@ -160,22 +146,17 @@ class CartLanding extends Component {
         {this.state.products.map((i,index)=>{
           return(
           <div key={index} className="products-card">
-             <CartItem passState={this.passState.bind(this)} user={this.props.user} key={index} product={i} times={this.howManyTimes(i.model)}/>
+             <CartItem user={this.props.user} key={index} product={i} times={this.howManyTimes(i.model)}/>
              <button onClick={(e) => this.delete(e, i)}>Delete</button>
           </div>
           )
           })}
           <h3>Total:{this.getTotal()}</h3>
+          <Link to="/shipping">
+          <button>Checkout</button>
+          </Link>
 
-                <Checkout 
-                name={`You have ${this.state.products.length}# of item(s)`}
-                description={"thank you for buying with my story"}
-                amount={this.getTotal()}
-                deleteProducts={this.deleteProducts}
-                user={this.props.user}          
-                >
-                </Checkout> 
-                <button onClick={this.onCheckout.bind(this)}>Checkout</button>
+
         </div>
       )
     } else {
