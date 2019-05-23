@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Route, Switch, Link} from 'react-router-dom';
-// import { SSL_OP_CISCO_ANYCONNECT } from 'constants';
+import {Link} from 'react-router-dom';
+import {Icon} from 'antd';
 import Logout from './auth/logout';
+import Cookies from 'universal-cookie';
 
 class NavBar extends Component {
     state = {
@@ -15,11 +16,21 @@ class NavBar extends Component {
         })
     }
     componentDidMount = ()=> {
-        this.adjustState()
+        this.adjustState();
+    }
+
+    getQty(){
+        const cookies = new Cookies();
+        const cookieArr = cookies.get("Products");
+        var total = 0;
+        for(var i = 0; i < cookieArr.length; i++){
+            total += cookieArr[i].qty;
+        }
+        return total;
     }
 
     render(){
-        console.log(this.props)
+        // console.log(this.props)
         if(this.props.islogged){
             return(
                 <div>
@@ -40,6 +51,11 @@ class NavBar extends Component {
                         <span>
                         <p>About us</p>
                         </span>
+                        <Link to="/cart">
+                            <span>
+                                <p><Icon type="shopping-cart" />{this.getQty()}</p>
+                            </span>
+                        </Link>
                     </div>
                 </div>
             )
@@ -65,6 +81,11 @@ class NavBar extends Component {
                         <span>
                         <p>About us</p>
                         </span>
+                        <Link to="/cart">
+                            <span>
+                                <p><Icon type="shopping-cart" />{this.getQty()}</p>
+                            </span>
+                        </Link>
                     </div>
                     
     
