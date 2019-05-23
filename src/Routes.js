@@ -13,7 +13,6 @@ import ReviewOne from './components/reviews/ReviewOne'
 import ProductDetail from './components/products/ProductDetail';
 import Checkout from './components/Payment/Checkout';
 import CartLanding from './components/cart/CartLading';
-import Cart from './components/Payment/Cart';
 import ShippingRates from './components/cart/ShippingItems'
 
 export default (props) => (
@@ -30,8 +29,6 @@ export default (props) => (
   <Route path="/checkout" render={() => <Checkout {...props} />} />
   <Route path="/cart" component={() => <CartLanding {...props} />}/>
   <Route path="/shipping" component={() => <ShippingRates {...props} />}/>
-
-  <Route path="/payment" component={Cart} />
 </Switch>
 
 );

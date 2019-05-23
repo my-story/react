@@ -7,7 +7,7 @@ import AuthServices from './services/AuthServices'
 import NavBar from './components/NavBar';
 // import Login from './components/auth/login';
 // import Signup from './components/auth/signup';
-
+import Cookies from 'universal-cookie';
 
 class App extends Component {
 

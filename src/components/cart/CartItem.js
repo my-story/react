@@ -54,6 +54,7 @@ class CardItem extends Component {
 
     cookies.set("Products", currentProducts, { path: '/' });
     console.log(cookies.get('Products'));
+    this.props.updateTotal();
   }
 
   render(){

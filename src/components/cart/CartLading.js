@@ -15,6 +15,7 @@ class CartLanding extends Component {
       userLogged: false ,
       newProducts: "",
       productsQty: [],
+      total: this.getTotal()
     }
   
   
@@ -71,7 +72,6 @@ class CartLanding extends Component {
 
   delete(e, i){
     e.preventDefault()
-
       const cookies = new Cookies();
       const cookieArr = cookies.get("Products");
 
@@ -93,7 +93,8 @@ class CartLanding extends Component {
       } else {
         this.setState({
           ...this.state,
-          products: cookies.get("Products")
+          products: cookies.get("Products"),
+          total: this.getTotal()
         })
       }
   }
@@ -127,6 +128,13 @@ class CartLanding extends Component {
     const cookies = new Cookies();
     cookies.get("Products")
   }
+
+  updateTotal(){
+    this.setState({
+      ...this.state,
+      total: this.getTotal()
+    })
+  }
   
   render(){
 
@@ -142,18 +150,17 @@ class CartLanding extends Component {
   if(this.state.products[0] !== null){
     if(this.state.products !== ""){
       this.getTotal();
-      // this.arrangeDuplicates();
       return(
         <div className="cart-page">
         {this.state.products.map((i,index)=>{
           return(
           <div key={index} className="products-card">
-             <CartItem user={this.props.user} key={index} product={i} />
+             <CartItem user={this.props.user} key={index} product={i} updateTotal={this.updateTotal.bind(this)} />
              <button onClick={(e) => this.delete(e, i)}>Delete</button>
           </div>
           )
           })}
-          <h3>Total:{this.getTotal()}</h3>
+          <h3>Total:{this.state.total}</h3>
 
           <Link to={{
             pathname:"/shipping",
