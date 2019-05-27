@@ -23,8 +23,12 @@ class NavBar extends Component {
         const cookies = new Cookies();
         const cookieArr = cookies.get("Products");
         var total = 0;
-        for(var i = 0; i < cookieArr.length; i++){
-            total += cookieArr[i].qty;
+        if(cookieArr === undefined) {
+            return
+        }else{
+            for(var i = 0; i < cookieArr.length; i++){
+                total += cookieArr[i].qty;
+            }
         }
         return total;
     }
