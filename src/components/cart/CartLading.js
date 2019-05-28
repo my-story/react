@@ -3,7 +3,7 @@ import  React , { Component }  from 'react';
 import {Link} from 'react-router-dom'
 import CartItem from "./CartItem";
 import Cookies from 'universal-cookie';
-
+import QtyContext from "../contexts/QtyContext";
 
 class CartLanding extends Component {
 
@@ -17,6 +17,8 @@ class CartLanding extends Component {
       productsQty: [],
       total: this.getTotal()
     }
+
+    static contextType = QtyContext;
   
   
 
@@ -101,6 +103,7 @@ class CartLanding extends Component {
           total: this.getTotal()
         })
       }
+      this.context.updateQty();
   }
 
   deleteProducts(){
@@ -110,23 +113,6 @@ class CartLanding extends Component {
   }
 
 
-  arrangeDuplicates(){
-    var productArr = this.state.products;
-    var newArr = [];
-    for(var i = 0; i < productArr.length; i++){
-      var model = productArr[i].model;
-      // var times = this.howManyTimes(model);
-      if (newArr.map(x => x.model).indexOf(model) === -1){
-        newArr.push(productArr[i]);
-      }
-    }
-    return newArr;
-    // this.setState({
-    //   ...this.state,
-    //   newProducts: newArr
-    // })
-    
-  }
 
   onCheckout(){
     const cookies = new Cookies();

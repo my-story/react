@@ -1,11 +1,14 @@
 import  React , { Component }  from 'react';
 import Cookies from 'universal-cookie';
+import QtyContext from "../contexts/QtyContext";
 
 class CardItem extends Component {
   state = {
     product: "",
     value: this.props.times
   }
+
+  static contextType = QtyContext;
 
   setProduct(){
     this.setState({
@@ -55,6 +58,7 @@ class CardItem extends Component {
     cookies.set("Products", currentProducts, { path: '/' });
     console.log(cookies.get('Products'));
     this.props.updateTotal();
+    this.context.updateQty();
   }
 
   render(){
