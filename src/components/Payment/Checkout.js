@@ -75,9 +75,7 @@ const Checkout = ({ name, description, amount, user }) =>{
     billingAddress={true}
     shippingAddress={true}
   />
-
   )
- 
   }
 
 
