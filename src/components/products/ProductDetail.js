@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Cookies from 'universal-cookie';
 // import isEmptyObj from "is-empty-object"
-
+import QtyContext from "../contexts/QtyContext";
 
 class  ProductDetail extends Component{
   state = {
@@ -15,6 +15,8 @@ class  ProductDetail extends Component{
     _id:"",
     qty: 1,
   }
+
+  static contextType = QtyContext;
 
   // data:
   // category: ["Tech"]
@@ -70,9 +72,10 @@ class  ProductDetail extends Component{
     } else {
       cookies.set("Products", [this.state], { path: '/' });
     }
+    this.context.updateQty();
   }
-  render(){
 
+  render(){
     return(
       <div>
         <h3>Product Detail</h3>
@@ -84,7 +87,6 @@ class  ProductDetail extends Component{
           <li>model: {this.state.model}</li>
           <li>price: {this.state.prize}</li>
         </ul>
-      
         <button onClick={this.addCart}>add to cart</button>
 
       </div>

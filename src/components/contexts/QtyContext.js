@@ -7,3 +7,4 @@ const QtyConsumer = QtyContext.Consumer;
 
 
 export {QtyConsumer, QtyProvider};
+export default QtyContext;

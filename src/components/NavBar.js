@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {Icon} from 'antd';
 import Logout from './auth/logout';
 import Cookies from 'universal-cookie';
-
+import {QtyConsumer} from "./contexts/QtyContext"
 class NavBar extends Component {
     state = {
 
@@ -19,19 +19,19 @@ class NavBar extends Component {
         this.adjustState();
     }
 
-    getQty(){
-        const cookies = new Cookies();
-        const cookieArr = cookies.get("Products");
-        var total = 0;
-        if(cookieArr === undefined) {
-            return
-        }else{
-            for(var i = 0; i < cookieArr.length; i++){
-                total += cookieArr[i].qty;
-            }
-        }
-        return total;
-    }
+    // getQty(){
+    //     const cookies = new Cookies();
+    //     const cookieArr = cookies.get("Products");
+    //     var total = 0;
+    //     if(cookieArr === undefined) {
+    //         return
+    //     }else{
+    //         for(var i = 0; i < cookieArr.length; i++){
+    //             total += cookieArr[i].qty;
+    //         }
+    //     }
+    //     return total;
+    // }
 
     render(){
         // console.log(this.props)
@@ -57,7 +57,7 @@ class NavBar extends Component {
                         </span>
                         <Link to="/cart">
                             <span>
-                                <p><Icon type="shopping-cart" />{this.getQty()}</p>
+                                <p><Icon type="shopping-cart" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer></p>
                             </span>
                         </Link>
                     </div>
@@ -87,7 +87,7 @@ class NavBar extends Component {
                         </span>
                         <Link to="/cart">
                             <span>
-                                <p><Icon type="shopping-cart" />{this.getQty()}</p>
+                                <p><Icon type="shopping-cart" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer></p>
                             </span>
                         </Link>
                     </div>
@@ -97,7 +97,6 @@ class NavBar extends Component {
             )
 
         }
-
     }
 }
 
