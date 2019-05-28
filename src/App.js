@@ -8,7 +8,7 @@ import NavBar from './components/NavBar';
 // import Login from './components/auth/login';
 // import Signup from './components/auth/signup';
 import Cookies from 'universal-cookie';
-
+import {QtyProvider} from "./components/contexts/QtyContext"
 class App extends Component {
 
 
@@ -16,7 +16,8 @@ class App extends Component {
     loggedInUser: "",
     islogged: "",
     error:null,
-    details:''
+    details:'',
+    getQty: this.getQty(),
   }
 
   getUser = (user) => {
@@ -57,6 +58,27 @@ class App extends Component {
     this.checkLogged()
   }
 
+  getQty(){
+    console.log("called");
+    const cookies = new Cookies();
+    const cookieArr = cookies.get("Products");
+    var total = 0;
+    if(cookieArr === undefined) {
+        return
+    }else{
+        for(var i = 0; i < cookieArr.length; i++){
+            total += cookieArr[i].qty;
+        }
+    }
+    return total;
+}
+
+updateQty = () =>{
+  this.setState({
+    getQty: this.getQty()
+  })
+}
+
 
   render(){
     console.log(this.state.islogged)
@@ -67,8 +89,10 @@ class App extends Component {
     } else {
       return (
         <div>
-        <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
-        <Routes giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser}/>
+          <QtyProvider value={{getQtyState: this.state.getQty, updateQty: this.updateQty}}>
+            <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
+            <Routes giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser}/>
+          </QtyProvider>
         </div>
       );
     }
