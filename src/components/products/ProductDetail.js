@@ -51,7 +51,6 @@ class  ProductDetail extends Component{
 
   addCart = () =>{
     const cookies = new Cookies();
-    console.log(cookies.get("Products"));
     cookies.addChangeListener((e) => console.log(e));
     if(cookies.get("Products") !== undefined){
       var currentProducts = cookies.get('Products');

@@ -56,10 +56,11 @@ class CartLanding extends Component {
         return
       }
 
+      if(cookieArr !== undefined){
       for (var i = 0; i < cookieArr.length; i++){
         counter += (cookieArr[i].prize * cookieArr[i].qty)
       }
-      
+    }
       if (counter === 0){
         this.setState({
           ...this.state,

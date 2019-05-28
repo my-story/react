@@ -50,18 +50,20 @@ class ShippingRates extends Component{
     validateAddress = ()=> {
         const { address } = this.state
 
-        // if( address.name===undefined || address.street1=== undefined || address.city=== undefined || address.state=== undefined || address.zip=== undefined || address.country=== undefined){
-        // toastr.error("Missing Fields")
-        // console.log("No te deja comprar ")
-        // return
-        // }else{
+        if(address.name==='' || address.street1=== '' || address.city==='' || address.state==='' || address.zip==='' || address.country===''){
+        toastr.error("Missing Fields")
+        return
+        }else{
             OrderServices.checkAddress(address)
             .then((res)=>{
-                console.log(res)
-                // this.setState({address:res.data})
+                const cookies = new Cookies();
+                let products = cookies.get("Products")
+                products.push({address:res})
+                console.log(products)
+
             })
             .catch((e)=>console.log(e))
-        // }
+        }
     }
 
 
