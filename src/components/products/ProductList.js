@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 // import ProductDetail from './ProductDetail';
 // import ProductOne from "./ProductOne";
 // import AuthServices from '../../services/AuthServices'
+import axios from 'axios';
+import SearchBar from '../influencer/SearchInfluencer';
 
 class ProductList extends Component {
   state = {
@@ -35,6 +37,15 @@ class ProductList extends Component {
     console.log(i);
   }
 
+  getFilter = (e) => { 
+    let url = "http://localhost:3002/product/filter?search=" + e.target.value
+    axios.get(url,{withCredentials:true})
+    .then((res)=>{
+        this.setState({products:res.data})
+    })
+    .catch((err)=>console.log(err))
+}
+
   render(){
     console.log(this.state)
     const {products,user} = this.state
@@ -42,7 +53,9 @@ class ProductList extends Component {
     
     return(
       <div>
-        HEY
+        <div>
+          <SearchBar getFilter={this.getFilter} />
+        </div>
       {products.map((i,index)=>{
         return(
           <Link key={index} to={{
