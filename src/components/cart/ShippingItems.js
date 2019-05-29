@@ -4,6 +4,7 @@ import { Input } from 'antd';
 import * as toastr from 'toastr'
 
 import Checkout from '../Payment/Checkout'
+
 import OrderServices from '../../services/OrderServices'
 import Cookies from 'universal-cookie';
 
@@ -20,7 +21,8 @@ class ShippingRates extends Component{
             state:"",
             zip:"",
             country:""
-        }
+        },
+        addressCheck: ""
     }
 
     componentDidMount(){
@@ -56,10 +58,12 @@ class ShippingRates extends Component{
         }else{
             OrderServices.checkAddress(address)
             .then((res)=>{
-                const cookies = new Cookies();
-                let products = cookies.get("Products")
-                products.push({address:res})
-                console.log(products)
+                // const cookies = new Cookies();
+                // let products = cookies.get("Products")
+                // products.push({address:res})
+                // cookies.set("Products", products, { path: '/' });
+
+                this.setState({addressCheck:res})
 
             })
             .catch((e)=>console.log(e))
@@ -68,36 +72,50 @@ class ShippingRates extends Component{
 
 
     render(){
-        
-        console.log(this.state.address)
+
         if(this.getTotal() === 0){
             return(<Redirect to="/"></Redirect>)
         }
-        return(
-
-            <div>
-                <Input name="name" placeholder="Enter Name" onChange={this.onChange} />
-                <Input name="company" placeholder="Enter Company" onChange={this.onChange} />
-                <Input name="street1" placeholder="Enter Complete Street" onChange={this.onChange} />
-                <Input name="city" placeholder="Enter City" onChange={this.onChange} />
-                <Input name="state" placeholder="Enter State " onChange={this.onChange} />
-                <Input name="zip" type="number" placeholder="Enter Zipcode" onChange={this.onChange} />
-                <Input name="country" placeholder="Enter Country" onChange={this.onChange} />
+        if(this.state.addressCheck === ""){
+            return(
                 <div>
                 
-                <button onClick={()=>this.validateAddress()}>Check address</button>
-                <Checkout 
-                // onClick={this.validateAddress()}
-                name={`You have ${this.state.products.length}# of item(s)`}
-                description={"thank you for buying with my story"}
-                amount={this.getTotal()}
-                deleteProducts={this.deleteProducts}
-                user={this.props.user}          
-                >
-                </Checkout> 
+                    <Input name="name" placeholder="Enter Name" onChange={this.onChange} />
+                    <Input name="company" placeholder="Enter Company" onChange={this.onChange} />
+                    <Input name="street1" placeholder="Enter Complete Street" onChange={this.onChange} />
+                    <Input name="city" placeholder="Enter City" onChange={this.onChange} />
+                    <Input name="state" placeholder="Enter State " onChange={this.onChange} />
+                    <Input name="zip" type="number" placeholder="Enter Zipcode" onChange={this.onChange} />
+                    <Input name="country" placeholder="Enter Country" onChange={this.onChange} />
+                    <div>
+                    
+                    <button onClick={()=>this.validateAddress()}>Check address</button>
+                    
+                    {/* <Checkout 
+                    // onClick={this.validateAddress()}
+                    name={`You have ${this.state.products.length}# of item(s)`}
+                    description={"thank you for buying with my story"}
+                    amount={this.getTotal()}
+                    deleteProducts={this.deleteProducts}
+                    user={this.props.user}          
+                    >
+                    </Checkout>  */}
+                    </div>
                 </div>
+            )
+
+        }else{
+        return(
+            <div>
+                <Redirect to={{
+                pathname:"/final-checkout",
+                state:{address: this.state.addressCheck }
+                }}
+                ></Redirect>
             </div>
         )
+        }
+        
     }
 }
 export default ShippingRates

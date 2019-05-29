@@ -12,9 +12,13 @@ const createOrder = (user, products ,email, cardname,address,addressCity,address
 const checkAddress = (address, name,company,street1,city,state,zip,country) => http.post('shipping/validate',address,name,company,street1,city,state,zip,country)
   .then(response => response.data)
 
+const shippingRates = (address) => http.post('shipping/create', address)
+.then(response =>response.data)
+
 export default {
   getCart,
   payCart,
   createOrder,
-  checkAddress
+  checkAddress,
+  shippingRates
 }
