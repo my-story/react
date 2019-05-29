@@ -46,12 +46,12 @@ class InfluencerList extends Component{
     }
 
     render(){
-        const {influencers,productsFiltered} = this.state
+        const {influencers} = this.state
         return(
             <div>
                 <h1>Influencer landing</h1>
                 <div>
-                <SearchBar products={productsFiltered} getFilter={this.getFilter} />
+                <SearchBar getFilter={this.getFilter} />
                 </div>
                 <Slider {...settings}>
                 {influencers.map((i,index)=>{
