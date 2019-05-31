@@ -9,6 +9,7 @@ import NavBar from './components/NavBar';
 // import Signup from './components/auth/signup';
 import Cookies from 'universal-cookie';
 import {QtyProvider} from "./components/contexts/QtyContext"
+import {UserProvider} from "./components/contexts/UserContext";
 class App extends Component {
 
 
@@ -91,7 +92,9 @@ updateQty = () =>{
         <div>
           <QtyProvider value={{getQtyState: this.state.getQty, updateQty: this.updateQty}}>
             <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
+            <UserProvider value={{user: this.state.loggedInUser, islogged: this.state.islogged}}>
             <Routes giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser}/>
+            </UserProvider>
           </QtyProvider>
         </div>
       );
