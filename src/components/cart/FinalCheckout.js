@@ -1,6 +1,9 @@
 import React, {Component} from 'react'
-import Cookies from 'universal-cookie'
 import OrderServices from '../../services/OrderServices'
+
+import { Checkbox } from 'antd';
+import Cookies from 'universal-cookie'
+import Rates from './RatesShipping';
 
 class FinalCheckout extends Component{
     state={
@@ -8,6 +11,7 @@ class FinalCheckout extends Component{
         address: this.props.location.state.address,
         rates: ""
     }
+
 
 
     giveRates=()=>{
@@ -21,37 +25,27 @@ class FinalCheckout extends Component{
         .catch((e)=>console.log(e))
     }
 
+
     componentDidMount(){
-        // const cookies = new Cookies();
-        // let products = cookies.get("Products")
+        const cookies = new Cookies();
+        let products = cookies.get("Products")
         // let tempAdd = products[products.length -1]
         // let address = tempAdd.address
-        // this.setState({products,address})
+        this.setState({products})
         this.giveRates()
     }
     render(){
-        const {products,address,rates} = this.state
-        console.log(rates)
+        const {products,rates} = this.state
+        console.log(rates,products)
         if(rates.length===0){
             return<div>loading..................</div>
         }
         return(
             <div>
-                {rates.map((i,index)=>{
-                    return(
-
-                        <div key={index} className="influencer-card">
-                        <p>Price: {i.amount}</p>
-                        <p>{i.duration_terms}</p>
-                        <p>Your package will arrive in: {i.duration_days}</p>
-                        <p>{i.provider}</p>
-                        <p>{i.servicelevel.name}</p>
-
-
-                        
-                        </div>
-
-                    )
+            {rates.map((i,index)=>{
+                return(
+            <Rates rates={i} index={index}></Rates>
+            )
                 })}
 
             </div>
