@@ -25,7 +25,6 @@ class FinalCheckout extends Component{
         .catch((e)=>console.log(e))
     }
 
-
     componentDidMount(){
         const cookies = new Cookies();
         let products = cookies.get("Products")
@@ -44,7 +43,7 @@ class FinalCheckout extends Component{
             <div>
             {rates.map((i,index)=>{
                 return(
-            <Rates rates={i} index={index}></Rates>
+            <Rates showRates={this.showRates} rates={i} index={index}></Rates>
             )
                 })}
 

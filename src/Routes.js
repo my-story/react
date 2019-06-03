@@ -15,6 +15,8 @@ import Checkout from './components/Payment/Checkout';
 import CartLanding from './components/cart/CartLading';
 import ShippingRates from './components/cart/ShippingItems'
 import FinalCheckout from './components/cart/FinalCheckout';
+import CartPay from './components/cart/CartPay';
+
 
 export default (props) => (
 <Switch>
@@ -31,6 +33,8 @@ export default (props) => (
   <Route path="/cart" component={() => <CartLanding {...props} />}/>
   <Route path="/shipping" component={() => <ShippingRates {...props} />}/>
   <Route path="/final-checkout" component={FinalCheckout} />
+  <Route path="/pay-checkout" component={CartPay} />
+
 </Switch>
 
 );

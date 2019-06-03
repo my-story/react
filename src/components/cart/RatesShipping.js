@@ -1,27 +1,46 @@
 import React, { Component } from 'react'
+import {Redirect} from 'react-router-dom'
 
 class Rates extends Component{
+
     state={
+        rate:""
+    }
 
+
+    showRates=()=>{
+        this.setState({rate:this.props.rates})
     }
-    showRates=(e)=>{
-        console.log(this.props.rates.amount)
-    }
+
     render(){
-        return(
-            <div>
-                        <div key={this.props.index} className="influencer-card">
-                        <p>Price: {this.props.rates.amount}</p>
-                        <p>{this.props.rates.duration_terms}</p>
-                        <p>Your package will arrive in: {this.props.rates.duration_days}</p>
-                        <p>{this.props.rates.provider}</p>
-                        <p>{this.props.rates.servicelevel.name}</p>
-                        <input onClick={this.showRates} type="checkbox" />
-                        </div>
+        console.log(this.props)
+        
+        if(this.state.rate ===""){
+            return(
+                <div>
+                    <div key={this.props.index} className="influencer-card">
+                    <p>Price: {this.props.rates.amount}</p>
+                    <p>{this.props.rates.duration_terms}</p>
+                    <p>Estimated days: {this.props.rates.estimated_days}</p>
+                    <p>{this.props.rates.provider}</p>
+                    <p>{this.props.rates.servicelevel.name}</p>
+                    {/* <input id="checkbox" type="checkbox" /> */}
+                    <button onClick={this.showRates} >Choose this shipping</button>
+                    </div>
+                </div>  
+            )
 
-            </div>
+        }else{
+            return(
+            <Redirect to={{
+                pathname:"/pay-checkout",
+                state:{rate: this.state.rate }
+                }}
+                ></Redirect>
+                )
+        }
+        
 
-        )
     }
 }   
 
