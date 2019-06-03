@@ -1,14 +1,15 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-
 import ReactPlayer from 'react-player';
 import AudioPlayer from "react-h5-audio-player";
 import UserContext from '../contexts/UserContext';
+import ReviewUpdate from './ReviewUpdate';
 
 class ReviewOne extends Component{
     state={
         review:{},
-        influencer:{}
+        influencer:{},
+        update: false
     }
     static contextType = UserContext;
 
@@ -24,12 +25,22 @@ class ReviewOne extends Component{
         .catch(err=>console.log(err))
     }
 
-    update(){
-        console.log("update");
+    update = () =>{
+        this.setState({
+            update: true
+        })
     }
 
-    delete(){
-        console.log("delte");
+    delete = () =>{
+        let { id } = this.props.match.params
+        const url= `http://localhost:3002/reviews/delete/${id}`
+        
+        axios.post(url, this.context.user, {withCredentials:true})
+        .then((review)=>{   
+            console.log(review)
+            // this.setState({review:review.data[0],influencer: review.data[0].influencer})
+        })
+        .catch(err=>console.log(err))
     }
     render(){
         const {review, influencer} = this.state
@@ -56,27 +67,31 @@ class ReviewOne extends Component{
                 </div>
             )
         } else {
-            return(
-                <div>
+            if(this.state.update){
+                return(<ReviewUpdate oldReview={this.state}/>)
+              } else {
+                return(
                     <div>
-                        <img src={influencer.profilePic} alt={influencer.name} />
-                        <p>name: {influencer.name}</p>
-                        <p>expertise: {influencer.expertise}</p>
-                        <p>review: {influencer.review}</p>
+                        <div>
+                            <img src={influencer.profilePic} alt={influencer.name} />
+                            <p>name: {influencer.name}</p>
+                            <p>expertise: {influencer.expertise}</p>
+                            <p>review: {influencer.review}</p>
+                        </div>
+                        <div>
+                            <h3>Review</h3>
+                           <p> title: {review.title}</p> 
+                           <p> review: {review.review}</p> 
+                           <p> voicenote: {review.voicenote}</p> 
+                           <ReactPlayer url={review.video} playing />
+                           <AudioPlayer autoPlay src={review.voicenote} onPlay={e => console.log("onPlay")} />
+                           <button onClick={this.update}>Update</button>
+                             <br/>
+                            <button onClick={this.delete}>Delete</button>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Review</h3>
-                       <p> title: {review.title}</p> 
-                       <p> review: {review.review}</p> 
-                       <p> voicenote: {review.voicenote}</p> 
-                       <ReactPlayer url={review.video} playing />
-                       <AudioPlayer autoPlay src={review.voicenote} onPlay={e => console.log("onPlay")} />
-                       <button onClick={this.update}>Update</button>
-                       <br/>
-                       <button onClick={this.delete}>Delete</button>
-                    </div>
-                </div>
-            )
+                )
+              }
         }
     }
 }
