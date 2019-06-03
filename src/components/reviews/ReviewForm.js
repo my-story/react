@@ -9,20 +9,13 @@ const { TextArea } = Input;
 
 class ReviewForm extends Component{
     state= {
-      
-        title:"",
-        review:"",
-        influencer:"",
-        video:"",
-        voicenote:"",
-     
-
-      // file: "",
-      // id: "",
-      // finalFile: "",
+      title:"",
+      review:"",
+      influencer:"",
+      video:"",
+      voicenote:"",
       created:false,
       reviewDone:{}
-
     }
 
 
@@ -31,36 +24,6 @@ class ReviewForm extends Component{
     };
 
     handleSubmit = () => {
-  
-      // const formData = new FormData()
-      // formData.append('track', this.state.file)
-      // formData.append('name',  this.state.file.name)
-
-      // //why dont I put with credentials
-
-      // axios.post('http://localhost:3002/audio', formData,{withCredentials: true})
-      // .then(response => {
-      //   console.log(response)
-      //     // this.setState({
-      //     //   id: response.data.message
-      //     // })
-      //     axios.get('http://localhost:3002/audio/' + response.data.message)
-      //       .then(response => {
-      //         console.log(response)
-      //         this.setState({
-      //           finalFile: response
-      //         })
-      //       })
-      //       .catch(error => {
-      //         // toastr.error("invalid username or password");
-      //         console.log(error)
-      //       })
-        
-      // }).catch(error => {
-      //     // toastr.error("invalid username or password");
-      //     console.log(error)
-      // })
-
       ReviewServices.createReview({
           title: this.state.title,
           review: this.state.review,
@@ -72,9 +35,7 @@ class ReviewForm extends Component{
         .then( res => {
           this.setState({created:true,reviewDone:res})
           })
-        .catch((e)=>console.log(e))
-      
-      
+        .catch((e)=>console.log(e))  
   }
       
     
@@ -97,7 +58,7 @@ class ReviewForm extends Component{
               <Input name="title" placeholder="Please enter title " allowClear onChange={this.onChange} />
               <TextArea rows={4} name="review" placeholder="Please enter review of review" onChange={this.onChange} />
               <Input name="influencer" placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
-              <Input name="video" placeholder="Please enter VIDEO URL CLOUDINARY " allowClear onChange={this.onChange} />
+              <Input name="video" placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
               <Input name="voicenote" placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
   
   

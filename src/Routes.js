@@ -7,15 +7,16 @@ import Login from './components/auth/login';
 import Logout from './components/auth/logout'
 import InfluencerCreate from './components/influencer/InfluencerCreate';
 import ReviewForm from './components/reviews/ReviewForm'
-// import AddImage from './components/products/ProductAddImage';
-// import ProductCreate from './components/products/ProductCreate';
 import ReviewOne from './components/reviews/ReviewOne'
 import ProductDetail from './components/products/ProductDetail';
 import Checkout from './components/Payment/Checkout';
 import CartLanding from './components/cart/CartLading';
 import ShippingRates from './components/cart/ShippingItems'
 import FinalCheckout from './components/cart/FinalCheckout';
+
 import CartPay from './components/cart/CartPay';
+
+import ReviewUpdate from './components/reviews/ReviewUpdate';
 
 
 export default (props) => (
@@ -33,7 +34,10 @@ export default (props) => (
   <Route path="/cart" component={() => <CartLanding {...props} />}/>
   <Route path="/shipping" component={() => <ShippingRates {...props} />}/>
   <Route path="/final-checkout" component={FinalCheckout} />
+
   <Route path="/pay-checkout" component={CartPay} />
+
+  <Route path="/reviewUpdate" component={ReviewUpdate} />
 
 </Switch>
 
