@@ -7,7 +7,7 @@ import Checkout from '../Payment/Checkout'
 
 import OrderServices from '../../services/OrderServices'
 import Cookies from 'universal-cookie';
-
+import UserContext from '../contexts/UserContext';
 
 
 class ShippingRates extends Component{
@@ -24,6 +24,7 @@ class ShippingRates extends Component{
         },
         addressCheck: ""
     }
+    static contextType = UserContext
 
     componentDidMount(){
         const cookies = new Cookies();
@@ -62,8 +63,9 @@ class ShippingRates extends Component{
                 // let products = cookies.get("Products")
                 // products.push({address:res})
                 // cookies.set("Products", products, { path: '/' });
-
                 this.setState({addressCheck:res})
+                this.context.setAddress(res)
+
 
             })
             .catch((e)=>console.log(e))

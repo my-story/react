@@ -65,18 +65,18 @@ const Checkout = ({ name, description, amount, user }) =>{
    
 
   return(
-    <StripeCheckout
-    name={name}
-    description={description}
-    amount={fromEuroToCent(amount)}
-    token={onToken(amount, description,user)}
-    currency={CURRENCY}
-    stripeKey={STRIPE_PUBLISHABLE}
-    billingAddress={true}
-    shippingAddress={true}
-  />
-  )
-  }
+        <StripeCheckout
+        name={name}
+        description={description}
+        amount={fromEuroToCent(amount)}
+        token={onToken(amount, description,user)}
+        currency={CURRENCY}
+        stripeKey={STRIPE_PUBLISHABLE}
+        // billingAddress={true}
+        // shippingAddress={true}
+      />
+      )
+      }
 
 
 

@@ -18,6 +18,7 @@ class App extends Component {
     islogged: "",
     error:null,
     details:'',
+    clientAddress:'',
     getQty: this.getQty(),
   }
 
@@ -60,7 +61,7 @@ class App extends Component {
   }
 
   getQty(){
-    console.log("called");
+
     const cookies = new Cookies();
     const cookieArr = cookies.get("Products");
     var total = 0;
@@ -80,6 +81,11 @@ updateQty = () =>{
   })
 }
 
+getAddress = (address) =>{
+  this.setState({
+    clientAddress: address
+  })
+}
 
   render(){
     console.log(this.state.islogged)
@@ -92,7 +98,7 @@ updateQty = () =>{
         <div>
           <QtyProvider value={{getQtyState: this.state.getQty, updateQty: this.updateQty}}>
             <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
-            <UserProvider value={{user: this.state.loggedInUser, islogged: this.state.islogged}}>
+            <UserProvider value={{user: this.state.loggedInUser, islogged: this.state.islogged, setAddress: this.getAddress, address:this.state.clientAddress}}>
             <Routes giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser}/>
             </UserProvider>
           </QtyProvider>
