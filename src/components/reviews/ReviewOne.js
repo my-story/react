@@ -4,6 +4,9 @@ import ReactPlayer from 'react-player';
 import AudioPlayer from "react-h5-audio-player";
 import UserContext from '../contexts/UserContext';
 import ReviewUpdate from './ReviewUpdate';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import * as toastr from 'toastr';
 
 class ReviewOne extends Component{
     state={
@@ -38,14 +41,35 @@ class ReviewOne extends Component{
         axios.post(url, this.context.user, {withCredentials:true})
         .then((review)=>{   
             console.log(review)
+            toastr.success("deleted the review");
             // this.setState({review:review.data[0],influencer: review.data[0].influencer})
         })
         .catch(err=>console.log(err))
     }
+
+    saidNo = () =>{
+        toastr.error("didn't delete the review");
+    }
+
+    submit = () => {
+        confirmAlert({
+          title: 'Confirm to delete this review',
+          message: 'Are you sure to do this.',
+          buttons: [
+            {
+              label: 'Yes',
+              onClick: () => this.delete()
+            },
+            {
+              label: 'No',
+              onClick: () => this.saidNo()
+            }
+          ]
+        });
+      };
+
     render(){
         const {review, influencer} = this.state
-        console.log(review,influencer)
-        console.log("user", this.context.user.role === "Admin");
 
         if(this.context.user.role !== "Admin"){
             return(
@@ -61,8 +85,8 @@ class ReviewOne extends Component{
                        <p> title: {review.title}</p> 
                        <p> review: {review.review}</p> 
                        <p> voicenote: {review.voicenote}</p> 
-                       <ReactPlayer url={review.video} playing />
-                       <AudioPlayer autoPlay src={review.voicenote} onPlay={e => console.log("onPlay")} />
+                       <ReactPlayer url={review.video} playing={false} />
+                       <AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
                     </div>
                 </div>
             )
@@ -87,7 +111,7 @@ class ReviewOne extends Component{
                            <AudioPlayer autoPlay src={review.voicenote} onPlay={e => console.log("onPlay")} />
                            <button onClick={this.update}>Update</button>
                              <br/>
-                            <button onClick={this.delete}>Delete</button>
+                            <button onClick={this.submit}>Delete</button>
                         </div>
                     </div>
                 )

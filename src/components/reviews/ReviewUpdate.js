@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Redirect} from 'react-router-dom'
 import { Input } from 'antd';
 import UserContext from '../contexts/UserContext';
+
+
 const { TextArea } = Input;
 
 
@@ -42,7 +44,7 @@ class ReviewUpdate extends Component{
     axios.post(url, newReview, {withCredentials:true})
       .then((review)=>{   
           console.log(review)
-          // this.setState({review:review.data[0],influencer: review.data[0].influencer})
+          this.setState({created:true})
       })
       .catch(err=>console.log(err))
   }
