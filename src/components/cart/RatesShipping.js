@@ -4,12 +4,14 @@ import {Redirect} from 'react-router-dom'
 class Rates extends Component{
 
     state={
-        rate:""
+        rate:"",
+        billing:"",
+        address:""
     }
 
 
     showRates=()=>{
-        this.setState({rate:this.props.rates})
+        this.setState({rate:this.props.rates, billing:this.props.billingAddress, address:this.props.address})
     }
 
     render(){
@@ -34,7 +36,7 @@ class Rates extends Component{
             return(
             <Redirect to={{
                 pathname:"/pay-checkout",
-                state:{rate: this.state.rate }
+                state:{rate: this.state.rate, billing:this.state.billing, address:this.state.address }
                 }}
                 ></Redirect>
                 )
