@@ -27,7 +27,8 @@ const errorPayment = data => {
   toastr.error('Payment Error');
 };
 
-const orderUpdate = (token,user) => {
+const orderUpdate = (token,user,address) => {
+  console.log(address)
     const cookies = new Cookies();
     let products = cookies.get("Products")
     
@@ -37,7 +38,7 @@ const orderUpdate = (token,user) => {
     //   })
     // let usuario = t
 
-    OrderServices.createOrder({user:user, products: products, email:token.email, cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
+    OrderServices.createOrder({user:user, products: products, email:token.email, cardname:token.card.name , address:address.street1 , address_city: address.city})
     .then((res)=> {
       console.log(res)
       MailerServices.sendMail({name:token.card.name , email:token.email})
@@ -48,7 +49,7 @@ const orderUpdate = (token,user) => {
 
 }
 
-const onToken = (amount, description, user) => token =>
+const onToken = (amount, description, user, address) => token =>
   axios.post(PAYMENT_SERVER_URL,
     {
       description,
@@ -56,20 +57,19 @@ const onToken = (amount, description, user) => token =>
       currency: CURRENCY,
       amount: fromEuroToCent(amount)
     })
-    .then(successPayment,orderUpdate(token,user))
+    .then(successPayment,orderUpdate(token,user, address))
       // OrderServices.payCart({cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
     
     .catch(errorPayment);
 
-const Checkout = ({ name, description, amount, user }) =>{
+const Checkout = ({ name, description, amount, user, address }) =>{
    
-
   return(
         <StripeCheckout
         name={name}
         description={description}
         amount={fromEuroToCent(amount)}
-        token={onToken(amount, description,user)}
+        token={onToken(amount, description,user,address)}
         currency={CURRENCY}
         stripeKey={STRIPE_PUBLISHABLE}
         // billingAddress={true}

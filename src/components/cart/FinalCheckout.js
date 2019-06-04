@@ -9,7 +9,8 @@ class FinalCheckout extends Component{
     state={
         products: "",
         address: this.props.location.state.address,
-        rates: ""
+        rates: "",
+        billing: this.props.location.state.billing
     }
 
 
@@ -34,16 +35,16 @@ class FinalCheckout extends Component{
         this.giveRates()
     }
     render(){
-        const {products,rates} = this.state
-        console.log(rates,products)
+        const {products,rates,billing,address} = this.state
+        console.log(rates,products,billing)
         if(rates.length===0){
-            return<div>loading..................</div>
+            return<div>Loading...</div>
         }
         return(
             <div>
             {rates.map((i,index)=>{
                 return(
-            <Rates showRates={this.showRates} rates={i} index={index}></Rates>
+            <Rates showRates={this.showRates} address={address} billingAddress={billing} rates={i} index={index}></Rates>
             )
                 })}
 

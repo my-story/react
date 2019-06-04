@@ -8,6 +8,8 @@ const cookies = new Cookies();
 class CartPay extends Component{
     state={
         rate:this.props.location.state.rate,
+        billing:this.props.location.state.billing,
+        address:this.props.location.state.address,
         products: cookies.get("Products"),
         total: 0,
         tax: 0
@@ -54,7 +56,7 @@ componentDidMount(){
 }
 
     render(){
-        console.log(this.state.rate.amount)
+        console.log(this.state)
         const { products } = this.state 
         // if(product.length === 0){
         //     return(
@@ -92,7 +94,8 @@ componentDidMount(){
                     description={"thank you for buying with my story"}
                     amount={this.state.total}
                     deleteProducts={this.deleteProducts}
-                    user={this.props.user}          
+                    user={this.props.user}   
+                    address={this.state.address}       
                     >
                     </Checkout> 
             </div>

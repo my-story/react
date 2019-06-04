@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { Input } from 'antd';
+import { Input, Checkbox } from 'antd';
 import * as toastr from 'toastr'
 
-import Checkout from '../Payment/Checkout'
+// import Checkout from '../Payment/Checkout'
 
 import OrderServices from '../../services/OrderServices'
 import Cookies from 'universal-cookie';
@@ -22,7 +22,8 @@ class ShippingRates extends Component{
             zip:"",
             country:""
         },
-        addressCheck: ""
+        addressCheck: "",
+        billing:true
     }
     static contextType = UserContext
 
@@ -43,6 +44,7 @@ class ShippingRates extends Component{
 
         return counter;
   }
+
 
   onChange = e => {
     let { address } = this.state
@@ -71,10 +73,17 @@ class ShippingRates extends Component{
             .catch((e)=>console.log(e))
         }
     }
+    useBilling = (e)=> {
+        if(e.target.checked){
+            this.setState({billing:true})
+        }else{
+            this.setState({billing:false})
+        }
+      }
 
 
     render(){
-
+console.log(this.state)
         if(this.getTotal() === 0){
             return(<Redirect to="/"></Redirect>)
         }
@@ -89,8 +98,8 @@ class ShippingRates extends Component{
                     <Input name="state" placeholder="Enter State " onChange={this.onChange} />
                     <Input name="zip" type="number" placeholder="Enter Zipcode" onChange={this.onChange} />
                     <Input name="country" placeholder="Enter Country" onChange={this.onChange} />
+                    <Checkbox onChange={this.useBilling}>Use this as your Billing Address?</Checkbox>
                     <div>
-                    
                     <button onClick={()=>this.validateAddress()}>Check address</button>
                     
                     {/* <Checkout 
@@ -111,7 +120,7 @@ class ShippingRates extends Component{
             <div>
                 <Redirect to={{
                 pathname:"/final-checkout",
-                state:{address: this.state.addressCheck }
+                state:{address: this.state.addressCheck, billing:this.state.billing }
                 }}
                 ></Redirect>
             </div>
