@@ -34,11 +34,8 @@ export default (props) => (
   <Route path="/cart" component={() => <CartLanding {...props} />}/>
   <Route path="/shipping" component={() => <ShippingRates {...props} />}/>
   <Route path="/final-checkout" component={FinalCheckout} />
-
   <Route path="/pay-checkout" component={CartPay} />
-
   <Route path="/reviewUpdate" component={ReviewUpdate} />
-
 </Switch>
 
 );
