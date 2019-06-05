@@ -7,7 +7,8 @@ class Login extends Component {
   state = { 
       username: '', 
       password: '',
-      loggedin: false
+      loggedin: false,
+      path:''
     };
 //   service = new UserService();
 
@@ -39,12 +40,19 @@ handleFormSubmit = (event) =>{
         toastr.error("invalid username or password");
     })
 }
-
-
+savePath = ()=>{
+    console.log()
+    window.previousLocation = this.props.location
+    this.setState({path:window.previousLocation})
+}
+componentDidMount=()=>{
+    this.savePath()
+}
 
 render(){
+    console.log(this.state);
+
 if(!this.state.loggedin){
-    console.log(this.props);
     return(
         <div className="login-form-parent">
             <form className="login-form" onSubmit={this.handleFormSubmit}>
