@@ -15,6 +15,7 @@ class InfluencerCreate extends Component{
             expertise:[],
             name: "",
             review:"",
+            percentage:"",
             user: this.props.user
         },
         selectedItems: [],
@@ -79,6 +80,8 @@ class InfluencerCreate extends Component{
                             </Select.Option>
                             ))}
                         </Select>
+                        <Input name="percentage" type="Number" placeholder="Percentage of profit of product (Write in decimals)" onChange={this.onChange} />
+
                         <button onClick={this.onSubmit}>Submit</button>
                         </div>
                 </div>
