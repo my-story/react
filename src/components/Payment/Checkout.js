@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import axios from 'axios';
 import OrderServices from '../../services/OrderServices'
 import MailerServices from '../../services/MailerServices'
-
 import * as toastr from 'toastr'
 import StripeCheckout from 'react-stripe-checkout';
 import STRIPE_PUBLISHABLE from '../../constants/stripe';
@@ -27,23 +26,41 @@ const errorPayment = data => {
   toastr.error('Payment Error');
 };
 
-const checkReward = (products) =>{
+// axios.get(url, {withCredentials:true})
+// .then((res)=>{
+//     this.setState({
+//       category: res.data.category,
+//       description: res.data.description,
+//       influencer: res.data.influencer,
+//       model: res.data.model,
+//       prize: res.data.prize,
+//       images: res.data.images,
+//       _id: res.data._id,
+//     })   
+//     console.log(res)
+// })
+// .catch(err=>console.log(err))
+
+const getInfluencers = (products) =>{
   const rewardArr = [];
   let reward = {};
   for (var i = 0; i < products.length; i++){
     reward["influencer"] = products[i].influencer;
-    // reward["reward"] = (products[i].prize * products[i].qty) * (percentage);
+    reward["price"] = products[i].prize;
+    reward["qty"] = products[i].qty;
+
     rewardArr.push(reward);
     reward = {};
   }
-  console.log(rewardArr);
+  return rewardArr;
 }
+
 
 const orderUpdate = (token,user,address) => {
   console.log(address)
     const cookies = new Cookies();
     let products = cookies.get("Products")
-    checkReward(products);
+    let rewardArr = getInfluencers(products);
     // let productIds = []
     //   products[0].forEach(function(product){
     //     productIds.push(product._id)

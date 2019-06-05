@@ -62,7 +62,7 @@ class CardItem extends Component {
   }
 
   render(){
-    // console.log(this.state.product)
+    console.log(this.props.product)
 
   
     return(
