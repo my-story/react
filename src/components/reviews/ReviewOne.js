@@ -110,7 +110,7 @@ class ReviewOne extends Component{
                            <ReactPlayer url={review.video} playing />
                            <AudioPlayer autoPlay src={review.voicenote} onPlay={e => console.log("onPlay")} />
                            <button onClick={this.update}>Update</button>
-                             <br/>
+                            <br/>
                             <button onClick={this.submit}>Delete</button>
                         </div>
                     </div>

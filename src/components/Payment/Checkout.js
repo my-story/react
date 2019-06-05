@@ -27,11 +27,23 @@ const errorPayment = data => {
   toastr.error('Payment Error');
 };
 
+const checkReward = (products) =>{
+  const rewardArr = [];
+  let reward = {};
+  for (var i = 0; i < products.length; i++){
+    reward["influencer"] = products[i].influencer;
+    // reward["reward"] = (products[i].prize * products[i].qty) * (percentage);
+    rewardArr.push(reward);
+    reward = {};
+  }
+  console.log(rewardArr);
+}
+
 const orderUpdate = (token,user,address) => {
   console.log(address)
     const cookies = new Cookies();
     let products = cookies.get("Products")
-    
+    checkReward(products);
     // let productIds = []
     //   products[0].forEach(function(product){
     //     productIds.push(product._id)

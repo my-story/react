@@ -51,9 +51,10 @@ class  ProductDetail extends Component{
 
   addCart = () =>{
     const cookies = new Cookies();
-    cookies.addChangeListener((e) => console.log(e));
+    // cookies.addChangeListener((e) => console.log(e));
     if(cookies.get("Products") !== undefined){
       var currentProducts = cookies.get('Products');
+      console.log(currentProducts);
       var isRepeated = false;
       for (var i = 0; i < currentProducts.length; i++){
         if (currentProducts[i].influencer === this.state.influencer){
