@@ -16,8 +16,10 @@ class ProductCreate extends Component {
       prize:0,
       description:"",
       category:[],
+      images:[],
       influencer: this.props.influencer._id
     },
+    // imageUrl: [],
     selectedItems: [],
     productCreated: null
   };
@@ -28,7 +30,7 @@ class ProductCreate extends Component {
     this.setState( {product} )
   };
 
-  handleChange = selectedItems => {
+  handleChange = (selectedItems,imageUrl) => {
     this.setState({product:{
         ...this.state.product,
         category: selectedItems,
@@ -37,13 +39,22 @@ class ProductCreate extends Component {
 //   handleImageChange = (e) => {
 //     this.setState({profilePic: e.target.files[0]})
 // }
+addImage = () => {
+const { product } = this.state
+  let imagesArr = product.images.split('')
+  console.log(imagesArr)
+  // this.setState({images:imagesArr})
+}
+
   onSubmit=()=>{
     let { product } = this.state
+
     
     if(product.model.length === 0||product.prize === 0 || product.description.length === 0 || product.category.length === 0){
       toastr.error("Please complete all required fields")
       return
     }else{
+      this.addImage()
       ProductServices.productForm(product)
         .then((product)=>{
           console.log(product.data)
@@ -70,7 +81,7 @@ class ProductCreate extends Component {
   render(){
     const { selectedItems, product } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-
+console.log(this.state)
 
     if(this.state.productCreated){
       // return (<Redirect to="/product/upload/image" />)
@@ -83,6 +94,10 @@ class ProductCreate extends Component {
           <div className="create-card">
             <Input name="model" placeholder="Please enter product name"  onChange={this.onChange} />
             <Input name="prize" type="number" placeholder="Please enter product price"  onChange={this.onChange} />
+            <Input name="images" type="text" placeholder="Add Cloudinary image url" onChange={this.onChange} />
+            {/* <Input type="text" placeholder="Add Cloudinary image url" onChange={this.addImage} />
+            <Input type="text" placeholder="Add Cloudinary image url" onChange={this.addImage} /> */}
+
             <TextArea name="description"  rows={4} placeholder="Please enter product description"  onChange={this.onChange} />
             <Select
             mode="multiple"

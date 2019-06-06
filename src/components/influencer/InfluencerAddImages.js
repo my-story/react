@@ -10,7 +10,7 @@ class  AddImageInflu extends Component{
     state={
         influencer:this.props.influencer,
         privateInfo:{},
-        images:{},
+        images:[],
         done: false,
     }
     handleChange = (e) => {
@@ -50,6 +50,7 @@ class  AddImageInflu extends Component{
                 <div className="image-container">
                 <h1>Add Profile Pic</h1>
                     <input type="file" onChange={this.handleChange}/>    
+
                     <button onClick={this.handleSubmit}>Add image</button>    
                 </div>
                 </div>
