@@ -4,11 +4,14 @@ import { Input, Checkbox } from 'antd';
 import * as toastr from 'toastr'
 
 // import Checkout from '../Payment/Checkout'
-
+import countries from '../../constants/countries'
 import OrderServices from '../../services/OrderServices'
 import Cookies from 'universal-cookie';
 import UserContext from '../contexts/UserContext';
 
+import { Select } from 'antd';
+
+const { Option } = Select
 
 class ShippingRates extends Component{
     state={
@@ -22,14 +25,16 @@ class ShippingRates extends Component{
             zip:"",
             country:""
         },
+        // countries:"",
         addressCheck: "",
         billing:true
     }
     static contextType = UserContext
 
-    componentDidMount(){
+    componentDidMount=()=>{
         const cookies = new Cookies();
-        this.setState({products:cookies.get('Products')})
+        this.setState({products:cookies.get('Products'), countries})
+
     }
 
     getTotal(){
@@ -51,6 +56,11 @@ class ShippingRates extends Component{
     address[e.target.name] = e.target.value
     this.setState({ address })
 }
+    onClick(e){
+        // const {address} = this.state
+        // address.country = e.target
+        console.log(e)
+    }
 
     validateAddress = ()=> {
         const { address } = this.state
@@ -83,10 +93,13 @@ class ShippingRates extends Component{
 
 
     render(){
-console.log(this.state)
+    const { countrieslist} = this.state
+    console.log(this.onClick)
+
         if(this.getTotal() === 0){
             return(<Redirect to="/"></Redirect>)
         }
+        
         if(this.state.addressCheck === ""){
             return(
                 <div>
@@ -98,6 +111,25 @@ console.log(this.state)
                     <Input name="state" placeholder="Enter State " onChange={this.onChange} />
                     <Input name="zip" type="number" placeholder="Enter Zipcode" onChange={this.onChange} />
                     <Input name="country" placeholder="Enter Country" onChange={this.onChange} />
+                    
+                    {/* <Select name="country"
+                            onClick={this.onClick}
+                            showSearch
+                            style={{ width: 200 }}
+                            placeholder="Select a a Country"
+                            optionFilterProp="children"
+                            filterOption={(input, option) =>
+                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                            }
+                        >
+                        {countries.map((i,index)=>{
+                    return(
+                        <Option key={index} name="country" value={i.name}>{i.name}</Option>
+
+                    )
+                })}
+                        </Select> */}
+
                     <Checkbox onChange={this.useBilling}>Use this as your Billing Address?</Checkbox>
                     <div>
                     <button onClick={()=>this.validateAddress()}>Check address</button>

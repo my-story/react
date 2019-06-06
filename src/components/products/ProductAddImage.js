@@ -9,12 +9,13 @@ const serviceUpload  = axios.create({url, withCredentials: true})
 class  AddImage extends Component{
     state={
         privateInfo:{},
-        images:{},
+        images:[],
         done: false,
     }
     handleChange = (e) => {
-        this.setState({images: e.target.files[0]})
+        this.setState({images:[...this.state.images, e.target.files]})
     }
+
     handleSubmit = () => {
         const { privateInfo,images } = this.state
         this.subeImagen(images, url)
@@ -49,6 +50,7 @@ class  AddImage extends Component{
                 <div className="image-container">
                 <h1>Add Image For Product</h1>
 
+                <input type="file" onChange={this.handleChange}/>    
                     <input type="file" onChange={this.handleChange}/>    
                     <button onClick={this.handleSubmit}>Add image</button>    
                 </div>

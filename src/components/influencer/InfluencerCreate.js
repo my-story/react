@@ -5,6 +5,7 @@ import { Redirect} from 'react-router-dom'
 import { Input, Tooltip, Icon, Select } from 'antd';
 import * as toastr from 'toastr'
 import AddImageInflu from './InfluencerAddImages';
+
 // import { Redirect } from 'react-router-dom';
 
 const OPTIONS = ["Athlete","Musician","Tech","Artist"];
@@ -16,14 +17,15 @@ class InfluencerCreate extends Component{
             name: "",
             review:"",
             percentage:"",
-            user: this.props.user
+            user: this.props.user,
+            countries:""
         },
         selectedItems: [],
         done: false,
         influencerDone: {},
     }
 
- 
+
 
     onChange = e => {
         let { data } = this.state
@@ -52,6 +54,7 @@ class InfluencerCreate extends Component{
 
 
     render(){
+
         const { selectedItems,data } = this.state;
         const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o))
         if (this.props.user.role === "Admin"){
