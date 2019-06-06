@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import axios from 'axios';
 import OrderServices from '../../services/OrderServices'
 import MailerServices from '../../services/MailerServices'
-
 import * as toastr from 'toastr'
 import StripeCheckout from 'react-stripe-checkout';
 import STRIPE_PUBLISHABLE from '../../constants/stripe';
@@ -24,26 +23,64 @@ const successPayment = () => {
 };
 
 const errorPayment = data => {
+  console.log("hey catch")
   toastr.error('Payment Error');
 };
 
-const checkReward = (products) =>{
+// axios.get(url, {withCredentials:true})
+// .then((res)=>{
+//     this.setState({
+//       category: res.data.category,
+//       description: res.data.description,
+//       influencer: res.data.influencer,
+//       model: res.data.model,
+//       prize: res.data.prize,
+//       images: res.data.images,
+//       _id: res.data._id,
+//     })   
+//     console.log(res)
+// })
+// .catch(err=>console.log(err))
+
+const getInfluencers = (products) =>{
   const rewardArr = [];
   let reward = {};
   for (var i = 0; i < products.length; i++){
     reward["influencer"] = products[i].influencer;
-    // reward["reward"] = (products[i].prize * products[i].qty) * (percentage);
+    reward["price"] = products[i].prize;
+    reward["qty"] = products[i].qty;
+
     rewardArr.push(reward);
     reward = {};
   }
-  console.log(rewardArr);
+  return rewardArr;
 }
 
+
 const orderUpdate = (token,user,address) => {
-  console.log(address)
+  console.log("hey sucess")
     const cookies = new Cookies();
     let products = cookies.get("Products")
-    checkReward(products);
+    let rewardArr = getInfluencers(products);
+    console.log(rewardArr);
+
+    for (var i = 0; i < rewardArr.length; i++){
+      let revenue = rewardArr[i].price * rewardArr[i].qty;
+      
+      axios.get(`http://localhost:3002/influencer/${rewardArr[i].influencer}`)
+        .then((influencer) => {
+          let influencerCut = revenue * influencer.data.percentage;
+          let newReward = influencerCut + influencer.data.reward;
+        
+          axios.post(`http://localhost:3002/influencer/edit/${influencer.data._id}`, {reward:newReward})
+            .then((influencer) => {
+              console.log("added influencer reward to" + influencer);
+            })
+            .catch((error) => console.log(error))
+          // then add this to the influencer reward
+        })
+        .catch((error) => console.log(error));
+    }
     // let productIds = []
     //   products[0].forEach(function(product){
     //     productIds.push(product._id)
@@ -61,7 +98,7 @@ const orderUpdate = (token,user,address) => {
 
 }
 
-const onToken = (amount, description, user, address) => token =>
+const onToken = (amount, description, user, address) => token =>{
   axios.post(PAYMENT_SERVER_URL,
     {
       description,
@@ -69,10 +106,9 @@ const onToken = (amount, description, user, address) => token =>
       currency: CURRENCY,
       amount: fromEuroToCent(amount)
     })
-    .then(successPayment,orderUpdate(token,user, address))
-      // OrderServices.payCart({cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
-    
-    .catch(errorPayment);
+    .then(() => successPayment,orderUpdate(token,user, address))    
+    .catch(() => errorPayment);
+}
 
 const Checkout = ({ name, description, amount, user, address }) =>{
    

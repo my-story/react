@@ -62,7 +62,7 @@ class CardItem extends Component {
   }
 
   render(){
-    // console.log(this.state.product)
+    console.log(this.props.product)
 
   
     return(
@@ -75,6 +75,7 @@ class CardItem extends Component {
             <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer)}>
               <option value="1">1</option>
               <option value="2">2</option>
+              <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
               <option value="6">6</option>
