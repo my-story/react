@@ -23,6 +23,7 @@ const successPayment = () => {
 };
 
 const errorPayment = data => {
+  console.log("hey catch")
   toastr.error('Payment Error');
 };
 
@@ -57,10 +58,29 @@ const getInfluencers = (products) =>{
 
 
 const orderUpdate = (token,user,address) => {
-  console.log(address)
+  console.log("hey sucess")
     const cookies = new Cookies();
     let products = cookies.get("Products")
     let rewardArr = getInfluencers(products);
+    console.log(rewardArr);
+
+    for (var i = 0; i < rewardArr.length; i++){
+      let revenue = rewardArr[i].price * rewardArr[i].qty;
+      
+      axios.get(`http://localhost:3002/influencer/${rewardArr[i].influencer}`)
+        .then((influencer) => {
+          let influencerCut = revenue * influencer.data.percentage;
+          let newReward = influencerCut + influencer.data.reward;
+        
+          axios.post(`http://localhost:3002/influencer/edit/${influencer.data._id}`, {reward:newReward})
+            .then((influencer) => {
+              console.log("added influencer reward to" + influencer);
+            })
+            .catch((error) => console.log(error))
+          // then add this to the influencer reward
+        })
+        .catch((error) => console.log(error));
+    }
     // let productIds = []
     //   products[0].forEach(function(product){
     //     productIds.push(product._id)
@@ -78,7 +98,7 @@ const orderUpdate = (token,user,address) => {
 
 }
 
-const onToken = (amount, description, user, address) => token =>
+const onToken = (amount, description, user, address) => token =>{
   axios.post(PAYMENT_SERVER_URL,
     {
       description,
@@ -86,10 +106,9 @@ const onToken = (amount, description, user, address) => token =>
       currency: CURRENCY,
       amount: fromEuroToCent(amount)
     })
-    .then(successPayment,orderUpdate(token,user, address))
-      // OrderServices.payCart({cardname:token.card.name , address: token.card.address_line1 , address_city: token.card.address_city,address_zip: token.card.address_zip})
-    
-    .catch(errorPayment);
+    .then(() => successPayment,orderUpdate(token,user, address))    
+    .catch(() => errorPayment);
+}
 
 const Checkout = ({ name, description, amount, user, address }) =>{
    
