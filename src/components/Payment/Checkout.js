@@ -8,6 +8,8 @@ import STRIPE_PUBLISHABLE from '../../constants/stripe';
 import PAYMENT_SERVER_URL from '../../constants/server';
 import Cookies from 'universal-cookie';
 
+
+
 const CURRENCY = 'USD';
 
 const fromEuroToCent = amount => amount * 100;

@@ -3,6 +3,9 @@ import Cookies from 'universal-cookie'
 import UserContext from '../contexts/UserContext';
 import Checkout from '../Payment/Checkout'
 
+// Latest impletantion Stripe
+import Stripe from '../Payment/Stripe'
+
 const cookies = new Cookies();
 
 class CartPay extends Component{
@@ -46,8 +49,8 @@ return counter;
 totalCost = ()=>{
     const { rate} = this.state
     let total = 0
-    let tax = (+this.getTotal() * 0.025).toFixed(2)
-    total = (+rate.amount + +this.getTotal() + +tax).toFixed(2)
+    let tax = Number((+this.getTotal() * 0.025).toFixed(2))
+    total = Number((+rate.amount + +this.getTotal() + +tax).toFixed(2))
     this.setState({total, tax})
 }
 
@@ -88,6 +91,9 @@ componentDidMount(){
                         <p>Tax: ${this.state.tax}</p>
                         <p>Total: ${this.state.total}</p>
                 </div>
+
+                <Stripe total={this.state.total}></Stripe>
+
                     <Checkout 
                     // onClick={this.validateAddress()}
                     name={`You have ${this.state.products.length}# of item(s)`}
