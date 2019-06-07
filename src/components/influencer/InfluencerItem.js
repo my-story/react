@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import UserContext from '../contexts/UserContext';
-import {Link} from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import * as toastr from 'toastr';
+import InfluencerUpdate from "./InfluencerUpdate";
 
 class InfluencerList extends Component{
+  state={
+    update: false,
+  }
   static contextType = UserContext;
 
   delete = () =>{
@@ -18,7 +22,13 @@ class InfluencerList extends Component{
         // this.setState({review:review.data[0],influencer: review.data[0].influencer})
     })
     .catch(err=>console.log(err))
-}
+  }
+
+  update = () =>{
+    this.setState({
+      update: true
+    })
+  }
   render(){
     if(this.context.user.role !== "Admin"){
       return(
@@ -31,6 +41,12 @@ class InfluencerList extends Component{
         </div>
       )
     } else {
+      if(this.state.update === true){
+        return(<Redirect to={{
+          pathname:"/influencerUpdate",
+          state:{influencer: this.props.influencer}
+        }} />)
+      }
       return(
         <div className="influencer-card">
         <Link to={`review/${this.props.influencer._id}`}>
@@ -38,7 +54,7 @@ class InfluencerList extends Component{
           <p>description: {this.props.influencer.review}</p>
           {/* <img height="100" src={i.profilePic} alt={i.name} /> */}
         </Link>
-        <button>Update</button>
+        <button onClick={this.update}>Update</button>
         <button onClick={this.delete}>Delete</button>
         </div>
       )

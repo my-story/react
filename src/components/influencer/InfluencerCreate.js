@@ -61,14 +61,12 @@ class InfluencerCreate extends Component{
             if(!this.state.done) {
                 return(
                 <div>   
-                        <h1>Create Influencer</h1>
-        
+                    <h1>Create Influencer</h1>
                     <div className="create-card">
-            
                         <Input name="name" placeholder="Enter Person's Name" onChange={this.onChange} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} suffix={
                         <Tooltip title="Make Sure to write with Capitals">
                         <Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)' }} />
-                    </Tooltip>
+                        </Tooltip>
                     }/>
                         <Input name="review" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
                         <Select
@@ -97,4 +95,4 @@ class InfluencerCreate extends Component{
     }
     }
 }
-export default InfluencerCreate
+export default InfluencerCreate;
