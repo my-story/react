@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-
 import axios from 'axios'
 import SearchBar from './SearchInfluencer'
 import InfluencerServices from '../../services/InfluencerServices'
-import AuthServices from '../../services/AuthServices'
-
-import {Link} from 'react-router-dom'
+// import AuthServices from '../../services/AuthServices'
+import InfluencerItem from "./InfluencerItem";
 import Slider from "react-slick";
 
 const settings = {
@@ -45,31 +43,27 @@ class InfluencerList extends Component{
         // this.checkLogged()
     }
 
+
+
     render(){
         const {influencers} = this.state
-        return(
-            <div>
-                <h1>Influencer landing</h1>
+            return(
                 <div>
-                <SearchBar getFilter={this.getFilter} />
+                    <h1>Influencer landing</h1>
+                    <div>
+                    <SearchBar getFilter={this.getFilter} />
+                    </div>
+                    <Slider {...settings}>
+                    {influencers.map((i,index)=>{
+                        return(
+                            <InfluencerItem key={index} influencer={i}></InfluencerItem>
+                        )
+                    })}
+                    </Slider>
+    
                 </div>
-                <Slider {...settings}>
-                {influencers.map((i,index)=>{
-                    return(
-                        <Link key={i}to={`review/${i._id}`}>
-                        <div key={index} className="influencer-card">
-                        <p>name: {i.name}</p>
-                        <p>description: {i.review}</p>
-                        <img height="100" src={i.profilePic} alt={i.name} />
-                        </div>
-                        </Link>
-                    )
-                })}
-                </Slider>
-
-            </div>
-        )
-    }
+            )
+}
 }
 
 export default InfluencerList;
