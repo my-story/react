@@ -80,7 +80,7 @@ class  ProductDetail extends Component{
       <div>
         <h3>Product Detail</h3>
         <ul>
-          <li><img src={this.state.images} alt="image of the product"/></li>
+          <li><img src={this.state.images[0]} alt="the product"/></li>
           <li>category: {this.state.category}</li>
           <li>description: {this.state.description}</li>
           <li>influencer: {this.state.influencer}</li>
