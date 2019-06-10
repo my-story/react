@@ -34,23 +34,7 @@ class InfluencerUpdate extends Component{
             ...this.state.data,
             expertise: selectedItems} })
     }
-    // let id = this.state.influencer;
-    // const url= `http://localhost:3002/reviews/edit/${id}`;
-    // const newReview = {
-    //   title: this.state.title,
-    //   review: this.state.review,
-    //   influencer: this.state.influencer,
-    //   video: this.state.video,
-    //   voicenote: this.state.voicenote,
-    //   user: this.context.user
-    // }
-    // console.log(newReview);
-    // axios.post(url, newReview, {withCredentials:true})
-    //   .then((review)=>{   
-    //       console.log(review)
-    //       this.setState({created:true})
-    //   })
-    //   .catch(err=>console.log(err))
+
       onSubmit=()=>{
         let { data } = this.state;
         

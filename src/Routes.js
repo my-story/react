@@ -13,9 +13,8 @@ import Checkout from './components/Payment/Checkout';
 import CartLanding from './components/cart/CartLading';
 import ShippingRates from './components/cart/ShippingItems'
 import FinalCheckout from './components/cart/FinalCheckout';
-
+import ProductUpdate from "./components/products/ProductUpdate"
 import CartPay from './components/cart/CartPay';
-
 import ReviewUpdate from './components/reviews/ReviewUpdate';
 import InfluencerUpdate from './components/influencer/InfluencerUpdate';
 
@@ -38,6 +37,7 @@ export default (props) => (
   <Route path="/pay-checkout" component={CartPay} />
   <Route path="/reviewUpdate" component={ReviewUpdate} />
   <Route path="/influencerUpdate" component={InfluencerUpdate}/>
+  <Route path="/ProductUpdate" component={ProductUpdate}/>
 </Switch>
 
 );

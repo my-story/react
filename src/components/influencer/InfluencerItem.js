@@ -4,6 +4,8 @@ import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import * as toastr from 'toastr';
 import InfluencerUpdate from "./InfluencerUpdate";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class InfluencerList extends Component{
   state={
@@ -23,6 +25,28 @@ class InfluencerList extends Component{
     })
     .catch(err=>console.log(err))
   }
+
+
+  saidNo = () =>{
+    toastr.error("didn't delete the review");
+}
+
+submit = () => {
+    confirmAlert({
+      title: 'Confirm to delete this review',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.delete()
+        },
+        {
+          label: 'No',
+          onClick: () => this.saidNo()
+        }
+      ]
+    });
+  };
 
   update = () =>{
     this.setState({
@@ -55,7 +79,7 @@ class InfluencerList extends Component{
           {/* <img height="100" src={i.profilePic} alt={i.name} /> */}
         </Link>
         <button onClick={this.update}>Update</button>
-        <button onClick={this.delete}>Delete</button>
+        <button onClick={this.submit}>Delete</button>
         </div>
       )
     }
