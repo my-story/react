@@ -3,7 +3,8 @@ import UserContext from '../contexts/UserContext';
 import { Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 import * as toastr from 'toastr';
-// import InfluencerUpdate from "./InfluencerUpdate";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class ProductOne extends Component{
   state={
@@ -29,6 +30,28 @@ class ProductOne extends Component{
       update: true
     })
   }
+
+  saidNo = () =>{
+    toastr.error("didn't delete the review");
+  }   
+
+  submit = () => {
+    confirmAlert({
+      title: 'Confirm to delete this review',
+      message: 'Are you sure to do this.',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.delete()
+        },
+        {
+          label: 'No',
+          onClick: () => this.saidNo()
+        }
+      ]
+    });
+  };
+
   render(){
     if(this.context.user.role === "Admin"){
       if(this.state.update === true){
@@ -52,7 +75,7 @@ class ProductOne extends Component{
               <img height="100" src={this.props.i.images[0]} alt={this.props.i.name} />
           </Link>
           <div>
-          <button onClick={this.delete}>Delete</button>
+          <button onClick={this.submit}>Delete</button>
           <button onClick={this.update}>Update</button>
           </div>
         </div> 
