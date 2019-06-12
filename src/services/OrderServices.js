@@ -6,7 +6,7 @@ const getCart = (userId) => http.get(`order/${userId}`)
 const payCart = (user,cardname,address,addressCity,addressZip) => http.post(`order/payment`,user,cardname,address,addressCity,addressZip)
   .then(response=>response.data)
 
-const createOrder = (user, products ,email, cardname,address,addressCity,addressZip) => http.post(`order/add`,user,products,email, cardname,address,addressCity,addressZip)
+const createOrder = (user, products,address) => http.post(`order/add`,user,products,address)
 .then(response=>response.data)
 
 const checkAddress = (address, name,company,street1,city,state,zip,country) => http.post('shipping/validate',address,name,company,street1,city,state,zip,country)
