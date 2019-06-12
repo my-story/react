@@ -24,7 +24,7 @@ class ReviewOne extends Component{
         axios.get(url, {withCredentials:true})
         .then((review)=>{   
             console.log(review.data[0])
-            this.setState({review:review.data[0],influencer: review.data[0].influencer, votes: review.data[0].upvotes})
+            this.setState({review:review.data[0],influencer: review.data[0].influencer, votes: review.data[0].votes})
         })
         .catch(err=>console.log(err))
     }
@@ -69,15 +69,32 @@ class ReviewOne extends Component{
         });
       };
     
+    hasUserUpvoted = () =>{
+        let userId = this.context.user._id;
+
+        for (var i = 0; i < this.state.review.upvotes.length; i++){
+            if(this.state.review.upvotes[i] === userId){
+                return true;
+            }
+        }
+        return false;
+    }
     upvote = () =>{
-        let id = this.state.influencer._id;
-        axios.post(`http://localhost:3002/reviews/upvote/${id}`, {withCredentials:true})
-            .then((review)=>{   
-                this.setState({
-                    votes: review.data.upvotes
-                })
-            })
-            .catch(err=>console.log(err))
+        // let id = this.state.influencer._id;
+
+        // if(this.hasUserUpvoted() === false){
+        // axios.post(`http://localhost:3002/reviews/upvote/${id}`, {withCredentials:true})
+        //     .then((review)=>{
+        //         axios.post(`http://localhost:3002/reviews/user/upvote/${id}`, {_id: this.context.user.id}, {withCredentials:true})
+        //         .then((review)=>{console.log(review)})
+        //         .catch((err)=>{console.log(err)})
+                
+        //         this.setState({
+        //             votes: review.data.votes
+        //         })
+        //     })
+        //     .catch(err=>console.log(err))
+        // }
     }
 
     downvote = () =>{
@@ -85,7 +102,7 @@ class ReviewOne extends Component{
         axios.post(`http://localhost:3002/reviews/downvote/${id}`, {withCredentials:true})
             .then((review)=>{   
                 this.setState({
-                    votes: review.data.upvotes
+                    votes: review.data.votes
                 })
             })
             .catch(err=>console.log(err)) 
@@ -93,7 +110,7 @@ class ReviewOne extends Component{
 
     render(){
         const {review, influencer} = this.state
-
+        
         if(this.context.user.role !== "Admin"){
             return(
                 <div>
