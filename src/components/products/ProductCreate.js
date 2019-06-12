@@ -75,6 +75,7 @@ class ProductCreate extends Component {
   render(){
     const { selectedItems, product } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
+    console.log(this.props)
 
     if(this.state.productCreated){
       return (<Redirect to="/" />)

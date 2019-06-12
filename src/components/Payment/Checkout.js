@@ -44,19 +44,19 @@ const errorPayment = data => {
 // })
 // .catch(err=>console.log(err))
 
-const getInfluencers = (products) =>{
-  const rewardArr = [];
-  let reward = {};
-  for (var i = 0; i < products.length; i++){
-    reward["influencer"] = products[i].influencer;
-    reward["price"] = products[i].prize;
-    reward["qty"] = products[i].qty;
+  const getInfluencers = (products) =>{
+    const rewardArr = [];
+    let reward = {};
+    for (var i = 0; i < products.length; i++){
+      reward["influencer"] = products[i].influencer;
+      reward["price"] = products[i].prize;
+      reward["qty"] = products[i].qty;
 
-    rewardArr.push(reward);
-    reward = {};
+      rewardArr.push(reward);
+      reward = {};
+    }
+    return rewardArr;
   }
-  return rewardArr;
-}
 
 
 const orderUpdate = (token,user,address) => {

@@ -12,7 +12,7 @@ class Stripe extends Component {
         <div className="example">
           <h1>React Stripe Elements Example</h1>
           <Elements>
-            <CheckoutForm total={this.props.total} />
+            <CheckoutForm user={this.props.user} address={this.props.address} total={this.props.total} />
           </Elements>
         </div>
       </StripeProvider>

@@ -18,7 +18,8 @@ class InfluencerCreate extends Component{
             review:"",
             percentage:"",
             user: this.props.user,
-            countries:""
+            countries:"",
+            images:""
         },
         selectedItems: [],
         done: false,
@@ -69,6 +70,8 @@ class InfluencerCreate extends Component{
                         </Tooltip>
                     }/>
                         <Input name="review" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
+                        <Input name="images" placeholder="Add images URL" allowClear onChange={this.onChange} />
+
                         <Select
                             mode="multiple"
                             placeholder="This is his/her Category. ADMIN can create new categories"
@@ -88,7 +91,7 @@ class InfluencerCreate extends Component{
                 </div>
             )
             } else {
-                return (<AddImageInflu influencer={this.state.influencerDone}></AddImageInflu>);
+                return (<ProductCreate influencer={this.state.influencerDone}></ProductCreate>);
             }
     } else {
         return( <Redirect to="/"></Redirect>)

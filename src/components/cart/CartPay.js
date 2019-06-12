@@ -59,7 +59,7 @@ componentDidMount(){
 }
 
     render(){
-        console.log(this.state)
+        
         const { products } = this.state 
         // if(product.length === 0){
         //     return(
@@ -92,7 +92,7 @@ componentDidMount(){
                         <p>Total: ${this.state.total}</p>
                 </div>
 
-                <Stripe total={this.state.total}></Stripe>
+                <Stripe user={this.props.user} address={this.state.address} total={this.state.total}></Stripe>
 
                     <Checkout 
                     // onClick={this.validateAddress()}
