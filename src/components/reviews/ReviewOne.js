@@ -12,7 +12,8 @@ class ReviewOne extends Component{
     state={
         review:{},
         influencer:{},
-        update: false
+        update: false,
+        votes: 0
     }
     static contextType = UserContext;
 
@@ -23,7 +24,7 @@ class ReviewOne extends Component{
         axios.get(url, {withCredentials:true})
         .then((review)=>{   
             console.log(review.data[0])
-            this.setState({review:review.data[0],influencer: review.data[0].influencer})
+            this.setState({review:review.data[0],influencer: review.data[0].influencer, votes: review.data[0].upvotes})
         })
         .catch(err=>console.log(err))
     }
@@ -67,6 +68,28 @@ class ReviewOne extends Component{
           ]
         });
       };
+    
+    upvote = () =>{
+        let id = this.state.influencer._id;
+        axios.post(`http://localhost:3002/reviews/upvote/${id}`, {withCredentials:true})
+            .then((review)=>{   
+                this.setState({
+                    votes: review.data.upvotes
+                })
+            })
+            .catch(err=>console.log(err))
+    }
+
+    downvote = () =>{
+        let id = this.state.influencer._id;
+        axios.post(`http://localhost:3002/reviews/downvote/${id}`, {withCredentials:true})
+            .then((review)=>{   
+                this.setState({
+                    votes: review.data.upvotes
+                })
+            })
+            .catch(err=>console.log(err)) 
+    }
 
     render(){
         const {review, influencer} = this.state
@@ -87,6 +110,9 @@ class ReviewOne extends Component{
                        <p> voicenote: {review.voicenote}</p> 
                        <ReactPlayer url={review.video} playing={false} />
                        <AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
+                       <button onClick={this.upvote}>Upvote</button>
+                       <span>{this.state.votes}</span>
+                       <button onClick={this.downvote}>Downvote</button>
                     </div>
                 </div>
             )
