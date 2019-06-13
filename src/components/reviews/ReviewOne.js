@@ -13,7 +13,9 @@ class ReviewOne extends Component{
         review:{},
         influencer:{},
         update: false,
-        votes: 0
+        votes: 0,
+        upvoted: false,
+        downvoted: false
     }
     static contextType = UserContext;
 
@@ -70,47 +72,94 @@ class ReviewOne extends Component{
       };
     
     hasUserUpvoted = () =>{
-        let userId = this.context.user._id;
+        for (var i = 0; i < this.context.user.reviewsUpvoted.length; i++){
+            if(this.context.user.reviewsUpvoted[i] === this.state.review._id){
+                return true;
+            }
+        }
+        return false;
+    }
 
-        for (var i = 0; i < this.state.review.upvotes.length; i++){
-            if(this.state.review.upvotes[i] === userId){
+    hasUserDownvoted = () =>{
+        for (var i = 0; i < this.context.user.reviewsDownvoted.length; i++){
+            if(this.context.user.reviewsDownvoted[i] === this.state.review._id){
                 return true;
             }
         }
         return false;
     }
     upvote = () =>{
-        // let id = this.state.influencer._id;
+        let influencerId = this.state.influencer._id;
+        let userId = this.context.user._id
 
-        // if(this.hasUserUpvoted() === false){
-        // axios.post(`http://localhost:3002/reviews/upvote/${id}`, {withCredentials:true})
-        //     .then((review)=>{
-        //         axios.post(`http://localhost:3002/reviews/user/upvote/${id}`, {_id: this.context.user.id}, {withCredentials:true})
-        //         .then((review)=>{console.log(review)})
-        //         .catch((err)=>{console.log(err)})
+        if(this.hasUserDownvoted){
+            axios.post(`http://localhost:3002/api/pull/downvote/${userId}`, {reviewId: this.state.review._id},{withCredentials:true})
+                .then((user) =>{
+                    console.log(user)
+                    this.setState({
+                        downvoted: false
+                    })
+                })
+                .catch((err)=> console.log(err));
+        }
+
+        if(this.hasUserUpvoted() === false && this.state.upvoted === false){
+        axios.post(`http://localhost:3002/reviews/upvote/${influencerId}`, {withCredentials:true})
+            .then((review)=>{
+                axios.post(`http://localhost:3002/api/upvote/${userId}`, {reviewId: this.state.review._id}, {withCredentials:true})
+                .then((user)=>{
+                    console.log(user)
+                    this.setState({
+                        upvoted: true
+                    })
+                })
+                .catch((err)=>{console.log(err)})
                 
-        //         this.setState({
-        //             votes: review.data.votes
-        //         })
-        //     })
-        //     .catch(err=>console.log(err))
-        // }
-    }
-
-    downvote = () =>{
-        let id = this.state.influencer._id;
-        axios.post(`http://localhost:3002/reviews/downvote/${id}`, {withCredentials:true})
-            .then((review)=>{   
                 this.setState({
                     votes: review.data.votes
                 })
             })
-            .catch(err=>console.log(err)) 
+            .catch(err=>console.log(err))
+        }
+    }
+
+    downvote = () =>{
+        let influencerId = this.state.influencer._id;
+        let userId = this.context.user._id
+
+        if(this.hasUserUpvoted){
+            axios.post(`http://localhost:3002/api/pull/upvote/${userId}`, {reviewId: this.state.review._id},{withCredentials:true})
+                .then((user) =>{
+                    console.log(user)
+                    this.setState({
+                        upvoted: false
+                    })
+                })
+                .catch((err)=> console.log(err));
+        }
+
+        if(this.hasUserDownvoted() === false && this.state.downvoted === false){
+            axios.post(`http://localhost:3002/reviews/downvote/${influencerId}`, {withCredentials:true})
+            .then((review)=>{
+                axios.post(`http://localhost:3002/api/downvote/${userId}`, {reviewId: this.state.review._id}, {withCredentials:true})
+                .then((user)=>{
+                    console.log(user)
+                    this.setState({
+                        downvoted: true
+                    })
+                })
+                .catch((err)=>{console.log(err)})
+                
+                this.setState({
+                    votes: review.data.votes
+                })
+            })
+            .catch(err=>console.log(err))
+        }
     }
 
     render(){
         const {review, influencer} = this.state
-        
         if(this.context.user.role !== "Admin"){
             return(
                 <div>
@@ -160,6 +209,7 @@ class ReviewOne extends Component{
                 )
               }
         }
+        
     }
 }
 
