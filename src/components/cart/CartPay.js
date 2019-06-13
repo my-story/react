@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
+
+import {Redirect} from 'react-router-dom'
 import Cookies from 'universal-cookie'
 import UserContext from '../contexts/UserContext';
-import Checkout from '../Payment/Checkout'
-
 // Latest impletantion Stripe
 import Stripe from '../Payment/Stripe'
 
@@ -59,8 +59,14 @@ componentDidMount(){
 }
 
     render(){
-        
+
         const { products } = this.state 
+
+    
+        if(products === undefined ){
+          return(<Redirect to="/"></Redirect>)
+        }
+        console.log(this.state)
         // if(product.length === 0){
         //     return(
         //         <div>
@@ -94,7 +100,7 @@ componentDidMount(){
 
                 <Stripe user={this.props.user} address={this.state.address} total={this.state.total}></Stripe>
 
-                    <Checkout 
+                    {/* <Checkout 
                     // onClick={this.validateAddress()}
                     name={`You have ${this.state.products.length}# of item(s)`}
                     description={"thank you for buying with my story"}
@@ -103,7 +109,7 @@ componentDidMount(){
                     user={this.props.user}   
                     address={this.state.address}       
                     >
-                    </Checkout> 
+                    </Checkout>  */}
             </div>
         )
     }

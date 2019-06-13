@@ -3,16 +3,27 @@ import {CardElement, injectStripe} from 'react-stripe-elements';
 
 import OrderServices from '../../services/OrderServices'
 import MailerServices from '../../services/MailerServices'
+import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 import Cookies from 'universal-cookie'
+import UserContext from '../contexts/UserContext'
 
 
 class CheckoutForm extends Component {
   constructor(props) {
     super(props);
     this.submit = this.submit.bind(this);
+    this.state = {
+      user:{
+        email: '',
+        name:'',
+      },
+      total: 0
+    }
     // this.total = this.props.total
   }
+  static contextType = UserContext
+
 
   reward = (rewardArr) =>{
     for (var i = 0; i < rewardArr.length; i++){
@@ -31,6 +42,7 @@ class CheckoutForm extends Component {
         .catch((error) => console.log(error));
     }
   }
+
    getInfluencers = (products) =>{
     const rewardArr = [];
     let reward = {};
@@ -45,17 +57,12 @@ class CheckoutForm extends Component {
     return rewardArr;
   }
 
-  
+  onChange = (e) =>{
+    let { user } = this.state
+    user[e.target.name] = e.target.value
+    this.setState({ user })
+  }
 
-  // componentDidMount(){
-  //   this.makeDecimal()
-  // }
-
-  // makeDecimal = () =>{
-  //   const { total } = this.state
-  //   let newTotal = parseInt(total.toString().replace(".", ""), 10);
-  //   this.setState({...this.state, total:newTotal})
-  // }
 
   async submit(ev) {
 
@@ -64,7 +71,7 @@ class CheckoutForm extends Component {
       axios.post("http://localhost:3002/payment/charge", {
         headers: {"Content-Type": "text/plain"},
         token: token.id,
-        total: this.props.total * 100,
+        total: Math.trunc(this.props.total * 100),
         // address: this.props.address
       })
       // if(response.ok){
@@ -96,25 +103,35 @@ class CheckoutForm extends Component {
         // }
 
 
-        OrderServices.createOrder({user:this.props.user, products: products, address:this.props.address})
+        OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
         .then((res)=> {
           console.log(res)
-          MailerServices.sendMail({name:token.card.name , email:token.email})
+          MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email})
           const cookies = new Cookies();
           cookies.remove("Products");
+          res.props.history.push('/')
         })
         .catch((e)=> console.log(e))
 
           })
           .catch((err)=>console.log("erorrr paying", err))
       }
+
       
 
   render() {
     console.log(this.props)
+    // const cookies = new Cookies();
+    // let products = cookies.get("Products")
+
+    // if(products === undefined ){
+    //   return(<Redirect to="/"></Redirect>)
+    // }
     return (
       <div className="checkout">
         <p>Would you like to complete the purchase?</p>
+        <input type="text" name="name" onChange={this.onChange}/>
+        <input type="email" name="email" onChange={this.onChange}/>
         <CardElement />
         <button onClick={this.submit}>Send</button>
       </div>
