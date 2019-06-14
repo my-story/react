@@ -167,28 +167,51 @@ class ReviewOne extends Component{
 
     render(){
         const {review, influencer} = this.state
+        console.log(this.state.user);
         if(this.context.user.role !== "Admin"){
-            return(
-                <div>
+            if(this.state.upvoted){
+                return(
                     <div>
-                        <img src={influencer.profilePic} alt={influencer.name} />
-                        <p>name: {influencer.name}</p>
-                        <p>expertise: {influencer.expertise}</p>
-                        <p>review: {influencer.review}</p>
+                        <div>
+                            <img src={influencer.profilePic} alt={influencer.name} />
+                            <p>name: {influencer.name}</p>
+                            <p>expertise: {influencer.expertise}</p>
+                            <p>review: {influencer.review}</p>
+                        </div>
+                        <div>
+                            <h3>Review</h3>
+                           <p> title: {review.title}</p> 
+                           <p> review: {review.review}</p> 
+                           <p> voicenote: {review.voicenote}</p> 
+                           <ReactPlayer url={review.video} playing={false} />
+                           <AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
+                           <button onClick={this.downvote}>Downvote</button>
+                           <span>{this.state.votes}</span>
+                        </div>
                     </div>
+                )
+            } else {
+                return(
                     <div>
-                        <h3>Review</h3>
-                       <p> title: {review.title}</p> 
-                       <p> review: {review.review}</p> 
-                       <p> voicenote: {review.voicenote}</p> 
-                       <ReactPlayer url={review.video} playing={false} />
-                       <AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
-                       <button onClick={this.upvote}>Upvote</button>
-                       <span>{this.state.votes}</span>
-                       <button onClick={this.downvote}>Downvote</button>
+                        <div>
+                            <img src={influencer.profilePic} alt={influencer.name} />
+                            <p>name: {influencer.name}</p>
+                            <p>expertise: {influencer.expertise}</p>
+                            <p>review: {influencer.review}</p>
+                        </div>
+                        <div>
+                            <h3>Review</h3>
+                           <p> title: {review.title}</p> 
+                           <p> review: {review.review}</p> 
+                           <p> voicenote: {review.voicenote}</p> 
+                           <ReactPlayer url={review.video} playing={false} />
+                           <AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
+                           <button onClick={this.upvote}>Upvote</button>
+                           <span>{this.state.votes}</span>
+                        </div>
                     </div>
-                </div>
-            )
+                )
+            }
         } else {
             if(this.state.update){
                 return(<ReviewUpdate oldReview={this.state}/>)
