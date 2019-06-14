@@ -9,6 +9,8 @@ import Cookies from 'universal-cookie'
 import UserContext from '../contexts/UserContext'
 
 
+
+
 class CheckoutForm extends Component {
   constructor(props) {
     super(props);
@@ -18,6 +20,11 @@ class CheckoutForm extends Component {
         email: '',
         name:'',
       },
+      message:{
+        total: this.props.total,
+        products: ""
+      },
+      paid: false,
       total: 0
     }
     // this.total = this.props.total
@@ -25,6 +32,12 @@ class CheckoutForm extends Component {
   static contextType = UserContext
 
 
+componentDidMount(){
+  // COokie of Products  
+const cookies = new Cookies();
+let products = cookies.get("Products")
+this.setState({products})
+}
   reward = (rewardArr) =>{
     for (var i = 0; i < rewardArr.length; i++){
       let revenue = rewardArr[i].price * rewardArr[i].qty;
@@ -65,8 +78,8 @@ class CheckoutForm extends Component {
 
 
   async submit(ev) {
-
-      let {token} = await this.props.stripe.createToken({name: "Name"});
+    
+      let {token} = await this.props.stripe.createToken({name: this.state.user.email});
 
       axios.post("http://localhost:3002/payment/charge", {
         headers: {"Content-Type": "text/plain"},
@@ -106,10 +119,12 @@ class CheckoutForm extends Component {
         OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
         .then((res)=> {
           console.log(res)
-          MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email})
+          MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email, message:this.state.message})
           const cookies = new Cookies();
+
           cookies.remove("Products");
-          res.props.history.push('/')
+
+          this.setState({paid:true})
         })
         .catch((e)=> console.log(e))
 
@@ -117,16 +132,18 @@ class CheckoutForm extends Component {
           .catch((err)=>console.log("erorrr paying", err))
       }
 
+
       
 
   render() {
-    console.log(this.props)
+    // console.log(this.context.user.username)
     // const cookies = new Cookies();
     // let products = cookies.get("Products")
 
-    // if(products === undefined ){
-    //   return(<Redirect to="/"></Redirect>)
-    // }
+    if(this.state.paid === true ){
+      return(<Redirect to="/order-fulfillment"></Redirect>)
+    }
+
     return (
       <div className="checkout">
         <p>Would you like to complete the purchase?</p>

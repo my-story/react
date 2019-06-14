@@ -17,6 +17,7 @@ import ProductUpdate from "./components/products/ProductUpdate"
 import CartPay from './components/cart/CartPay';
 import ReviewUpdate from './components/reviews/ReviewUpdate';
 import InfluencerUpdate from './components/influencer/InfluencerUpdate';
+import OrderPaid from './components/Payment/OrderPaid';
 
 
 export default (props) => (
@@ -38,6 +39,8 @@ export default (props) => (
   <Route path="/reviewUpdate" component={ReviewUpdate} />
   <Route path="/influencerUpdate" component={InfluencerUpdate}/>
   <Route path="/ProductUpdate" component={ProductUpdate}/>
+  <Route path="/order-fulfillment" component={OrderPaid}/>
+
 </Switch>
 
 );
