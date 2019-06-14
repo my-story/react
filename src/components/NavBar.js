@@ -4,6 +4,7 @@ import {Icon} from 'antd';
 import Logout from './auth/logout';
 import Cookies from 'universal-cookie';
 import {QtyConsumer} from "./contexts/QtyContext"
+
 class NavBar extends Component {
     state = {
 

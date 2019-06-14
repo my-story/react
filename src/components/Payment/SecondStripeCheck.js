@@ -8,9 +8,8 @@ import axios from 'axios'
 import Cookies from 'universal-cookie'
 import UserContext from '../contexts/UserContext'
 
-//COokie of Products  
-const cookies = new Cookies();
-let products = cookies.get("Products")
+
+
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -23,7 +22,7 @@ class CheckoutForm extends Component {
       },
       message:{
         total: this.props.total,
-        products: products
+        products: ""
       },
       paid: false,
       total: 0
@@ -33,6 +32,12 @@ class CheckoutForm extends Component {
   static contextType = UserContext
 
 
+componentDidMount(){
+  // COokie of Products  
+const cookies = new Cookies();
+let products = cookies.get("Products")
+this.setState({products})
+}
   reward = (rewardArr) =>{
     for (var i = 0; i < rewardArr.length; i++){
       let revenue = rewardArr[i].price * rewardArr[i].qty;
@@ -116,7 +121,9 @@ class CheckoutForm extends Component {
           console.log(res)
           MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email, message:this.state.message})
           const cookies = new Cookies();
+
           cookies.remove("Products");
+
           this.setState({paid:true})
         })
         .catch((e)=> console.log(e))
@@ -124,6 +131,7 @@ class CheckoutForm extends Component {
           })
           .catch((err)=>console.log("erorrr paying", err))
       }
+
 
       
 
@@ -133,7 +141,7 @@ class CheckoutForm extends Component {
     // let products = cookies.get("Products")
 
     if(this.state.paid === true ){
-      return(<Redirect to="/"></Redirect>)
+      return(<Redirect to="/order-fulfillment"></Redirect>)
     }
 
     return (
