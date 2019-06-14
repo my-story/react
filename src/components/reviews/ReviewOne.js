@@ -26,7 +26,7 @@ class ReviewOne extends Component{
         axios.get(url, {withCredentials:true})
         .then((review)=>{   
             console.log(review.data[0])
-            this.setState({review:review.data[0],influencer: review.data[0].influencer, votes: review.data[0].votes, upvoted: this.hasUserUpvoted(), downvoted: this.hasUserUpvoted()})
+            this.setState({review:review.data[0],influencer: review.data[0].influencer, votes: review.data[0].votes, upvoted: this.hasUserUpvoted(), downvoted: this.hasUserDownvoted()})
         })
         .catch(err=>console.log(err))
     }
@@ -102,7 +102,6 @@ class ReviewOne extends Component{
                 })
                 .catch((err)=> console.log(err));
         }
-
         if(this.hasUserUpvoted() === false && this.state.upvoted === false){
         axios.post(`http://localhost:3002/reviews/upvote/${influencerId}`, {withCredentials:true})
             .then((review)=>{

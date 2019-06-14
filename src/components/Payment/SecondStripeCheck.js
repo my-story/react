@@ -8,6 +8,9 @@ import axios from 'axios'
 import Cookies from 'universal-cookie'
 import UserContext from '../contexts/UserContext'
 
+//COokie of Products  
+const cookies = new Cookies();
+let products = cookies.get("Products")
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -18,6 +21,11 @@ class CheckoutForm extends Component {
         email: '',
         name:'',
       },
+      message:{
+        total: this.props.total,
+        products: products
+      },
+      paid: false,
       total: 0
     }
     // this.total = this.props.total
@@ -65,8 +73,8 @@ class CheckoutForm extends Component {
 
 
   async submit(ev) {
-
-      let {token} = await this.props.stripe.createToken({name: "Name"});
+    
+      let {token} = await this.props.stripe.createToken({name: this.state.user.email});
 
       axios.post("http://localhost:3002/payment/charge", {
         headers: {"Content-Type": "text/plain"},
@@ -106,10 +114,10 @@ class CheckoutForm extends Component {
         OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
         .then((res)=> {
           console.log(res)
-          MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email})
+          MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email, message:this.state.message})
           const cookies = new Cookies();
           cookies.remove("Products");
-          res.props.history.push('/')
+          this.setState({paid:true})
         })
         .catch((e)=> console.log(e))
 
@@ -120,13 +128,14 @@ class CheckoutForm extends Component {
       
 
   render() {
-    console.log(this.props)
+    // console.log(this.context.user.username)
     // const cookies = new Cookies();
     // let products = cookies.get("Products")
 
-    // if(products === undefined ){
-    //   return(<Redirect to="/"></Redirect>)
-    // }
+    if(this.state.paid === true ){
+      return(<Redirect to="/"></Redirect>)
+    }
+
     return (
       <div className="checkout">
         <p>Would you like to complete the purchase?</p>
