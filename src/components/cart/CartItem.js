@@ -20,26 +20,7 @@ class CardItem extends Component {
   componentDidMount() {
     this.setProduct();
   }
-
-//   var currentProducts = cookies.get('Products');
-//   var isRepeated = false;
-//   for (var i = 0; i < currentProducts.length; i++){
-//     if (currentProducts[i].influencer === this.state.influencer){
-//       currentProducts[i].qty = currentProducts[i].qty + 1
-//       isRepeated = true;
-//     }
-//   }
-
-//   if (isRepeated){
-//     cookies.set("Products", currentProducts, { path: '/' });
-//   } else {
-//     currentProducts.push(this.state);
-//     cookies.set("Products", currentProducts, { path: '/' });
-//   }      
-// } else {
-//   cookies.set("Products", [this.state], { path: '/' });
-// }
-
+  
   onChange = (e, influencerId) => {
 
     this.setState({

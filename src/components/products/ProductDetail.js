@@ -18,17 +18,6 @@ class  ProductDetail extends Component{
 
   static contextType = QtyContext;
 
-  // data:
-  // category: ["Tech"]
-  // createdAt: "2019-04-25T22:48:52.035Z"
-  // description: "really good product"
-  // influencer: "5cc239192f0f68eaeb53f400"
-  // model: "its a product"
-  // prize: 200
-  // updatedAt: "2019-04-25T22:48:52.035Z"
-  // __v: 0
-  // _id: "5cc239542f0f68eaeb53f401"
-
   componentDidMount(){
     let { id } = this.props.match.params
     const url= `http://localhost:3002/product/details/${id}`
