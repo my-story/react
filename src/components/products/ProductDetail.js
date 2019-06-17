@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import Cookies from 'universal-cookie';
-// import isEmptyObj from "is-empty-object"
 import QtyContext from "../contexts/QtyContext";
 
 class  ProductDetail extends Component{
@@ -14,6 +13,7 @@ class  ProductDetail extends Component{
     images:"",
     _id:"",
     qty: 1,
+    total: undefined,
   }
 
   static contextType = QtyContext;
@@ -32,36 +32,54 @@ class  ProductDetail extends Component{
           prize: res.data.prize,
           images: res.data.images,
           _id: res.data._id,
+          total: res.data.total,
+          qty: 0
         })   
         console.log(res)
     })
     .catch(err=>console.log(err))
   }
 
+  fetchQty(){
+    const cookies = new Cookies();
+    var currentProducts = cookies.get('Products');
+
+    for (var i = 0; i < currentProducts.length; i++){
+      if (currentProducts[i].influencer === this.state.influencer){
+        this.setState({ qty: currentProducts[i].qty });
+       
+      }
+    }
+  }
+
   addCart = () =>{
     const cookies = new Cookies();
-    // cookies.addChangeListener((e) => console.log(e));
-    if(cookies.get("Products") !== undefined){
-      var currentProducts = cookies.get('Products');
-      console.log(currentProducts);
-      var isRepeated = false;
-      for (var i = 0; i < currentProducts.length; i++){
-        if (currentProducts[i].influencer === this.state.influencer){
-          currentProducts[i].qty = currentProducts[i].qty + 1
-          isRepeated = true;
+    
+    if(this.state.qty <= 9){
+      if(cookies.get("Products") !== undefined){
+        var currentProducts = cookies.get('Products');
+        console.log(currentProducts);
+        var isRepeated = false;
+        for (var i = 0; i < currentProducts.length; i++){
+          if (currentProducts[i].influencer === this.state.influencer){
+            currentProducts[i].qty = currentProducts[i].qty + 1;
+            this.setState({qty: currentProducts[i].qty + 1});
+            console.log(this.state);
+            isRepeated = true;
+          }
         }
-      }
-
-      if (isRepeated){
-        cookies.set("Products", currentProducts, { path: '/' });
+  
+        if (isRepeated){
+          cookies.set("Products", currentProducts, { path: '/' });
+        } else {
+          currentProducts.push(this.state);
+          cookies.set("Products", currentProducts, { path: '/' });
+        }      
       } else {
-        currentProducts.push(this.state);
-        cookies.set("Products", currentProducts, { path: '/' });
-      }      
-    } else {
-      cookies.set("Products", [this.state], { path: '/' });
+        cookies.set("Products", [this.state], { path: '/' });
+      }
+      this.context.updateQty();
     }
-    this.context.updateQty();
   }
 
   render(){
@@ -75,6 +93,7 @@ class  ProductDetail extends Component{
           <li>influencer: {this.state.influencer}</li>
           <li>model: {this.state.model}</li>
           <li>price: {this.state.prize}</li>
+          <li>amount in stock: {this.state.total}</li>
         </ul>
         <button onClick={this.addCart}>add to cart</button>
 
