@@ -7,10 +7,16 @@ import axios from 'axios';
 import SearchBar from '../influencer/SearchInfluencer';
 import ProductOne from "./ProductOne";
 
+
+  
 class ProductList extends Component {
   state = {
     products: [],
-    user:{}
+    user:{},
+    productsNew:[],
+    category:[
+      "Sports","Music","Tech","Clothes"
+    ],
   }
 
   fetchProducts = () => {
@@ -32,10 +38,6 @@ class ProductList extends Component {
     this.getUser()
   }
 
-  onClick = (i) =>{
-    console.log("hey");
-    console.log(i);
-  }
 
   getFilter = (e) => { 
     let url = "http://localhost:3002/product/filter?search=" + e.target.value
@@ -46,15 +48,43 @@ class ProductList extends Component {
     .catch((err)=>console.log(err))
 }
 
+  changeCategory = (e) =>{
+    let url = "http://localhost:3002/product/filter/category?search=" + e.target.value
+    axios.get(url,{withCredentials:true})
+    .then((res)=>{
+        this.setState({products:res.data})
+    })
+    .catch((err)=>console.log(err))
+  }
+  
+
+
+  
+  onClick = (i) =>{
+    console.log("hey");
+    console.log(i);
+  }
+
+
   render(){
     console.log(this.state)
-    const {products,user} = this.state
+    const {products,user,category} = this.state
     
     
     return(
       <div>
         <div>
           <SearchBar getFilter={this.getFilter} />
+        </div>
+        <div>
+          {category.map((c,index)=>{
+            return(
+              <div>
+                <button onClick={this.onClick}>{c}</button>
+              </div>
+            )
+          })}
+
         </div>
       {products.map((i,index)=>{
         return(
