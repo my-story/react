@@ -18,6 +18,7 @@ import CartPay from './components/cart/CartPay';
 import ReviewUpdate from './components/reviews/ReviewUpdate';
 import InfluencerUpdate from './components/influencer/InfluencerUpdate';
 import OrderPaid from './components/Payment/OrderPaid';
+import LineGraph from './components/influencer/LineGraph';
 
 
 export default (props) => (
@@ -40,7 +41,7 @@ export default (props) => (
   <Route path="/influencerUpdate" component={InfluencerUpdate}/>
   <Route path="/ProductUpdate" component={ProductUpdate}/>
   <Route path="/order-fulfillment" component={OrderPaid}/>
-
+  <Route path="/line-graph" component={LineGraph} />
 </Switch>
 
 );

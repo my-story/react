@@ -45,7 +45,7 @@ return counter;
 
 }
 
-
+//Arreglar cuando tengamos reward percentages, sacar fees nuestros y tax verdadero
 totalCost = ()=>{
     const { rate} = this.state
     let total = 0
