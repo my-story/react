@@ -16,7 +16,8 @@ class ProductCreate extends Component {
       description:"",
       category:[],
       images:[],
-      influencer: this.props.influencer._id
+      influencer: this.props.influencer._id,
+      total: "",
     },
     selectedItems: [],
     productCreated: null
@@ -42,15 +43,6 @@ class ProductCreate extends Component {
         category: selectedItems,
       } })
   }
-
-// addImage = () => {
-//   const { product } = this.state
-//   let imagesArr = product.images.split(' ');
-//   this.setState({product: {
-//     ...this.state.product,
-//     images: imagesArr
-//   }})
-// }
 
   onSubmit=()=>{
     let { product } = this.state
@@ -87,6 +79,7 @@ class ProductCreate extends Component {
           <div className="create-card">
             <Input name="model" placeholder="Please enter product name"  onChange={this.onChange} />
             <Input name="prize" type="number" placeholder="Please enter product price"  onChange={this.onChange} />
+            <Input name="total" type="number" placeholder="Please enter the amount of products in stock"  onChange={this.onChange} />
             <TextArea name="images" rows={4} type="text" placeholder="Add Cloudinary images url separated by a space" onChange={this.onChangeImage} />
             <TextArea name="description" rows={4} placeholder="Please enter product description"  onChange={this.onChange} />
             <Select
