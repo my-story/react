@@ -56,6 +56,19 @@ this.setState({products})
     }
   }
 
+  totalProductUpdate = (array) =>{
+    for (var i = 0; i < array.length; i++){
+      let qty = array[i].qty;
+      let id = array[i]._id;
+      
+      axios.post(`http://localhost:3002/product/update/total/${id}`, {qty: qty})
+        .then((product) => {
+          console.log(product)
+        })
+        .catch((error) => console.log(error));
+    }
+  }
+
    getInfluencers = (products) =>{
     const rewardArr = [];
     let reward = {};
@@ -85,35 +98,14 @@ this.setState({products})
         headers: {"Content-Type": "text/plain"},
         token: token.id,
         total: Math.trunc(this.props.total * 100),
-        // address: this.props.address
       })
-      // if(response.ok){
-      //   console.log("Purchase Complete!")
-      // }
+
       .then((res)=>{
         const cookies = new Cookies();
         let products = cookies.get("Products")
         let rewardArr = this.getInfluencers(products);
-
-        this.reward(rewardArr)
-        // for (var i = 0; i < rewardArr.length; i++){
-        //   let revenue = rewardArr[i].price * rewardArr[i].qty;
-          
-        //   axios.get(`http://localhost:3002/influencer/${rewardArr[i].influencer}`)
-        //     .then((influencer) => {
-        //       let influencerCut = revenue * influencer.data.percentage;
-        //       let newReward = influencerCut + influencer.data.reward;
-            
-        //       //HAY QUE ARREGLAR ESTA RUTA MONDAY 06/10
-        //       axios.post(`http://localhost:3002/influencer/reward/${influencer.data._id}`, {reward:newReward})
-        //         .then((influencer) => {
-        //           console.log("added influencer reward to" + influencer);
-        //         })
-        //         .catch((error) => console.log(error))
-        //       // then add this to the influencer reward
-        //     })
-        //     .catch((error) => console.log(error));
-        // }
+        this.totalProductUpdate(products);
+        this.reward(rewardArr);
 
 
         OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
@@ -136,10 +128,10 @@ this.setState({products})
       
 
   render() {
-    // console.log(this.context.user.username)
-    // const cookies = new Cookies();
-    // let products = cookies.get("Products")
-
+    console.log(this.context.user.username)
+    const cookies = new Cookies();
+    let products = cookies.get("Products")
+    console.log(products);
     if(this.state.paid === true ){
       return(<Redirect to="/order-fulfillment"></Redirect>)
     }

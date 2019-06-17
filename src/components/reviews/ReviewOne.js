@@ -7,6 +7,7 @@ import ReviewUpdate from './ReviewUpdate';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import * as toastr from 'toastr';
+import { Redirect } from 'react-router-dom';
 
 class ReviewOne extends Component{
     state={
@@ -16,7 +17,8 @@ class ReviewOne extends Component{
         votes: 0,
         upvoted: "",
         downvoted: "",
-        user: ""
+        user: "",
+        logged: true
     }
     static contextType = UserContext;
 
@@ -97,43 +99,46 @@ class ReviewOne extends Component{
     upvote = () =>{
         let influencerId = this.state.influencer._id;
         let userId = this.context.user._id
-
-        if(this.hasUserDownvoted()){
-            axios.post(`http://localhost:3002/api/pull/downvote/${userId}`, {reviewId: this.state.review._id},{withCredentials:true})
-                .then((user) =>{
-                    console.log(user);
+        if(!this.context.user._id){
+            this.setState({logged: false})
+        } else {
+            if(this.hasUserDownvoted()){
+                axios.post(`http://localhost:3002/api/pull/downvote/${userId}`, {reviewId: this.state.review._id},{withCredentials:true})
+                    .then((user) =>{
+                        console.log(user);
+                        this.setState({
+                            user: user.data,
+                            downvoted: false
+                        })
+                    })
+                    .catch((err)=> console.log(err));
+            }
+    
+            if(this.hasUserUpvoted() === false){
+            axios.post(`http://localhost:3002/reviews/upvote/${influencerId}`, {withCredentials:true})
+                .then((review)=>{
+                    axios.post(`http://localhost:3002/api/upvote/${userId}`, {reviewId: this.state.review._id}, {withCredentials:true})
+                    .then((user)=>{
+                        this.setState({
+                            user: user.data,
+                            upvoted: true
+                        })
+                    })
+                    .catch((err)=>{console.log(err)})
+                    
                     this.setState({
-                        user: user.data,
-                        downvoted: false
+                        votes: review.data.votes
                     })
                 })
-                .catch((err)=> console.log(err));
-        }
-
-        if(this.hasUserUpvoted() === false){
-        axios.post(`http://localhost:3002/reviews/upvote/${influencerId}`, {withCredentials:true})
-            .then((review)=>{
-                axios.post(`http://localhost:3002/api/upvote/${userId}`, {reviewId: this.state.review._id}, {withCredentials:true})
-                .then((user)=>{
-                    this.setState({
-                        user: user.data,
-                        upvoted: true
-                    })
-                })
-                .catch((err)=>{console.log(err)})
-                
-                this.setState({
-                    votes: review.data.votes
-                })
-            })
-            .catch(err=>console.log(err))
+                .catch(err=>console.log(err))
+            }
         }
     }
 
     downvote = () =>{
         let influencerId = this.state.influencer._id;
         let userId = this.context.user._id
-
+        
         if(this.hasUserUpvoted()){
             axios.post(`http://localhost:3002/api/pull/upvote/${userId}`, {reviewId: this.state.review._id},{withCredentials:true})
                 .then((user) =>{
@@ -167,7 +172,12 @@ class ReviewOne extends Component{
 
     render(){
         const {review, influencer} = this.state
-        console.log(this.state.user);
+
+        if(!this.state.logged){
+            return(
+                <Redirect to="/login"></Redirect>
+            )
+        }
         if(this.context.user.role !== "Admin"){
             if(this.state.upvoted){
                 return(

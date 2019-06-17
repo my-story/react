@@ -17,7 +17,8 @@ class ProductUpdate extends Component {
       category:this.props.location.state.product.category,
       images:this.props.location.state.product.images,
       influencer:this.props.location.state.product.influencer,
-      influencerId: this.props.location.state.product.influencer._id
+      influencerId: this.props.location.state.product.influencer._id,
+      total: this.props.location.state.product.total,
     },
     selectedItems: [],
     productCreated: false
@@ -85,6 +86,7 @@ class ProductUpdate extends Component {
           <div className="create-card">
             <Input name="model" defaultValue={this.state.product.model} placeholder="Please enter product name"  onChange={this.onChange} />
             <Input name="prize" defaultValue={this.state.product.prize} type="number" placeholder="Please enter product price"  onChange={this.onChange} />
+            <Input name="total" defaultValue={this.state.product.total} type="number" placeholder="Please enter amount of products in stock"  onChange={this.onChange} />
             <TextArea name="images" defaultValue={this.state.product.images} rows={4} type="text" placeholder="Add Cloudinary images url separated by a space" onChange={this.onChangeImage} />
             <TextArea name="description" defaultValue={this.state.product.description} rows={4} placeholder="Please enter product description"  onChange={this.onChange} />
             <Select
