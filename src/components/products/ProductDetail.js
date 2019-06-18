@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Cookies from 'universal-cookie';
 import QtyContext from "../contexts/QtyContext";
+import * as toastr from 'toastr'
 
 class  ProductDetail extends Component{
   state = {
@@ -54,8 +55,12 @@ class  ProductDetail extends Component{
 
   addCart = () =>{
     const cookies = new Cookies();
-    
-    if(this.state.qty <= 9){
+    console.log(this.state.total);
+    console.log(this.state.qty);
+    if (this.state.total === 0){
+      toastr.error("this product is sold out");
+    }
+    if(this.state.qty <= 9 && this.state.qty <= this.state.total && this.state.total !== 0){
       if(cookies.get("Products") !== undefined){
         var currentProducts = cookies.get('Products');
         console.log(currentProducts);
