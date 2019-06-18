@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import './App.css';
 import '../../../node_modules/react-vis/dist/style.css';
 import {XYPlot, LineSeries} from 'react-vis';
+import StripeButton from './InfluencerProfile';
 
 class LineGraph extends Component {
   render() {
@@ -22,6 +23,7 @@ class LineGraph extends Component {
         <XYPlot height={300} width={300}>
           <LineSeries data={data} />
         </XYPlot>
+        <StripeButton></StripeButton>
       </div>
     );
   }
