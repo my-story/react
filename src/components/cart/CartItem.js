@@ -1,6 +1,7 @@
 import  React , { Component }  from 'react';
 import Cookies from 'universal-cookie';
 import QtyContext from "../contexts/QtyContext";
+import { thisExpression } from '@babel/types';
 
 class CardItem extends Component {
   state = {
@@ -42,32 +43,63 @@ class CardItem extends Component {
     this.context.updateQty();
   }
 
-  render(){
-    console.log(this.props.product)
+  hello(){
+    var arr = [];
+    for(var i = 1; i <= this.state.product.total; i++){
+        arr.push(<option value={i}>{i}</option>); 
+    }
+    return(arr);
+  }
 
-  
-    return(
-      <ul>
-        <li>{this.props.product.model}</li>
-        <li>Price:{this.props.product.prize}</li>
-        {/* <li>Quantity:<InputNumber min={0} max={9} defaultValue={this.props.times} onChange={this.onChange.bind(this)} /></li> */}
-        <li>
-          <div className="input-group mb-3">
+  render(){
+    console.log(this.state.product.total);
+
+    if (this.state.product.total >= 9){
+      return(
+        <ul>
+          <li>{this.props.product.model}</li>
+          <li>Price:{this.props.product.prize}</li>
+          {/* <li>Quantity:<InputNumber min={0} max={9} defaultValue={this.props.times} onChange={this.onChange.bind(this)} /></li> */}
+          <li>
+            <div className="input-group mb-3">
+              <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer)}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+            </div>
+          </li>
+        </ul>
+      )
+    } else {
+      if (this.state.product.total < 9){
+        for(var i = 0; i < this.state.product.total; i++){
+                
+        }
+        return(
+          <ul>
+            <li>{this.props.product.model}</li>
+            <li>Price:{this.props.product.prize}</li>
+            {/* <li>Quantity:<InputNumber min={0} max={9} defaultValue={this.props.times} onChange={this.onChange.bind(this)} /></li> */}
+            <li>
+            <div className="input-group mb-3">
             <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer)}>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
+              {this.hello()}
             </select>
-          </div>
-        </li>
-      </ul>
-    )
+            </div>
+            </li>
+          </ul>
+        )
+      } else {
+        return(<div>loading..</div>)
+      }
+    }
   }
 }
 

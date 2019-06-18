@@ -54,8 +54,10 @@ class  ProductDetail extends Component{
 
   addCart = () =>{
     const cookies = new Cookies();
+    console.log(this.state.total);
+    console.log(this.state.qty);
     
-    if(this.state.qty <= 9){
+    if(this.state.qty <= 9 && this.state.qty <= this.state.total){
       if(cookies.get("Products") !== undefined){
         var currentProducts = cookies.get('Products');
         console.log(currentProducts);
