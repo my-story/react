@@ -43,7 +43,7 @@ class CardItem extends Component {
     this.context.updateQty();
   }
 
-  hello(){
+  fixNums(){
     var arr = [];
     for(var i = 1; i <= this.state.product.total; i++){
         arr.push(<option value={i}>{i}</option>); 
@@ -90,7 +90,7 @@ class CardItem extends Component {
             <li>
             <div className="input-group mb-3">
             <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer)}>
-              {this.hello()}
+              {this.fixNums()}
             </select>
             </div>
             </li>
