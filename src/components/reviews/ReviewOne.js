@@ -102,7 +102,7 @@ class ReviewOne extends Component{
         if(!this.context.user._id){
             this.setState({logged: false})
         } else {
-            if(this.state.downvoted){
+            if(this.hasUserDownvoted() || this.state.downvoted){
                 axios.post(`http://localhost:3002/api/pull/downvote/${userId}`, {reviewId: this.state.review._id, user: this.context.user},{withCredentials:true})
                     .then((user) =>{
                         console.log(user);
@@ -149,7 +149,7 @@ class ReviewOne extends Component{
         let influencerId = this.state.influencer._id;
         let userId = this.context.user._id
         
-        if(this.state.upvoted){
+        if(this.hasUserUpvoted() || this.state.upvoted){
             axios.post(`http://localhost:3002/api/pull/upvote/${userId}`, {reviewId: this.state.review._id, user: this.context.user},{withCredentials:true})
                 .then((user) =>{
                     this.setState({
