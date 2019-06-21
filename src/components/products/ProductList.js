@@ -60,7 +60,6 @@ class ProductList extends Component {
   }
 
   filterCategory = (e) =>{
-    console.log("hey");
     let url = `http://localhost:3002/product/filter/category?search=${e.target.value}`
     axios.get(url,{withCredentials:true})
     .then((res)=>{

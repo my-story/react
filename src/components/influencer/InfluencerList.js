@@ -12,12 +12,15 @@ const settings = {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
-    accessibility:true
+    accessibility:true,
   };
 
 class InfluencerList extends Component{
     state={
-        influencers:[]
+        influencers:[],
+        category:[
+            "Athlete","Musician","Tech","Artist"
+          ]
     }
 
     fetchInfluencer = () => {
@@ -40,18 +43,35 @@ class InfluencerList extends Component{
 
     componentDidMount(){
         this.fetchInfluencer()
-        // this.checkLogged()
+    }
+
+
+    filterCategory = (e) =>{
+        let url = `http://localhost:3002/influencer/filter/category?search=${e.target.value}`
+        axios.get(url,{withCredentials:true})
+        .then((res)=>{
+            console.log(res)
+            this.setState({influencers:res.data})
+        })
+        .catch((err)=>console.log(err))
     }
 
 
 
     render(){
-        const {influencers} = this.state
+        const {influencers, category} = this.state
             return(
                 <div>
                     <h1>Influencer landing</h1>
                     <div>
                     <SearchBar getFilter={this.getFilter} />
+                    {category.map((c,index)=>{
+                        return(
+                        <div>
+                            <button value={c} onClick={(e) => this.filterCategory(e)}>{c}</button>
+                        </div>
+                        )
+                    })}
                     </div>
                     <Slider {...settings}>
                     {influencers.map((i,index)=>{
