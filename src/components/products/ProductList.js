@@ -40,30 +40,33 @@ class ProductList extends Component {
   }
 
 
-  getFilter = (e) => { 
-    let url = "http://localhost:3002/product/filter?search=" + e.target.value
-    axios.get(url,{withCredentials:true})
-    .then((res)=>{
-        this.setState({products:res.data})
-    })
-    .catch((err)=>console.log(err))
-}
+//   getFilter = (e) => { 
+//     let url = `http://localhost:3002/product/filter?search=${e.target.value}`;
+//     console.log(url);
+//     axios.get(url,{withCredentials:true})
+//     .then((res)=>{
+//         console.log(res);
+//         this.setState({products:res.data})
+//     })
+//     .catch((err)=>console.log(err))
+// }
 
-  changeCategory = (e) =>{
-    let url = "http://localhost:3002/product/filter/category?search=" + e.target.value
+  searchBar = (e) =>{
+    let url = `http://localhost:3002/product/filter?search=${e.target.value}`
     axios.get(url,{withCredentials:true})
     .then((res)=>{
         this.setState({products:res.data})
     })
     .catch((err)=>console.log(err))
   }
-  
 
-
-  
-  onClick = (i) =>{
-    console.log("hey");
-    console.log(i);
+  filterCategory = (e) =>{
+    let url = `http://localhost:3002/product/filter/category?search=${e.target.value}`
+    axios.get(url,{withCredentials:true})
+    .then((res)=>{
+        this.setState({products:res.data})
+    })
+    .catch((err)=>console.log(err))
   }
 
 
@@ -75,13 +78,13 @@ class ProductList extends Component {
     return(
       <div>
         <div>
-          <SearchBar getFilter={this.changeCategory} />
+          <SearchBar getFilter={this.searchBar} />
         </div>
         <div>
           {category.map((c,index)=>{
             return(
               <div>
-                <button onClick={this.onClick}>{c}</button>
+                <button value={c} onClick={(e) => this.filterCategory(e)}>{c}</button>
               </div>
             )
           })}
