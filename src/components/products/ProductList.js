@@ -27,6 +27,7 @@ class ProductList extends Component {
         products
       }))
   }
+
   getUser = ()=>{
     this.setState({
       ...this.state,
@@ -74,7 +75,7 @@ class ProductList extends Component {
     return(
       <div>
         <div>
-          <SearchBar getFilter={this.getFilter} />
+          <SearchBar getFilter={this.changeCategory} />
         </div>
         <div>
           {category.map((c,index)=>{
