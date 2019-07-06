@@ -38,18 +38,6 @@ class ProductList extends Component {
     this.getUser()
   }
 
-
-//   getFilter = (e) => { 
-//     let url = `http://localhost:3002/product/filter?search=${e.target.value}`;
-//     console.log(url);
-//     axios.get(url,{withCredentials:true})
-//     .then((res)=>{
-//         console.log(res);
-//         this.setState({products:res.data})
-//     })
-//     .catch((err)=>console.log(err))
-// }
-
   searchBar = (e) =>{
     let url = `http://localhost:3002/product/filter?search=${e.target.value}`
     axios.get(url,{withCredentials:true})

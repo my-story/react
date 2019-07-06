@@ -34,7 +34,7 @@ class  ProductDetail extends Component{
           images: res.data.images,
           _id: res.data._id,
           total: res.data.total,
-          qty: 0
+          qty: 1
         })   
         console.log(res)
     })
@@ -60,6 +60,7 @@ class  ProductDetail extends Component{
     if (this.state.total === 0){
       toastr.error("this product is sold out");
     }
+  
     if(this.state.qty <= 9 && this.state.qty <= this.state.total && this.state.total !== 0){
       if(cookies.get("Products") !== undefined){
         var currentProducts = cookies.get('Products');
@@ -73,7 +74,6 @@ class  ProductDetail extends Component{
             isRepeated = true;
           }
         }
-  
         if (isRepeated){
           cookies.set("Products", currentProducts, { path: '/' });
         } else {
