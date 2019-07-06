@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Icon} from 'antd';
-import Logout from './auth/logout';
+import Logout from './auth/Logout';
 import Cookies from 'universal-cookie';
 import {QtyConsumer} from "./contexts/QtyContext"
 

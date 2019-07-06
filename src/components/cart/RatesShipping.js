@@ -1,23 +1,21 @@
-import React, { Component } from 'react'
-import {Redirect} from 'react-router-dom'
+import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 
 class Rates extends Component{
 
-    state={
-        rate:"",
-        billing:"",
-        address:""
+    state = {
+        rate: "",
+        billing: "",
+        address: ""
     }
 
-
-    showRates=()=>{
-        this.setState({rate:this.props.rates, billing:this.props.billingAddress, address:this.props.address})
+    showRates = () => {
+        this.setState({rate:this.props.rates, billing:this.props.billingAddress, address:this.props.address});
     }
 
     render(){
-        console.log(this.props)
-        
-        if(this.state.rate ===""){
+
+        if(this.state.rate === "") {
             return(
                 <div>
                     <div key={this.props.index} className="influencer-card">
@@ -32,17 +30,14 @@ class Rates extends Component{
                 </div>  
             )
 
-        }else{
+        } else {
             return(
-            <Redirect to={{
-                pathname:"/pay-checkout",
-                state:{rate: this.state.rate, billing:this.state.billing, address:this.state.address }
-                }}
-                ></Redirect>
-                )
+                <Redirect to={{
+                    pathname:"/pay-checkout",
+                    state:{rate: this.state.rate, billing:this.state.billing, address:this.state.address }
+                }}></Redirect>
+            )
         }
-        
-
     }
 }   
 

@@ -2,9 +2,9 @@ import React from 'react'
 import {Route, Switch } from 'react-router-dom'
 import InfluencerList from './components/influencer/InfluencerList'
 import ProductList from './components/products/ProductList'
-import Signup from './components/auth/signup';
-import Login from './components/auth/login';
-import Logout from './components/auth/logout'
+import Signup from './components/auth/Signup';
+import Login from './components/auth/Login';
+import Logout from './components/auth/Logout'
 import InfluencerCreate from './components/influencer/InfluencerCreate';
 import ReviewForm from './components/reviews/ReviewForm'
 import ReviewOne from './components/reviews/ReviewOne'

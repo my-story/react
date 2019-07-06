@@ -1,13 +1,13 @@
 import http from './BaseServices';
 
-const signup = (user)  => http.post('api/signup', user)
-  .then(response => response.data);
+const signup = (user)  => http.post('api', user)
+  .then(response => response);
 
 const login = (user) => http.post('api/login', user)
-  .then(response => response.data)
+  .then(response => response)
 
-const logout = (user) => http.post('api/logout')
-  .then(response => response.data);
+const logout = (user) => http.post('api/logout', user)
+  .then(response => response);
 
 const loggedin = () => http.get('api/private')
   .then(response => response.data);
