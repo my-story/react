@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import * as toastr from 'toastr';
+import AuthServices from '../../services/AuthServices';
 
 class Login extends Component {
   state = { 
@@ -10,65 +10,56 @@ class Login extends Component {
       loggedin: false,
       path:''
     };
-//   service = new UserService();
 
 
-handleChange = (e) =>{
-    this.setState({[e.target.name]: e.target.value});
+
+	handleChange = (e) => {
+  	this.setState({[e.target.name]: e.target.value});
 }
 
-//use toasters for messages
+handleFormSubmit = (event) => {
+		event.preventDefault();
+		const {username, password} = this.state;
 
-
-handleFormSubmit = (event) =>{
-    event.preventDefault();
-    axios.post('http://localhost:3002/api/login',{
-        username: this.state.username,
-        password: this.state.password
-    },{withCredentials:true})
-    .then(response => {
-        console.log(response)
-        if(response.status === 200){
-            this.props.giveuser(response.data);
-            console.log("sucessful loggin");
-            this.setState({
-                loggedin: true
-            })
-        } 
-
-    }).catch(error => {
-        toastr.error("invalid username or password");
-    })
-}
-savePath = ()=>{
-    console.log()
-    window.previousLocation = this.props.location
-    this.setState({path:window.previousLocation})
-}
-componentDidMount=()=>{
-    this.savePath()
+		const user = {
+			username: username,
+			password: password
+		};
+	
+		AuthServices.login(user)
+			.then(response => {
+				if(response.status === 200) {
+						this.props.giveuser(response.data);
+						this.setState({
+								loggedin: true
+						})
+				} 
+			}).catch(error => {
+				toastr.error("invalid username or password");
+				console.log(error);
+			})
 }
 
-render(){
-    console.log(this.state);
+savePath = () => {
+    window.previousLocation = this.props.location;
+    this.setState({path:window.previousLocation});
+}
 
-if(!this.state.loggedin){
+componentDidMount = () => {
+    this.savePath();
+}
+
+render() {
+if(!this.state.loggedin) {
     return(
         <div className="login-form-parent">
             <form className="login-form" onSubmit={this.handleFormSubmit}>
-
             <div>
-
-     
                 <input  placeholder="USERNAME"type="text" name="username" onChange={ e => this.handleChange(e)}/>
-                
                 <input placeholder="PASSWORD" name="password" onChange={ e => this.handleChange(e)} />
-                
             </div>
                 <button type="submit" className="button-id">Submit</button>
             </form>
-
-
         </div>
       )
 } else {

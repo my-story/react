@@ -1,15 +1,14 @@
 import  React , { Component }  from 'react';
-
 import {Link} from 'react-router-dom'
-import CartItem from "./CartItem";
 import Cookies from 'universal-cookie';
 import QtyContext from "../contexts/QtyContext";
+import CartItem from "./CartItem";
 
 class CartLanding extends Component {
 
     state = {
       products: "",
-      user:"",
+      user: "",
       fetchedUser: false,
       seecart: false,
       userLogged: false ,
@@ -24,7 +23,7 @@ class CartLanding extends Component {
 
   fetchCart = () => { 
     const cookies = new Cookies();
-      if(cookies.get('Products') !== undefined){
+      if (cookies.get('Products') !== undefined) {
         this.setState({
           ...this.state,
           products:cookies.get('Products'),
@@ -39,7 +38,7 @@ class CartLanding extends Component {
       }
   }
 
-  setUser = ()=>{
+  setUser = () => {
     this.setState({
       ...this.state,
       user: this.props.user,
@@ -47,21 +46,21 @@ class CartLanding extends Component {
     })
   }
 
-  getTotal(){
-      var counter = 0;
+  getTotal() {
+      let counter = 0;
       const cookies = new Cookies();
       const cookieArr = cookies.get("Products");
       
-      if(cookies.get("Products") === undefined){
-        return
+      if (cookies.get("Products") === undefined) {
+        return;
       }
 
-      if(cookieArr !== undefined){
-      for (var i = 0; i < cookieArr.length; i++){
-        counter += (cookieArr[i].prize * cookieArr[i].qty)
+      if (cookieArr !== undefined) {
+      for (let i = 0; i < cookieArr.length; i++) {
+        counter += (cookieArr[i].prize * cookieArr[i].qty);
       }
     }
-      if (counter === 0){
+      if (counter === 0) {
         this.setState({
           ...this.state,
           products:null
@@ -73,24 +72,23 @@ class CartLanding extends Component {
 }
 
   componentDidMount() {
-    this.setUser()
+    this.setUser();
   }
 
 
-  delete(e, i){
-    e.preventDefault()
+  delete(e, i) {
+    e.preventDefault();
       const cookies = new Cookies();
       const cookieArr = cookies.get("Products");
 
-      for (var j = 0; j < cookieArr.length; j++){
-
-        if (i.influencer === cookieArr[j].influencer){
+      for (let j = 0; j < cookieArr.length; j++) {
+        if (i.influencer === cookieArr[j].influencer) {
           cookieArr.splice(j, 1);
           cookies.set("Products", cookieArr, { path: '/' });
         }
       }
 
-      if(cookieArr.length === 0){
+      if (cookieArr.length === 0) {
         const cookies = new Cookies();
         cookies.remove("Products");
         this.setState({
@@ -117,33 +115,33 @@ class CartLanding extends Component {
 
   onCheckout(){
     const cookies = new Cookies();
-    cookies.get("Products")
+    cookies.get("Products");
   }
 
-  updateTotal(){
+  updateTotal() {
     this.setState({
       ...this.state,
       total: this.getTotal()
     })
   }
   
-  render(){
+  render() {
 
-    if(this.state.fetchedUser){
-      this.fetchCart()
+    if (this.state.fetchedUser) {
+      this.fetchCart();
     }
   
-  if (this.state.products == null){
+  if (this.state.products == null) {
       return(
         <div>Your cart is empty</div>
       )
   }
-  if(this.state.products[0] !== null){
-    if(this.state.products !== ""){
+  if (this.state.products[0] !== null) {
+    if (this.state.products !== "") {
       this.getTotal();
       return(
         <div className="cart-page">
-        {this.state.products.map((i,index)=>{
+        {this.state.products.map((i,index) => {
           return(
           <div key={index} className="products-card">
              <CartItem user={this.props.user} key={index} product={i} updateTotal={this.updateTotal.bind(this)} />
