@@ -64,6 +64,7 @@ class App extends Component {
 
     const cookies = new Cookies();
     const cookieArr = cookies.get("Products");
+  
     var total = 0;
     if(cookieArr === undefined) {
         return
