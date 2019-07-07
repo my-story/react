@@ -1,25 +1,23 @@
 import React,{ Component } from 'react'
-import InfluencerServices from '../../services/InfluencerServices'
-import ProductCreate from '../products/ProductCreate';
 import { Redirect} from 'react-router-dom'
 import { Input, Tooltip, Icon, Select } from 'antd';
 import * as toastr from 'toastr'
-import AddImageInflu from './InfluencerAddImages';
-
-// import { Redirect } from 'react-router-dom';
+import InfluencerServices from '../../services/InfluencerServices'
+import ProductCreate from '../products/ProductCreate';
 
 const OPTIONS = ["Athlete","Musician","Tech","Artist"];
 
 class InfluencerCreate extends Component{
-    state={
+
+    state = {
         data:{
-            expertise:[],
+            expertise: [],
             name: "",
-            review:"",
-            percentage:"",
+            review: "",
+            percentage: "",
             user: this.props.user,
-            countries:"",
-            images:""
+            countries: "",
+            images: ""
         },
         selectedItems: [],
         done: false,
@@ -28,38 +26,41 @@ class InfluencerCreate extends Component{
 
 
 
-    onChange = e => {
-        let { data } = this.state
-        data[e.target.name] = e.target.value
-        this.setState({ data })
+    onChange = (e) => {
+        let { data } = this.state;
+        data[e.target.name] = e.target.value;
+        this.setState({ data });
     }
 
-    handleChange = selectedItems => {
+    handleChange = (selectedItems) => {
         this.setState({data:{
             ...this.state.data,
             expertise: selectedItems} })
     }
-      onSubmit=()=>{
-        let { data } = this.state
-        if(data.expertise.length === 0 || data.name.length === 0 || data.review.length === 0){
-            toastr.error("Please complete all required fields")
-            return
+
+    onSubmit = () => {
+        let { data } = this.state;
+
+        if (data.expertise.length === 0 || data.name.length === 0 || data.review.length === 0) {
+            toastr.error("Please complete all required fields");
+            return;
         }
+
         InfluencerServices.createInfluencer(data)
-            .then((influencer)=> this.setState({
+            .then((influencer) => this.setState({
                 influencerDone: influencer,
                 done: true,
             }))
-            .catch((e)=>console.log(e))
+            .catch((e)=>console.log(e));
     }
-
 
     render(){
 
         const { selectedItems,data } = this.state;
-        const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o))
-        if (this.props.user.role === "Admin"){
-            if(!this.state.done) {
+        const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
+
+        if (this.props.user.role === "Admin") {
+            if (!this.state.done) {
                 return(
                 <div>   
                     <h1>Create Influencer</h1>
@@ -68,10 +69,9 @@ class InfluencerCreate extends Component{
                         <Tooltip title="Make Sure to write with Capitals">
                         <Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)' }} />
                         </Tooltip>
-                    }/>
+                        }/>
                         <Input name="review" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
                         <Input name="images" placeholder="Add images URL" allowClear onChange={this.onChange} />
-
                         <Select
                             mode="multiple"
                             placeholder="This is his/her Category. ADMIN can create new categories"
@@ -87,14 +87,14 @@ class InfluencerCreate extends Component{
                         <Input name="percentage" type="Number" placeholder="Percentage of profit of product (Write in decimals)" onChange={this.onChange} />
 
                         <button onClick={this.onSubmit}>Submit</button>
-                        </div>
+                    </div>
                 </div>
-            )
+            );
             } else {
                 return (<ProductCreate influencer={this.state.influencerDone}></ProductCreate>);
             }
     } else {
-        return( <Redirect to="/"></Redirect>)
+        return( <Redirect to="/"></Redirect>);
     }
     }
 }

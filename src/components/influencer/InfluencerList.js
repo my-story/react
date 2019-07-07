@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import SearchBar from './SearchInfluencer'
-import InfluencerServices from '../../services/InfluencerServices'
-// import AuthServices from '../../services/AuthServices'
-import InfluencerItem from "./InfluencerItem";
+import React, { Component } from 'react';
 import Slider from "react-slick";
+import axios from 'axios';
+import SearchBar from './SearchInfluencer';
+import InfluencerServices from '../../services/InfluencerServices';
+import InfluencerItem from "./InfluencerItem";
 
 const settings = {
     dots: true,
@@ -16,44 +15,43 @@ const settings = {
   };
 
 class InfluencerList extends Component{
-    state={
-        influencers:[],
-        category:[
-            "Athlete","Musician","Tech","Artist"
-          ]
+    state = {
+			influencers:[],
+			category:[
+					"Athlete","Musician","Tech","Artist"
+			]
     }
 
     fetchInfluencer = () => {
-        InfluencerServices.getAll()
-          .then(influencers => this.setState({
-            ...this.state,
-            influencers
-          }))
-      }
-
-      getFilter = (e) => { 
-
-        let url = "http://localhost:3002/influencer/filter?search=" + e.target.value
-        axios.get(url,{withCredentials:true})
-        .then((res)=>{
-            this.setState({influencers:res.data})
-        })
-        .catch((err)=>console.log(err))
+			InfluencerServices.getAll()
+				.then(influencers => this.setState({
+					...this.state,
+					influencers
+				}))
+		}
+		
+		// needs fixing
+    getFilter = (e) => { 
+			InfluencerServices.getFilter(e.target.value)
+			.then((res)=>{
+					this.setState({influencers:res.data})
+			})
+			.catch((err)=>console.log(err))
     }
 
     componentDidMount(){
-        this.fetchInfluencer()
+      this.fetchInfluencer()
     }
 
 
     filterCategory = (e) =>{
-        let url = `http://localhost:3002/influencer/filter/category?search=${e.target.value}`
-        axios.get(url,{withCredentials:true})
-        .then((res)=>{
-            console.log(res)
-            this.setState({influencers:res.data})
-        })
-        .catch((err)=>console.log(err))
+			let url = `http://localhost:3002/influencer/filter/category?search=${e.target.value}`
+			axios.get(url,{withCredentials:true})
+			.then((res)=>{
+					console.log(res)
+					this.setState({influencers:res.data})
+			})
+			.catch((err)=>console.log(err))
     }
 
 

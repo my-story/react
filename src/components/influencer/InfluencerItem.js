@@ -1,37 +1,36 @@
 import React, { Component } from 'react';
-import UserContext from '../contexts/UserContext';
 import { Link, Redirect } from 'react-router-dom';
-import axios from 'axios';
 import * as toastr from 'toastr';
-import InfluencerUpdate from "./InfluencerUpdate";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import UserContext from '../contexts/UserContext';
+import InfluencerServices from '../../services/InfluencerServices';
 
 class InfluencerList extends Component{
-  state={
+  state = {
     update: false,
   }
+
   static contextType = UserContext;
 
-  delete = () =>{
-    let  id  = this.props.influencer._id
-    const url= `http://localhost:3002/influencer/delete/${id}`
-    
-    axios.post(url, this.context.user, {withCredentials:true})
-    .then((review)=>{   
-        console.log(review)
-        toastr.success("deleted the review");
-        // this.setState({review:review.data[0],influencer: review.data[0].influencer})
-    })
-    .catch(err=>console.log(err))
+  delete = () => {
+    let  id  = this.props.influencer._id;
+    let user = {user: this.context.user};
+
+    InfluencerServices.deleteInfluencer(user, id)
+      .then((review) => {   
+          console.log(review);
+          toastr.success("deleted the review");
+      })
+      .catch(err => console.log(err));
   }
 
 
-  saidNo = () =>{
+  saidNo = () => {
     toastr.error("didn't delete the review");
-}
+  }
 
-submit = () => {
+  submit = () => {
     confirmAlert({
       title: 'Confirm to delete this review',
       message: 'Are you sure to do this.',
@@ -48,13 +47,14 @@ submit = () => {
     });
   };
 
-  update = () =>{
+  update = () => {
     this.setState({
       update: true
     })
   }
-  render(){
-    if(this.context.user.role !== "Admin"){
+
+  render() {
+    if (this.context.user.role !== "Admin") {
       return(
         <div key={this.props.index} className="influencer-card">
         <Link to={`review/${this.props.influencer._id}`}>
@@ -65,11 +65,11 @@ submit = () => {
         </div>
       )
     } else {
-      if(this.state.update === true){
+      if (this.state.update === true) {
         return(<Redirect to={{
           pathname:"/influencerUpdate",
           state:{influencer: this.props.influencer}
-        }} />)
+        }}/>)
       }
       return(
         <div className="influencer-card">
