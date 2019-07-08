@@ -10,7 +10,7 @@ const logout = (user) => http.post('api/logout', user)
   .then(response => response);
 
 const loggedin = () => http.get('api/private')
-  .then(response => response.data);
+  .then(response => response);
 
 export default {
   signup,
