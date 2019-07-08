@@ -13,10 +13,16 @@ const getFilter = (search) => http.get(`/influencer/filter?search=${search}`)
   .then((res) => res.data);
 
 const searchFilter = (search) => http.get(`/influencer/filter/category?search=${search}`)
-  .then((res) => res.data)
+  .then((res) => res.data);
 
 const updateInfluencer = (data , id) => http.post(`/influencer/edit/${id}`, data)
-  .then((res) => res.data)
+  .then((res) => res.data);
+
+const getOne = (id) => http.get(`/influencer/${id}`)
+  .then((res) => res);
+
+const addReward = (reward, id) => http.post(`/influencer/reward/${id}`, reward)
+  .then((res) => res.data);
 
 export default {
     createInfluencer,
@@ -24,5 +30,7 @@ export default {
     deleteInfluencer,
     getFilter,
     searchFilter,
-    updateInfluencer
+    updateInfluencer,
+    getOne,
+    addReward
 }
