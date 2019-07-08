@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from "axios";
+import * as toastr from 'toastr';
 import Cookies from 'universal-cookie';
 import QtyContext from "../contexts/QtyContext";
-import * as toastr from 'toastr'
+import ProductServices from '../../services/ProductServices';
 
 class  ProductDetail extends Component{
   state = {
@@ -15,66 +15,47 @@ class  ProductDetail extends Component{
     _id:"",
     qty: 1,
     total: undefined,
-  }
+  };
 
   static contextType = QtyContext;
 
-  componentDidMount(){
+  componentDidMount () {
     let { id } = this.props.match.params
-    const url= `http://localhost:3002/product/details/${id}`
     
-    axios.get(url, {withCredentials:true})
-    .then((res)=>{
-        this.setState({
-          category: res.data.category,
-          description: res.data.description,
-          influencer: res.data.influencer,
-          model: res.data.model,
-          prize: res.data.prize,
-          images: res.data.images,
-          _id: res.data._id,
-          total: res.data.total,
-          qty: 1
-        })   
-        console.log(res)
-    })
-    .catch(err=>console.log(err))
-  }
+    ProductServices.productDetail(id)
+      .then((res) => this.setState(res))  
+      .catch(err=>console.log(err))
+  };
 
-  fetchQty(){
+  fetchQty () {
     const cookies = new Cookies();
     var currentProducts = cookies.get('Products');
 
-    for (var i = 0; i < currentProducts.length; i++){
-      if (currentProducts[i].influencer === this.state.influencer){
+    for (var i = 0; i < currentProducts.length; i++) {
+      if (currentProducts[i].influencer === this.state.influencer) {
         this.setState({ qty: currentProducts[i].qty });
-       
       }
     }
-  }
+  };
 
   addCart = () =>{
     const cookies = new Cookies();
-    console.log(this.state.total);
-    console.log(this.state.qty);
     if (this.state.total === 0){
       toastr.error("this product is sold out");
     }
   
-    if(this.state.qty <= 9 && this.state.qty <= this.state.total && this.state.total !== 0){
-      if(cookies.get("Products") !== undefined){
+    if(this.state.qty <= 9 && this.state.qty <= this.state.total && this.state.total !== 0) {
+      if (cookies.get("Products") !== undefined) {
         var currentProducts = cookies.get('Products');
-        console.log(currentProducts);
         var isRepeated = false;
-        for (var i = 0; i < currentProducts.length; i++){
-          if (currentProducts[i].influencer === this.state.influencer){
+        for (var i = 0; i < currentProducts.length; i++) {
+          if (currentProducts[i].influencer === this.state.influencer) {
             currentProducts[i].qty = currentProducts[i].qty + 1;
             this.setState({qty: currentProducts[i].qty + 1});
-            console.log(this.state);
             isRepeated = true;
-          }
-        }
-        if (isRepeated){
+          };
+        };
+        if (isRepeated) {
           cookies.set("Products", currentProducts, { path: '/' });
         } else {
           currentProducts.push(this.state);
@@ -84,10 +65,11 @@ class  ProductDetail extends Component{
         cookies.set("Products", [this.state], { path: '/' });
       }
       this.context.updateQty();
-    }
-  }
+    };
+  };
 
-  render(){
+  render() { 
+    console.log(this.state)
     return(
       <div>
         <h3>Product Detail</h3>

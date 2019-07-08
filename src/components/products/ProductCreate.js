@@ -1,16 +1,15 @@
 import React,{ Component } from 'react';
-import ProductServices from '../../services/ProductServices'
-import { Input, Select } from 'antd';
 import { Redirect } from 'react-router-dom';
-import * as toastr from 'toastr'
+import { Input, Select } from 'antd';
+import * as toastr from 'toastr';
+import ProductServices from '../../services/ProductServices';
 
-// const { TextArea } = Input;
 const OPTIONS = ["Sports","Music","Tech","Clothes"];
 const { TextArea } = Input;
 
 class ProductCreate extends Component {
   state = {
-    product:{
+    product: {
       model:"",
       prize:0,
       description:"",
@@ -38,24 +37,23 @@ class ProductCreate extends Component {
   };
 
   handleChange = (selectedItems,imageUrl) => {
-    this.setState({product:{
+    this.setState({ product: {
         ...this.state.product,
         category: selectedItems,
       } })
   }
 
-  onSubmit=()=>{
+  onSubmit = () => {
     let { product } = this.state
-
-    if(product.model.length === 0||product.prize === 0 || product.description.length === 0 || product.category.length === 0){
+    if (product.model.length === 0||product.prize === 0 || product.description.length === 0 || product.category.length === 0) {
       toastr.error("Please complete all required fields")
       return
-    }else{
+    } else {
       this.addBackend()
     }
   }
 
-  addBackend(){
+  addBackend () {
     ProductServices.productForm(this.state.product)
       .then((product)=>{
         console.log(product.data)
@@ -67,13 +65,11 @@ class ProductCreate extends Component {
   render(){
     const { selectedItems, product } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-    console.log(this.props)
 
     if(this.state.productCreated){
       return (<Redirect to="/" />)
     }
       return(
-
         <div>
             <h2>Create Product</h2>
           <div className="create-card">
@@ -88,7 +84,7 @@ class ProductCreate extends Component {
             value={product.category}
             onChange={this.handleChange}
             style={{ width: '100%' }}
-          >
+            >
             {filteredOptions.map(item => (
               <Select.Option key={item} value={item}>
                 {item}
@@ -103,7 +99,6 @@ class ProductCreate extends Component {
           <button onClick={this.onSubmit}>Submit</button>
         </div>
         </div>
-        // </div>
       )
     }
     

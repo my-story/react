@@ -2,19 +2,20 @@ import React, {Component} from 'react';
 import { Redirect} from 'react-router-dom'
 import { Input, Tooltip, Icon, Select } from 'antd';
 import * as toastr from 'toastr';
-import axios from 'axios';
 import UserContext from '../contexts/UserContext';
+import InfluencerServices from '../../services/InfluencerServices';
+
 const OPTIONS = ["Athlete","Musician","Tech","Artist"];
 
 class InfluencerUpdate extends Component{
-    state={
-        data:{
-            expertise:this.props.location.state.influencer.expertise,
-            name: this.props.location.state.influencer.name,
-            review:this.props.location.state.influencer.review,
-            percentage:this.props.location.state.influencer.percentage,
-            user: this.context.user,
-            image: this.props.location.state.influencer.profilePic,
+    state = {
+			data: {
+				expertise:this.props.location.state.influencer.expertise,
+				name: this.props.location.state.influencer.name,
+				review:this.props.location.state.influencer.review,
+				percentage:this.props.location.state.influencer.percentage,
+				user: this.context.user,
+				image: this.props.location.state.influencer.profilePic,
         },
         selectedItems: [],
         done: false,
@@ -22,45 +23,39 @@ class InfluencerUpdate extends Component{
     }
     static contextType = UserContext;
 
-
-    onChange = e => {
+    onChange = (e) => {
         let { data } = this.state
         data[e.target.name] = e.target.value
         this.setState({ data })
     }
 
-    handleChange = selectedItems => {
-        this.setState({data:{
-            ...this.state.data,
-            expertise: selectedItems} })
+    handleChange = (selectedItems) => {
+			this.setState({data:{
+					...this.state.data,
+					expertise: selectedItems} })
     }
 
-      onSubmit=()=>{
-        let { data } = this.state;
-        
-        if(data.expertise.length === 0 || data.name.length === 0 || data.review.length === 0){
-            toastr.error("Please complete all required fields")
-            return
-        }
+		onSubmit = () => {
+			let { data } = this.state;
+			
+			if(data.expertise.length === 0 || data.name.length === 0 || data.review.length === 0){
+					toastr.error("Please complete all required fields")
+					return
+			}
 
-        const id = this.props.location.state.influencer._id;
-        let url = `http://localhost:3002/influencer/edit/${id}`
+			const id = this.props.location.state.influencer._id;
+			InfluencerServices.updateInfluencer(data, id)
+				.then(() => this.setState({done:true}))
+				.catch(err=>console.log(err))
 
-        axios.post(url, data, {withCredentials:true})
-            .then((influencer)=>{   
-                console.log(influencer)
-                this.setState({done:true})
-            })
-            .catch(err=>console.log(err))
     }
 
 
     render(){
-        console.log(this.state.data);
         const { selectedItems,data } = this.state;
         const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o))
-        if (this.context.user.role === "Admin"){
-          if(!this.state.done){
+        if (this.context.user.role === "Admin") {
+          if (!this.state.done) {
             return(
               <div>   
                   <h1>Create Influencer</h1>
@@ -94,7 +89,7 @@ class InfluencerUpdate extends Component{
           }
     } else {
         return( <Redirect to="/"></Redirect>)
-    }
-    }
-}
+    }}
+};
+
 export default InfluencerUpdate;

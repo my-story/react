@@ -9,7 +9,7 @@ import InfluencerCreate from './components/influencer/InfluencerCreate';
 import ReviewForm from './components/reviews/ReviewForm'
 import ReviewOne from './components/reviews/ReviewOne'
 import ProductDetail from './components/products/ProductDetail';
-import Checkout from './components/Payment/Checkout';
+import Checkout from './components/payment/Checkout';
 import CartLanding from './components/cart/CartLading';
 import ShippingRates from './components/cart/ShippingItems'
 import FinalCheckout from './components/cart/FinalCheckout';
@@ -17,7 +17,7 @@ import ProductUpdate from "./components/products/ProductUpdate"
 import CartPay from './components/cart/CartPay';
 import ReviewUpdate from './components/reviews/ReviewUpdate';
 import InfluencerUpdate from './components/influencer/InfluencerUpdate';
-import OrderPaid from './components/Payment/OrderPaid';
+import OrderPaid from './components/payment/OrderPaid';
 import LineGraph from './components/influencer/LineGraph';
 
 
