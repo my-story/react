@@ -4,6 +4,7 @@ import '../../../node_modules/react-vis/dist/style.css';
 import {XYPlot, LineSeries} from 'react-vis';
 import StripeButton from './InfluencerProfile';
 
+//Still working last check July 7
 class LineGraph extends Component {
   render() {
     const data = [

@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
-
-import OrderServices from '../../services/OrderServices'
-import MailerServices from '../../services/MailerServices'
 import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 import Cookies from 'universal-cookie'
+import OrderServices from '../../services/OrderServices'
+import MailerServices from '../../services/MailerServices'
 import UserContext from '../contexts/UserContext'
-
-
 
 
 class CheckoutForm extends Component {
@@ -16,30 +13,29 @@ class CheckoutForm extends Component {
     super(props);
     this.submit = this.submit.bind(this);
     this.state = {
-      user:{
+      user: {
         email: '',
         name:'',
       },
-      message:{
+      message: {
         total: this.props.total,
         products: ""
       },
       paid: false,
       total: 0
     }
-    // this.total = this.props.total
   }
   static contextType = UserContext
 
 
-componentDidMount(){
-  // COokie of Products  
-const cookies = new Cookies();
-let products = cookies.get("Products")
-this.setState({products})
-}
-  reward = (rewardArr) =>{
-    for (var i = 0; i < rewardArr.length; i++){
+  componentDidMount () {
+    const cookies = new Cookies();
+    let products = cookies.get("Products")
+    this.setState({products})
+  };
+
+  reward = (rewardArr) => {
+    for (var i = 0; i < rewardArr.length; i++) {
       let revenue = rewardArr[i].price * rewardArr[i].qty;
       
       axios.get(`http://localhost:3002/influencer/${rewardArr[i].influencer}`)
@@ -56,7 +52,7 @@ this.setState({products})
     }
   }
 
-  totalProductUpdate = (array) =>{
+  totalProductUpdate = (array) => {
     for (var i = 0; i < array.length; i++){
       let qty = array[i].qty;
       let id = array[i]._id;
@@ -69,7 +65,7 @@ this.setState({products})
     }
   }
 
-   getInfluencers = (products) =>{
+   getInfluencers = (products) => {
     const rewardArr = [];
     let reward = {};
     for (var i = 0; i < products.length; i++){
@@ -83,7 +79,7 @@ this.setState({products})
     return rewardArr;
   }
 
-  onChange = (e) =>{
+  onChange = (e) => {
     let { user } = this.state
     user[e.target.name] = e.target.value
     this.setState({ user })

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import Stripe from '../Payment/Stripe';
+import Stripe from '../payment/Stripe';
 import UserContext from '../contexts/UserContext';
 
 const cookies = new Cookies();

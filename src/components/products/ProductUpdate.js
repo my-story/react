@@ -1,16 +1,16 @@
 import React,{ Component } from 'react';
-import { Input, Select } from 'antd';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 import * as toastr from 'toastr'
+import { Input, Select } from 'antd';
+import ProductServices from '../../services/ProductServices';
 
-// const { TextArea } = Input;
 const OPTIONS = ["Sports","Music","Tech","Clothes"];
 const { TextArea } = Input;
 
 class ProductUpdate extends Component {
+
   state = {
-    product:{
+    product: {
       model:this.props.location.state.product.model,
       prize:this.props.location.state.product.prize,
       description:this.props.location.state.product.description,
@@ -38,39 +38,33 @@ class ProductUpdate extends Component {
     this.setState( {product} )
   };
 
-  handleChange = (selectedItems,imageUrl) => {
-    this.setState({product:{
+  handleChange = (selectedItems) => {
+    this.setState({product: {
         ...this.state.product,
         category: selectedItems,
       } })
-  }
+  };
 
 
 
-  onSubmit=()=>{
+  onSubmit = () => {
     let { product } = this.state
-
-    if(product.model.length === 0||product.prize === 0 || product.description.length === 0 || product.category.length === 0){
+    if (product.model.length === 0||product.prize === 0 || product.description.length === 0 || product.category.length === 0) {
       toastr.error("Please complete all required fields")
       return
-    }else{
-      this.addBackend()
+    } else {
+      this.addBackend();
       console.log(this.state);
     }
-  }
+  };
 
 
-  addBackend(){
+  addBackend() {
     let id = this.state.product.influencerId;
-    let url = `http://localhost:3002/product/edit/${id}`;
-
-    axios.post(url, this.state.product, {withCredentials:true})
-        .then((influencer)=>{   
-            console.log(influencer)
-            this.setState({productCreated:true})
-        })
-        .catch(err=>console.log(err))
-  }
+    ProductServices.updateProduct(id, this.state.product)
+      .then((product) => this.setState({productCreated:true}))
+      .catch(err=>console.log(err))
+  };
 
   render(){
     const { selectedItems, product } = this.state;
