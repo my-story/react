@@ -11,7 +11,8 @@ class InfluencerUpdate extends Component{
     state = {
 			data: {
 				expertise:this.props.location.state.influencer.expertise,
-				name: this.props.location.state.influencer.name,
+        firstName: this.props.location.state.influencer.name.firstName,
+				lastName: this.props.location.state.influencer.name.lastName,      
 				review:this.props.location.state.influencer.review,
 				percentage:this.props.location.state.influencer.percentage,
 				user: this.context.user,
@@ -38,7 +39,7 @@ class InfluencerUpdate extends Component{
 		onSubmit = () => {
 			let { data } = this.state;
 			
-			if(data.expertise.length === 0 || data.name.length === 0 || data.review.length === 0){
+			if(data.expertise.length === 0 || data.firstName.length === 0 || data.lastName.length === 0 || data.review.length === 0){
 					toastr.error("Please complete all required fields")
 					return
 			}
@@ -60,11 +61,12 @@ class InfluencerUpdate extends Component{
               <div>   
                   <h1>Create Influencer</h1>
                   <div className="create-card">
-                      <Input name="name" defaultValue={data.name}placeholder="Enter Person's Name" onChange={this.onChange} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} suffix={
+                      <Input name="firstName" defaultValue={data.firstName}placeholder="Enter Person's Name" onChange={this.onChange} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} suffix={
                       <Tooltip title="Make Sure to write with Capitals">
                       <Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)' }} />
                       </Tooltip>
                   }/>
+                      <Input name="lastName" defaultValue={data.lastName} placeholder="Last Name " allowClear onChange={this.onChange} />
                       <Input name="review" defaultValue={data.review} placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
                       <Select
                           mode="multiple"

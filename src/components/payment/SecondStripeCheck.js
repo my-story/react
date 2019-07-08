@@ -87,8 +87,10 @@ class CheckoutForm extends Component {
     this.setState({ user });
   }
 
-  async submit() {
-    let {token} = await this.props.stripe.createToken({name: this.state.user.email});
+
+  async submit(ev) {
+    
+      let {token} = await this.props.stripe.createToken({name: this.state.user.email});
 
     PaymentServices.charge({
       headers: {"Content-Type": "text/plain"},
@@ -117,11 +119,8 @@ class CheckoutForm extends Component {
 
           })
       .catch((err)=>console.log("erorrr paying", err));
-      }
-
-
-      
-
+      };
+    
   render() {
     if(this.state.paid === true ){
       return(<Redirect to="/order-fulfillment"></Redirect>)

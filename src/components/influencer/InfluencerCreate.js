@@ -12,7 +12,8 @@ class InfluencerCreate extends Component{
     state = {
         data: {
             expertise: [],
-            name: "",
+            firstname: "",
+            lastname: "",
             review: "",
             percentage: "",
             user: this.props.user,
@@ -39,11 +40,10 @@ class InfluencerCreate extends Component{
     onSubmit = () => {
         let { data } = this.state;
 
-        if (data.expertise.length === 0 || data.name.length === 0 || data.review.length === 0) {
+        if (data.expertise.length === 0 || data.firstname.length === 0 || data.lastname.length === 0 || data.review.length === 0) {
             toastr.error("Please complete all required fields");
             return;
         }
-
         InfluencerServices.createInfluencer(data)
             .then((influencer) => this.setState({
                 influencerDone: influencer,
@@ -63,11 +63,12 @@ class InfluencerCreate extends Component{
                 <div>   
                     <h1>Create Influencer</h1>
                     <div className="create-card">
-                        <Input name="name" placeholder="Enter Person's Name" onChange={this.onChange} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} suffix={
+                        <Input name="firstname" placeholder="Enter Person's first name" onChange={this.onChange} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} suffix={
                         <Tooltip title="Make Sure to write with Capitals">
                         <Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)' }} />
                         </Tooltip>
                         }/>
+                        <Input name="lastname" placeholder="Lastname" allowClear onChange={this.onChange} />
                         <Input name="review" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
                         <Input name="images" placeholder="Add images URL" allowClear onChange={this.onChange} />
                         <Select
