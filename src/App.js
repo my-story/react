@@ -1,24 +1,19 @@
 import React, {Component} from 'react';
-// import './App.css';
-// import { Route, Switch, Link } from 'react-router-dom'
-import Routes from './Routes';
-import axios from "axios";
-import AuthServices from './services/AuthServices'
-import NavBar from './components/NavBar';
-// import Login from './components/auth/login';
-// import Signup from './components/auth/signup';
 import Cookies from 'universal-cookie';
+import Routes from './Routes';
+import NavBar from './components/NavBar';
 import {QtyProvider} from "./components/contexts/QtyContext"
 import {UserProvider} from "./components/contexts/UserContext";
-class App extends Component {
+import AuthServices from './services/AuthServices';
 
+class App extends Component {
 
   state = {
     loggedInUser: "",
     islogged: "",
-    error:null,
-    details:'',
-    clientAddress:'',
+    error: null,
+    details: '',
+    clientAddress: '',
     getQty: this.getQty(),
   }
 
@@ -27,73 +22,66 @@ class App extends Component {
       loggedInUser: user,
       islogged: true,
     });
-
-    console.log("this is the app state:" , this.state.loggedInUser);
   }
 
   checkLogged() {
-    axios
-    .get("http://localhost:3002/api/private", { withCredentials: true })
-    .then(res => {
-      console.log(res);
-      this.setState({ islogged: true , loggedInUser : res.data});
-    })
-    .catch(e => {
-      this.setState({ islogged: false });
-      // this.render();
-    });
+    AuthServices.loggedin()
+      .then(res => {
+        this.setState({ islogged: true , loggedInUser : res.data});
+      })
+      .catch(e => {
+        this.setState({ islogged: false });
+        console.log(e);
+      });
   };
 
-  bye = () =>{
-    if (this.state.islogged){
+  bye = () => {
+    if (this.state.islogged) {
       this.setState({
         loggedInUser: {},
         islogged: false
       })
     } else {
-      console.log("already logged out")
+      console.log("already logged out");
     }
-    // this.checkLogged()
   }
 
-  componentDidMount = ()=>{
-    this.checkLogged()
+  componentDidMount = () => {
+    this.checkLogged();
   }
 
-  getQty(){
-
+  getQty() {
     const cookies = new Cookies();
     const cookieArr = cookies.get("Products");
   
-    var total = 0;
-    if(cookieArr === undefined) {
-        return
-    }else{
-        for(var i = 0; i < cookieArr.length; i++){
+    let total = 0;
+    if (cookieArr === undefined) {
+        return;
+    } else {
+        for(let i = 0; i < cookieArr.length; i++){
             total += cookieArr[i].qty;
         }
     }
     return total;
 }
 
-updateQty = () =>{
+updateQty = () => {
   this.setState({
     getQty: this.getQty()
-  })
+  });
 }
 
 getAddress = (address) =>{
   this.setState({
     clientAddress: address
-  })
+  });
 }
 
-  render(){
-    console.log(this.state.islogged)
-    if(this.state.islogged === ""){
+  render() {
+    if (this.state.islogged === "") {
       return(
         <div>loading...</div>
-      )
+      );
     } else {
       return (
         <div>

@@ -6,11 +6,11 @@ const getAll = () =>
   
 const productForm = (product) =>
   http.post('/product/create',product)
-  .then((res)=> res.data);
+    .then((res)=> res.data);
 
 const productImage = (product) =>
   http.create('/product/upload/picture',product)
-  .then((res)=>res.data)
+    .then((res) => res.data);
   
 export default {
   getAll,

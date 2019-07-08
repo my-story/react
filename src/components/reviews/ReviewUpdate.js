@@ -1,14 +1,13 @@
-import React, {Component} from 'react'
-import axios from 'axios'
-import { Redirect} from 'react-router-dom'
+import React, {Component} from 'react';
+import { Redirect} from 'react-router-dom';
 import { Input } from 'antd';
 import UserContext from '../contexts/UserContext';
-
+import ReviewServices from '../../services/ReviewServices';
 
 const { TextArea } = Input;
 
+class ReviewUpdate extends Component {
 
-class ReviewUpdate extends Component{
   state = {
  
   }
@@ -19,7 +18,7 @@ class ReviewUpdate extends Component{
     this.setState({[e.target.name]: e.target.value});
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.setState({
       title: this.props.oldReview.review.title,
       review: this.props.oldReview.review.review,
@@ -27,11 +26,12 @@ class ReviewUpdate extends Component{
       voicenote:this.props.oldReview.review.voicenote,
       influencer: this.props.oldReview.influencer._id,
       created: false
-    })
+    });
   }
+
   handleSubmit = () => {
     let id = this.state.influencer;
-    const url= `http://localhost:3002/reviews/edit/${id}`;
+ 
     const newReview = {
       title: this.state.title,
       review: this.state.review,
@@ -40,24 +40,23 @@ class ReviewUpdate extends Component{
       voicenote: this.state.voicenote,
       user: this.context.user
     }
-    console.log(newReview);
-    axios.post(url, newReview, {withCredentials:true})
-      .then((review)=>{   
-          console.log(review)
-          this.setState({created:true})
+
+    ReviewServices.editReview(newReview, id)
+      .then(() => {   
+          this.setState({created:true});
       })
-      .catch(err=>console.log(err))
+      .catch(err => console.log(err));
   }
     
   
 
   render(){
-    console.log(this.state)
-    if (this.context.user.role === "Admin"){
-      if(this.state.created){
-        return(<Redirect to="/"></Redirect>)
-      }else{
-        return(
+    if (this.context.user.role === "Admin") {
+
+      if (this.state.created) {
+        return (<Redirect to="/"></Redirect>); 
+      } else {
+        return (
           <div>  
             <Input name="title" defaultValue={this.props.oldReview.review.title} placeholder="Please enter title " allowClear onChange={this.onChange} />
             <TextArea rows={4} defaultValue={this.props.oldReview.review.review} name="review" placeholder="Please enter review of review" onChange={this.onChange} />
@@ -66,10 +65,11 @@ class ReviewUpdate extends Component{
             <Input name="voicenote"defaultValue={this.props.oldReview.review.voicenote} placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
            <button onClick={this.handleSubmit}>Update</button>
           </div>
-        )
-          }   
+        );
+      }   
+      
 } else {
-  return( <Redirect to="/"></Redirect>)
+  return (<Redirect to="/"></Redirect>);
 }
 }
 }

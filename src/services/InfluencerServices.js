@@ -1,4 +1,4 @@
-import http from './BaseServices'
+import http from './BaseServices';
 
 const createInfluencer = (data) => http.post('/influencer/create', data)
   .then((res)=> res.data);
