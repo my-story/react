@@ -16,7 +16,7 @@ import ProductUpdate from "./components/products/ProductUpdate";
 import CartPay from './components/cart/CartPay';
 import ReviewUpdate from './components/reviews/ReviewUpdate';
 import InfluencerUpdate from './components/influencer/InfluencerUpdate';
-import OrderPaid from './components/Payment/OrderPaid';
+import OrderPaid from './components/payment/OrderPaid';
 import LineGraph from './components/influencer/LineGraph';
 
 

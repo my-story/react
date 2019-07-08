@@ -1,8 +1,8 @@
-import React,{ Component } from 'react'
-import { Redirect} from 'react-router-dom'
+import React,{ Component } from 'react';
+import { Redirect} from 'react-router-dom';
 import { Input, Tooltip, Icon, Select } from 'antd';
-import * as toastr from 'toastr'
-import InfluencerServices from '../../services/InfluencerServices'
+import * as toastr from 'toastr';
+import InfluencerServices from '../../services/InfluencerServices';
 import ProductCreate from '../products/ProductCreate';
 
 const OPTIONS = ["Athlete","Musician","Tech","Artist"];
@@ -10,7 +10,7 @@ const OPTIONS = ["Athlete","Musician","Tech","Artist"];
 class InfluencerCreate extends Component{
 
     state = {
-        data:{
+        data: {
             expertise: [],
             name: "",
             review: "",
@@ -22,21 +22,19 @@ class InfluencerCreate extends Component{
         selectedItems: [],
         done: false,
         influencerDone: {},
-    }
-
-
+    };
 
     onChange = (e) => {
         let { data } = this.state;
         data[e.target.name] = e.target.value;
         this.setState({ data });
-    }
+    };
 
     handleChange = (selectedItems) => {
         this.setState({data:{
             ...this.state.data,
             expertise: selectedItems} })
-    }
+    };
 
     onSubmit = () => {
         let { data } = this.state;
@@ -52,7 +50,7 @@ class InfluencerCreate extends Component{
                 done: true,
             }))
             .catch((e)=>console.log(e));
-    }
+    };
 
     render(){
 
@@ -97,5 +95,5 @@ class InfluencerCreate extends Component{
         return( <Redirect to="/"></Redirect>);
     }
     }
-}
+};
 export default InfluencerCreate;

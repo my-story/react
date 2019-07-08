@@ -12,10 +12,17 @@ const deleteInfluencer = (user, id) => http.post(`/influencer/delete/${id}`, use
 const getFilter = (search) => http.get(`/influencer/filter?search=${search}`)
   .then((res) => res.data);
 
+const searchFilter = (search) => http.get(`/influencer/filter/category?search=${search}`)
+  .then((res) => res.data)
+
+const updateInfluencer = (data , id) => http.post(`/influencer/edit/${id}`, data)
+  .then((res) => res.data)
 
 export default {
     createInfluencer,
     getAll,
     deleteInfluencer,
-    getFilter
+    getFilter,
+    searchFilter,
+    updateInfluencer
 }

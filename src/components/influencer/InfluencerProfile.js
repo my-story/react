@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
+//Still working last check July 7
 class Profile extends React.Component{
     state={
         info:""
