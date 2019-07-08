@@ -69,7 +69,6 @@ class  ProductDetail extends Component{
   };
 
   render() { 
-    console.log(this.state)
     return(
       <div>
         <h3>Product Detail</h3>

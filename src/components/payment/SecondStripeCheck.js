@@ -106,12 +106,9 @@ class CheckoutForm extends Component {
 
         OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
         .then((res)=> {
-          console.log(res)
           MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email, message:this.state.message})
           const cookies = new Cookies();
-
           cookies.remove("Products");
-
           this.setState({paid:true})
         })
         .catch((e)=> console.log(e))
@@ -124,7 +121,6 @@ class CheckoutForm extends Component {
       
 
   render() {
-    console.log(this.context.user.username)
     const cookies = new Cookies();
     let products = cookies.get("Products")
     console.log(products);

@@ -43,9 +43,6 @@ class ProductList extends Component {
 
   render(){
     const {products, category} = this.state
-    
-    console.log(products)
-    
     return(
       <div>
         <div>
