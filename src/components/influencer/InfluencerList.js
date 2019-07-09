@@ -47,7 +47,7 @@ class InfluencerList extends Component{
 //Still needs fixing
 	filterCategory = (e) =>{
 			InfluencerServices.searchFilter(e.target.value)
-				.then((res) => this.setState({influencers:res.data}))
+				.then((res) => this.setState({influencers:res}))
 				.catch((err) => console.log(err))
     }
 
