@@ -31,8 +31,7 @@ class ReviewOne extends Component{
     componentDidMount(){
         const { id } = this.props.match.params;
 		ReviewServices.getReview(id)
-      .then((review) => {
-     this.setState(() => ({ review: review }))}
+      .then((review) => this.setState(() => ({ review: review })))
 // 			.then((review) => {    
 // 					this.setState({review:review.data[0],influencer: review.data[0].influencer, name: review.data[0].influencer.name , votes: review.data[0].votes, user:this.context.user});
 // 			})
@@ -143,35 +142,6 @@ class ReviewOne extends Component{
 	};
 
 
-	if(influencer.name === "") {
-		return(<div>Loading...</div>)
-	}
-	if (!influencer) {
-		return (<h1>Review comming soon</h1>);
-	} else {
-		if (this.context.user.role !== "Admin") {
-			return (
-					<div>
-					<div>
-						<img src={influencer.profilePic} alt={name.firstName} />
-						<p>name: {name.firstName} {name.lastName}</p>									
-						<p>expertise: {influencer.expertise}</p>
-						<p>review: {influencer.review}</p>
-					</div>
-					<div>
-						<h3>Review</h3>
-						<p> title: {review.title}</p> 
-						<p> review: {review.review}</p> 
-						<p> voicenote: {review.voicenote}</p> 
-						<ReactPlayer url={review.video} playing={false} />
-						<AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
-						<span>{this.state.votes}</span>
-					</div>
-					</div>
-			);
-	} else {
-		if (this.state.update) {
-			return(<ReviewUpdate oldReview={this.state}/>);
 
     isDownvoted = () => this.state.review.downvotes && this.state.review.downvotes.find(vote => vote.author === this.context.user.id);
 
@@ -189,6 +159,36 @@ class ReviewOne extends Component{
         const review = this.state.review;
         const influencer = this.state.review.influencer || {};
 
+
+	// if(influencer.name === "") {
+	// 	return(<div>Loading...</div>)
+	// }
+	// if (!influencer) {
+	// 	return (<h1>Review comming soon</h1>);
+	// } else {
+	// 	if (this.context.user.role !== "Admin") {
+	// 		return (
+	// 				<div>
+	// 				<div>
+	// 					<img src={influencer.profilePic} alt={name.firstName} />
+	// 					<p>name: {name.firstName} {name.lastName}</p>									
+	// 					<p>expertise: {influencer.expertise}</p>
+	// 					<p>review: {influencer.review}</p>
+	// 				</div>
+	// 				<div>
+	// 					<h3>Review</h3>
+	// 					<p> title: {review.title}</p> 
+	// 					<p> review: {review.review}</p> 
+	// 					<p> voicenote: {review.voicenote}</p> 
+	// 					<ReactPlayer url={review.video} playing={false} />
+	// 					<AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
+	// 					<span>{this.state.votes}</span>
+	// 				</div>
+	// 				</div>
+	// 		);
+	// } else {
+	// 	if (this.state.update) {
+	// 		return(<ReviewUpdate oldReview={this.state}/>);
         if(this.context.user.role !== "Admin"){
             return(
 						<div>
