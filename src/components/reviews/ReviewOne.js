@@ -73,6 +73,7 @@ class ReviewOne extends Component {
 	render() {
 	const {review, influencer, name } = this.state;
 
+
 	if(influencer.name === "") {
 		return(<div>Loading...</div>)
 	}
@@ -112,6 +113,7 @@ class ReviewOne extends Component {
 						<p>review: {influencer.review}</p>
 					</div>
 					<div>
+
 						<h3>Review</h3>
 						<p> title: {review.title}</p> 
 						<p> review: {review.review}</p> 
