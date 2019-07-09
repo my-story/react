@@ -21,9 +21,6 @@ const deleteProduct = (id) => http.post(`/product/delete/${id}`)
 const updateProduct = (id, product) => http.post(`/product/edit/${id}`, product)
   .then((res) => res.data);
 
-const updateProduct = (id, product) => http.post(`/product/edit/${id}`, product)
-  .then((res) => res.data);
-
 const updateTotal = (id, qty) => http.post(`/product/update/total/${id}`, qty)
   .then((res) => res.data);
 
