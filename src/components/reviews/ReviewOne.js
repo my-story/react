@@ -82,21 +82,21 @@ class ReviewOne extends Component {
 		if (this.context.user.role !== "Admin") {
 			return (
 					<div>
-							<div>
-									<img src={influencer.profilePic} alt={name.firstName} />
-									<p>name: {name.firstName} {name.lastName}</p>									
-									<p>expertise: {influencer.expertise}</p>
-									<p>review: {influencer.review}</p>
-							</div>
-							<div>
-								<h3>Review</h3>
-								<p> title: {review.title}</p> 
-								<p> review: {review.review}</p> 
-								<p> voicenote: {review.voicenote}</p> 
-								<ReactPlayer url={review.video} playing={false} />
-								<AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
-								<span>{this.state.votes}</span>
-							</div>
+					<div>
+						<img src={influencer.profilePic} alt={name.firstName} />
+						<p>name: {name.firstName} {name.lastName}</p>									
+						<p>expertise: {influencer.expertise}</p>
+						<p>review: {influencer.review}</p>
+					</div>
+					<div>
+						<h3>Review</h3>
+						<p> title: {review.title}</p> 
+						<p> review: {review.review}</p> 
+						<p> voicenote: {review.voicenote}</p> 
+						<ReactPlayer url={review.video} playing={false} />
+						<AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
+						<span>{this.state.votes}</span>
+					</div>
 					</div>
 			);
 	} else {
