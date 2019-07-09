@@ -73,7 +73,30 @@ class ReviewOne extends Component {
 	render() {
 	const {review, influencer, name } = this.state;
 
-
+		if (!influencer) {
+			return (<h1>Review comming soon</h1>);
+		} else {
+			if (this.context.user.role !== "Admin") {
+				return (
+						<div>
+								<div>
+										<img src={influencer.profilePic} alt={influencer.name.firstName} />
+										<p>name: {influencer.name.firstName}</p>
+										<p>expertise: {influencer.expertise}</p>
+										<p>review: {influencer.review}</p>
+								</div>
+								<div>
+										<h3>Review</h3>
+										<p> title: {review.title}</p> 
+										<p> review: {review.review}</p> 
+										<p> voicenote: {review.voicenote}</p> 
+										<ReactPlayer url={review.video} playing={false} />
+										<AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
+										<span>{this.state.votes}</span>
+								</div>
+						</div>
+				);
+				}
 	if(influencer.name === "") {
 		return(<div>Loading...</div>)
 	}
@@ -103,6 +126,7 @@ class ReviewOne extends Component {
 	} else {
 		if (this.state.update) {
 			return(<ReviewUpdate oldReview={this.state}/>);
+
 		} else {
 			return (
 				<div>
@@ -114,6 +138,23 @@ class ReviewOne extends Component {
 					</div>
 					<div>
 
+						<div>
+							<img src={influencer.profilePic} alt={influencer.name.firstName} />
+							<p>name: {influencer.name.firstName}</p>
+							<p>expertise: {influencer.expertise}</p>
+							<p>review: {influencer.review}</p>
+						</div>
+						<div>
+							<h3>Review</h3>
+							<p> title: {review.title}</p> 
+							<p> review: {review.review}</p> 
+							<p> voicenote: {review.voicenote}</p> 
+							<ReactPlayer url={review.video} playing />
+							<AudioPlayer autoPlay src={review.voicenote} onPlay={e => console.log("onPlay")} />
+							<button onClick={this.update}>Update</button>
+							<br/>
+							<button onClick={this.submit}>Delete</button>
+						</div>
 						<h3>Review</h3>
 						<p> title: {review.title}</p> 
 						<p> review: {review.review}</p> 
@@ -123,12 +164,14 @@ class ReviewOne extends Component {
 						<button onClick={this.update}>Update</button>
 						<br/>
 						<button onClick={this.submit}>Delete</button>
+
 					</div>
 				</div>
 				);
 			}
 		}	
 	}
+}
 }
 }
 
