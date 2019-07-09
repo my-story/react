@@ -87,7 +87,7 @@ class ProductOne extends Component {
             }}>
               <p>model: {this.props.i.model}</p>
               <p>description: {this.props.i.description}</p>
-              <p>influencer: {this.props.i.influencer.name}</p>
+              <p>influencer: {this.props.i.influencer.name.firstName}</p>
               <img height="100" src={this.props.i.images[0]} alt={this.props.i.name} />
           </Link>
         </div>

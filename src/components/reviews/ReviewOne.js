@@ -79,8 +79,8 @@ class ReviewOne extends Component {
 				return (
 						<div>
 								<div>
-										<img src={influencer.profilePic} alt={influencer.name} />
-										<p>name: {influencer.name}</p>
+										<img src={influencer.profilePic} alt={influencer.name.firstName} />
+										<p>name: {influencer.name.firstName}</p>
 										<p>expertise: {influencer.expertise}</p>
 										<p>review: {influencer.review}</p>
 								</div>
@@ -102,8 +102,8 @@ class ReviewOne extends Component {
 				return (
 					<div>
 						<div>
-							<img src={influencer.profilePic} alt={influencer.name} />
-							<p>name: {influencer.name}</p>
+							<img src={influencer.profilePic} alt={influencer.name.firstName} />
+							<p>name: {influencer.name.firstName}</p>
 							<p>expertise: {influencer.expertise}</p>
 							<p>review: {influencer.review}</p>
 						</div>
