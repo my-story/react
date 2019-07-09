@@ -143,7 +143,6 @@ class ReviewOne extends Component{
 	};
 
 
-<<<<<<< HEAD
 	if(influencer.name === "") {
 		return(<div>Loading...</div>)
 	}
@@ -173,7 +172,7 @@ class ReviewOne extends Component{
 	} else {
 		if (this.state.update) {
 			return(<ReviewUpdate oldReview={this.state}/>);
-=======
+
     isDownvoted = () => this.state.review.downvotes && this.state.review.downvotes.find(vote => vote.author === this.context.user.id);
 
     isUpvoted = () => this.state.review.upvotes && this.state.review.upvotes.find(vote => vote.author === this.context.user.id);
@@ -181,7 +180,6 @@ class ReviewOne extends Component{
     votes = () => {
         if (this.state.review.upvotes && this.state.review.downvotes) {
             return this.state.review.upvotes.length - this.state.review.downvotes.length;
->>>>>>> d78d158285b9d301915aca3619271ca6fa089a1f
 		} else {
             return 0;
         }
