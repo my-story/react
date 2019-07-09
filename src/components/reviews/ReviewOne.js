@@ -22,8 +22,8 @@ class ReviewOne extends Component{
     static contextType = UserContext;
 	state = {
 			review: {},
-// 			influencer: {},
-// 			name:{},
+			influencer: {},
+			name:{},
 
 			update: false,
 	}
