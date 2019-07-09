@@ -58,12 +58,8 @@ class InfluencerList extends Component{
       return(
         <div key={this.props.index} className="influencer-card">
         <Link to={`review/${this.props.influencer._id}`}>
-<<<<<<< HEAD
-          <p>First Name: {this.props.influencer.name.firstName}</p>
-          <p>Last Name: {this.props.influencer.name.lastName}</p>
-=======
         <p>name: {this.props.influencer.name.firstName} lastname: {this.props.influencer.name.lastName}</p>          
->>>>>>> 0ba964774609be6729218653954902f486a8e246
+
           <p>description: {this.props.influencer.review}</p>
           {/* <img height="100" src={i.profilePic} alt={i.name} /> */}
         </Link>
