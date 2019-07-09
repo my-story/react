@@ -12,6 +12,7 @@ class ReviewOne extends Component {
 	state = {
 			review: {},
 			influencer: {},
+			name:{},
 			update: false,
 			votes: 0,
 			upvoted: "",
@@ -27,7 +28,7 @@ class ReviewOne extends Component {
 
 		ReviewServices.getReview(id)
 			.then((review) => {    
-					this.setState({review:review.data[0],influencer: review.data[0].influencer, votes: review.data[0].votes, user:this.context.user});
+					this.setState({review:review.data[0],influencer: review.data[0].influencer, name: review.data[0].influencer.name , votes: review.data[0].votes, user:this.context.user});
 			})
 			.catch(err => console.log(err));
 	}
@@ -70,8 +71,9 @@ class ReviewOne extends Component {
 	};
 
 	render() {
-		const {review, influencer} = this.state;
+	const {review, influencer, name } = this.state;
 
+<<<<<<< HEAD
 		if (!influencer) {
 			return (<h1>Review comming soon</h1>);
 		} else {
@@ -95,12 +97,48 @@ class ReviewOne extends Component {
 								</div>
 						</div>
 				);
-		} else {
-			if (this.state.update) {
-				return(<ReviewUpdate oldReview={this.state}/>);
-			} else {
-				return (
+=======
+	if(influencer.name === "") {
+		return(<div>Loading...</div>)
+	}
+	if (!influencer) {
+		return (<h1>Review comming soon</h1>);
+	} else {
+		if (this.context.user.role !== "Admin") {
+			return (
 					<div>
+							<div>
+									<img src={influencer.profilePic} alt={name.firstName} />
+									<p>name: {name.firstName} {name.lastName}</p>									
+									<p>expertise: {influencer.expertise}</p>
+									<p>review: {influencer.review}</p>
+							</div>
+							<div>
+								<h3>Review</h3>
+								<p> title: {review.title}</p> 
+								<p> review: {review.review}</p> 
+								<p> voicenote: {review.voicenote}</p> 
+								<ReactPlayer url={review.video} playing={false} />
+								<AudioPlayer autoPlay={false} src={review.voicenote} onPlay={e => console.log("onPlay")} />
+								<span>{this.state.votes}</span>
+							</div>
+					</div>
+			);
+	} else {
+		if (this.state.update) {
+			return(<ReviewUpdate oldReview={this.state}/>);
+>>>>>>> 0ba964774609be6729218653954902f486a8e246
+		} else {
+			return (
+				<div>
+					<div>
+						<img src={influencer.profilePic} alt={name.firstName} />
+						<p>name: {name.firstName} {name.lastName}</p>
+						<p>expertise: {influencer.expertise}</p>
+						<p>review: {influencer.review}</p>
+					</div>
+					<div>
+<<<<<<< HEAD
 						<div>
 							<img src={influencer.profilePic} alt={influencer.name.firstName} />
 							<p>name: {influencer.name.firstName}</p>
@@ -118,7 +156,19 @@ class ReviewOne extends Component {
 							<br/>
 							<button onClick={this.submit}>Delete</button>
 						</div>
+=======
+						<h3>Review</h3>
+						<p> title: {review.title}</p> 
+						<p> review: {review.review}</p> 
+						<p> voicenote: {review.voicenote}</p> 
+						<ReactPlayer url={review.video} playing />
+						<AudioPlayer autoPlay src={review.voicenote} onPlay={e => console.log("onPlay")} />
+						<button onClick={this.update}>Update</button>
+						<br/>
+						<button onClick={this.submit}>Delete</button>
+>>>>>>> 0ba964774609be6729218653954902f486a8e246
 					</div>
+				</div>
 				);
 			}
 		}	
