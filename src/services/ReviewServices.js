@@ -17,11 +17,11 @@ const getReview = (id) =>
     .then((res) => res.data);
 
 const deleteReview = (user, id) =>
-  http.post(`/reviews/delete/${id}`, user)
+  http.post(`/reviews/delete`, user)
     .then((res) => res);
 
 const voteUp = (influencerId, userId) =>
-  http.patch('/reviews/upvote', { influencer_id: influencerId, user_id: userId });
+  http.patch(`/reviews/upvote`, { influencer_id: influencerId, user_id: userId });
 
 const undoVoteUp = (influencerId, userId) =>
   http.patch('/reviews/upvote/undo', { influencer_id: influencerId, user_id: userId });
