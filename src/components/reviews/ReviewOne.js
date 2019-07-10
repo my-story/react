@@ -170,8 +170,8 @@ class ReviewOne extends Component{
 						<p> title: {review.title}</p> 
 						<p> review: {review.review}</p> 
 						<p> voicenote: {review.voicenote}</p> 
-						<ReactPlayer url={review.video}  />
-						<AudioPlayer autoPlay={false} src={review.voicenote} />
+						<ReactPlayer url={review.video} />
+						<AudioPlayer src={review.voicenote} onPlay={e => console.log("onPlay")} />
 						<Vote
 							isDownvoted={this.isDownvoted()}
 							isUpvoted={this.isUpvoted()}
@@ -200,7 +200,7 @@ class ReviewOne extends Component{
 							<p> review: {review.review}</p> 
 							<p> voicenote: {review.voicenote}</p> 
 							<ReactPlayer url={review.video} />
-							<AudioPlayer autoPlay src={review.voicenote} />
+							<AudioPlayer src={review.voicenote} onPlay={e => console.log("onPlay")} />
 							<button onClick={this.update}>Update</button>
 							<br/>
 							<button onClick={this.submit}>Delete</button>

@@ -100,7 +100,9 @@ class CheckoutForm extends Component {
 
   async submit(ev) {
 
+
     let {token} = await this.props.stripe.createToken({name: this.state.user.email});
+
 
     PaymentServices.charge({
       headers: {"Content-Type": "text/plain"},
@@ -130,7 +132,8 @@ class CheckoutForm extends Component {
 
           })
       .catch((err)=>console.log("erorrr paying", err));
-      };
+
+  };
     
   render() {
     if(this.state.paid === true ){
