@@ -40,6 +40,11 @@ class NavBar extends Component {
 						<span>
 						<p>About us</p>
 						</span>
+						<Link to="/profile">
+								<span>
+									<p>Profile</p>
+								</span>
+						</Link>
 						<Link to="/cart">
 							<span>
 									<p><Icon type="shopping-cart" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer></p>
@@ -67,6 +72,11 @@ class NavBar extends Component {
 							<Link to="/products">
 								<span>
 								<p>Products</p>
+								</span>
+							</Link>
+							<Link to="/profile">
+								<span>
+									<p>Profile</p>
 								</span>
 							</Link>
 								<span>

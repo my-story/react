@@ -14,17 +14,32 @@ const editReview = (review, id) =>
 
 const getReview = (id) =>
   http.get(`/reviews/specific/${id}`)
-    .then((res) => res);
+    .then((res) => res.data);
 
 const deleteReview = (user, id) =>
-  http.post(`/reviews/delete/${id}`, user)
+  http.post(`/reviews/delete`, user)
     .then((res) => res);
 
+const voteUp = (influencerId, userId) =>
+  http.patch(`/reviews/upvote`, { influencer_id: influencerId, user_id: userId });
+
+const undoVoteUp = (influencerId, userId) =>
+  http.patch('/reviews/upvote/undo', { influencer_id: influencerId, user_id: userId });
+
+const voteDown = (influencerId, userId) =>
+  http.patch('/reviews/downvote', { influencer_id: influencerId, user_id: userId });
+
+const undoVoteDown = (influencerId, userId) =>
+  http.patch('/reviews/downvote/undo', { influencer_id: influencerId, user_id: userId });
 
 export default {
   createReview,
   reviewVoice,
   editReview,
   getReview,
-  deleteReview
-}
+  deleteReview,
+  voteUp,
+  voteDown,
+  undoVoteUp,
+  undoVoteDown
+};

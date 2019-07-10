@@ -18,6 +18,7 @@ import ReviewUpdate from './components/reviews/ReviewUpdate';
 import InfluencerUpdate from './components/influencer/InfluencerUpdate';
 import OrderPaid from './components/payment/OrderPaid';
 import LineGraph from './components/influencer/LineGraph';
+import Profile from './components/auth/Profile';
 
 
 export default (props) => (
@@ -28,6 +29,7 @@ export default (props) => (
   <Route path="/signup" component={Signup} />
   <Route path="/login"  render={() => <Login {...props} />} />
   <Route path="/logout" render={() => <Logout {...props} />} />
+  <Route path="/profile" component={Profile} />
   <Route path="/create" component={() => <InfluencerCreate {...props} />} />
   <Route path="/reviewForm" render={() => <ReviewForm {...props} />} />
   <Route path="/review/:id" component={ReviewOne} />
