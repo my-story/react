@@ -63,7 +63,7 @@ class InfluencerList extends Component{
 								{category.map((c,index) => {
 										return(
 										<div>
-												<button value={c} onClick={(e) => this.filterCategory(e)}>{c}</button>
+											<button value={c} onClick={(e) => this.filterCategory(e)}>{c}</button>
 										</div>
 										)
 									})}

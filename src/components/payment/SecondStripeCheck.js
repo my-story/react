@@ -8,6 +8,7 @@ import UserContext from '../contexts/UserContext';
 import InfluencerServices from '../../services/InfluencerServices';
 import ProductServices from '../../services/ProductServices';
 import PaymentServices from '../../services/PaymentServices';
+import axios from 'axios'
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -87,16 +88,26 @@ class CheckoutForm extends Component {
     this.setState({ user });
   }
 
-
-  async submit(ev) {
-    
-      let {token} = await this.props.stripe.createToken({name: this.state.user.email});
+  async payment() {
+    let {token} = await this.props.stripe.createToken({name: this.state.user.email});
 
     PaymentServices.charge({
       headers: {"Content-Type": "text/plain"},
       token: token.id,
       total: Math.trunc(this.props.total * 100),
     })
+  }
+
+  async submit(ev) {
+
+    let {token} = await this.props.stripe.createToken({name: this.state.user.email});
+
+    PaymentServices.charge({
+      headers: {"Content-Type": "text/plain"},
+      token: token.id,
+      total: Math.trunc(this.props.total * 100),
+    })
+    
       .then(() => {
           const cookies = new Cookies();
           let products = cookies.get("Products");
