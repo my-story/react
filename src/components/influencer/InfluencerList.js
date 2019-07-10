@@ -32,11 +32,12 @@ class InfluencerList extends Component{
 				}))
 			.catch((err) => console.log(err))
 		}
-		
+	
+	//		.then((res) => this.setState({influencers:res.data}))
 	// needs fixing
 	getFilter = (e) => { 
 			InfluencerServices.getFilter(e.target.value)
-				.then((res) => this.setState({influencers:res.data}))
+				.then((res) => this.setState({influencers: res}))
 				.catch((err) => console.log(err))
     }
 
@@ -47,7 +48,7 @@ class InfluencerList extends Component{
 //Still needs fixing
 	filterCategory = (e) =>{
 			InfluencerServices.searchFilter(e.target.value)
-				.then((res) => this.setState({influencers:res.data}))
+				.then((res) => this.setState({influencers:res}))
 				.catch((err) => console.log(err))
     }
 
