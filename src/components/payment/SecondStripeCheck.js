@@ -8,7 +8,7 @@ import UserContext from '../contexts/UserContext';
 import InfluencerServices from '../../services/InfluencerServices';
 import ProductServices from '../../services/ProductServices';
 import PaymentServices from '../../services/PaymentServices';
-import axios from 'axios'
+
 
 class CheckoutForm extends Component {
   constructor(props) {
