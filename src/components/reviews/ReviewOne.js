@@ -57,7 +57,7 @@ class ReviewOne extends Component{
                 ReviewServices.undoVoteUp(this.state.review.influencer._id, this.context.user._id)
                     .then(() => {
                         this.setState(state => {
-                            const upvotes = state.review.upvotes.filter(upvote => upvote !== this.context.user._id);
+                            const upvotes = state.review.upvotes.filter(upvote => upvote.author !== this.context.user._id);
 
                             return {
                                 review: { ...state.review, upvotes }
@@ -69,8 +69,8 @@ class ReviewOne extends Component{
                 ReviewServices.voteUp(this.state.review.influencer._id, this.context.user._id)
                     .then(() => {
                         this.setState(state => {
-                            const downvotes = state.review.downvotes.filter(downvote => downvote !== this.context.user._id);
-                            const upvotes = state.review.upvotes.concat(this.context.user._id);
+                            const downvotes = state.review.downvotes.filter(downvote => downvote.author !== this.context.user._id);
+                            const upvotes = state.review.upvotes.concat({ author: this.context.user._id });
     
                             return {
                                 review: { ...state.review, downvotes, upvotes }
@@ -90,7 +90,7 @@ class ReviewOne extends Component{
                 ReviewServices.undoVoteDown(this.state.review.influencer._id, this.context.user._id)
                     .then(() => {
                         this.setState(state => {
-                            const downvotes = state.review.downvotes.filter(downvote => downvote !== this.context.user._id);
+                            const downvotes = state.review.downvotes.filter(downvote => downvote.author !== this.context.user._id);
 
                             return {
                                 review: { ...state.review, downvotes }
@@ -102,8 +102,8 @@ class ReviewOne extends Component{
                 ReviewServices.voteDown(this.state.review.influencer._id, this.context.user._id)
                     .then(() => {
                         this.setState(state => {
-                            const upvotes = state.review.upvotes.filter(upvote => upvote !== this.context.user._id);
-                            const downvotes = state.review.downvotes.concat(this.context.user._id);
+                            const upvotes = state.review.upvotes.filter(upvote => upvote.author !== this.context.user._id);
+                            const downvotes = state.review.downvotes.concat({ author: this.context.user._id });
 
                             return {
                                 review: { ...state.review, downvotes, upvotes }
@@ -140,21 +140,21 @@ class ReviewOne extends Component{
 
 
 
-    isDownvoted = () => this.state.review.downvotes && this.state.review.downvotes.find(vote => vote.author === this.context.user.id);
+    isDownvoted = () => this.state.review.downvotes && this.state.review.downvotes.find(vote => vote.author === this.context.user._id);
 
-    isUpvoted = () => this.state.review.upvotes && this.state.review.upvotes.find(vote => vote.author === this.context.user.id);
+    isUpvoted = () => this.state.review.upvotes && this.state.review.upvotes.find(vote => vote.author === this.context.user._id);
 
     votes = () => {
-        if (this.state.review.upvotes && this.state.review.downvotes) {
-            return this.state.review.upvotes.length - this.state.review.downvotes.length;
-		} else {
-            return 0;
-        }
+			if (this.state.review.upvotes && this.state.review.downvotes) {
+				return this.state.review.upvotes.length - this.state.review.downvotes.length;
+			} else {
+				return 0;
+			}
     };
 
     render(){
         const review = this.state.review;
-        const influencer = this.state.review.influencer || {};
+				const influencer = this.state.review.influencer || {};
 
 			if(this.context.user.role !== "Admin"){
 				return(
