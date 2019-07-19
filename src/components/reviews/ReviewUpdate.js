@@ -35,7 +35,7 @@ class ReviewUpdate extends Component {
     const newReview = {
       title: this.state.title,
       review: this.state.review,
-      influencer: this.state.influencer,
+      influencer: this.state.influencer._id,
       video: this.state.video,
       voicenote: this.state.voicenote,
     }
@@ -52,6 +52,7 @@ class ReviewUpdate extends Component {
   
 
   render(){
+    console.log("state",this.state, "props", this.props)
     if (this.context.user.role === "Admin") {
       if (this.state.created) {
         return (<Redirect to="/"></Redirect>); 
