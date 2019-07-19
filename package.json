@@ -27,7 +27,8 @@
     "react-youtube": "^7.9.0",
     "slick-carousel": "^1.8.1",
     "toastr": "^2.1.4",
-    "universal-cookie": "^4.0.0"
+    "universal-cookie": "^4.0.0",
+    "video-react": "^0.14.0"
   },
   "scripts": {
     "start": "react-scripts start",
