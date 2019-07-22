@@ -1,9 +1,10 @@
 import React,{ Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { Input, Select } from 'antd';
 import * as toastr from 'toastr';
 import ProductServices from '../../services/ProductServices';
-
+import ReviewForm from '../reviews/ReviewForm';
+import UserContext from '../contexts/UserContext';
 const OPTIONS = ["Sports","Music","Tech","Clothes"];
 const { TextArea } = Input;
 
@@ -21,6 +22,8 @@ class ProductCreate extends Component {
     selectedItems: [],
     productCreated: null
   };
+
+  static contextType = UserContext;
 
   onChange = (e) => {
     let { product } = this.state
@@ -67,7 +70,7 @@ class ProductCreate extends Component {
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
     if(this.state.productCreated){
-      return (<Redirect to="/" />)
+      return (<ReviewForm influencer={this.props.influencer} user={this.context.user}/>);
     }
       return(
         <div>
