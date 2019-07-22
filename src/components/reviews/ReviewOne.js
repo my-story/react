@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import { confirmAlert } from 'react-confirm-alert'; 
-import ReactPlayer from 'react-player';
 import AudioPlayer from "react-h5-audio-player";
 import * as toastr from 'toastr';
 import UserContext from '../contexts/UserContext';
 import ReviewUpdate from './ReviewUpdate';
 import ReviewServices from '../../services/ReviewServices';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+
 
 const Vote = ({ votes, voteDown, voteUp }) => {
     return (
@@ -154,7 +154,8 @@ class ReviewOne extends Component{
 
     render(){
         const review = this.state.review;
-				const influencer = this.state.review.influencer || {};
+		const influencer = this.state.review.influencer || {};
+		
 
 			if(this.context.user.role !== "Admin"){
 				return(
@@ -170,8 +171,10 @@ class ReviewOne extends Component{
 						<p> title: {review.title}</p> 
 						<p> review: {review.review}</p> 
 						<p> voicenote: {review.voicenote}</p> 
-						<ReactPlayer url={review.video} />
-						<AudioPlayer src={review.voicenote} onPlay={e => console.log("onPlay")} />
+						<video 
+								controls 
+								src={review.video} />
+							<audio ref="audio_tag" src={review.voicenote} controls/>						
 						<Vote
 							isDownvoted={this.isDownvoted()}
 							isUpvoted={this.isUpvoted()}
@@ -199,8 +202,10 @@ class ReviewOne extends Component{
 							<p> title: {review.title}</p> 
 							<p> review: {review.review}</p> 
 							<p> voicenote: {review.voicenote}</p> 
-							<ReactPlayer url={review.video} />
-							<AudioPlayer src={review.voicenote} onPlay={e => console.log("onPlay")} />
+							<video 
+								controls 
+								src={review.video} />
+							<audio ref="audio_tag" src={review.voicenote} controls/>
 							<button onClick={this.update}>Update</button>
 							<br/>
 							<button onClick={this.submit}>Delete</button>
