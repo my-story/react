@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { confirmAlert } from 'react-confirm-alert'; 
-import AudioPlayer from "react-h5-audio-player";
+import {Link} from 'react-router-dom';
 import * as toastr from 'toastr';
 import UserContext from '../contexts/UserContext';
 import ReviewUpdate from './ReviewUpdate';
@@ -21,11 +21,8 @@ const Vote = ({ votes, voteDown, voteUp }) => {
 class ReviewOne extends Component{
     static contextType = UserContext;
 	state = {
-			review: {},
-			influencer: {},
-			name:{},
-
-			update: false,
+		review: {},
+		update: false,
 	}
 
     componentDidMount(){
@@ -153,49 +150,19 @@ class ReviewOne extends Component{
     };
 
     render(){
-        const review = this.state.review;
-		const influencer = this.state.review.influencer || {};
-		
+      const review = this.state.review;
+			const influencer = this.state.review.influencer || {};
+			const product = this.state.review.product || {};
+			console.log(this.state);
 
-			if(this.context.user.role !== "Admin"){
-				return(
-				<div>
-					<div>
-					<img src={influencer.profilePic} alt={influencer.name} />
-					<p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-					<p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
-									<p>review: {influencer.review}</p>
-					</div>
-					<div>
-						<h3>Review</h3>
-						<p> title: {review.title}</p> 
-						<p> review: {review.review}</p> 
-						<p> voicenote: {review.voicenote}</p> 
-						<video 
-								controls 
-								src={review.video} />
-							<audio ref="audio_tag" src={review.voicenote} controls/>						
-						<Vote
-							isDownvoted={this.isDownvoted()}
-							isUpvoted={this.isUpvoted()}
-							votes={this.votes()}
-							voteDown={this.downvote}
-							voteUp={this.upvote}
-						/>
-						</div>
-				</div>
-						);
-		} else {
-			if (this.state.update) {
-				return(<ReviewUpdate oldReview={this.state}/>);
-			} else {
-        return(
+				if(this.context.user.role !== "Admin"){
+					return(
 					<div>
 						<div>
-							<img src={influencer.profilePic} alt={influencer.name} />
-							<p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-							<p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
-							<p>review: {influencer.review}</p>
+						<img src={influencer.profilePic} alt={influencer.name} />
+						<p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+						<p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
+										<p>review: {influencer.review}</p>
 						</div>
 						<div>
 							<h3>Review</h3>
@@ -203,26 +170,57 @@ class ReviewOne extends Component{
 							<p> review: {review.review}</p> 
 							<p> voicenote: {review.voicenote}</p> 
 							<video 
-								controls 
-								src={review.video} />
-							<audio ref="audio_tag" src={review.voicenote} controls/>
-							<button onClick={this.update}>Update</button>
-							<br/>
-							<button onClick={this.submit}>Delete</button>
-								<Vote
-									isDownvoted={this.isDownvoted()}
-									isUpvoted={this.isUpvoted()}
-									votes={this.votes()}
-									voteDown={this.downvote}
-									voteUp={this.upvote}
-								/>
-						</div>
+									controls 
+									src={review.video} />
+								<audio ref="audio_tag" src={review.voicenote} controls/>						
+							<Vote
+								isDownvoted={this.isDownvoted()}
+								isUpvoted={this.isUpvoted()}
+								votes={this.votes()}
+								voteDown={this.downvote}
+								voteUp={this.upvote}
+							/>
+							</div>
 					</div>
-        )
-
-		}	
-	}
-        
+							);
+			} else {
+				if (this.state.update) {
+					return(<ReviewUpdate oldReview={this.state}/>);
+				} else {
+					return(
+						<div>
+							<div>
+								<p><Link to={`/product/${product._id}`} >Product: {product.model}</Link></p>
+								<img src={influencer.profilePic} alt={influencer.name} />
+								<p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+								<p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
+								<p>review: {influencer.review}</p>
+							</div>
+							<div>
+								<h3>Review</h3>
+								<p> title: {review.title}</p> 
+								<p> review: {review.review}</p> 
+								<p> voicenote: {review.voicenote}</p> 
+								<video 
+									controls 
+									src={review.video} />
+								<audio ref="audio_tag" src={review.voicenote} controls/>
+								<button onClick={this.update}>Update</button>
+								<br/>
+								<button onClick={this.submit}>Delete</button>
+									<Vote
+										isDownvoted={this.isDownvoted()}
+										isUpvoted={this.isUpvoted()}
+										votes={this.votes()}
+										voteDown={this.downvote}
+										voteUp={this.upvote}
+									/>
+							</div>
+						</div>
+					)
+	
+			}	
+		}  
 }
 }
 
