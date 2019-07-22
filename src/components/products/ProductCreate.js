@@ -59,8 +59,11 @@ class ProductCreate extends Component {
   addBackend () {
     ProductServices.productForm(this.state.product)
       .then((product)=>{
-        console.log(product.data)
-        this.setState({productCreated:true})
+        console.log(product)
+        this.setState({
+          product: product,
+          productCreated:true
+        })
       })
       .catch((e)=>console.log(e))
   }
@@ -70,7 +73,7 @@ class ProductCreate extends Component {
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
     if(this.state.productCreated){
-      return (<ReviewForm influencer={this.props.influencer} user={this.context.user}/>);
+      return (<ReviewForm influencer={this.props.influencer} user={this.context.user} product={this.state.product}/>);
     }
       return(
         <div>

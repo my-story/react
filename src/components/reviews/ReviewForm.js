@@ -11,8 +11,10 @@ class ReviewForm extends Component {
       review:"",
       influencer:this.props.influencer,
       video:"",
+      product:"",
       voicenote:"",
       created:false,
+      product: this.props.product,
       reviewDone:{}
     }
 
@@ -28,6 +30,7 @@ class ReviewForm extends Component {
           influencer: this.state.influencer,
           video: this.state.video,
           voicenote: this.state.voicenote,
+          product: this.state.product,
           user: this.props.user
         })
         .then((res) => this.setState({created:true,reviewDone:res}))
@@ -37,6 +40,7 @@ class ReviewForm extends Component {
     
 
     render() {
+      console.log(this.props);
       if (this.props.user.role === "Admin") {
         if (this.state.created) {
           return(<Redirect to="/"></Redirect>)
@@ -48,6 +52,7 @@ class ReviewForm extends Component {
               <Input name="influencer" placeholder="Please enter infleuncer ID " defaultValue={this.state.influencer._id} allowClear onChange={this.onChange} />
               <Input name="video" placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
               <Input name="voicenote" placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
+              <Input name="product" placeholder="Please enter influencer product" allowClear defaultValue={this.state.product._id} onChange={this.onChange} />
               <button onClick={this.handleSubmit}>Submit</button>
             </div>
           )}   
