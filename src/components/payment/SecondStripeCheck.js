@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
 import {Redirect} from 'react-router-dom';
 import Cookies from 'universal-cookie';
+import * as toastr from 'toastr';
 import OrderServices from '../../services/OrderServices';
 import MailerServices from '../../services/MailerServices';
 import UserContext from '../contexts/UserContext';
@@ -26,7 +27,7 @@ class CheckoutForm extends Component {
       paid: false,
       total: 0
     }
-  }
+  };
   static contextType = UserContext;
 
 
@@ -53,7 +54,7 @@ class CheckoutForm extends Component {
         })
         .catch((error) => console.log(error));
     }
-  }
+  };
   
   totalProductUpdate = (array) => {
     for (let i = 0; i < array.length; i++){
@@ -66,7 +67,7 @@ class CheckoutForm extends Component {
         })
         .catch((error) => console.log(error));
     }
-  }
+  };
 
    getInfluencers = (products) => {
     const rewardArr = [];
@@ -80,7 +81,7 @@ class CheckoutForm extends Component {
       reward = {};
     }
     return rewardArr;
-  }
+  };
 
   onChange = (e) => {
     let { user } = this.state;
@@ -88,68 +89,64 @@ class CheckoutForm extends Component {
     this.setState({ user });
   }
 
-  async payment() {
-    let {token} = await this.props.stripe.createToken({name: this.state.user.email});
+  toggleSubmit() {
+    this.refs.submitbutton.setAttribute("disabled", "disabled");
+  };
 
-    PaymentServices.charge({
-      headers: {"Content-Type": "text/plain"},
-      token: token.id,
-      total: Math.trunc(this.props.total * 100),
-    })
-  }
 
   async submit(ev) {
 
-
     let {token} = await this.props.stripe.createToken({name: this.state.user.email});
 
+    if (this.state.user.email === ""|| this.state.user.email === ""){
+      toastr.error("Missing Credentials")
+    } else {
+      this.toggleSubmit();
 
-    PaymentServices.charge({
-      headers: {"Content-Type": "text/plain"},
-      token: token.id,
-      total: Math.trunc(this.props.total * 100),
-    })
-    
-      .then(() => {
-          const cookies = new Cookies();
-          let products = cookies.get("Products");
-          let rewardArr = this.getInfluencers(products);
-          this.totalProductUpdate(products);
-          this.reward(rewardArr);
-
-
-          OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
-          .then(() => {
+      PaymentServices.charge({
+        headers: {"Content-Type": "text/plain"},
+        token: token.id,
+        total: Math.trunc(this.props.total * 100),
+      })
+        .then(() => {
             const cookies = new Cookies();
-            cookies.remove("Products");
-            this.setState({paid:true});
-
-            MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email, message:this.state.message})
-            .then((info) => console.log(info))
-            .catch((err) => console.log(err));
-          })
-          .catch((e)=> console.log(e));
-
-          })
-      .catch((err)=>console.log("erorrr paying", err));
-
+            let products = cookies.get("Products");
+            let rewardArr = this.getInfluencers(products);
+            this.totalProductUpdate(products);
+            this.reward(rewardArr);
+  
+  
+            OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
+            .then(() => {
+              const cookies = new Cookies();
+              cookies.remove("Products");
+              this.setState({paid:true});
+  
+              MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email, message:this.state.message})
+              .then((info) => console.log(info))
+              .catch((err) => console.log(err));
+            })
+            .catch((e)=> console.log(e));
+  
+            })
+        .catch((err)=>console.log("erorrr paying", err));
+    }
   };
     
   render() {
     if(this.state.paid === true ){
       return(<Redirect to="/order-fulfillment"></Redirect>)
     }
-    
     return (
       <div className="checkout">
         <p>Would you like to complete the purchase?</p>
         <input type="text" name="name" onChange={this.onChange}/>
         <input type="email" name="email" onChange={this.onChange}/>
         <CardElement />
-        <button onClick={this.submit}>Send</button>
+        <button ref="submitbutton" onClick={this.submit}>Send</button>
       </div>
     );
   }
-}
+};
 
 export default injectStripe(CheckoutForm);
