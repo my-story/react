@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom';
+import Router from 'next/router';
 
 class Rates extends Component{
 
@@ -31,13 +31,17 @@ render(){
 				)
 
 		} else {
-				return(
-						<Redirect to={{
-								pathname:"/pay-checkout",
-								state:{rate: this.state.rate, billing:this.state.billing, address:this.state.address }
-						}}></Redirect>
-				)
-        }
+			Router.push({
+				pathname: '/pay-checkout',
+				query: {
+					rate: JSON.stringify(this.state.rate),
+					billing: JSON.stringify(this.state.billing),
+					address: JSON.stringify(this.state.address),
+				}
+			})
+
+			return null;
+			}
     }
 }   
 

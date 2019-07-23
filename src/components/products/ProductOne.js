@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Redirect} from 'react-router-dom';
+import Router from 'next/router';
+import Link from 'next/link';
 // import axios from 'axios';
 import * as toastr from 'toastr';
 import { confirmAlert } from 'react-confirm-alert';
@@ -52,23 +53,18 @@ class ProductOne extends Component {
 
     if (this.context.user.role === "Admin") {
       if (this.state.update === true) {
-        return (<Redirect to={{
-          pathname:"/productUpdate",
-          state:{product: this.props.i}
-        }} />)
+        Router.push('/productUpdate/' + this.props.i._id);
+        return null;
       };
       return(
         <div key={this.props.index} className="influencer-card">
-          <Link key={this.props.index} to={{
-            pathname:`product/${this.props.i._id}`,
-            state: {
-              user: this.context.user,
-            }
-            }}>
-              <p>model: {this.props.i.model}</p>
-              <p>description: {this.props.i.description}</p>
-              <p>influencer: {this.props.i.influencer.name.firstName}</p>
-              <img height="100" src={this.props.i.images[0]} alt={this.props.i.name} />
+          <Link key={this.props.index} href={`product/${this.props.i._id}`}>
+              <div>
+                <p>model: {this.props.i.model}</p>
+                <p>description: {this.props.i.description}</p>
+                <p>influencer: {this.props.i.influencer.name.firstName}</p>
+                <img height="100" src={this.props.i.images[0]} alt={this.props.i.name} />
+              </div>
           </Link>
           <div>
           <button onClick={this.submit}>Delete</button>
@@ -79,16 +75,13 @@ class ProductOne extends Component {
     } else {
       return(
         <div key={this.props.index} className="influencer-card">
-          <Link key={this.props.index} to={{
-            pathname:`product/${this.props.i._id}`,
-            state: {
-              user: this.context.user,
-            }
-            }}>
-              <p>model: {this.props.i.model}</p>
-              <p>description: {this.props.i.description}</p>
-              <p>influencer: {this.props.i.influencer.name.firstName}</p>
-              <img height="100" src={this.props.i.images[0]} alt={this.props.i.name} />
+          <Link key={this.props.index} href={`product/${this.props.i._id}`}>
+              <div>
+                <p>model: {this.props.i.model}</p>
+                <p>description: {this.props.i.description}</p>
+                <p>influencer: {this.props.i.influencer.name.firstName}</p>
+                <img height="100" src={this.props.i.images[0]} alt={this.props.i.name} />
+              </div>
           </Link>
         </div>
       )

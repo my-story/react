@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import Link from 'next/link';
+import Router from 'next/router';
 import * as toastr from 'toastr';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
@@ -57,27 +58,29 @@ class InfluencerList extends Component{
     if (this.context.user.role !== "Admin") {
       return(
         <div key={this.props.index} className="influencer-card">
-        <Link to={`review/${this.props.influencer._id}`}>
-        <p>name: {this.props.influencer.name.firstName} lastname: {this.props.influencer.name.lastName}</p>          
+        <Link href={`review/${this.props.influencer._id}`}>
+          <div>
+            <p>name: {this.props.influencer.name.firstName} lastname: {this.props.influencer.name.lastName}</p>          
 
-          <p>description: {this.props.influencer.review}</p>
-          {/* <img height="100" src={i.profilePic} alt={i.name} /> */}
+            <p>description: {this.props.influencer.review}</p>
+            {/* <img height="100" src={i.profilePic} alt={i.name} /> */}
+          </div>
         </Link>
         </div>
       )
     } else {
       if (this.state.update === true) {
-        return(<Redirect to={{
-          pathname:"/influencerUpdate",
-          state:{influencer: this.props.influencer}
-        }}/>)
+        Router.push('/influencerUpdate/' + this.props.influencer._id);
+        return null;
       }
       return(
         <div className="influencer-card">
-        <Link to={`review/${this.props.influencer._id}`}>
-          <p>name: {this.props.influencer.name.firstName} lastname: {this.props.influencer.name.lastName}</p>
-          <p>description: {this.props.influencer.review}</p>
-          {/* <img height="100" src={i.profilePic} alt={i.name} /> */}
+        <Link href={`review/${this.props.influencer._id}`}>
+          <div>
+            <p>name: {this.props.influencer.name.firstName} lastname: {this.props.influencer.name.lastName}</p>
+            <p>description: {this.props.influencer.review}</p>
+            {/* <img height="100" src={i.profilePic} alt={i.name} /> */}
+          </div>
         </Link>
         <button onClick={this.update}>Update</button>
         <button onClick={this.submit}>Delete</button>

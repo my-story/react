@@ -1,16 +1,16 @@
-import  React , { Component }  from 'react';
-import ProductService from '../../services/ProductServices';
-import SearchBar from '../influencer/SearchInfluencer';
-import ProductOne from "./ProductOne";
+import React, { Component } from 'react';
+import ProductService from '../src/services/ProductServices';
+import SearchBar from '../src/components/influencer/SearchInfluencer';
+import ProductOne from "../src/components/products/ProductOne";
 
 
 class ProductList extends Component {
   state = {
     products: [],
-    user:{},
-    productsNew:[],
-    category:[
-      "Sports","Music","Tech","Clothes"
+    user: {},
+    productsNew: [],
+    category: [
+      "Sports", "Music", "Tech", "Clothes"
     ],
   };
 
@@ -29,28 +29,28 @@ class ProductList extends Component {
     })
   };
 
-  componentDidMount () {
+  componentDidMount() {
     this.fetchProducts();
     this.getUser();
   };
 
   searchBar = (e) => {
     ProductService.searchProduct(e.target.value)
-      .then((res) => this.setState({ products:res }))
-      .catch((err)=>console.log(err))
+      .then((res) => this.setState({ products: res }))
+      .catch((err) => console.log(err))
   };
 
 
-  render(){
-    const {products, category} = this.state
-    return(
+  render() {
+    const { products, category } = this.state
+    return (
       <div>
         <div>
           <SearchBar getFilter={this.searchBar} />
         </div>
         <div>
-          {category.map((c,index)=>{
-            return(
+          {category.map((c, index) => {
+            return (
               <div>
                 <button value={c} onClick={(e) => this.searchBar(e)}>{c}</button>
               </div>
@@ -58,13 +58,13 @@ class ProductList extends Component {
           })}
 
         </div>
-      {products.map((i,index)=>{
-        return(
-          <div>
-            <ProductOne i={i} index={index}/>
-          </div>
-        )
-    })}
+        {products.map((i, index) => {
+          return (
+            <div>
+              <ProductOne i={i} index={index} />
+            </div>
+          )
+        })}
       </div>
     )
   }

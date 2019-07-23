@@ -29,7 +29,7 @@ class CardItem extends Component {
     let currentProducts = cookies.get('Products');
        
     for (let i = 0; i < currentProducts.length; i++) {
-      if (currentProducts[i].influencer === influencerId) {
+      if (currentProducts[i].influencer._id === influencerId) {
         currentProducts[i].qty = parseInt(e.target.value)
       }
     }
@@ -58,7 +58,7 @@ class CardItem extends Component {
           <li>Price:{this.props.product.prize}</li>
           <li>
             <div className="input-group mb-3">
-              <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer)}>
+              <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer._id)}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -81,7 +81,7 @@ class CardItem extends Component {
             <li>Price:{this.props.product.prize}</li>
             <li>
             <div className="input-group mb-3">
-            <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer)}>
+            <select className="custom-select" id="inputGroupSelect01" value={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer)}>
               {this.fixNums()}
             </select>
             </div>

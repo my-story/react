@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
-import {Redirect} from 'react-router-dom';
+import Router from 'next/router';
 import Cookies from 'universal-cookie';
 import OrderServices from '../../services/OrderServices';
 import MailerServices from '../../services/MailerServices';
@@ -90,7 +90,7 @@ class CheckoutForm extends Component {
 
   async payment() {
     let {token} = await this.props.stripe.createToken({name: this.state.user.email});
-
+    
     PaymentServices.charge({
       headers: {"Content-Type": "text/plain"},
       token: token.id,
@@ -102,7 +102,6 @@ class CheckoutForm extends Component {
 
 
     let {token} = await this.props.stripe.createToken({name: this.state.user.email});
-
 
     PaymentServices.charge({
       headers: {"Content-Type": "text/plain"},
@@ -136,8 +135,9 @@ class CheckoutForm extends Component {
   };
     
   render() {
-    if(this.state.paid === true ){
-      return(<Redirect to="/order-fulfillment"></Redirect>)
+    if (this.state.paid === true ) { 
+      Router.push('/order-fulfillment');
+      return null;
     }
     
     return (

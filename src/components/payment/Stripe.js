@@ -3,11 +3,25 @@ import {Elements, StripeProvider} from 'react-stripe-elements';
 import CheckoutForm from './SecondStripeCheck';
 
 class Stripe extends Component {
+  state = {
+    stripe: null
+  }
+
+  componentDidMount() {
+    if (window.Stripe) {
+      this.setState({ stripe: window.Stripe('pk_test_isDXP591iL1OVb7ZqqfJoYSy00ODZSz9IF') });
+    } else {
+      document.querySelector('#stripe-js').addEventListener('load', () => {
+        // Create Stripe instance once Stripe.js loads
+        this.setState({ stripe: window.Stripe('pk_test_isDXP591iL1OVb7ZqqfJoYSy00ODZSz9IF') });
+      });
+    }
+  }
 
   render() {
 
     return (
-      <StripeProvider apiKey="pk_test_isDXP591iL1OVb7ZqqfJoYSy00ODZSz9IF">
+      <StripeProvider apiKey="pk_test_isDXP591iL1OVb7ZqqfJoYSy00ODZSz9IF" stripe={this.state.stripe}>
         <div className="example">
           <h1>React Stripe Elements Example</h1>
           <Elements>
