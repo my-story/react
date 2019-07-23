@@ -10,16 +10,7 @@ const { TextArea } = Input;
 class ProductUpdate extends Component {
 
   state = {
-    product: {
-      // model: this.props.location.state.product.model,
-      // prize: this.props.location.state.product.prize,
-      // description: this.props.location.state.product.description,
-      // category: this.props.location.state.product.category,
-      // images: this.props.location.state.product.images,
-      // influencer: this.props.location.state.product.influencer,
-      // influencerId: this.props.location.state.product.influencer._id,
-      // total: this.props.location.state.product.total,
-    },
+    product: {},
     selectedItems: [],
     productCreated: false
   };
@@ -31,8 +22,7 @@ class ProductUpdate extends Component {
   componentDidMount() {
     ProductServices.productDetail(this.props.id)
       .then(product => {
-        console.log(product);
-        this.setState(state => ({ 
+        this.setState(() => ({ 
           product: {
             model: product.model,
             prize: product.prize,
