@@ -89,9 +89,14 @@ class CheckoutForm extends Component {
     this.setState({ user });
   }
 
-  toggleSubmit() {
+  toggleSubmit = () => {
     this.refs.submitbutton.setAttribute("disabled", "disabled");
   };
+  // $('submitbutton').click(function(event) {
+  //   if(!event.detail || event.detail == 1){ return true; }
+  //   else { return false; }
+  // });
+
 
 
   async submit(ev) {
