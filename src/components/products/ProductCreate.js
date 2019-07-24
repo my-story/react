@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-// import { Redirect } from 'react-router-dom';
+// import Router from 'next/router';
 import { Input, Select } from 'antd';
 import * as toastr from 'toastr';
 import ProductServices from '../../services/ProductServices';
@@ -74,6 +74,8 @@ class ProductCreate extends Component {
 
     if(this.state.productCreated){
       return (<ReviewForm influencer={this.props.influencer} user={this.context.user} product={this.state.product}/>);
+      // Router.push('/');
+      // return null;
     }
       return(
         <div>

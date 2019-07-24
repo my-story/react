@@ -1,5 +1,6 @@
 import React,{ Component } from 'react'
-import { Redirect} from 'react-router-dom'
+// import { Redirect} from 'react-router-dom'
+import Router from 'next/router';
 import { Input } from 'antd';
 import ReviewServices from "../../services/ReviewServices"
 
@@ -11,7 +12,6 @@ class ReviewForm extends Component {
       review:"",
       influencer:this.props.influencer,
       video:"",
-      product:"",
       voicenote:"",
       created:false,
       product: this.props.product,
@@ -40,10 +40,10 @@ class ReviewForm extends Component {
     
 
     render() {
-      console.log(this.props);
       if (this.props.user.role === "Admin") {
-        if (this.state.created) {
-          return(<Redirect to="/"></Redirect>)
+        if (this.state.created) {    
+            Router.push('/');
+            return null;
         } else {
           return(
             <div>  
@@ -57,7 +57,8 @@ class ReviewForm extends Component {
             </div>
           )}   
           } else {
-          return(<Redirect to="/"></Redirect>)
+            Router.push('/');
+            return null;
           }
 }; 
 };

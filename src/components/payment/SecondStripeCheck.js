@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
-import {Redirect} from 'react-router-dom';
+import Router from 'next/router';
 import Cookies from 'universal-cookie';
 import * as toastr from 'toastr';
 import OrderServices from '../../services/OrderServices';
@@ -118,8 +118,6 @@ class CheckoutForm extends Component {
   
             OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
             .then(() => {
-              const cookies = new Cookies();
-              cookies.remove("Products");
               this.setState({paid:true});
   
               MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email, message:this.state.message})
@@ -129,13 +127,15 @@ class CheckoutForm extends Component {
             .catch((e)=> console.log(e));
   
             })
-        .catch((err)=>console.log("erorrr paying", err));
+        .catch((err)=>console.log("Error Paying", err));
     }
   };
-    
+  
+
   render() {
-    if(this.state.paid === true ){
-      return(<Redirect to="/order-fulfillment"></Redirect>)
+    if (this.state.paid === true ) {
+      Router.push('/order-fulfillment');
+      return null;
     }
     return (
       <div className="checkout">
