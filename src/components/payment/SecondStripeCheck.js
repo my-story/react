@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {CardElement, injectStripe} from 'react-stripe-elements';
-import {Redirect} from 'react-router-dom';
+import Router from 'next/router';
 import Cookies from 'universal-cookie';
 import * as toastr from 'toastr';
 import OrderServices from '../../services/OrderServices';
@@ -134,8 +134,9 @@ class CheckoutForm extends Component {
   };
     
   render() {
-    if(this.state.paid === true ){
-      return(<Redirect to="/order-fulfillment"></Redirect>)
+    if (this.state.paid === true ) { 
+      Router.push('/order-fulfillment');
+      return null;
     }
     return (
       <div className="checkout">

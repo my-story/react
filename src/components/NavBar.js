@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import Link from 'next/link';
 import {Icon} from 'antd';
 import Logout from './auth/Logout';
 import {QtyConsumer} from "./contexts/QtyContext";
@@ -27,12 +27,12 @@ class NavBar extends Component {
 						<span>
 						<Logout {...this.props}>Logout</Logout>
 						</span>
-						<Link to="/">
+						<Link href="/">
 						<span>
 						<p>Home</p>
 						</span>
 						</Link>
-						<Link to="/products">
+						<Link href="/products">
 						<span>
 						<p>Products</p>
 						</span>
@@ -40,12 +40,12 @@ class NavBar extends Component {
 						<span>
 						<p>About us</p>
 						</span>
-						<Link to="/profile">
+						<Link href="/profile">
 								<span>
 									<p>Profile</p>
 								</span>
 						</Link>
-						<Link to="/cart">
+						<Link href="/cart">
 							<span>
 									<p><Icon type="shopping-cart" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer></p>
 							</span>
@@ -59,22 +59,22 @@ class NavBar extends Component {
 				return(
 					<div>
 						<div className="nav-bar">
-							<Link to="/login">
+							<Link href="/login">
 								<span>
 								<p>Log in</p>
 								</span>
 							</Link>
-							<Link to="/">
+							<Link href="/">
 								<span>
 								<p>Home</p>
 								</span>
 							</Link>
-							<Link to="/products">
+							<Link href="/products">
 								<span>
 								<p>Products</p>
 								</span>
 							</Link>
-							<Link to="/profile">
+							<Link href="/profile">
 								<span>
 									<p>Profile</p>
 								</span>
@@ -82,7 +82,7 @@ class NavBar extends Component {
 								<span>
 								<p>About us</p>
 								</span>
-							<Link to="/cart">
+							<Link href="/cart">
 								<span>
 									<p><Icon type="shopping-cart" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer></p>
 								</span>
