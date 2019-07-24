@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
-// import ReactPlayer from 'react-player';
-// import AudioPlayer from "react-h5-audio-player";
+import Link from 'next/link'
 import * as toastr from 'toastr';
 import UserContext from '../../src/components/contexts/UserContext';
 import ReviewUpdate from '../../src/components/reviews/ReviewUpdate';
@@ -185,11 +184,14 @@ class ReviewOne extends Component {
   render() {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
+    const product = this.state.review.product || {};
 
     if (this.context.user.role !== "Admin") {
       return (
         <div>
           <div>
+            <Link href={`/product/${product._id}`}> Buy Now </Link> 
+            <p>{product.model}</p>
             <img src={influencer.profilePic} alt={influencer.name} />
             <p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
             <p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
@@ -219,6 +221,8 @@ class ReviewOne extends Component {
         return (
           <div>
             <div>
+              <Link href={`/product/${product._id}`}>Buy Now </Link>
+            <p>{product.model}</p>
               <img src={influencer.profilePic} alt={influencer.name} />
               <p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
               <p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
