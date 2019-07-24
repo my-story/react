@@ -24,7 +24,7 @@ class ReviewOne extends Component {
     review: {},
     influencer: {},
     name: {},
-
+    disableVoteButtons: false,
     update: false,
   }
 
@@ -56,7 +56,12 @@ class ReviewOne extends Component {
   }
 
   upvote = () => {
-    if (this.context.islogged) {
+    if (!this.context.islogged) {
+      return toastr.info('You must be logged in to leave vote.');
+    }
+
+    if (!this.state.disableVoteButtons) {
+      this.setState({ disableVoteButtons: true });
       if (this.isUpvoted()) {
         ReviewServices.undoVoteUp(this.state.review.influencer._id, this.context.user._id)
           .then(() => {
@@ -64,32 +69,45 @@ class ReviewOne extends Component {
               const upvotes = state.review.upvotes.filter(upvote => upvote.author !== this.context.user._id);
 
               return {
-                review: { ...state.review, upvotes }
+                review: { ...state.review, upvotes },
+                disableVoteButtons: false
               }
             });
           })
-          .catch(() => toastr.error('Internal server error'));
+          .catch(() => {
+            toastr.error('Internal server error');
+            this.setState({ disableVoteButtons: false });
+          });
       } else {
         ReviewServices.voteUp(this.state.review.influencer._id, this.context.user._id)
           .then(() => {
             this.setState(state => {
               const downvotes = state.review.downvotes.filter(downvote => downvote.author !== this.context.user._id);
-              const upvotes = state.review.upvotes.concat({ author: this.context.user._id });
+              const upvotes = state.review.upvotes
+                .filter(upvote => upvote.author !== this.context.user._id)
+                .concat({ author: this.context.user._id });
 
               return {
-                review: { ...state.review, downvotes, upvotes }
+                review: { ...state.review, downvotes, upvotes },
+                disableVoteButtons: false
               }
             });
           })
-          .catch(() => toastr.error('Internal server error'));
+          .catch(() => {
+            toastr.error('Internal server error');
+            this.setState({ disableVoteButtons: false });
+          });
       }
-    } else {
-      toastr.info('You must be logged in to leave vote.');
     }
   }
 
   downvote = () => {
-    if (this.context.islogged) {
+    if (!this.context.islogged) {
+      return toastr.info('You must be logged in to leave vote.');
+    }
+
+    if (!this.state.disableVoteButtons) {
+      this.setState({ disableVoteButtons: true });
       if (this.isDownvoted()) {
         ReviewServices.undoVoteDown(this.state.review.influencer._id, this.context.user._id)
           .then(() => {
@@ -97,27 +115,35 @@ class ReviewOne extends Component {
               const downvotes = state.review.downvotes.filter(downvote => downvote.author !== this.context.user._id);
 
               return {
-                review: { ...state.review, downvotes }
+                review: { ...state.review, downvotes },
+                disableVoteButtons: false
               }
             });
           })
-          .catch(() => toastr.error('Internal server error'));
+          .catch(() => {
+            toastr.error('Internal server error');
+            this.setState({ disableVoteButtons: false });
+          });
       } else {
         ReviewServices.voteDown(this.state.review.influencer._id, this.context.user._id)
           .then(() => {
             this.setState(state => {
               const upvotes = state.review.upvotes.filter(upvote => upvote.author !== this.context.user._id);
-              const downvotes = state.review.downvotes.concat({ author: this.context.user._id });
+              const downvotes = state.review.downvotes
+                .filter(downvote => downvote.author !== this.context.user._id)
+                .concat({ author: this.context.user._id });
 
               return {
-                review: { ...state.review, downvotes, upvotes }
+                review: { ...state.review, downvotes, upvotes },
+                disableVoteButtons: false
               }
             });
           })
-          .catch(() => toastr.error('Internal server error'));
+          .catch(() => {
+            toastr.error('Internal server error');
+            this.setState({ disableVoteButtons: false });
+          });
       }
-    } else {
-      toastr.info('You must be logged in to leave vote.');
     }
   }
 
