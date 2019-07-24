@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
-import ReactPlayer from 'react-player';
-import AudioPlayer from "react-h5-audio-player";
+// import ReactPlayer from 'react-player';
+// import AudioPlayer from "react-h5-audio-player";
 import * as toastr from 'toastr';
 import UserContext from '../../src/components/contexts/UserContext';
 import ReviewUpdate from '../../src/components/reviews/ReviewUpdate';
@@ -22,8 +22,8 @@ class ReviewOne extends Component {
   static contextType = UserContext;
   state = {
     review: {},
-    influencer: {},
-    name: {},
+    // influencer: {},
+    // name: {},
     disableVoteButtons: false,
     update: false,
   }
@@ -200,8 +200,8 @@ class ReviewOne extends Component {
             <p> title: {review.title}</p>
             <p> review: {review.review}</p>
             <p> voicenote: {review.voicenote}</p>
-            <ReactPlayer url={review.video} />
-            <AudioPlayer src={review.voicenote} onPlay={e => console.log("onPlay")} />
+            <video controls src={review.video} />
+            <audio ref="audio_tag" src={review.voicenote} controls/>
             <Vote
               isDownvoted={this.isDownvoted()}
               isUpvoted={this.isUpvoted()}
@@ -229,8 +229,8 @@ class ReviewOne extends Component {
               <p> title: {review.title}</p>
               <p> review: {review.review}</p>
               <p> voicenote: {review.voicenote}</p>
-              <ReactPlayer url={review.video} />
-              <AudioPlayer src={review.voicenote} onPlay={e => console.log("onPlay")} />
+              <video controls src={review.video} />
+              <audio ref="audio_tag" src={review.voicenote} controls/>
               <button onClick={this.update}>Update</button>
               <br />
               <button onClick={this.submit}>Delete</button>

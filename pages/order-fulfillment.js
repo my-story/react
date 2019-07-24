@@ -1,12 +1,18 @@
 import React from 'react'
+import Cookies from 'universal-cookie'
 import QtyContext from '../src/components/contexts/QtyContext'
 
 class OrderPaid extends React.Component {
   static contextType = QtyContext
 
-  componentDidMount() {
+
+  componentWillMount() {
+    const cookies = new Cookies(); 
+    cookies.remove("Products");
     this.context.updateQty()
   }
+  
+
 
   render() {
     return (
