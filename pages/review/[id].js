@@ -181,11 +181,45 @@ class ReviewOne extends Component {
     }
   };
 
+  audioDraw = () => {
+    const {review} = this.state;
+
+    if (this.state.review.voicenote === "") {
+      return(
+        <div></div>
+      )
+    } else {
+      return(
+        <div>
+            <audio ref="audio_tag" src={review.voicenote} controls/>
+        </div>
+      )
+    };
+  };
+
+  videoDraw = () => {
+    const {review} = this.state;
+
+    if (this.state.review.video === "") {
+      return(
+        <div></div>
+      )
+    } else {
+      return(
+        <div>
+            <video controls src={review.video} />
+        </div>
+      )
+    };
+  };
+
+
+
   render() {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
-
+    console.log(this.state.review)
     if (this.context.user.role !== "Admin") {
       return (
         <div>
@@ -202,8 +236,10 @@ class ReviewOne extends Component {
             <p> title: {review.title}</p>
             <p> review: {review.review}</p>
             <p> voicenote: {review.voicenote}</p>
-            <video controls src={review.video} />
-            <audio ref="audio_tag" src={review.voicenote} controls/>
+            {/* <video controls src={review.video} /> */}
+            {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
+            {this.videoDraw()}
+            {this.audioDraw()}
             <Vote
               isDownvoted={this.isDownvoted()}
               isUpvoted={this.isUpvoted()}
@@ -233,8 +269,10 @@ class ReviewOne extends Component {
               <p> title: {review.title}</p>
               <p> review: {review.review}</p>
               <p> voicenote: {review.voicenote}</p>
-              <video controls src={review.video} />
-              <audio ref="audio_tag" src={review.voicenote} controls/>
+              {/* <video controls src={review.video} /> */}
+              {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
+            {this.videoDraw()}
+              {this.audioDraw()}
               <button onClick={this.update}>Update</button>
               <br />
               <button onClick={this.submit}>Delete</button>
