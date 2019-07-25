@@ -25,6 +25,7 @@ class CheckoutForm extends Component {
         products: ""
       },
       paid: false,
+      charged: 0,
       total: 0
     }
   };
@@ -108,40 +109,55 @@ class CheckoutForm extends Component {
     } else {
       this.toggleSubmit();
 
-      PaymentServices.charge({
-        headers: {"Content-Type": "text/plain"},
-        token: token.id,
-        total: Math.trunc(this.props.total * 100),
-      })
-        .then(() => {
-            const cookies = new Cookies();
-            let products = cookies.get("Products");
-            let rewardArr = this.getInfluencers(products);
-            this.totalProductUpdate(products);
-            this.reward(rewardArr);
+      if (this.state.charged === 0){
+        this.setState({
+          charged: 1,
+        });
+        
+        PaymentServices.charge({
+          headers: {"Content-Type": "text/plain"},
+          token: token.id,
+          total: Math.trunc(this.props.total * 100),
+        })
+          .then(() => {
+              const cookies = new Cookies();
+              let products = cookies.get("Products");
+              let rewardArr = this.getInfluencers(products);
+              this.totalProductUpdate(products);
+              this.reward(rewardArr);
   
   
-            OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
-            .then(() => {
-              this.setState({paid:true});
+              OrderServices.createOrder({user:this.context.user, products: products, address:this.props.address, email:this.state.user.email, name:this.state.user.name})
+              .then(() => {
+                this.setState({
+                  paid: true
+                });
   
-              MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email, message:this.state.message})
-              .then((info) => console.log(info))
-              .catch((err) => console.log(err));
+                MailerServices.sendMail({name:this.state.user.name , email:this.state.user.email, message:this.state.message})
+                .then((info) => console.log(info))
+                .catch((err) => console.log(err));
+              })
+              .catch((e)=> console.log(e));
+  
+              })
+          .catch((err) => {
+            toastr.error("Payment Declined");
+            this.setState({
+              charged: 0
             })
-            .catch((e)=> console.log(e));
-  
-            })
-        .catch((err)=>console.log("Error Paying", err));
-    }
+          });
+      }
+      }
   };
   
 
   render() {
+
     if (this.state.paid === true ) {
       Router.push('/order-fulfillment');
       return null;
     }
+
     return (
       <div className="checkout">
         <p>Would you like to complete the purchase?</p>
@@ -151,6 +167,7 @@ class CheckoutForm extends Component {
         <button ref="submitbutton" onClick={this.submit}>Send</button>
       </div>
     );
+    
   }
 };
 
