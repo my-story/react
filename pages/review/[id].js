@@ -7,6 +7,7 @@ import ReviewUpdate from '../../src/components/reviews/ReviewUpdate';
 import ReviewServices from '../../src/services/ReviewServices';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
+
 const Vote = ({ votes, voteDown, voteUp }) => {
   return (
     <div>
@@ -222,14 +223,31 @@ class ReviewOne extends Component {
     console.log(this.state.review)
     if (this.context.user.role !== "Admin") {
       return (
-        <div>
+        <div className="review-page">
           <div>
-            <Link href={`/product/${product._id}`}> Buy Now </Link> 
-            <p>{product.model}</p>
-            <img src={influencer.profilePic} alt={influencer.name} />
-            <p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-            <p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
-            <p>review: {influencer.review}</p>
+            <div>
+              <p className="heading" >Canon EOS R Mirrorless Camera with RF 24-105mm</p>
+            </div>
+            <div className="subheading">
+              <div className="category-name">
+                <p className="author">by: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+              {/* </div>
+              <div> */}
+                <div className="shape">
+                  <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
+                  <span className="photography">Photography</span>
+                </div>
+              </div>
+              <div>
+                <p className="profile-name">{influencer.name && influencer.name.firstName}'s profile</p>
+              </div>
+            </div>
+              <Link href={`/product/${product._id}`}> Buy Now </Link> 
+              <p>{product.model}</p>
+              <img src={influencer.profilePic} alt={influencer.name} />
+              <p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+              <p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
+              <p>review: {influencer.review}</p>
           </div>
           <div>
             <h3>Review</h3>
