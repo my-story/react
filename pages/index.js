@@ -56,8 +56,22 @@ class InfluencerList extends Component {
     const { influencers, category } = this.state
     
     return (
-      <div>
-        <h1>Influencer landing</h1>
+      <div className="index-page">
+        <div className="expert-section">
+          <div>
+            <img id="expert-illustration" src="https://createnova.com/wp-content/uploads/2017/10/Cornelius-Caracter-Design.png" alt="expert illustration" />
+          </div>
+          <div className="expert-message">
+            <p> Hey!<br></br>
+            Im John,<br></br>
+            </p>
+            <p style={{color:"orange"}}>The Master of<br></br>
+            Opinions.</p> 
+          </div>
+        </div>
+        <h2><b>Top Recomendations</b></h2>
+        {/* Search Bar Reactive 
+
         <div>
           <SearchBar getFilter={this.getFilter} />
           {category.map((c, index) => {
@@ -67,7 +81,8 @@ class InfluencerList extends Component {
               </div>
             )
           })}
-        </div>
+        </div> */}
+
         <Slider {...settings}>
           {influencers.map((i, index) => {
             return (

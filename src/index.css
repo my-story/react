@@ -10,6 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F9F8F4;
 }
 
 
@@ -23,35 +24,113 @@ body {
   width: 30vw;
 
 }
-
-nav{
-  height: 7vh;
-  background-color: black;
-  color: white;
+/*App */
+.app {
+  font-family: "Hind", sans-serif;
 }
-
-nav button{
-  height: 3vh;
-  width: 4vw;
-  color: black;
-}
-
-.nav-bar{
+/*navbar
+*/
+.nav-bar {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-end;
   height: 5vh;
-  text-decoration: white;
+  width: auto;
   color: black;
+  font-size: 85%;
+  margin: 5vh 2vw 5vh 2vw;
+  font-family: "Hind", sans-serif;
 }
+
+#logo-mystory {
+  height: 5vh;
+  width: auto;
+  position: absolute;
+  left: 5vw;
+}
+
+#account-glyph {
+  height: 3.5vh;
+  width: auto;
+}
+.navbar-section {
+ display: flex;
+ flex-direction: row;
+ justify-content: flex-end;
+ width: 40vw;  
+
+}
+
+.navbar-section span {
+  padding-left: 6vw;
+}
+
+.icons-account-cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 20vw;  
+
+}
+
+.icons-account-cart span {
+  text-align: right;
+  padding-left: 4vw;
+}
+
+.navbar-section p:hover {
+  text-decoration: underline orange;
+}
+
+.icons-account-cart span:hover {
+  color: red;
+}
+
 .see-cart{
 position: fixed;
 top:500;
 /* height:25%; */
 background-color: black;
 }
-.products-card{
+
+.products-card {
 height: 14vh;
 border: solid 1px black;
 margin: 5vh 0 2vh 0;
+}
+
+/* Index */
+.index-page {
+  margin: 0 12vw 0 12vw;
+}
+/* Expert Section */
+.expert-section {
+  height: 75vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.expert-message {
+/* height: 45vh; */
+width: 45vw;
+border: 1px solid;
+}
+
+.expert-message p{
+  font-size: 8vh;
+  font-family: "Hind", sans-serif;   
+  font-weight: bold;
+  line-height: 8.6vh;
+}
+#skip-intro {
+  color: blue;
+  font-weight: normal;
+  font-size: 100%;
+}
+
+#expert-illustration {
+  width: 40vw;
+  height: 60vh;
 }
