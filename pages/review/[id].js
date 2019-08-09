@@ -224,9 +224,10 @@ class ReviewOne extends Component {
     if (this.context.user.role !== "Admin") {
       return (
         <div className="review-page">
-          <div>
+          <div >
             <div>
-              <p className="heading" >Canon EOS R Mirrorless Camera with RF 24-105mm</p>
+              <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565292686/img_1.png" alt="influencer profile" className="influencer-pic" />
+              <p className="heading" >{review.title}</p>
             </div>
             <div className="subheading">
               <div className="category-name">
@@ -238,8 +239,9 @@ class ReviewOne extends Component {
                   <span className="photography">Photography</span>
                 </div>
               </div>
-              <div>
+              <div className="profile-instagram">
                 <p className="profile-name">{influencer.name && influencer.name.firstName}'s profile</p>
+                <img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565290822/instagram.svg" alt="instagram"/>
               </div>
             </div>
               <Link href={`/product/${product._id}`}> Buy Now </Link> 
