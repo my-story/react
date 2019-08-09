@@ -16,7 +16,7 @@ const Vote = ({ votes, voteDown, voteUp }) => {
       <button onClick={voteUp}>Upvote</button>
     </div>
   );
-}
+};
 
 class ReviewOne extends Component {
   static contextType = UserContext;
@@ -220,7 +220,7 @@ class ReviewOne extends Component {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
-    console.log(this.state.review)
+
     if (this.context.user.role !== "Admin") {
       return (
         <div className="review-page">
@@ -233,7 +233,7 @@ class ReviewOne extends Component {
                 <p className="author">by: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
               {/* </div>
               <div> */}
-                <div className="shape">
+                <div className="shape, card-category">
                   <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
                   <span className="photography">Photography</span>
                 </div>
