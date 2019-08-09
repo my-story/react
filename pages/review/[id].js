@@ -16,7 +16,7 @@ const Vote = ({ votes, voteDown, voteUp }) => {
       <button onClick={voteUp}>Upvote</button>
     </div>
   );
-}
+};
 
 class ReviewOne extends Component {
   static contextType = UserContext;
@@ -232,8 +232,10 @@ class ReviewOne extends Component {
             <div className="subheading">
               <div className="category-name">
                 <p className="author">by: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+
   
                 <div className="shape">
+
                   <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
                   <span className="photography">Photography</span>
                 </div>

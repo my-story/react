@@ -24,35 +24,45 @@ class NavBar extends Component {
 		if (this.props.islogged) {
 			return(
 				<div>
-					<div className="nav-bar">
+				<div className="nav-bar">
+					<div className="navbar-section">
+						{/* <img id="logo-mystory" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" alt="logo mystory" /> */}
+						<p id="mystory-name">My Story</p>
 						<Link href="/">
-						{/* <span className="links-nav"> */}
-							<p>Home</p>
-						{/* </span> */}
+							<span>
+								<p>EXPERTS</p>
+							</span>
 						</Link>
 						<Link href="/products">
-						{/* <span className="links-nav"> */}
-							<p>Products</p>
-						{/* </span> */}
+							<span>
+								<p>PRODUCTS</p>
+							</span>
 						</Link>
-						{/* <span className="links-nav"> */}
-							<p>About us</p>
-						{/* </span> */}
+						<span>
+							<p>ABOUT</p>
+						</span>
+						<span>
+							<p>CONTACT</p>
+						</span>
+					</div>
+					<div className="icons-account-cart">
 						<Link href="/profile">
-						{/* <span> */}
-							<p>Profile</p>
-						{/* </span> */}
+							{/* <span>
+								<p>PROFILE</p>
+							</span> */}
+							<img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565379958/ucer.svg" alt="account profile" />
 						</Link>
-						{/* <span className="links-nav"> */}
-							<Logout {...this.props}>Logout</Logout>
-						{/* </span> */}
-						<Link href="/cart">
-						{/* <span> */}
+					 	<span className="links-nav">
+				 			<Logout {...this.props}>Logout</Logout>
+				 		</span>
+					<Link href="/cart">
+						<span>
 							<p><Icon type="shopping-cart" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer></p>
-						{/* </span> */}
-						</Link>
+						</span>
+					</Link>
 					</div>
 				</div>
+			</div>
 			);
 			
 		} else {
@@ -60,7 +70,8 @@ class NavBar extends Component {
 					<div>
 						<div className="nav-bar">
 							<div className="navbar-section">
-								<img id="logo-mystory" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" alt="logo mystory" />
+								{/* <img id="logo-mystory" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" alt="logo mystory" /> */}
+								<p id="mystory-name" >My Story</p>
 								<Link href="/">
 									<span>
 										<p>EXPERTS</p>
@@ -83,7 +94,7 @@ class NavBar extends Component {
 									{/* <span>
 										<p>PROFILE</p>
 									</span> */}
-									<img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565203081/icons8-user-30.png" alt="account profile" />
+									<img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565379958/ucer.svg" alt="account profile" />
 								</Link>
 							<Link href="/login">
 								<span>
