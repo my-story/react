@@ -208,7 +208,7 @@ class ReviewOne extends Component {
     } else {
       return(
         <div>
-            <video controls src={review.video} />
+            <video className="video" controls src={review.video} />
         </div>
       )
     };
@@ -220,31 +220,35 @@ class ReviewOne extends Component {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
-    console.log(this.state.review)
+
     if (this.context.user.role !== "Admin") {
       return (
         <div className="review-page">
-          <div>
+          <div >
             <div>
-              <p className="heading" >Canon EOS R Mirrorless Camera with RF 24-105mm</p>
+              <img src={influencer.profilePic} alt="influencer profile" className="influencer-pic" />
+              <p className="heading" >{review.title}</p>
             </div>
             <div className="subheading">
               <div className="category-name">
                 <p className="author">by: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-              {/* </div>
-              <div> */}
+  
                 <div className="shape">
                   <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
                   <span className="photography">Photography</span>
                 </div>
               </div>
-              <div>
+              <div className="profile-instagram">
                 <p className="profile-name">{influencer.name && influencer.name.firstName}'s profile</p>
+                <img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565290822/instagram.svg" alt="instagram"/>
               </div>
             </div>
+              <div>
+                {this.videoDraw()}
+              </div>
               <Link href={`/product/${product._id}`}> Buy Now </Link> 
               <p>{product.model}</p>
-              <img src={influencer.profilePic} alt={influencer.name} />
+              {/* <img src={influencer.profilePic} alt={influencer.name} /> */}
               <p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
               <p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
               <p>review: {influencer.review}</p>
@@ -256,7 +260,6 @@ class ReviewOne extends Component {
             <p> voicenote: {review.voicenote}</p>
             {/* <video controls src={review.video} /> */}
             {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
-            {this.videoDraw()}
             {this.audioDraw()}
             <Vote
               isDownvoted={this.isDownvoted()}

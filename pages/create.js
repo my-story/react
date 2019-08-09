@@ -18,7 +18,7 @@ class InfluencerCreate extends Component {
       percentage: "",
       user: this.props.user,
       countries: "",
-      images: ""
+      profilePic: ""
     },
     selectedItems: [],
     done: false,
@@ -59,7 +59,8 @@ class InfluencerCreate extends Component {
 
     const { selectedItems, data } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-
+    console.log(this.state);
+    
     if (this.props.user.role === "Admin") {
       if (!this.state.done) {
         return (
@@ -73,7 +74,7 @@ class InfluencerCreate extends Component {
               } />
               <Input name="lastname" placeholder="Lastname" allowClear onChange={this.onChange} />
               <Input name="review" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
-              <Input name="images" placeholder="Add images URL" allowClear onChange={this.onChange} />
+              <Input name="profilePic" placeholder="Add images URL" allowClear onChange={this.onChange} />
               <Select
                 mode="multiple"
                 placeholder="This is his/her Category. ADMIN can create new categories"

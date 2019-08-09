@@ -15,24 +15,36 @@ body {
 
 /* for lap-top my-size */
 .review-page {
-  margin: 0 25vw 0 25vw;
+  margin: 0 23vw 0 25vw;
 }
-.heading {	
+.heading {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  height: 12.8vh;	
   color: #000000;	
   font-family: Hind;	
   font-size: 40px;	
   font-weight: bold;	
   line-height: 64px;
   margin-bottom: 4vh;
+  padding-top:3.6vh;
 }
+
+
+
+.influencer-pic {	
+  position: absolute;
+  left: 12vw;
+  height: 181.25px;	
+  width: 168.75px;	
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.14) 34.64%, rgba(0,0,0,0.75) 100%);
+  border-radius: 200px;
+}
+
 .subheading {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 51vw;
 }
 
 .category-name{
@@ -77,13 +89,31 @@ body {
 
 .profile-name {
   height: 22px;	
-  width: 107px;	
+  /* width: 130px;	 */
+  padding-right: 15px;
   color: #BABABA;	
   font-family: Hind;	
-  font-size: 14px;	
+  font-size: 13px;	
   font-weight: bold;	
   letter-spacing: 0.2px;	
   line-height: 22px;
+}
+
+.instagram {	
+  height: 25px;	
+  width: 25px;
+}
+
+.profile-instagram{
+  display: flex;
+  flex-direction: row;
+}
+
+.video {	
+  margin-top: 20px;
+  height: 60vh;	
+  width: 51vw;	
+  background-color: rgba(0,0,0,0.15);
 }
 
 
