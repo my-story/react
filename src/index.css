@@ -15,7 +15,7 @@ body {
 
 /* for lap-top my-size */
 .review-page {
-  margin: 0 25vw 0 25vw;
+  margin: 0 23vw 0 25vw;
 }
 .heading {
   display: flex;
@@ -44,7 +44,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 46vw;
+  width: 51vw;
 }
 
 .category-name{
@@ -59,7 +59,7 @@ body {
   font-size: 18px;	
   font-weight: bold;	
   line-height: 22px;
-  /* margin-right: 2vw; */
+  margin-right: 2vw;
 }
 
 .shape {	
@@ -89,10 +89,11 @@ body {
 
 .profile-name {
   height: 22px;	
-  width: 107px;	
+  /* width: 130px;	 */
+  padding-right: 15px;
   color: #BABABA;	
   font-family: Hind;	
-  font-size: 14px;	
+  font-size: 13px;	
   font-weight: bold;	
   letter-spacing: 0.2px;	
   line-height: 22px;
@@ -106,6 +107,13 @@ body {
 .profile-instagram{
   display: flex;
   flex-direction: row;
+}
+
+.video {	
+  margin-top: 20px;
+  height: 60vh;	
+  width: 51vw;	
+  background-color: rgba(0,0,0,0.15);
 }
 
 
