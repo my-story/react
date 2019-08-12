@@ -214,6 +214,10 @@ class ReviewOne extends Component {
     };
   };
 
+  bubbleDraw = () =>{
+
+  }
+
 
 
   render() {
@@ -270,6 +274,12 @@ class ReviewOne extends Component {
               voteDown={this.downvote}
               voteUp={this.upvote}
             />
+          </div>
+          <div className="product-bubble">
+            <div className="column">
+              <img className="product-inside-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="the product being sold"/>
+              {/* <h5 className="text-inside-bubble">qlqq perro sabes</h5> */}
+            </div>
           </div>
         </div>
       );
