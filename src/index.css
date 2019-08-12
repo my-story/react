@@ -121,6 +121,39 @@ body {
   background-color: rgba(0,0,0,0.15);
 }
 
+.product-bubble {	
+  background-color: rgba(0,0,0,0.15);	
+  box-shadow: -10px -4px 26px 0 rgba(0,0,0,0.06);
+  /* height: 181.25px;	
+  width: 168.75px;	 */
+  height: 21vh;	
+  width: 12vw;	
+  border-radius: 50%;
+  position: fixed;
+  bottom: -25px;
+  right: -25px;
+  display: flex;
+  justify-content: center;
+}
+
+.product-bubble:hover{
+  transition: ease 1s;
+  height: 42vh;	
+  width: 24vw;
+  bottom: -48px;
+  right: -48px;
+}
+
+.product-inside-bubble{
+  padding-top: 4vh;
+  height: 120px;
+  width: 82.5px;
+}
+
+
+
+
+
 
 /* // */
 
