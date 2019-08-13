@@ -22,8 +22,6 @@ class ReviewOne extends Component {
   static contextType = UserContext;
   state = {
     review: {},
-    // influencer: {},
-    // name: {},
     disableVoteButtons: false,
     update: false,
   }
@@ -216,6 +214,8 @@ class ReviewOne extends Component {
 
 
 
+
+
   render() {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
@@ -248,18 +248,18 @@ class ReviewOne extends Component {
               <div>
                 {this.videoDraw()}
               </div>
-              <Link href={`/product/${product._id}`}> Buy Now </Link> 
               <p>{product.model}</p>
               {/* <img src={influencer.profilePic} alt={influencer.name} /> */}
-              <p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+              {/* <p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
               <p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
-              <p>review: {influencer.review}</p>
+              <p>review: {influencer.review}</p> */}
           </div>
           <div>
-            <h3>Review</h3>
-            <p> title: {review.title}</p>
+            {/* <h3>Review</h3>.
+             */}
+            {/* <p> title: {review.title}</p> */}
             <p> review: {review.review}</p>
-            <p> voicenote: {review.voicenote}</p>
+            {/* <p> voicenote: {review.voicenote}</p> */}
             {/* <video controls src={review.video} /> */}
             {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
             {this.audioDraw()}
@@ -271,6 +271,14 @@ class ReviewOne extends Component {
               voteUp={this.upvote}
             />
           </div>
+          <Link href={`/product/${product._id}`}> 
+            <div className="product-bubble">
+              <div className="column">
+                <img className="product-inside-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="the product being sold"/>
+                {/* <h5 className="text-inside-bubble">qlqq perro sabes</h5> */}
+              </div>
+            </div>
+          </Link> 
         </div>
       );
     } else {
