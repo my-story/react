@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
+// import {Link} from 'react-router-dom'
 import Router from 'next/router';
 import * as toastr from 'toastr';
 import { confirmAlert } from 'react-confirm-alert';
@@ -10,6 +11,10 @@ import InfluencerServices from '../../services/InfluencerServices';
 class InfluencerList extends Component{
   state = {
     update: false,
+  }
+
+  static getInitialProps({ query: { id } }) {
+    return { id };
   }
 
   static contextType = UserContext;
@@ -55,18 +60,46 @@ class InfluencerList extends Component{
   }
 
   render() {
+console.log(this.props)
     if (this.context.user.role !== "Admin") {
       return(
-        <div key={this.props.index} className="influencer-card">
-        <Link href={`review/${this.props.influencer._id}`}>
-          <div>
-            <p>name: {this.props.influencer.name.firstName} lastname: {this.props.influencer.name.lastName}</p>          
+        // <div key={this.props.index} className="influencer-card">
+        // <Link href={`review/${this.props.influencer._id}`}>
+        //   <div>
+        //     <p>name: {this.props.influencer.name.firstName} lastname: {this.props.influencer.name.lastName}</p>          
 
-            <p>description: {this.props.influencer.review}</p>
-            {/* <img height="100" src={i.profilePic} alt={i.name} /> */}
-          </div>
-        </Link>
+        //     <p>description: {this.props.influencer.review}</p>
+        //     {/* <img height="100" src={i.profilePic} alt={i.name} /> */}
+        //   </div>
+        // </Link>
+        // </div>
+        // <div>
+    <div style={this.props.style} key={this.props.index}>
+    <Link href={`review/${this.props.influencer._id}`}>        
+        <div className="category-card">
+            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
+            <span className="photography">Photography</span>
         </div>
+        <div class="bottom-card">
+          <div id="name-votes">
+            <p id="name-card"><b>{this.props.influencer.name.firstName} {this.props.influencer.name.lastName} </b></p>
+        <div class="votes">
+        <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
+      <p>23</p>
+          <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
+      </div>
+    </div>
+    <div class="product-bubble">
+      <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
+    </div>
+  </div>
+  </Link> 
+  </div>
+
+//  </div>
+
+
+
       )
     } else {
       if (this.state.update === true) {
@@ -91,3 +124,5 @@ class InfluencerList extends Component{
 }
 
 export default InfluencerList;
+
+
