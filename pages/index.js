@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Slider from "react-slick";
-// import axios from 'axios';
+import Link from 'next/link'
 import SearchBar from '../src/components/influencer/SearchInfluencer';
-// import InfluencerItem from "../src/components/influencer/InfluencerItem";
+import InfluencerItem from "../src/components/influencer/InfluencerItem";
 import InfluencerServices from '../src/services/InfluencerServices';
 
 
@@ -58,7 +58,7 @@ class InfluencerList extends Component {
       <div className="index-page">
         <div className="expert-section">
           <div className="expert-div">
-            <img className="background-#F66C4F-bubble" src="" />
+            <img className="background-orange-bubble" src="" />
             <img id="expert-illustration" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380238/3260_Converted.png" alt="expert illustration" />
             <img className="background-blue-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png" />
           </div>
@@ -84,76 +84,94 @@ class InfluencerList extends Component {
             )
           })}
         </div> */}
-        {/* <div class="expert-card">
-        <img id="ubuntu" src="https://www.domainsatretail.com/blog/wp-content/uploads/2014/08/logo-ubuntu_su-#F66C4F-hex.png" alt="category" />
-        <div class="bottom-card">
-          <div id="name-votes">
-            <p id="name-card">Lebron James</p>
-        <div class="votes">
-          <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565217916/icons8-chevron-up-50.png" alt="arrow-up"/>
-      <p>23</p>
-          <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565217916/icons8-chevron-up-50.png" alt="arrow-down"/>
-      </div>
-    </div>
-    <div class="product-bubble">
-      <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
-    </div>
-  </div>
-</div> */}
-{influencers.map((i, index) => {
 
-  const divStyle = {
-    backgroundImage: 'url(' + i.profilePic + ')',
-    height: "43vh",
-    width: "25vw",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    borderRadius: "8px",
-  };
+{/* // {influencers.map((i, index) => {
+
+//   const divStyle = {
+//     backgroundImage: 'url(' + i.profilePic + ')',
+//     height: "43vh",
+//     width: "25vw",
+//     display: "flex",
+//     flexDirection: "column",
+//     justifyContent: "space-between",
+//     borderRadius: "8px",
+//     backgroundRepeat: "no-repeat",
+//     backgroundPosition: "center",
+//     backgroundSize: "100% 100%  ",
+//   };
   
-      return (
-          <div className="expert-card" style={ divStyle } >
-              <div className="category-card">
-                  <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
-                  <span className="photography">Photography</span>
-                </div>
-              <div class="bottom-card">
-                <div id="name-votes">
-                  <p id="name-card"><b>{i.name.firstName} {i.name.lastName} </b></p>
-              <div class="votes">
-              <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
-            <p>23</p>
-                <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
-            </div>
-          </div>
-          <div class="product-bubble">
-            <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
-          </div>
-        </div>
-        {/* <style jsx>{`
-          .expert-card {
-            background-image: url({image})
-          }
-        `}</style> */}
+//       return (
+//           <div className="expert-card" style={ divStyle } >
+//               <div className="category-card">
+//                   <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
+//                   <span className="photography">Photography</span>
+//                 </div>
+//               <div class="bottom-card">
+//                 <div id="name-votes">
+//                   <p id="name-card"><b>{i.name.firstName} {i.name.lastName} </b></p>
+//               <div class="votes">
+//               <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
+//             <p>23</p>
+//                 <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
+//             </div>
+//           </div>
+//           <div class="product-bubble">
+//             <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
+//           </div>
+//         </div>
 
-</div>
+// </div>
 
               
-            )
+//             )
 
-          })}
+//           })} */}
   <div className="heyhey-expert">
 
   </div>
 
-        {/* <Slider {...settings}>
-          {influencers.map((i, index) => {
+ 
+    {influencers.map((i, index) => {
+      const divStyle = {
+        backgroundImage: 'url(' + i.profilePic + ')',
+        height: "43vh",
+        width: "25vw",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        borderRadius: "8px",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "100% 100%",
+        boxShadow: "20px",
+        // padding: "20px"
+      };
             return (
-              <InfluencerItem key={index} influencer={i}></InfluencerItem>
+              // <InfluencerItem style={divStyle} influencer={i} key={index}></InfluencerItem>
+              <div style={divStyle} key={index}>
+              {/* <Link key={index} href={`review/${i._id}`}>         */}
+                  <div className="category-card">
+                      <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
+                      <span className="photography">Photography</span>
+                  </div>
+                  <div class="bottom-card">
+                    <div id="name-votes">
+                      <p id="name-card"><b>{i.name.firstName} {i.name.lastName} </b></p>
+                  <div class="votes">
+                  <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
+                <p>23</p>
+                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
+                </div>
+              </div>
+              <div class="product-card-bubble">
+                <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
+              </div>
+            </div>
+            {/* </Link>  */}
+            </div>
             )
           })}
-        </Slider> */}
+
 
       </div>
     )

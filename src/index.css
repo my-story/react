@@ -317,7 +317,7 @@ bottom: 25px;
   padding: 2px;
 }
 
-.product-bubble {
+.product-card-bubble {
   align-self: flex-end;
   padding: 0 2vw 1.5vh 0;
 }
