@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import Link from 'next/link'
-import SearchBar from '../src/components/influencer/SearchInfluencer';
-import InfluencerItem from "../src/components/influencer/InfluencerItem";
+// import SearchBar from '../src/components/influencer/SearchInfluencer';
+// import InfluencerItem from "../src/components/influencer/InfluencerItem";
 import InfluencerServices from '../src/services/InfluencerServices';
 
 
@@ -132,6 +132,9 @@ class InfluencerList extends Component {
 
  
     {influencers.map((i, index) => {
+      console.log(i);
+      console.log(index);
+
       const divStyle = {
         backgroundImage: 'url(' + i.profilePic + ')',
         height: "43vh",
@@ -148,27 +151,27 @@ class InfluencerList extends Component {
       };
             return (
               // <InfluencerItem style={divStyle} influencer={i} key={index}></InfluencerItem>
-              <div style={divStyle} key={index}>
-              {/* <Link key={index} href={`review/${i._id}`}>         */}
-                  <div className="category-card">
-                      <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
-                      <span className="photography">Photography</span>
+              <Link href={`review/${i._id}`} key={index}>  
+                <div style={divStyle} >      
+                    <div className="category-card">
+                        <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
+                        <span className="photography">Photography</span>
+                    </div>
+                    <div class="bottom-card">
+                      <div id="name-votes">
+                        <p id="name-card"><b>{i.name.firstName} {i.name.lastName} </b></p>
+                    <div class="votes">
+                      <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
+                      <p>23</p>
+                      <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
+                    </div>
                   </div>
-                  <div class="bottom-card">
-                    <div id="name-votes">
-                      <p id="name-card"><b>{i.name.firstName} {i.name.lastName} </b></p>
-                  <div class="votes">
-                  <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
-                <p>23</p>
-                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
+                  <div class="product-card  -bubble">
+                    <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
+                  </div>
                 </div>
-              </div>
-              <div class="product-card  -bubble">
-                <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
-              </div>
-            </div>
-            {/* </Link>  */}
-            </div>
+                </div>
+              </Link>  
             )
           })}
 
