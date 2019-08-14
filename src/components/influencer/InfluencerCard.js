@@ -23,8 +23,6 @@ class influencerCard extends Component {
   };
 
   render(){
-    console.log(this.props);
-    console.log(this.state);
     const divStyle = {
       backgroundImage: 'url(' + this.props.i.profilePic + ')',
       height: "43vh",
