@@ -163,7 +163,7 @@ class InfluencerList extends Component {
                     <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
                 </div>
               </div>
-              <div class="product-card-bubble">
+              <div class="product-card  -bubble">
                 <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
               </div>
             </div>
