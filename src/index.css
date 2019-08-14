@@ -30,7 +30,6 @@ body {
 }
 
 
-
 .influencer-pic {	
   position: absolute;
   left: 12vw;
@@ -137,14 +136,31 @@ body {
 }
 
 .product-bubble:hover{
-  transition: ease 1s;
+  /* transition: ease 1s;  */
   height: 42vh;	
   width: 24vw;
   bottom: -48px;
   right: -48px;
 }
 
+.text-inside-bubble{
+  display: none;
+  color: #3D676A;	
+  font-family: Hind;	
+  font-size: 15px;	
+  font-weight: 500;	
+  line-height: 3px;	
+  text-align: center;
+  padding-top: 40px;
+}
+
+.product-bubble:hover  .text-inside-bubble {
+  transition-delay: 4s;
+  display: block;
+}
+
 .product-inside-bubble{
+  display: flex;                         
   padding-top: 4vh;
   height: 120px;
   width: 82.5px;
