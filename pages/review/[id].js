@@ -220,7 +220,7 @@ class ReviewOne extends Component {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
-
+  
     if (this.context.user.role !== "Admin") {
       return (
         <div className="review-page">

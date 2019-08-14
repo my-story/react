@@ -4,7 +4,7 @@ import Link from 'next/link'
 // import SearchBar from '../src/components/influencer/SearchInfluencer';
 // import InfluencerItem from "../src/components/influencer/InfluencerItem";
 import InfluencerServices from '../src/services/InfluencerServices';
-
+import InfluencerCard from '../src/components/influencer/InfluencerCard';
 
 const settings = {
   dots: true,
@@ -50,6 +50,7 @@ class InfluencerList extends Component {
 
   componentDidMount() {
     this.fetchInfluencer();
+
   }
 
   render() {
@@ -85,97 +86,18 @@ class InfluencerList extends Component {
           })}
         </div> */}
 
-{/* // {influencers.map((i, index) => {
+        <div className="heyhey-expert">
 
-//   const divStyle = {
-//     backgroundImage: 'url(' + i.profilePic + ')',
-//     height: "43vh",
-//     width: "25vw",
-//     display: "flex",
-//     flexDirection: "column",
-//     justifyContent: "space-between",
-//     borderRadius: "8px",
-//     backgroundRepeat: "no-repeat",
-//     backgroundPosition: "center",
-//     backgroundSize: "100% 100%  ",
-//   };
-  
-//       return (
-//           <div className="expert-card" style={ divStyle } >
-//               <div className="category-card">
-//                   <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
-//                   <span className="photography">Photography</span>
-//                 </div>
-//               <div class="bottom-card">
-//                 <div id="name-votes">
-//                   <p id="name-card"><b>{i.name.firstName} {i.name.lastName} </b></p>
-//               <div class="votes">
-//               <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
-//             <p>23</p>
-//                 <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
-//             </div>
-//           </div>
-//           <div class="product-bubble">
-//             <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
-//           </div>
-//         </div>
+        </div>
 
-// </div>
-
-              
-//             )
-
-//           })} */}
-  <div className="heyhey-expert">
-
-  </div>
-
- 
-    {influencers.map((i, index) => {
-      console.log(i);
-      console.log(index);
-
-      const divStyle = {
-        backgroundImage: 'url(' + i.profilePic + ')',
-        height: "43vh",
-        width: "25vw",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        borderRadius: "8px",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundSize: "100% 100%",
-        boxShadow: "20px",
-        // padding: "20px"
-      };
-            return (
-              // <InfluencerItem style={divStyle} influencer={i} key={index}></InfluencerItem>
-              <Link href={`review/${i._id}`} key={index}>  
-                <div style={divStyle} >      
-                    <div className="category-card">
-                        <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
-                        <span className="photography">Photography</span>
-                    </div>
-                    <div class="bottom-card">
-                      <div id="name-votes">
-                        <p id="name-card"><b>{i.name.firstName} {i.name.lastName} </b></p>
-                    <div class="votes">
-                      <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
-                      <p>23</p>
-                      <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
-                    </div>
-                  </div>
-                  <div class="product-card  -bubble">
-                    <img id="product-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
-                  </div>
-                </div>
-                </div>
-              </Link>  
-            )
-          })}
-
-
+    
+        {influencers.map((i, index) => {
+          return (
+            <div>
+              <InfluencerCard i={i} index={index} />
+            </div> 
+          )
+        })}
       </div>
     )
   }
