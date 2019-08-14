@@ -117,11 +117,11 @@ body {
   margin-top: 20px;
   height: 60vh;	
   width: 51vw;	
-  background-color: rgba(0,0,0,0.15);
+  background-color: rgba(192,192,192,0.4);
 }
 
 .product-bubble {	
-  background-color: rgba(0,0,0,0.15);	
+  background-color: rgba(192,192,192,0.4);	
   box-shadow: -10px -4px 26px 0 rgba(0,0,0,0.06);
   /* height: 181.25px;	
   width: 168.75px;	 */
@@ -133,37 +133,73 @@ body {
   right: -25px;
   display: flex;
   justify-content: center;
+  align-items: center;
+
 }
 
-.product-bubble:hover{
+/* Product Bubble in review */
+.product-bubble:hover {
   /* transition: ease 1s;  */
   height: 42vh;	
   width: 24vw;
   bottom: -48px;
   right: -48px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
 }
 
 .text-inside-bubble{
   display: none;
   color: #3D676A;	
   font-family: Hind;	
-  font-size: 15px;	
-  font-weight: 500;	
-  line-height: 3px;	
+  padding-right: 1.5vw;
+  margin: 0;
+  font-size: 120%;	
+  /* font-weight: 500;	 */
+  /* line-height: 3px;	 */
   text-align: center;
-  padding-top: 40px;
+  /* padding-top: 40px; */
+  width: 18vw;
+  height: 5vh;
+  text-decoration: underline dotted #97CFDC;;
+  margin-top: 0;
+}
+
+.add-to-cart {
+  /* padding-bottom: 60px; */
+  font-size: 80%;	
+  font-family: Hind;
+  height: 5vh;	
+  width: 12vw;	
+  border-radius: 25px;	
+  letter-spacing: 0.2px;
+  background-color: #F66C4F;
+  color: white;
+}
+
+.prize-bubble {
+  color:#F66C4F;
+  text-decoration: none;
+  font-size: 140%;
 }
 
 .product-bubble:hover  .text-inside-bubble {
+  display: flex;
+  justify-content: center;
   transition-delay: 4s;
   display: block;
 }
 
+.product-bubble:hover .product-inside-bubble {
+  transform: translate(5vw, -4vh);
+}
+
 .product-inside-bubble{
-  display: flex;                         
-  padding-top: 4vh;
-  height: 120px;
-  width: 82.5px;
+  align-self: center;                       
+  height: 11vh;
+  width: auto;
+  margin: 0;
 }
 
 
@@ -255,7 +291,7 @@ font-size: 150%;
   color: red;
 }
 
-.see-cart{
+.see-cart {
 position: fixed;
 top:500;
 /* height:25%; */
