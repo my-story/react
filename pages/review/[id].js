@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import Link from 'next/link'
 import * as toastr from 'toastr';
+import Cookies from 'universal-cookie';
 import UserContext from '../../src/components/contexts/UserContext';
 import ReviewUpdate from '../../src/components/reviews/ReviewUpdate';
 import ReviewServices from '../../src/services/ReviewServices';
@@ -213,9 +214,6 @@ class ReviewOne extends Component {
   };
 
 
-
-
-
   render() {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
@@ -271,14 +269,18 @@ class ReviewOne extends Component {
               voteUp={this.upvote}
             />
           </div>
-          <Link href={`/product/${product._id}`}> 
             <div className="product-bubble">
               <div className="column">
+              <Link href={`/product/${product._id}`}> 
+              <div>
                 <img className="product-inside-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="the product being sold"/>
-                <span className="text-inside-bubble">fdsjkfkdls lkfjdskljlksd fsdkljfkldsj fkdjslkjfdslk</span>
+                <span className="text-inside-bubble">{product.model}</span>
+                <span className="text-inside-bubble prize-bubble">${product.prize}</span>
+              </div>
+              </Link>               
+                <div className="text-inside-bubble"><button className="add-to-cart"><b>Add to Cart</b></button> </div>
               </div>
             </div>
-          </Link> 
         </div>
       );
     } else {
@@ -291,15 +293,15 @@ class ReviewOne extends Component {
               <Link href={`/product/${product._id}`}>Buy Now </Link>
             <p>{product.model}</p>
               <img src={influencer.profilePic} alt={influencer.name} />
-              <p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-              <p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
-              <p>review: {influencer.review}</p>
+              <p>Name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+              <p>Expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
+              <p>Review: {influencer.review}</p>
             </div>
             <div>
               <h3>Review</h3>
-              <p> title: {review.title}</p>
-              <p> review: {review.review}</p>
-              <p> voicenote: {review.voicenote}</p>
+              <p> Title: {review.title}</p>
+              <p> Review: {review.review}</p>
+              <p> Voicenote: {review.voicenote}</p>
               {/* <video controls src={review.video} /> */}
               {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
             {this.videoDraw()}
