@@ -275,7 +275,7 @@ class ReviewOne extends Component {
             <div className="product-bubble">
               <div className="column">
                 <img className="product-inside-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="the product being sold"/>
-                {/* <h5 className="text-inside-bubble">qlqq perro sabes</h5> */}
+                <span className="text-inside-bubble">fdsjkfkdls lkfjdskljlksd fsdkljfkldsj fkdjslkjfdslk</span>
               </div>
             </div>
           </Link> 
