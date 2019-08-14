@@ -10,8 +10,8 @@ class OrderPaid extends React.Component {
     const cookies = new Cookies(); 
     cookies.remove("Products");
     this.context.updateQty()
+
   }
-  
 
 
   render() {
