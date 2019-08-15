@@ -3,7 +3,7 @@ import * as toastr from 'toastr';
 import Cookies from 'universal-cookie';
 import QtyContext from "../../src/components/contexts/QtyContext";
 import ProductServices from '../../src/services/ProductServices';
-import { addCart } from '../../src/constants/Utils';
+
 
 class ProductDetail extends Component {
   state = {
