@@ -5,12 +5,13 @@ import ReviewServices from '../../services/ReviewServices';
 
 class influencerCard extends Component {
   state = {
-    review: {}
+    review: {},
+    product: {}
   };
 
   componentDidMount() {
     ReviewServices.getReview(this.props.i._id)
-      .then((review) => this.setState(() => ({ review: review })))
+      .then((review) => this.setState(() => ({ review: review, product: review.product })))
       .catch(() => console.log('Error occured while fetching review. Please try later.'));
   }
 
@@ -22,11 +23,12 @@ class influencerCard extends Component {
     }
   };
 
-  render(){
+  render() {
     const divStyle = {
       backgroundImage: 'url(' + this.props.i.profilePic + ')',
       height: "43vh",
-      width: "25vw",
+      // width: "25vw",
+      width: "24vw",
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
@@ -44,17 +46,17 @@ class influencerCard extends Component {
                 <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
                 <span className="photography">Photography</span>
             </div>
-            <div class="bottom-card">
+            <div className="bottom-card">
               <div id="name-votes">
                 <p id="name-card"><b>{this.props.i.name.firstName} {this.props.i.name.lastName} </b></p>
-            <div class="votes">
+            <div className="votes">
               <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
               <p>{this.votes()}</p>
               <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
             </div>
           </div>
-          <div class="product-card  -bubble">
-            <img id="product-picture" alt="the product" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="product-picture"/>
+          <div className="product-card-bubble">
+            <img id="product-picture" src={this.state.product.images} alt="product-picture"/>
           </div>
         </div>
         </div>
