@@ -85,12 +85,7 @@ class InfluencerList extends Component {
             )
           })}
         </div> */}
-
-        <div className="heyhey-expert">
-
-        </div>
-
-    
+        <div className="expert-card-section">
         {influencers.map((i, index) => {
           return (
             <div>
@@ -98,6 +93,22 @@ class InfluencerList extends Component {
             </div> 
           )
         })}
+        </div>
+        <div className="heyhey-expert">
+          <div className="expert-circle-background">
+            <img id="expert-circle" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565887285/3260_Converted_1.png" alt="expert-circle" />
+            <div id="big-circle"></div>
+            <div id="small-circle"></div>
+          </div>
+          <div className="heyhey-message">
+            <h1>Hey hey!</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+            <button><b>Share an opinion</b></button>
+          </div>
+        </div>
+
+    
+
       </div>
     )
   }

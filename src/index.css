@@ -176,6 +176,7 @@ body {
   letter-spacing: 0.2px;
   background-color: #F66C4F;
   color: white;
+  border: none;
 }
 
 .prize-bubble {
@@ -355,7 +356,15 @@ bottom: 25px;
 }
 
 /* Expert Card */
+.expert-card-section {
+  display: flex;
+  height: 50vh;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
 
+}
 .category-card {
   height: 23px;	
   width: 100px;	
@@ -410,5 +419,64 @@ bottom: 25px;
 
 /* Expert Hey Hey Message */
 .heyhey-expert {
+  font-family: "Hind", sans-serif;   
   height: 50vh;
+  display: flex;
+  flex-direction: row;
+  margin: 5vh 5vw 5vh 5vw;
+}
+
+#expert-circle {
+  height: 24vh;
+  width: auto;
+  background-color: #F66C4F;
+  border-radius: 50%;
+}
+
+.expert-circle-background {
+display: flex;
+flex-direction: row;
+margin-top: 4vh;
+}
+
+#big-circle {
+height: 50px;
+width: 50px;
+border-radius: 50%;
+background-color: #F66C4F;
+margin-top: 5vh;
+margin-left: 0.5vw;
+}
+
+#small-circle {
+height: 29px;
+width: 29px;
+border-radius: 50%;
+background-color: #F66C4F;
+margin: 3vh 3vw 0 0;
+}
+
+.heyhey-message {
+  margin-top: 3.5vh;
+  justify-content: center; 
+}
+.heyhey-message h1{
+  line-height: 60px;
+}
+
+.heyhey-message p {
+  font-weight: 300px;
+  line-height: 25px;
+}
+
+.heyhey-message button {
+  font-family: "Hind", sans-serif;   
+  padding: 0 2vw 0 2vw;
+  color: white;
+  height: 7vh;	
+  width: auto;	
+  border-radius: 30px;	
+  background-color: #F66C4F;
+  text-decoration: none;
+  border: none;
 }
