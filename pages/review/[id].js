@@ -5,7 +5,10 @@ import * as toastr from 'toastr';
 import UserContext from '../../src/components/contexts/UserContext';
 import ReviewUpdate from '../../src/components/reviews/ReviewUpdate';
 import ReviewServices from '../../src/services/ReviewServices';
+import CartBubble from '../../src/components/cart/CartBubble';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+
+
 
 
 const Vote = ({ votes, voteDown, voteUp }) => {
@@ -20,6 +23,7 @@ const Vote = ({ votes, voteDown, voteUp }) => {
 
 class ReviewOne extends Component {
   static contextType = UserContext;
+  
   state = {
     review: {},
     disableVoteButtons: false,
@@ -269,18 +273,7 @@ class ReviewOne extends Component {
               voteUp={this.upvote}
             />
           </div>
-            <div className="product-bubble">
-              <div className="column">
-              <Link href={`/product/${product._id}`}> 
-              <div>
-                <img className="product-inside-bubble" src={product.images} alt="the product being sold"/>
-                <span className="text-inside-bubble">{product.model}</span>
-                <span className="text-inside-bubble prize-bubble">${product.prize}</span>
-              </div>
-              </Link>               
-                <div className="text-inside-bubble"><button className="add-to-cart"><b>Add to Cart</b></button> </div>
-              </div>
-            </div>
+          <CartBubble product={product}/>
         </div>
       );
     } else {
