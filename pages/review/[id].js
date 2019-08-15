@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import Link from 'next/link'
 import * as toastr from 'toastr';
-// import Cookies from 'universal-cookie';
 import UserContext from '../../src/components/contexts/UserContext';
 import ReviewUpdate from '../../src/components/reviews/ReviewUpdate';
 import ReviewServices from '../../src/services/ReviewServices';
@@ -222,7 +221,8 @@ class ReviewOne extends Component {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
-  
+    console.log(product)
+
     if (this.context.user.role !== "Admin") {
       return (
         <div className="review-page">
