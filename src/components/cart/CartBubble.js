@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React,{ Component } from 'react';
 import * as toastr from 'toastr';
 import Link from 'next/link';
 import Cookies from 'universal-cookie';
@@ -8,31 +8,46 @@ import QtyContext from '../contexts/QtyContext';
 
 class CartBubble extends Component {
 
-  state = {
-    category: "",
-    description: "",
-    influencer: {},
-    model: "",
-    prize: "",
-    images: "",
-    _id: "",
-    qty: 1,
-    total: undefined,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      category: this.props.product.category,
+      description: this.props.product.description,
+      influencer: this.props.product.influencer,
+      model: this.props.product.model,
+      prize: this.props.product.prize,
+      images: this.props.product.images,
+      _id: this.props.product._id,
+      qty: 1,
+      total: undefined,
+    };
+  }
+  // state = {
+  //   category: this.props.product.category,
+  //   description: this.props.product.description,
+  //   influencer: this.props.product.influencer,
+  //   model: this.props.product.model,
+  //   prize: this.props.product.prize,
+  //   images: this.props.product.images,
+  //   _id: this.props.product._id,
+  //   qty: 1,
+  //   total: undefined,
+  // };
   
   static contextType = QtyContext;
 
 
-  fetchProduct(){
-    const id = this.props.product._id;
-    
-    ProductServices.productDetail(id)
-    .then((res) => this.setState(res))
-    .catch(err => console.log(err));
+  // componentDidMount() {
+  //   this.fetchProduct()
+  // };
 
-    console.log(this.state);
-  }
+  //  fetchProduct(){
+  //   const id = this.props.product._id;
 
+  //   ProductServices.productDetail(id)
+  //     .then((res) => console.log(res))
+  //     .catch(err => console.log(err));
+  // }
 
   addCart = () => {
     const prepareStateForCookie = state => {
@@ -72,29 +87,27 @@ class CartBubble extends Component {
   };
   }
 
-  render(){
-    let count = 0;
+  render() {
 
-    if (this.props.product && count < 1){
-      this.fetchProduct();
-      count++;
-    }
-    return(
-      <div className="product-bubble">
-        <div className="column">
-        <Link href={`/product/${this.props.product._id}`}> 
-        <div>
-          <img className="product-inside-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="the product being sold"/>
-          <span className="text-inside-bubble">{this.props.product.model}</span>
-          <span className="text-inside-bubble prize-bubble">${this.props.product.prize}</span>
-        </div>
-        </Link>               
-          <div className="text-inside-bubble"><button onClick={this.addCart} className="add-to-cart"><b>Add to Cart</b></button> </div>
-        </div>
-     </div>
-    )
-  }
-}
+if (this.props.product === undefined) {
+  return<div>Loading</div>
+
+} else {
+  return (
+    <div className="product-bubble">
+      <div className="column">
+      <Link href={`/product/${this.props.product._id}`}> 
+      <div>
+        <img className="product-inside-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="the product being sold"/>
+        <span className="text-inside-bubble">{this.props.product.model}</span>
+        <span className="text-inside-bubble prize-bubble">${this.props.product.prize}</span>
+      </div>
+      </Link>               
+        <div className="text-inside-bubble"><button onClick={this.addCart} className="add-to-cart"><b>Add to Cart</b></button> </div>
+      </div>
+   </div>
+  )
+}}}
 
 export default CartBubble;
 
