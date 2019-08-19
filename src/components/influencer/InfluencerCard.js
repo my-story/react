@@ -50,9 +50,8 @@ class influencerCard extends Component {
               <div id="name-votes">
                 <p id="name-card"><b>{this.props.i.name.firstName} {this.props.i.name.lastName} </b></p>
             <div className="votes">
-              <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373742/arrow_1.svg" id="arrow" alt="arrow-down"/>
-              <p>{this.votes()}</p>
-              <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565373737/arrow_2.svg" id="arrow" alt="arrow-up"/>
+              <p>upvotes </p>
+              <p> {this.votes()}</p>
             </div>
           </div>
           <div className="product-card-bubble">

@@ -170,8 +170,6 @@ class ReviewOne extends Component {
     });
   };
 
-
-
   isDownvoted = () => this.state.review.downvotes && this.state.review.downvotes.find(vote => vote.author === this.context.user._id);
 
   isUpvoted = () => this.state.review.upvotes && this.state.review.upvotes.find(vote => vote.author === this.context.user._id);
@@ -221,7 +219,6 @@ class ReviewOne extends Component {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
-    console.log(product)
 
     if (this.context.user.role !== "Admin") {
       return (

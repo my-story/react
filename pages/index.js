@@ -59,9 +59,11 @@ class InfluencerList extends Component {
       <div className="index-page">
         <div className="expert-section">
           <div className="expert-div">
-            <img className="background-orange-bubble" src="" />
+            {/* <div id="expert-orange-bubble"> */}
             <img id="expert-illustration" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380238/3260_Converted.png" alt="expert illustration" />
+            {/* </div> */}
             <img className="background-blue-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png" />
+            {/* <img className="background-orange-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566236933/shape.svg" /> */}
           </div>
           <div className="expert-message">
             <p> Hey!<br></br>
@@ -104,6 +106,45 @@ class InfluencerList extends Component {
             <h1>Hey hey!</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
             <button><b>Share an opinion</b></button>
+          </div>
+        </div>
+
+        <div className="top-categories">
+          <h2><b>Top Categories</b></h2>
+
+          <div className="categories-container">
+            <div id="categories-card">
+              <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
+              <p><b>Photography</b></p>
+              <div id="dash-under"></div>
+            </div>
+            <div id="categories-card">
+              <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
+              <p><b>Photography</b></p>
+              <div id="dash-under"></div>
+            </div>
+            <div id="categories-card">
+              <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
+              <p><b>Photography</b></p>
+              <div id="dash-under"></div>
+            </div>
+            <div id="categories-card">
+              <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
+              <p><b>Photography</b></p>
+              <div id="dash-under"></div>
+            </div>
+          </div>
+          <div className="category-bar"> 
+          <p><b>All Categories: </b></p>
+          <div>
+            <button id="category-bubble">Photography</button>
+            <button id="category-bubble">Graphic Design</button>
+            <button id="category-bubble">Test</button>
+            <button id="category-bubble">Photography</button>
+            <button id="category-bubble">Photography</button>
+            <button id="category-bubble">Photography</button>
+
+          </div>
           </div>
         </div>
 
