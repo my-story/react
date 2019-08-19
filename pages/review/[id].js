@@ -6,20 +6,9 @@ import UserContext from '../../src/components/contexts/UserContext';
 import ReviewUpdate from '../../src/components/reviews/ReviewUpdate';
 import ReviewServices from '../../src/services/ReviewServices';
 import CartBubble from '../../src/components/cart/CartBubble';
+import Votes from '../../src/components/votes/Votes';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
-
-
-
-const Vote = ({ votes, voteDown, voteUp }) => {
-  return (
-    <div>
-      <button onClick={voteDown}>Downvote</button>
-      <span>{votes}</span>
-      <button onClick={voteUp}>Upvote</button>
-    </div>
-  );
-};
 
 class ReviewOne extends Component {
   static contextType = UserContext;
@@ -37,7 +26,7 @@ class ReviewOne extends Component {
   componentDidMount() {
     const { id } = this.props;
     ReviewServices.getReview(id)
-      .then((review) => this.setState(() => ({ review: review })))
+      .then((review) => this.setState(() => ({review: review})))
       .catch(() => toastr.error('Error occured while fetching review. Please try later.'));
   }
 
@@ -91,7 +80,8 @@ class ReviewOne extends Component {
 
               return {
                 review: { ...state.review, downvotes, upvotes },
-                disableVoteButtons: false
+                disableVoteButtons: false,
+                upvoted: true
               }
             });
           })
@@ -221,7 +211,6 @@ class ReviewOne extends Component {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
-    console.log(product)
 
     if (this.context.user.role !== "Admin") {
       return (
@@ -239,7 +228,7 @@ class ReviewOne extends Component {
                 <div className="shape">
 
                   <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
-                  <span className="photography">Photography</span>
+                  <span className="photography">{influencer.expertise}</span>
                 </div>
               </div>
               <div className="profile-instagram">
@@ -265,7 +254,7 @@ class ReviewOne extends Component {
             {/* <video controls src={review.video} /> */}
             {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
             {this.audioDraw()}
-            <Vote
+            <Votes
               isDownvoted={this.isDownvoted()}
               isUpvoted={this.isUpvoted()}
               votes={this.votes()}
@@ -302,7 +291,7 @@ class ReviewOne extends Component {
               <button onClick={this.update}>Update</button>
               <br />
               <button onClick={this.submit}>Delete</button>
-              <Vote
+              <Votes
                 isDownvoted={this.isDownvoted()}
                 isUpvoted={this.isUpvoted()}
                 votes={this.votes()}

@@ -7,7 +7,7 @@ import QtyContext from '../contexts/QtyContext';
 
 
 class CartBubble extends Component {
-
+  
   state = {
     category: "",
     description: "",
@@ -18,8 +18,9 @@ class CartBubble extends Component {
     _id: "",
     qty: 1,
     total: undefined,
+    count: 0
   };
-  
+ 
   static contextType = QtyContext;
 
 
@@ -73,12 +74,12 @@ class CartBubble extends Component {
   }
 
   render(){
-    let count = 0;
-
-    if (this.props.product && count < 1){
-      this.fetchProduct();
-      count++;
-    }
+    // if (this.props.product && this.state.count < 1){
+    //   this.fetchProduct();
+    //   this.setState({
+    //     count: 1,
+    //   })
+    // }
     return(
       <div className="product-bubble">
         <div className="column">
