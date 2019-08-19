@@ -137,19 +137,17 @@ class InfluencerList extends Component {
           <div className="category-bar"> 
           <p><b>All Categories: </b></p>
           <div>
-            <button id="category-bubble">Photography</button>
-            <button id="category-bubble">Graphic Design</button>
-            <button id="category-bubble">Test</button>
-            <button id="category-bubble">Photography</button>
-            <button id="category-bubble">Photography</button>
-            <button id="category-bubble">Photography</button>
-
+            <span id="category-bubble">Photography</span>
+            <span id="category-bubble">Graphic Design</span>
+            <span id="category-bubble">Test</span>
+            <span id="category-bubble">Photography</span>
+            <span id="category-bubble">Photography</span>
+            <span id="category-bubble">Photography</span>
           </div>
           </div>
         </div>
 
-    
-
+        <div id="pacman"></div>
       </div>
     )
   }
