@@ -160,8 +160,6 @@ class ReviewOne extends Component {
     });
   };
 
-
-
   isDownvoted = () => this.state.review.downvotes && this.state.review.downvotes.find(vote => vote.author === this.context.user._id);
 
   isUpvoted = () => this.state.review.upvotes && this.state.review.upvotes.find(vote => vote.author === this.context.user._id);

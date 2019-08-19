@@ -185,7 +185,7 @@ body {
   font-size: 140%;
 }
 
-.product-bubble:hover  .text-inside-bubble {
+.product-bubble:hover .text-inside-bubble {
   display: flex;
   justify-content: center;
   transition-delay: 4s;
@@ -344,7 +344,7 @@ margin: 5vh 0 2vh 0;
   height: 75vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: baseline;
 }
 
@@ -361,7 +361,7 @@ bottom: 25px;
   font-size: 8vh;
   font-family: "Hind", sans-serif;   
   font-weight: bold;
-  line-height: 8.6vh;
+  line-height: 7.5vh;
 }
 
 #skip-intro {
@@ -371,16 +371,25 @@ bottom: 25px;
 }
 
 /* Expert Illustration */
+.expert-div {
+  height: 50vh;
+  width: auto;
+  background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566236933/shape.svg");
+  background-size: cover;
+  margin-right: 5vw;
+}
 
 #expert-illustration {
-  width: 37vw;
-  height: 55vh;
+  width: 33vw;
+  height: 50vh;
+  margin: 2.5vh 0 0 2.5vw; 
+
 }
 
 .background-blue-dash {
  position: relative;
- bottom:  65px;
- left: 100px;
+ bottom:  9vh;
+ left: 12vw;
  height: 22vh;
  width: auto;
 }
@@ -430,6 +439,10 @@ bottom: 25px;
 
 .votes {
   display: flex;
+}
+.votes p {
+  padding: 0 1vw 0 0;
+  font-size: 120%;
 }
 
 #arrow {
@@ -510,3 +523,78 @@ margin: 3vh 3vw 0 0;
   text-decoration: none;
   border: none;
 }
+
+/* Categories Section */
+.top-categories {
+  height: 50vh;
+} 
+.categories-container {
+  height: 35vh;
+  display: flex;
+  flex-direction: row;
+  padding-top: 3.5vh;
+}
+#categories-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  justify-items: center;
+  width: 100%;
+  margin-right: 1.8vw;
+  background-color: #F9F8F4;
+}
+#categories-card p {
+  text-align: center;
+  font-size: 120%;
+}
+.category-image {
+  height: 3vh;
+  align-self: center;
+}
+#dash-under {
+  align-self: center;
+  height: 0.25vh;
+  width: 4vw;
+  background-color: #F66C4F;
+}
+
+/* .category-glyph-div {
+  background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566241562/Bitmap_1.png");
+  background-size: 10vh;
+  background-repeat: no-repeat;
+  margin-left: 4vw;
+} */
+
+.category-bar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 4vh;
+}
+
+.category-bar div {
+  display: flex;
+  flex-direction: row;
+}
+
+.category-bar button {
+  font-size: 75%; 
+  font-family: "Hind", sans-serif;   
+  padding: 0 1.5vw 0 1.5vw;
+  color: black;
+  background-color: #F9F8F4;
+  height: 4vh;	
+  width: auto;	
+  border-radius: 30px;	
+  text-decoration: none;
+  border: none;
+  font-weight: 600;
+  margin-left: 0.7vw; 
+}
+.category-bar p{
+  font-size: 2.6vh;
+}
+.category-bar button:hover {
+  color: white;
+  background-color: #F66C4F;
+} 

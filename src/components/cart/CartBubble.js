@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React,{ Component } from 'react';
 import * as toastr from 'toastr';
 import Link from 'next/link';
 import Cookies from 'universal-cookie';
@@ -7,6 +7,7 @@ import QtyContext from '../contexts/QtyContext';
 
 
 class CartBubble extends Component {
+
   
   state = {
     category: "",
@@ -21,19 +22,21 @@ class CartBubble extends Component {
     count: 0
   };
  
+
   static contextType = QtyContext;
 
 
-  fetchProduct(){
-    const id = this.props.product._id;
-    
-    ProductServices.productDetail(id)
-    .then((res) => this.setState(res))
-    .catch(err => console.log(err));
+  // componentDidMount() {
+  //   this.fetchProduct()
+  // };
 
-    console.log(this.state);
-  }
+  //  fetchProduct(){
+  //   const id = this.props.product._id;
 
+  //   ProductServices.productDetail(id)
+  //     .then((res) => console.log(res))
+  //     .catch(err => console.log(err));
+  // }
 
   addCart = () => {
     const prepareStateForCookie = state => {
@@ -73,6 +76,7 @@ class CartBubble extends Component {
   };
   }
 
+
   render(){
     // if (this.props.product && this.state.count < 1){
     //   this.fetchProduct();
@@ -96,6 +100,7 @@ class CartBubble extends Component {
     )
   }
 }
+
 
 export default CartBubble;
 
