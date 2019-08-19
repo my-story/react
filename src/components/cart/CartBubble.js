@@ -8,32 +8,21 @@ import QtyContext from '../contexts/QtyContext';
 
 class CartBubble extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      category: this.props.product.category,
-      description: this.props.product.description,
-      influencer: this.props.product.influencer,
-      model: this.props.product.model,
-      prize: this.props.product.prize,
-      images: this.props.product.images,
-      _id: this.props.product._id,
-      qty: 1,
-      total: undefined,
-    };
-  }
-  // state = {
-  //   category: this.props.product.category,
-  //   description: this.props.product.description,
-  //   influencer: this.props.product.influencer,
-  //   model: this.props.product.model,
-  //   prize: this.props.product.prize,
-  //   images: this.props.product.images,
-  //   _id: this.props.product._id,
-  //   qty: 1,
-  //   total: undefined,
-  // };
   
+  state = {
+    category: "",
+    description: "",
+    influencer: {},
+    model: "",
+    prize: "",
+    images: "",
+    _id: "",
+    qty: 1,
+    total: undefined,
+    count: 0
+  };
+ 
+
   static contextType = QtyContext;
 
 
@@ -87,27 +76,31 @@ class CartBubble extends Component {
   };
   }
 
-  render() {
 
-if (this.props.product === undefined) {
-  return<div>Loading</div>
+  render(){
+    // if (this.props.product && this.state.count < 1){
+    //   this.fetchProduct();
+    //   this.setState({
+    //     count: 1,
+    //   })
+    // }
+    return(
+      <div className="product-bubble">
+        <div className="column">
+        <Link href={`/product/${this.props.product._id}`}> 
+        <div>
+          <img className="product-inside-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="the product being sold"/>
+          <span className="text-inside-bubble">{this.props.product.model}</span>
+          <span className="text-inside-bubble prize-bubble">${this.props.product.prize}</span>
+        </div>
+        </Link>               
+          <div className="text-inside-bubble"><button onClick={this.addCart} className="add-to-cart"><b>Add to Cart</b></button> </div>
+        </div>
+     </div>
+    )
+  }
+}
 
-} else {
-  return (
-    <div className="product-bubble">
-      <div className="column">
-      <Link href={`/product/${this.props.product._id}`}> 
-      <div>
-        <img className="product-inside-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="the product being sold"/>
-        <span className="text-inside-bubble">{this.props.product.model}</span>
-        <span className="text-inside-bubble prize-bubble">${this.props.product.prize}</span>
-      </div>
-      </Link>               
-        <div className="text-inside-bubble"><button onClick={this.addCart} className="add-to-cart"><b>Add to Cart</b></button> </div>
-      </div>
-   </div>
-  )
-}}}
 
 export default CartBubble;
 

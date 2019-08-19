@@ -203,6 +203,36 @@ body {
   margin: 0;
 }
 
+.upvote{
+  transform: rotate(90deg);
+  outline-width: 0;
+  height: 5.22vh;
+  width: auto;
+}
+
+.downvote{
+  transform: rotate(-90deg);
+  outline-width: 0;
+  height: 5.22vh;
+  width: auto;
+}
+
+.bottom-review-container{
+  display: flex;
+  /* border: 1px solid; */
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.votes-container {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid; */
+  align-items: center;
+}
+
+
+     
 
 /* // */
 
