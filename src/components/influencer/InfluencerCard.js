@@ -37,6 +37,7 @@ class influencerCard extends Component {
       backgroundPosition: "center",
       backgroundSize: "100% 100%",
       boxShadow: "20px",
+
       // padding: "20px"
     };
     return(
@@ -50,7 +51,7 @@ class influencerCard extends Component {
               <div id="name-votes">
                 <p id="name-card"><b>{this.props.i.name.firstName} {this.props.i.name.lastName} </b></p>
             <div className="votes">
-              <p>upvotes </p>
+              <p>upvotes</p>
               <p> {this.votes()}</p>
             </div>
           </div>
