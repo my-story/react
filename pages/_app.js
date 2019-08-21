@@ -10,6 +10,7 @@ import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'toastr/build/toastr.css';
 import 'antd/dist/antd.css'; 
+import Footer from '../src/components/Footer';
 
 class MyApp extends App {
   state = {
@@ -98,6 +99,7 @@ class MyApp extends App {
             <UserProvider value={{ user: this.state.loggedInUser, islogged: this.state.islogged, setAddress: this.getAddress, address: this.state.clientAddress }}>
               <Component {...pageProps} giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser} />
             </UserProvider>
+            {/* <Footer></Footer> */}
           </QtyProvider>
         </Container>
       );
