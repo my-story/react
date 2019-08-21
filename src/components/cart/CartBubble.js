@@ -4,11 +4,9 @@ import Link from 'next/link';
 import Cookies from 'universal-cookie';
 import ProductServices from '../../services/ProductServices';
 import QtyContext from '../contexts/QtyContext';
-
+let fetched = 0;
 
 class CartBubble extends Component {
-
-  
   state = {
     category: "",
     description: "",
@@ -21,24 +19,23 @@ class CartBubble extends Component {
     total: undefined,
     count: 0
   };
- 
-
+  
   static contextType = QtyContext;
 
-
-  // componentDidMount() {
-  //   this.fetchProduct()
-  // };
-
-  //  fetchProduct(){
-  //   const id = this.props.product._id;
-
-  //   ProductServices.productDetail(id)
-  //     .then((res) => console.log(res))
-  //     .catch(err => console.log(err));
-  // }
+  fetchProduct = () =>{
+    if (fetched < 2){
+      const id = this.props.product._id;
+   
+      ProductServices.productDetail(id)
+        .then((res) => this.setState(res))
+        .catch(err => console.log(err));
+      fetched++;
+    }
+  }
 
   addCart = () => {
+    this.fetchProduct();
+    
     const prepareStateForCookie = state => {
       // modifying state is bad practice so we need a copy of it
       // since profilePic is base64 we need to set it to null otherwise we will quickly exceed the Cookie size limit
@@ -78,14 +75,9 @@ class CartBubble extends Component {
 
 
   render(){
-    // if (this.props.product && this.state.count < 1){
-    //   this.fetchProduct();
-    //   this.setState({
-    //     count: 1,
-    //   })
-    // }
+    
     return(
-      <div className="product-bubble">
+      <div className="product-bubble" onMouseEnter={this.fetchProduct}>
         <div className="column">
         <Link href={`/product/${this.props.product._id}`}> 
         <div>
