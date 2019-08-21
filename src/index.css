@@ -118,7 +118,7 @@ body {
 .video {	
   margin-top: 20px;
   height: 60vh;	
-  width: 51vw;	
+  width: 100%;	
   background-color: rgba(192,192,192,0.4);
 }
 
@@ -149,6 +149,7 @@ body {
   display: flex;
   justify-items: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .text-inside-bubble{
@@ -224,6 +225,7 @@ body {
   /* border: 1px solid; */
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .votes-container {
@@ -233,8 +235,26 @@ body {
   align-items: center;
 }
 
+.share-text {
+  /* height: 2.2vh;	
+  width: 4.2vw;	 */
+  margin-right: 1vw;
+  padding-top: 0.4vh;
+  color: #BABABA;	
+  font-family: Hind;	
+  font-size: 14px;	
+  font-weight: 600;	
+  letter-spacing: 1.5px;	
+  /* line-height: 22px; */
+}
 
-     
+.share-buttons{
+  width: 13vw;
+  /* border: solid 1px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 /* // */
 

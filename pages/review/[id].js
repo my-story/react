@@ -8,7 +8,7 @@ import ReviewServices from '../../src/services/ReviewServices';
 import CartBubble from '../../src/components/cart/CartBubble';
 import Votes from '../../src/components/votes/Votes';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-
+import {FacebookShareButton, TwitterShareButton,  WhatsappShareButton} from "react-share";
 
 class ReviewOne extends Component {
   static contextType = UserContext;
@@ -188,6 +188,14 @@ class ReviewOne extends Component {
     };
   };
 
+  // instagramRedirect = () => {
+  //   return(
+  //     <div>
+  //       <Link href="instagram.com/kingjames"></Link>
+  //     </div>
+  //   )
+  // }
+
   videoDraw = () => {
     const {review} = this.state;
 
@@ -231,7 +239,7 @@ class ReviewOne extends Component {
               </div>
               <div className="profile-instagram">
                 <p className="profile-name">{influencer.name && influencer.name.firstName}'s profile</p>
-                <img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565290822/instagram.svg" alt="instagram"/>
+                <img  className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565290822/instagram.svg" alt="instagram"/>
               </div>
             </div>
               <div>
@@ -252,13 +260,21 @@ class ReviewOne extends Component {
             {/* <video controls src={review.video} /> */}
             {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
             {this.audioDraw()}
-            <Votes
-              isDownvoted={this.isDownvoted()}
-              isUpvoted={this.isUpvoted()}
-              votes={this.votes()}
-              voteDown={this.downvote}
-              voteUp={this.upvote}
-            />
+            <div className="bottom-review-container">
+              <Votes
+                isDownvoted={this.isDownvoted()}
+                isUpvoted={this.isUpvoted()}
+                votes={this.votes()}
+                voteDown={this.downvote}
+                voteUp={this.upvote}
+              />
+              <div className="share-buttons">
+                <span className="share-text">SHARE</span>
+                <WhatsappShareButton url={"zapos.com"}><img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565290822/instagram.svg" alt="instagram button"/></WhatsappShareButton>
+                <FacebookShareButton url={"headspace.com"}><img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566411204/facebook.svg" alt="facebook button"/></FacebookShareButton>
+                <TwitterShareButton url={"amazon.com"}><img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566411510/twitter.svg" alt="twitter button"/></TwitterShareButton>
+              </div>
+            </div>
           </div>
           <CartBubble product={product}/>
         </div>
@@ -289,13 +305,15 @@ class ReviewOne extends Component {
               <button onClick={this.update}>Update</button>
               <br />
               <button onClick={this.submit}>Delete</button>
-              <Votes
-                isDownvoted={this.isDownvoted()}
-                isUpvoted={this.isUpvoted()}
-                votes={this.votes()}
-                voteDown={this.downvote}
-                voteUp={this.upvote}
-              />
+              <div>
+                <Votes
+                  isDownvoted={this.isDownvoted()}
+                  isUpvoted={this.isUpvoted()}
+                  votes={this.votes()}
+                  voteDown={this.downvote}
+                  voteUp={this.upvote}
+                />
+              </div>
             </div>
           </div>
         )
