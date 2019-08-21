@@ -6,14 +6,6 @@ import Link from 'next/link'
 import InfluencerServices from '../src/services/InfluencerServices';
 import InfluencerCard from '../src/components/influencer/InfluencerCard';
 
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  accessibility: true,
-};
 
 class InfluencerList extends Component {
 
@@ -66,10 +58,10 @@ class InfluencerList extends Component {
             {/* <img className="background-orange-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566236933/shape.svg" /> */}
           </div>
           <div className="expert-message">
-            <p> Hey!<br></br>
+            <p id="im-john"> Hey!<br></br>
             Im John,<br></br>
             </p>
-            <p style={{color:"#F66C4F"}}>The Master of<br></br>
+            <p id="master-of" style={{color:"#F66C4F"}}>The Master of<br></br>
             Opinions.</p> 
             <p id="skip-intro">Skip intro</p>
           </div>
@@ -158,6 +150,23 @@ class InfluencerList extends Component {
             <input type="image" id="video-start" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566406923/btn.svg" />
             <img id="about-us-video" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566405071/Video.png" alt="video-about-us"/>
           </div>
+        </div>
+        <div className="donate-margin">
+        <div className="donate-section">
+          <div className="donate-message">
+            <h2>A short message calling<br></br>for the donations</h2>
+            <p>Sages focuses on giving back to the community.<br></br> 
+            For every sale made, 10% will be donated to a <br></br>
+            foundation chosen by the expert.</p>
+              <div className="donate-buttons">
+              <p>Donate</p>
+              <p>Learn more about what we do</p>
+              </div>
+          </div>
+          <div> 
+            <img id="donate-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566410262/Screenshot_from_2019-08-21_13-57-13.png" alt="donate-picture-logo"/>
+          </div>
+        </div>
         </div>
         
       </div>
