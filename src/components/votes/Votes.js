@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 
 class Votes extends Component {
   render(){
-    console.log(this.props.isUpvoted);
-    console.log(this.props.isDownvoted);
-
     if (this.props.isUpvoted){
       return(
         <div className="bottom-review-container">
