@@ -147,7 +147,19 @@ class InfluencerList extends Component {
           </div>
         </div>
 
-        <div id="pacman"></div>
+        <div className="video-section">
+          <div className="video-message">
+            <h1><b>What is it all about?</b></h1>
+            <p>Why wouldn't you trust the best of the best? <br></br></p>
+
+            <span><b>Watch a short video about us</b></span>
+          </div>
+          <div id="video-about-us-container">
+            <input type="image" id="video-start" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566406923/btn.svg" />
+            <img id="about-us-video" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566405071/Video.png" alt="video-about-us"/>
+          </div>
+        </div>
+        
       </div>
     )
   }
