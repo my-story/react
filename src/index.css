@@ -86,7 +86,6 @@ body {
 }
 
 .icon {	
-  margin-top: 0.5vh;
   margin-right: 0.30vw;
   margin-left: 0.30vw;
   height: 1.5vh;	
@@ -274,6 +273,11 @@ body {
   font-family: "Hind", sans-serif;
 }
 
+#shopping-cart {
+  height: 2vh;
+  width:auto;
+}
+
 #logo-mystory {
   height: 5vh;
   width: auto;
@@ -286,10 +290,11 @@ left: 30px;
 font-size: 150%;
 }
 
-#account-glyph {
-  height: 3.5vh;
+#search-bar-glyph {
+  height: 2vh;
   width: auto;
 }
+
 .navbar-section {
  display: flex;
  flex-direction: row;
@@ -305,6 +310,7 @@ font-size: 150%;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-content: center;
   width: 18vw;  
   /* padding-left: 5vw; */
 }
@@ -340,6 +346,7 @@ margin: 5vh 0 2vh 0;
 /* Index */
 .index-page {
   margin: 0 12vw 0 12vw;  
+  height: 100%;
 }
 /* Expert Section */
 .expert-section {
@@ -447,18 +454,17 @@ border-right: 3px solid black;
 
 }
 .category-card {
+
   height: 23px;	
   width: 100px;	
   display: flex;
   text-align: center;
+  align-items: center;
   border-radius: 20px;	
   background-color: #F66C4F;
   position: relative;
   top: -5px;
   left: -5px;
-  overflow: visible,
-
-
 }
 
 
@@ -745,12 +751,13 @@ padding-bottom: 2.5vh;
 .donate-buttons {
   display: flex;
   flex-direction: row;
-  width: 29vw;
+  width: 27vw;
   justify-content: space-between;
   padding-top: 1vh;
 }
 .donate-buttons p{
-  font-size: 85%;
+  font-family: "Hind", sans-serif;
+  font-size: 75%;
   display: flex;
   align-content: center;
   border-radius: 30px;	
@@ -779,11 +786,10 @@ padding-bottom: 2.5vh;
   display: flex;
   flex-direction: row;
   position: absolute;
-  bottom: 0;
+  /* bottom: 0; */
   left: 0;
   height: 14vh;
   width: 100%;
   background-color: #F3F2EB;
-  min-height: 100px;
 
 }

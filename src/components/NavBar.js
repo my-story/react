@@ -57,7 +57,7 @@ class NavBar extends Component {
 				 		</span>
 					<Link href="/cart">
 						<span>
-							<p><Icon type="shopping-cart" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer></p>
+						<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
 						</span>
 					</Link>
 					</div>
@@ -94,7 +94,7 @@ class NavBar extends Component {
 									{/* <span>
 										<p>PROFILE</p>
 									</span> */}
-									<img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565379958/ucer.svg" alt="account profile" />
+									<img id="search-bar-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566509579/search.svg" alt="account profile" />
 								</Link>
 							<Link href="/login">
 								<span>
@@ -103,7 +103,7 @@ class NavBar extends Component {
 							</Link>
 							<Link href="/cart">
 								<span>
-									<p><Icon type="shopping-cart" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer></p>
+									<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
 								</span>
 							</Link>
 							</div>

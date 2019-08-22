@@ -215,7 +215,7 @@ class ReviewOne extends Component {
         <div className="review-page">
           <div >
             <div>
-              <img src={influencer.profilePic} alt="influencer profile" className="influencer-pic" />
+              <img src={influencer.profilePic} alt="Expert Image" className="influencer-pic" />
               <p className="heading" >{review.title}</p>
             </div>
             <div className="subheading">
@@ -223,7 +223,7 @@ class ReviewOne extends Component {
                 <p className="author">by: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
 
   
-                <div className="shape">
+                <div className="category-card">
 
                   <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
                   <span className="photography">{influencer.expertise}</span>
