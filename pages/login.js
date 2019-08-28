@@ -53,13 +53,17 @@ class Login extends Component {
     if (!this.state.loggedin) {
       return (
         <div className="login-form-parent">
-          <form className="login-form" onSubmit={this.handleFormSubmit}>
-            <div>
-              <input placeholder="USERNAME" type="text" name="username" onChange={e => this.handleChange(e)} />
-              <input placeholder="PASSWORD" name="password" onChange={e => this.handleChange(e)} />
-            </div>
-            <button type="submit" className="button-id">Submit</button>
-          </form>
+          <div className="login-rectangle">
+            <h3>Log in</h3>
+            <form className="login-form" onSubmit={this.handleFormSubmit}>
+              <div>
+                <input placeholder="USERNAME" type="text" name="username" onChange={e => this.handleChange(e)} />
+                <input placeholder="PASSWORD" name="password" onChange={e => this.handleChange(e)} />
+              </div>
+              <button type="submit" className="button-id">Submit</button>
+            </form>
+          </div>
+          <div className="orange-login-rectangle"></div>
         </div>
       )
     } else {

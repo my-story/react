@@ -4,6 +4,7 @@ import Cookies from 'universal-cookie';
 import NavBar from '../src/components/NavBar';
 import { QtyProvider } from "../src/components/contexts/QtyContext"
 import { UserProvider } from "../src/components/contexts/UserContext";
+// import { NavBarCssProvider } from "../src/components/contexts/NavBarCssContext";
 import AuthServices from '../src/services/AuthServices';
 import '../src/index.css';
 import 'antd/dist/antd.css';
@@ -20,6 +21,7 @@ class MyApp extends App {
     details: '',
     clientAddress: '',
     getQty: this.getQty(),
+    // NavBarCss: "ss"
   }
 
   getUser = (user) => {
@@ -95,7 +97,9 @@ class MyApp extends App {
       return (
         <Container>
           <QtyProvider value={{ getQtyState: this.state.getQty, updateQty: this.updateQty }}>
-            <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
+            {/* <NavBarCssProvider value={{css: this.state.NavBarCss}}> */}
+              <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
+            {/* </NavBarCssProvider> */}
             <UserProvider value={{ user: this.state.loggedInUser, islogged: this.state.islogged, setAddress: this.getAddress, address: this.state.clientAddress }}>
               <Component {...pageProps} giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser} />
             </UserProvider>

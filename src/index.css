@@ -272,6 +272,40 @@ body {
   justify-content: space-between;
 }
 
+.login-form-parent{
+  background-color: #3D676A;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.login-rectangle {	
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  top: 26vh;
+  right: calc(50%);
+  height: 55vh;	
+  width: 23vw;	
+  border-radius: 2px;	
+  background-color: #FFFFFF;	
+  box-shadow: 11px 10px 28px 0 rgba(0,0,0,0.07);
+}
+
+
+
+.orange-login-rectangle {
+  margin-top: 15vh;
+  height: 46vh;	
+  width: 50vw;	
+  border-radius: 2px;	
+  background-color: #F66C4F;
+}
+
+
+
 /* // */
 
 
@@ -303,6 +337,7 @@ body {
   height: 5vh;
   width: auto;
   color: black;
+  background-color: #FFFFFF;;
   font-weight: bold;
   font-size: 10px;
   /* letter-spacing: 0.75px; */
