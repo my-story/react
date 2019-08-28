@@ -40,12 +40,15 @@ class influencerCard extends Component {
 
       // padding: "20px"
     };
-    return(
+
+    return (
       <Link href={`review/${this.props.i._id}`} key={this.props.index}>  
-        <div style={divStyle} >      
+        <div style={divStyle} >
+          <div className="top-card">      
             <div className="category-card">
                 <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
                 <span className="photography">Photography</span>
+            </div>
             </div>
             <div className="bottom-card">
               <div id="name-votes">
@@ -57,6 +60,10 @@ class influencerCard extends Component {
           </div>
           <div className="product-card-bubble">
             <img id="product-picture" src={this.state.product.images} alt="product-picture"/>
+            {/* <div className="bubble-product-prize"> */}
+              <p id="name-inside-product"><b>{this.state.product.model}</b></p>
+              <span id="prize-inside-product">{this.state.product.prize}</span>
+            {/* </div> */}
           </div>
         </div>
         </div>
