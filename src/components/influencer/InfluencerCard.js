@@ -47,7 +47,7 @@ class influencerCard extends Component {
           <div className="top-card">      
             <div className="category-card">
                 <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
-                <span className="photography">Photography</span>
+                <span className="category-name">{this.props.i.expertise}</span>
             </div>
             </div>
             <div className="bottom-card">
