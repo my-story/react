@@ -2,12 +2,18 @@ import React, {Component} from 'react';
 import Link from 'next/link';
 import {Icon} from 'antd';
 import Logout from './auth/Logout';
-import {QtyConsumer} from "./contexts/QtyContext";
+import InfluencerServices from '../services/InfluencerServices';
+import {QtyConsumer} from './contexts/QtyContext';
+import SearchBar from './influencer/SearchInfluencer';
+import { thisExpression } from '@babel/types';
+
 
 
 class NavBar extends Component {
 	state = {
-
+		logged: "",
+		user: "",
+		search_expert: "",
 	}
 
 	adjustState = () => {
@@ -19,8 +25,14 @@ class NavBar extends Component {
 	componentDidMount = () => {
 		this.adjustState();
 	}
+	getFilter = (e) => {
+		InfluencerServices.getFilter(e.target.value)
+		  .then((res) => this.setState({ search_expert: res }))
+		  .catch((err) => console.log(err))
+	  }
 
 	render() {
+		console.log(this.state)
 		if (this.props.islogged) {
 			return(
 				<div>
@@ -46,12 +58,8 @@ class NavBar extends Component {
 						</span>
 					</div>
 					<div className="icons-account-cart">
-						<Link href="/profile">
-							{/* <span>
-								<p>PROFILE</p>
-							</span> */}
-							<img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565379958/ucer.svg" alt="account profile" />
-						</Link>
+						{/* <img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565379958/ucer.svg" alt="account profile" /> */}
+						<SearchBar getFilter={this.getFilter} />
 					 	<span className="links-nav">
 				 			<Logout {...this.props}>Logout</Logout>
 				 		</span>
@@ -90,12 +98,10 @@ class NavBar extends Component {
 								</span>
 							</div>
 							<div className="icons-account-cart">
-								<Link href="/profile">
-									{/* <span>
-										<p>PROFILE</p>
-									</span> */}
-									<img id="search-bar-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566509579/search.svg" alt="account profile" />
-								</Link>
+								{/* <div className="search-bar-input"> */}
+								{/* <img id="search-bar-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566509579/search.svg" alt="account profile" /> */}
+								{/* </div> */}
+								<SearchBar getFilter={this.getFilter} />
 							<Link href="/login">
 								<span>
 								<p>LOG IN</p>
