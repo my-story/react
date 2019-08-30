@@ -61,8 +61,10 @@ class influencerCard extends Component {
           <div className="product-card-bubble">
             <img id="product-picture" src={this.state.product.images} alt="product-picture"/>
             {/* <div className="bubble-product-prize"> */}
-              <p id="name-inside-product"><b>{this.state.product.model}</b></p>
-              <span id="prize-inside-product">{this.state.product.prize}</span>
+            <div>
+            <p id="name-inside-product"><b>{this.state.product.model}</b></p>
+            <p id="prize-inside-product">${this.state.product.prize}</p>
+            </div>
             {/* </div> */}
           </div>
         </div>
