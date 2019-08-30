@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Slider from "react-slick";
 import Link from 'next/link'
-// import SearchBar from '../src/components/influencer/SearchInfluencer';
+import SearchBar from '../src/components/influencer/SearchInfluencer';
 // import InfluencerItem from "../src/components/influencer/InfluencerItem";
 import InfluencerServices from '../src/services/InfluencerServices';
 import InfluencerCard from '../src/components/influencer/InfluencerCard';
@@ -13,7 +13,8 @@ class InfluencerList extends Component {
     influencers: [],
     category: [
       "Athlete", "Musician", "Tech", "Artist"
-    ]
+    ],
+    search_expert:[]
   }
 
   fetchInfluencer = () => {
@@ -27,11 +28,11 @@ class InfluencerList extends Component {
 
   //		.then((res) => this.setState({influencers:res.data}))
   // needs fixing
-  getFilter = (e) => {
-    InfluencerServices.getFilter(e.target.value)
-      .then((res) => this.setState({ influencers: res }))
-      .catch((err) => console.log(err))
-  }
+  // getFilter = (e) => {
+  //   InfluencerServices.getFilter(e.target.value)
+  //     .then((res) => this.setState({ search_expert: res }))
+  //     .catch((err) => console.log(err))
+  // }
 
   //Still needs fixing
   filterCategory = (e) => {
@@ -46,6 +47,7 @@ class InfluencerList extends Component {
   }
 
   render() {
+    console.log(this.state)
     const { influencers, category } = this.state
     return (
       <div className="index-page">
@@ -67,18 +69,19 @@ class InfluencerList extends Component {
           </div>
         </div>
         <h2 style={{paddingBottom: "20px"}}><b>Top Recomendations</b></h2>
-        {/* Search Bar Reactive 
+        {/* Search Bar Reactive  */}
 
         <div>
-          <SearchBar getFilter={this.getFilter} />
-          {category.map((c, index) => {
+          {/* <SearchBar getFilter={this.getFilter} /> */}
+          {/* {category.map((c, index) => {
             return (
               <div key={index}>
                 <button value={c} onClick={(e) => this.filterCategory(e)}>{c}</button>
               </div>
             )
-          })}
-        </div> */}
+          })} */}
+        </div>
+
         <div className="expert-card-section">
         {influencers.map((i, index) => {
           return (
