@@ -277,11 +277,66 @@ body {
 .login-form-parent {
   background-color: #3d676a;
   height: 100vh;
+  /* border: 3px solid black; */
   display: flex;
   justify-content: center;
 }
 
+
+.login-form{
+  display: flex;
+  /* border: 3px solid blue; */
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.inputs-login{
+  height: 4vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.inputs-login-styling{
+  width: 18vw;
+  /* height: 5vh; */
+  border-radius: 5px;
+  height: 5vh;
+  align-self: center;
+  box-shadow: none;
+  border: none;
+  background-color: #F7F7F7;
+  padding: 1vh 0 1vh 1.5vw;
+  align-content: center;
+  outline: none !important;
+}
+
+.p-login {
+  margin-top: 2vh;	
+  color: #000000;	
+  font-family: Hind;	
+  font-size: 5vh;	
+  font-weight: bold;		
+  text-align: center;
+}
+
+.inputs-login ::placeholder{
+  height: 2.2vh;	
+  width: 3vw;	
+  color: #BABABA;	
+  font-family: "Avenir Next";	
+  font-size: 1.6vh;	
+}
+
+.margin-input-login {
+  margin-bottom: 2vh;
+}
+
+
 .login-rectangle {
+
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -303,6 +358,29 @@ body {
   border-radius: 2px;
   background-color: #f66c4f;
 }
+
+
+.login-button {	
+  height: 5.5vh;	
+  width: 18vw;	
+  border-radius: 40px;	
+  background-color: #F66C4F;
+}
+
+.login-font{
+  height: 26px;	
+  width: 46px;	
+  color: #FFFFFF;	
+  font-family: Hind;	
+  font-size: 13px;	
+  font-weight: bold;	
+  letter-spacing: 0.2px;	
+  line-height: 26px;	
+  text-align: center;
+}
+
+
+
 
 /* // */
 
