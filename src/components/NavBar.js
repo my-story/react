@@ -26,13 +26,19 @@ class NavBar extends Component {
 		this.adjustState();
 	}
 	getFilter = (e) => {
-		InfluencerServices.getFilter(e.target.value)
-		  .then((res) => this.setState({ search_expert: res }))
-		  .catch((err) => console.log(err))
-	  }
+		if (e.target.value.length === 0 ) {
+			this.setState({search_expert: []})
+		} else {
+			InfluencerServices.getFilter(e.target.value)
+			.then((res) => this.setState({ search_expert: res }))
+			.catch((err) => console.log(err))
+		}
+		}
+
 
 	render() {
-		console.log(this.state)
+		const  search  = this.state.search_expert || [];
+
 		if (this.props.islogged) {
 			return(
 				<div>
@@ -59,7 +65,12 @@ class NavBar extends Component {
 					</div>
 					<div className="icons-account-cart">
 						{/* <img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565379958/ucer.svg" alt="account profile" /> */}
+				{/* Search Bar Functionality */}
+						{/* <div> */}
 						<SearchBar getFilter={this.getFilter} />
+
+						{/* </div> */}
+
 					 	<span className="links-nav">
 				 			<Logout {...this.props}>Logout</Logout>
 				 		</span>
@@ -101,7 +112,18 @@ class NavBar extends Component {
 								{/* <div className="search-bar-input"> */}
 								{/* <img id="search-bar-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566509579/search.svg" alt="account profile" /> */}
 								{/* </div> */}
-								<SearchBar getFilter={this.getFilter} />
+								<SearchBar getFilter={this.getFilter} results={this.state.search_expert}/>
+								{/* <div className="search-results-container">
+            {search.map((result, index) => {
+                console.log(result)
+                return(
+                    <div key={index}>
+                        <p>{result.name.firstName}</p>
+                    </div> 
+                )
+            })}
+
+			</div> */}
 							<Link href="/login">
 								<span>
 								<p>LOG IN</p>
