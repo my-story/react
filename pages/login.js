@@ -54,13 +54,18 @@ class Login extends Component {
       return (
         <div className="login-form-parent">
           <div className="login-rectangle">
-            <h3>Log in</h3>
+            
             <form className="login-form" onSubmit={this.handleFormSubmit}>
-              <div>
-                <input placeholder="USERNAME" type="text" name="username" onChange={e => this.handleChange(e)} />
-                <input placeholder="PASSWORD" name="password" onChange={e => this.handleChange(e)} />
+              <p className="p-login">Login</p>
+              <div className="inputs-login">
+                <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
+                <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
               </div>
-              <button type="submit" className="button-id">Submit</button>
+              <button type="submit" className="login-button"><span className="login-font">Login</span></button>
+              <div>
+                {/* <input type="checkbox">Remeber me</input>
+                <button>Forgot Password?</button> */}
+              </div>
             </form>
           </div>
           <div className="orange-login-rectangle"></div>
