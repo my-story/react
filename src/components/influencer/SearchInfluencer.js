@@ -4,6 +4,19 @@ import Link from "next/link";
 
 class SearchBar extends Component {
 
+	lastName = (name) => {
+		if(name.length >= 7) {
+			return(
+				<p>...</p>
+			)
+		} else {
+			return(
+				<div>{name}</div>
+
+			)
+		}
+	}
+
 render() {
 
 const search = this.props.results || []
@@ -26,7 +39,7 @@ if(this.props.results.length === 0){
 							<Link href={`http://localhost:3000/review/${result._id}`} key={index} >
 							<div className="search-result">
 								<img src={result.profilePic} alt={result.name.firstName} id="search-picture"/>
-								<p>{result.name.firstName} {result.name.lastName}</p>
+								<p>{result.name.firstName} {this.lastName(result.name.lastName)}</p>
 							</div> 
 							</Link>
 							)
