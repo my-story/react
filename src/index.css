@@ -1,5 +1,6 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
+@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
 
 body {
   margin: 0;
@@ -282,7 +283,25 @@ body {
   justify-content: center;
 }
 
+.forgot-pass-parent {
+  height: 8vh;
+  width: 18vw;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 78%;
+  font-family: Hind;	
+  /* margin-bottom: 5vh; */
+}
 
+#forgot-password {
+  color: #97cfdc;
+}
+.remember-me-container{
+  display: flex;
+  align-items: center;
+}
 .login-form{
   display: flex;
   /* border: 3px solid blue; */
@@ -317,7 +336,7 @@ body {
 .p-login {
   margin-top: 2vh;	
   color: #000000;	
-  font-family: Hind;	
+  font-family: 'Hind';	
   font-size: 5vh;	
   font-weight: bold;		
   text-align: center;
@@ -337,7 +356,7 @@ body {
 
 
 .login-rectangle {
-
+ 
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -358,10 +377,35 @@ body {
   width: 50vw;
   border-radius: 2px;
   background-color: #f66c4f;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
-
-
-.login-button {	
+.not-signup-container {
+  width: 25vw;
+  max-height: 18vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: #FFFFFF;
+  justify-content: center;
+}
+.not-signup-container p {
+  font-size: 3vh;
+  
+}
+.not-signup-container button {
+  font-family: 'Hind';
+  border-radius: 27px;
+  border: 2px solid #FFFFFF;
+  background-color: #f66c4f;
+  color: #FFFFFF;
+  width: 11vw;
+  height: 5.7vh;
+  font-size: 13px;
+}
+.login-button {
+  margin-top: 5vh;
   height: 5.5vh;	
   width: 18vw;	
   border-radius: 40px;	
@@ -389,8 +433,6 @@ body {
   bottom: 1vh;
   left: -2vw;
 }
-
-
 
 /* // */
 
@@ -783,7 +825,7 @@ border-right: 3px solid black;
 
 /* Expert Hey Hey Message */
 .heyhey-expert {
-  font-family: "Hind", sans-serif;
+  font-family: "Hind";
   height: 50vh;
   display: flex;
   flex-direction: row;
