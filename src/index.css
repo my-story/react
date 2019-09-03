@@ -484,6 +484,10 @@ body {
   /* padding: 1.5vh 0 0 1vw; */
   max-width: 240px;
 }
+.search-result:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
 .search-result p {
   padding-left: 1vw;
   font-size: 130%;

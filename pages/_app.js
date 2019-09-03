@@ -49,7 +49,7 @@ class MyApp extends App {
         islogged: false
       })
     } else {
-      console.log("already logged out");
+      console.log("Already Logged out");
     }
   }
 
