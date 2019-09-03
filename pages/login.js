@@ -55,21 +55,28 @@ class Login extends Component {
         <div className="login-form-parent">
           <div className="login-rectangle">
             <form className="login-form" onSubmit={this.handleFormSubmit}>
-              <p className="p-login">Login</p>
+              <p className="p-login">Log in</p>
               <div className="inputs-login">
                 <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
                 <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
                 <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
                 <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img>
               </div>
-              <button type="submit" className="login-button"><span className="login-font">Login</span></button>
+              <button type="submit" className="login-button"><span className="login-font">Log in</span></button>
               <div className="forgot-pass-parent">
-                <input type="checkbox"/><span>Remember Me?</span>
-                <span to="recover-pass">Forgot Password?</span>
+                <div className="remember-me-container">
+                <input type="checkbox"/><span>Remember Me</span>
+                </div>
+                <span id="forgot-password" to="recover-pass">Forgot Password?</span>
               </div>
             </form>
           </div>
-          <div className="orange-login-rectangle"></div>
+          <div className="orange-login-rectangle">
+            <div className="not-signup-container">
+              <p><b>Don't have an account yet?</b></p> 
+              <button className="sign-up-button"><b>Sign up</b></button>
+            </div>
+          </div>
         </div>
       )
     } else {
