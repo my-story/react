@@ -1,45 +1,47 @@
 import React, { Component } from "react"
 import Link from "next/link";
-
+import InfluencerServices from '../../services/InfluencerServices';
 
 class SearchBar extends Component {
+	state = {
+		search_expert: []
+	}
 
-	lastName = (name) => {
-		if(name.length >= 7) {
-			return(
-				<p>...</p>
-			)
+	getFilter = (e) => {
+		console.log(e.target.value.length);
+		if (e.target.value.length === 0) {
+			this.setState({search_expert: []})
 		} else {
-			return(
-				<div>{name}</div>
-
-			)
+			InfluencerServices.getFilter(e.target.value)
+			.then((res) => this.setState({ search_expert: res }))
+			.catch((err) => console.log(err))
 		}
 	}
 
 render() {
 
-const search = this.props.results || []
-
-if(this.props.results.length === 0){
+// const search = this.props.results || []
+// console.log(search);
+// console.log(this.props);
+if(this.state.search_expert.length === 0){
     return (
     <div className="searchbar-container">
 			  <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566509579/search.svg" />
-        <input onChange={this.props.getFilter} className="search-bar" type="text" placeholder="Search" />
+        <input onChange={(e) =>this.getFilter(e)} className="search-bar" type="text" placeholder="Search" />
     </div>
     )
 } else {
     return (
 			<div className="searchbar-container">
 			  <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566509579/search.svg" />
-				<input onChange={this.props.getFilter} className="search-bar" type="text" placeholder="Search" />
+				<input onChange={(e) =>this.getFilter(e)} className="search-bar" type="text" placeholder="Search" />
 					<div className="search-results-container">
-					{search.map((result, index) => {
+					{this.state.search_expert.map((result, index) => {
 						return (
 							<Link href={`http://localhost:3000/review/${result._id}`} key={index} >
 							<div className="search-result">
 								<img src={result.profilePic} alt={result.name.firstName} id="search-picture"/>
-								<p>{result.name.firstName} {this.lastName(result.name.lastName)}</p>
+								<p>{result.name.firstName} {result.name.lastName}</p>
 							</div> 
 							</Link>
 							)

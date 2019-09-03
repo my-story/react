@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Link from 'next/link';
 import {Icon} from 'antd';
 import Logout from './auth/Logout';
-import InfluencerServices from '../services/InfluencerServices';
+// import InfluencerServices from '../services/InfluencerServices';
 import {QtyConsumer} from './contexts/QtyContext';
 import SearchBar from './influencer/SearchInfluencer';
 import { thisExpression } from '@babel/types';
@@ -13,7 +13,6 @@ class NavBar extends Component {
 	state = {
 		logged: "",
 		user: "",
-		search_expert: "",
 	}
 
 	adjustState = () => {
@@ -25,21 +24,12 @@ class NavBar extends Component {
 	componentDidMount = () => {
 		this.adjustState();
 	}
-	getFilter = (e) => {
-		if (e.target.value.length === 0 ) {
-			this.setState({search_expert: []})
-		} else {
-			InfluencerServices.getFilter(e.target.value)
-			.then((res) => this.setState({ search_expert: res }))
-			.catch((err) => console.log(err))
-		}
-		}
 
 
 
 	render() {
-		const  search  = this.state.search_expert || [];
-
+		// const  search  = this.state.search_expert || [];
+		// console.log(this.state.search_expert);
 		if (this.props.islogged) {
 			return(
 				<div>
@@ -68,8 +58,8 @@ class NavBar extends Component {
 						{/* <img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565379958/ucer.svg" alt="account profile" /> */}
 				{/* Search Bar Functionality */}
 						{/* <div> */}
-						<SearchBar getFilter={this.getFilter} />
-
+						<SearchBar />
+						
 						{/* </div> */}
 
 					 	<span className="links-nav">
@@ -113,7 +103,7 @@ class NavBar extends Component {
 								{/* <div className="search-bar-input"> */}
 								{/* <img id="search-bar-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566509579/search.svg" alt="account profile" /> */}
 								{/* </div> */}
-								<SearchBar getFilter={this.getFilter} results={this.state.search_expert}/>
+								<SearchBar/>
 								{/* <div className="search-results-container">
             {search.map((result, index) => {
                 console.log(result)
