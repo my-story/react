@@ -311,6 +311,7 @@ body {
   padding: 1vh 0 1vh 1.5vw;
   align-content: center;
   outline: none !important;
+  margin-left: 1vw;
 }
 
 .p-login {
@@ -364,6 +365,9 @@ body {
   height: 5.5vh;	
   width: 18vw;	
   border-radius: 40px;	
+  border: none;
+  text-decoration: none;
+  outline: none !important;
   background-color: #F66C4F;
 }
 
@@ -379,6 +383,12 @@ body {
   text-align: center;
 }
 
+.mail-image{
+  margin:0;
+  position: relative;
+  bottom: 1vh;
+  left: -2vw;
+}
 
 
 
