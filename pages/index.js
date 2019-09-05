@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 // import Slider from "react-slick";
 import Link from 'next/link'
+import InfluencerServices from '../src/services/InfluencerServices';
 import SearchBar from '../src/components/influencer/SearchInfluencer';
 // import InfluencerItem from "../src/components/influencer/InfluencerItem";
-import InfluencerServices from '../src/services/InfluencerServices';
 import InfluencerCard from '../src/components/influencer/InfluencerCard';
 
 

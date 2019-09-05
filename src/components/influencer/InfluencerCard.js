@@ -40,7 +40,7 @@ class influencerCard extends Component {
 
       // padding: "20px"
     };
-
+    
     return (
       <Link href={`review/${this.props.i._id}`} key={this.props.index}>  
         <div style={divStyle} >

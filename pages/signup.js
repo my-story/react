@@ -6,12 +6,14 @@ import validator from 'email-validator';
 import passwordValidator from 'password-validator';
 import * as toastr from 'toastr';
 import AuthServices from '../src/services/AuthServices';
+import Login from './login';
 
 class Signup extends Component {
   state = {
     username: '',
     password: '',
-    signedup: false
+    // signedup: false,
+    login: true,
   };
 
 
@@ -63,28 +65,58 @@ class Signup extends Component {
         })
     }
   }
+  login = () => {
+    this.setState({login:false})
+  }
 
   render() {
-    if (!this.state.signedup) {
+    console.log(this.state)
+    if (this.state.login) {
       return (
         <div className="login-form-parent">
-          <form className="login-form" onSubmit={this.handleFormSubmit}>
-            <div>
-              <input placeholder="USERNAME" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
-              <input placeholder="PASSWORD" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
+          <div className="signup-rectangle">
+          <form className="signup-form" onSubmit={this.handleFormSubmit}>
+          <p className="s-login">Sign Up</p>
+            <div className="signup-container">
+              <div className="name-last-container">
+                <input placeholder="First Name" type="text" name="firstName" />
+                <input placeholder="Last Name" type="text" name="lastName" />
+              </div>
+              <input placeholder="Email" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+              <input placeholder="Password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
+              <input placeholder="Confirm Password/not working" />
+
             </div>
-            <button type="submit" className="button-id">Submit</button>
-            <p>Already have account?
-                            <Link href={"/login"}> Login</Link>
-            </p>
+            {/* <button type="submit" className="button-id">Submit</button> */}
+            <button type="submit" className="login-button"><span className="login-font">Sign Up</span></button>
+            {/* <p>Already have account?
+              <Link href={"/login"}> Login</Link>
+            </p> */}
           </form>
+          </div>
+          <div className="orange-signup-rectangle">
+            <div className="not-signup-container">
+              <p><b>Have an account?</b></p> 
+              <button className="sign-up-button" onClick={this.login}><b>Log In</b></button>
+            </div>
+          </div>
+        </div>
+
+      )
+    } else  {
+      return (
+        <div>
+        <Login></Login>
         </div>
       )
-    } else {
-      Router.push('/login');
-      return null;
-    }
-  }
+    // } 
+  //   if (this.state.signedup) {
+  //     Router.push('/login');
+  //     return null;
+
+  // }
+}
+}
 }
 
 export default Signup;
