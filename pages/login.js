@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-import Router from 'next/router'
+import Router from 'next/router';
 import * as toastr from 'toastr';
 import AuthServices from '../src/services/AuthServices';
+import Signup from './signup';
 
 class Login extends Component {
+
   state = {
     username: '',
     password: '',
-    loggedin: false,
-    path: ''
+    loggedin: true,
+    path: '',
+    // signUp: false,
   };
+
 
 
 
@@ -39,7 +43,9 @@ class Login extends Component {
         console.log(error);
       })
   }
-
+  signUp = () => {
+    this.setState({loggedin: false})
+  }
   savePath = () => {
     window.previousLocation = this.props.location;
     this.setState({ path: window.previousLocation });
@@ -50,7 +56,7 @@ class Login extends Component {
   }
 
   render() {
-    if (!this.state.loggedin) {
+    if (this.state.loggedin) {
       return (
         <div className="login-form-parent">
           <div className="login-rectangle">
@@ -74,15 +80,23 @@ class Login extends Component {
           <div className="orange-login-rectangle">
             <div className="not-signup-container">
               <p><b>Don't have an account yet?</b></p> 
-              <button className="sign-up-button"><b>Sign up</b></button>
+              <button className="sign-up-button" onClick={this.signUp}><b>Sign up</b></button>
             </div>
           </div>
         </div>
       )
     } else {
-      Router.push('/')
-      return null;
+      return (
+        <div>
+      <Signup></Signup>
+        </div>
+      )
     }
+    
+    // if (this.state.loggedin) {
+    //     Router.push('/')
+    //     return null;
+    // } 
   }
 }
 

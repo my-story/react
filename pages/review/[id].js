@@ -281,7 +281,7 @@ class ReviewOne extends Component {
       );
     } else {
       if (this.state.update) {
-        return (<ReviewUpdate oldReview={this.state} />);
+        return (<ReviewUpdate oldReview={this.state.review} />);
       } else {
         return (
           <div>

@@ -51,14 +51,15 @@ class ReviewUpdate extends Component {
 
 
   render() {
+    console.log(this.state)
     if (this.context.user.role === "Admin" && !this.state.created) {
       return (
         <div>
-          <Input name="title" defaultValue={this.props.oldReview.review.title} placeholder="Please enter title " allowClear onChange={this.onChange} />
-          <TextArea rows={4} defaultValue={this.props.oldReview.review.review} name="review" placeholder="Please enter review of review" onChange={this.onChange} />
+          <Input name="title" defaultValue={this.props.oldReview.title} placeholder="Please enter title " allowClear onChange={this.onChange} />
+          <TextArea rows={4} defaultValue={this.props.oldReview.review} name="review" placeholder="Please enter review of review" onChange={this.onChange} />
           <Input name="influencer" defaultValue={this.props.oldReview.influencer._id} placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
-          <Input name="video" defaultValue={this.props.oldReview.review.video} placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
-          <Input name="voicenote" defaultValue={this.props.oldReview.review.voicenote} placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
+          <Input name="video" defaultValue={this.props.oldReview.video} placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
+          <Input name="voicenote" defaultValue={this.props.oldReview.voicenote} placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
           <button onClick={this.handleSubmit}>Update</button>
         </div>
       );
