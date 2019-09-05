@@ -9,7 +9,12 @@ const { TextArea } = Input;
 class ReviewUpdate extends Component {
 
   state = {
-
+    title: "",
+    review: "",
+    video: "",
+    voicenote: "",
+    influencer: "",
+    created: false
   }
 
   static contextType = UserContext;
@@ -18,12 +23,12 @@ class ReviewUpdate extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  componentDidMount() {
+  componentDidMount = () =>{
     this.setState({
-      title: this.props.oldReview.review.title,
-      review: this.props.oldReview.review.review,
-      video: this.props.oldReview.review.video,
-      voicenote: this.props.oldReview.review.voicenote,
+      title: this.props.oldReview.title,
+      review: this.props.oldReview.review,
+      video: this.props.oldReview.video,
+      voicenote: this.props.oldReview.voicenote,
       influencer: this.props.oldReview.influencer._id,
       created: false
     });
@@ -31,11 +36,11 @@ class ReviewUpdate extends Component {
 
   handleSubmit = () => {
     let id = this.state.influencer;
-
+    console.log(id);
     const newReview = {
       title: this.state.title,
       review: this.state.review,
-      influencer: this.state.influencer._id,
+      influencer: this.state.influencer,
       video: this.state.video,
       voicenote: this.state.voicenote,
     }
@@ -43,6 +48,7 @@ class ReviewUpdate extends Component {
 
     ReviewServices.editReview(newReview, id)
       .then(() => {
+        console.log("entered the then")
         this.setState({ created: true });
       })
       .catch(err => console.log(err));
@@ -52,6 +58,7 @@ class ReviewUpdate extends Component {
 
   render() {
     console.log(this.state)
+    console.log(this.props.oldReview.title)
     if (this.context.user.role === "Admin" && !this.state.created) {
       return (
         <div>
