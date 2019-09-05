@@ -75,13 +75,13 @@ class CartBubble extends Component {
 
 
   render(){
-    
+    console.log(this.props.product)
     return(
       <div className="product-bubble" onMouseEnter={this.fetchProduct}>
         <div className="column">
         <Link href={`/product/${this.props.product._id}`}> 
         <div>
-          <img className="product-inside-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565216217/img.png" alt="the product being sold"/>
+          <img className="product-inside-bubble" src={this.props.product.images} alt="the product being sold"/>
           <span className="text-inside-bubble">{this.props.product.model}</span>
           <span className="text-inside-bubble prize-bubble">${this.props.product.prize}</span>
         </div>

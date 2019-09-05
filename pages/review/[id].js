@@ -233,7 +233,7 @@ class ReviewOne extends Component {
   
                 <div className="category-card">
 
-                  <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
+                  <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567710375/icons8-comedy-100_1.png" alt="the product" className="icon"/>
                   <span className="photography">{influencer.expertise}</span>
                 </div>
               </div>
@@ -244,6 +244,8 @@ class ReviewOne extends Component {
             </div>
               <div>
                 {this.videoDraw()}
+              {this.audioDraw()}
+
               </div>
               <p>{product.model}</p>
               {/* <img src={influencer.profilePic} alt={influencer.name} /> */}
