@@ -70,7 +70,6 @@ class Signup extends Component {
   }
 
   render() {
-    console.log(this.state)
     if (this.state.login) {
       return (
         <div className="login-form-parent">

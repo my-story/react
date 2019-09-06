@@ -244,7 +244,7 @@ class ReviewOne extends Component {
             </div>
               <div>
                 {this.videoDraw()}
-              {this.audioDraw()}
+              
 
               </div>
               <p>{product.model}</p>
@@ -302,7 +302,7 @@ class ReviewOne extends Component {
               <p> Voicenote: {review.voicenote}</p>
               {/* <video controls src={review.video} /> */}
               {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
-            {this.videoDraw()}
+              {this.videoDraw()}
               {this.audioDraw()}
               <button onClick={this.update}>Update</button>
               <br />
