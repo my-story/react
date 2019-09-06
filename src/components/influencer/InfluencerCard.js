@@ -4,10 +4,14 @@ import ReviewServices from '../../services/ReviewServices';
 
 
 class influencerCard extends Component {
+
+  
   state = {
     review: {},
     product: {}
   };
+
+  
 
   componentDidMount() {
     ReviewServices.getReview(this.props.i._id)
@@ -22,6 +26,21 @@ class influencerCard extends Component {
       return 0;
     }
   };
+
+  getGlyphicon = (category) =>{
+    const Comedy = "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567710375/icons8-comedy-100_1.png";
+    const Athlete = "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567788668/icons8-sport-96.png";
+    const Author = "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567788259/icons8-paragraph-96.png"; 
+
+    const arr = [{"Comedian": Comedy}, {"Athlete": Athlete}, {"Author": Author}];
+
+    for(let i = 0; i < arr.length; i++){
+      if(Object.keys(arr[i]).join('') === category){
+        console.log(arr[i])
+        return arr[i][category];
+      }
+    }
+  }
 
   render() {
     const divStyle = {
@@ -40,13 +59,15 @@ class influencerCard extends Component {
 
       // padding: "20px"
     };
-    
+    console.log(this.props.i.expertise[0])
+    console.log(this.getGlyphicon(this.props.i.expertise[0]))
     return (
+      
       <Link href={`review/${this.props.i._id}`} key={this.props.index}>  
         <div style={divStyle} >
           <div className="top-card">      
-            <div className="category-card">
-                <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>
+            <div className={`category-bubble ${this.props.i.expertise[0]}`}>
+                <img src={this.getGlyphicon(this.props.i.expertise[0])} alt="the product" className="icon"/>
                 <span className="category-name">{this.props.i.expertise}</span>
             </div>
             </div>
