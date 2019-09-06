@@ -931,7 +931,7 @@ border-right: 3px solid black;
 /* Expert Hey Hey Message */
 .heyhey-expert {
   font-family: "Hind";
-  height: 50vh;
+  height: 45vh;
   display: flex;
   flex-direction: row;
   margin: 5vh 5vw 5vh 5vw;
