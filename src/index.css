@@ -58,12 +58,12 @@ body {
 }
 .author {
   justify-content: flex-end;
-  height: 22px;
+  /* height: 22px; */
   color: #3d676a;
-  font-family: Hind;
-  font-size: 18px;
+  font-family: "Hind";
+  font-size: 14px;
   font-weight: bold;
-  line-height: 22px;
+  /* line-height: 22px; */
   margin-right: 2vw;
 }
 
@@ -311,6 +311,14 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+.signup-container input {
+  height: 4vh;
+}
+.signup-container input::placeholder {
+  color: #BABABA;	
+  font-family: "Avenir Next";	
+  font-size: 1.6vh;	
 }
 .signup-form {
   display: flex;
@@ -775,6 +783,19 @@ border-right: 3px solid black;
   top: -5px;
   left: -5px;
 }
+#blue-dash {
+  background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png");
+  background-size: cover;
+  height: 12vh;
+  width: 14vw;
+  margin-bottom: 2vh;
+  display: flex;
+  justify-content: center;
+}
+#category-on-dash {
+  height: 12vh;
+  width: auto;
+}
 
 .Comedian {
   background-color: #F36363;
@@ -985,7 +1006,7 @@ border-right: 3px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-items: center;
+  align-items: center;
   width: 100%;
   margin-right: 1.8vw;
   background-color: #f9f8f4;

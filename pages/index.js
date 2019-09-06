@@ -108,35 +108,41 @@ class InfluencerList extends Component {
 
           <div className="categories-container">
             <div id="categories-card">
-              <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
-              <p><b>Photography</b></p>
+              {/* <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" /> */}
+              <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790965/icons8-sport-96_1.png" alt="category" /></div>
+              <p><b>Athlete</b></p>
               <div id="dash-under"></div>
             </div>
             <div id="categories-card">
-              <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
-              <p><b>Photography</b></p>
+              {/* <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" /> */}
+              <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790640/icons8-paragraph-96_1.png" alt="category" /></div>             
+              <p><b>Author</b></p>
               <div id="dash-under"></div>
             </div>
             <div id="categories-card">
-              <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
-              <p><b>Photography</b></p>
+              {/* <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" /> */}
+              <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790797/icons8-comedy-100_2.png" alt="category" /></div>              
+              <p><b>Comedian</b></p>
               <div id="dash-under"></div>
             </div>
-            <div id="categories-card">
+            {/* <div id="categories-card">
               <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
-              <p><b>Photography</b></p>
+              <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567791082/icons8-music-notation-250.png" alt="category" /></div>              
+              <p><b>Musician</b></p>
               <div id="dash-under"></div>
-            </div>
+            </div> */}
           </div>
           <div className="category-bar"> 
           <p><b>All Categories: </b></p>
           <div>
-            <span id="category-bubble">Photography</span>
-            <span id="category-bubble">Graphic Design</span>
-            <span id="category-bubble">Test</span>
-            <span id="category-bubble">Photography</span>
-            <span id="category-bubble">Photography</span>
-            <span id="category-bubble">Photography</span>
+            <span id="category-bubble">Athlete</span>
+            <span id="category-bubble">Author</span>
+            <span id="category-bubble">Comedian</span>
+            {/* <span id="category-bubble">Surprise</span>
+            <span id="category-bubble">Coming Soon</span>
+            <span id="category-bubble">Coming Soon</span>
+            <span id="category-bubble">Coming Soon</span> */}
+
           </div>
           </div>
         </div>
