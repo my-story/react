@@ -36,7 +36,7 @@ class ReviewUpdate extends Component {
 
   handleSubmit = () => {
     let id = this.state.influencer;
-    console.log(id);
+    
     const newReview = {
       title: this.state.title,
       review: this.state.review,
@@ -44,7 +44,7 @@ class ReviewUpdate extends Component {
       video: this.state.video,
       voicenote: this.state.voicenote,
     }
-    console.log(newReview)
+    
 
     ReviewServices.editReview(newReview, id)
       .then(() => {

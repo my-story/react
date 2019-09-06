@@ -763,17 +763,29 @@ border-right: 3px solid black;
   flex-direction: row;
   flex-wrap: wrap;
 }
-.category-card {
+
+.category-bubble{
   height: 23px;
   width: 100px;
   display: flex;
   text-align: center;
   align-items: center;
   border-radius: 20px;
-  background-color: #f66c4f;
   position: relative;
   top: -5px;
   left: -5px;
+}
+
+.Comedian {
+  background-color: #F36363;
+}
+
+.Athlete {
+  background-color: #3D676A;
+}
+
+.Author {
+  background-color: #DA55A5;
 }
 
 #name-votes {
@@ -1161,3 +1173,5 @@ border-right: 3px solid black;
   width: 100%;
   background-color: #f3f2eb;
 }
+
+
