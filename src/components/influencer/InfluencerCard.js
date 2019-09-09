@@ -8,7 +8,8 @@ class influencerCard extends Component {
   
   state = {
     review: {},
-    product: {}
+    product: {},
+    opacity: "1"
   };
 
   
@@ -42,6 +43,18 @@ class influencerCard extends Component {
     }
   }
 
+  opaqueOn = () => {
+    this.setState({
+      opacity: "0.6"
+    });
+  }
+
+  opaqueOff = () =>{
+    this.setState({
+      opacity: "1"
+    });
+  }
+
   render() {
     const divStyle = {
       backgroundImage: 'url(' + this.props.i.profilePic + ')',
@@ -56,7 +69,7 @@ class influencerCard extends Component {
       backgroundPosition: "center",
       backgroundSize: "100% 100%",
       boxShadow: "20px",
-
+      opacity: this.state.opacity
       // padding: "20px"
     };
     console.log(this.props.i.expertise[0])
@@ -64,7 +77,7 @@ class influencerCard extends Component {
     return (
       
       <Link href={`review/${this.props.i._id}`} key={this.props.index}>  
-        <div style={divStyle} >
+        <div  onMouseLeave={this.opaqueOff} onMouseEnter={this.opaqueOn} style={divStyle} >
           <div className="top-card">      
             <div className={`category-bubble ${this.props.i.expertise[0]}`}>
                 <img src={this.getGlyphicon(this.props.i.expertise[0])} alt="the product" className="icon"/>
