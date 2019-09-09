@@ -45,7 +45,7 @@ class influencerCard extends Component {
 
   opaqueOn = () => {
     this.setState({
-      opacity: "0.6"
+      opacity: "0.3"
     });
   }
 
