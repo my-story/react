@@ -114,10 +114,11 @@ class InfluencerList extends Component {
             {/* <button><b>Share an opinion</b></button> */}
             <div> 
               <button onClick={this.onOpenModal}><b>Share an opinion</b></button>
-              <Modal id="pop-up-css" open={open} onClose={this.onCloseModal} center>
+              <Modal id="pop-up-css" className="modal" open={open} onClose={this.onCloseModal} center>
+                <div className="heading-pop-up">
                 <h2>Share your opinion</h2>
                 <p>We greatly appreciate you feedback!</p>
-
+                </div>
                 <ol>
                   <li>Have you enjoyed the overall experience of the application?</li>
                   <div class="btn-group mr-2" role="group" aria-label="First group" clicked>
@@ -133,6 +134,7 @@ class InfluencerList extends Component {
                     <button type="button" class="btn btn-secondary">10</button>
                   </div>
                   <li>Have you encountered any problems when using our site?</li>
+                  <div className="yes-no">
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"/>
                       <label class="form-check-label" for="exampleRadios1">
@@ -145,10 +147,13 @@ class InfluencerList extends Component {
                         No
                       </label>
                     </div>
+                    </div>
                   <li>If you would like to see something improve in this page what would it be?</li>
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </ol>
+                <div className="button-div">
                 <button className="feedback-submit-button"><span className="login-font">Submit</span></button>
+                </div>
               </Modal>
             </div>
           </div>

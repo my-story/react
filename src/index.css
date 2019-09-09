@@ -861,6 +861,7 @@ border-right: 3px solid black;
 
 .expert-card:hover {
   filter: grayscale(100%);
+
 }
 .expert-card:hover .quote-hover{
   display: block;
@@ -1241,9 +1242,21 @@ height: 3vh;
   background-color: #F66C4F;
 }
 
-#pop-up-css div{
+
+.heading-pop-up {
+  text-align: center;
+}
+.styles_modal__gNwvD {
+  background-color: #f3f2eb;
+}
+
+.button-div{
   display: flex;
   justify-content: center;
 }
+/* .yes-no {
+  display: flex;
+  flex-direction: row;
+} */
 
 
