@@ -9,7 +9,7 @@ class influencerCard extends Component {
   state = {
     review: {},
     product: {},
-    opacity: "1"
+    opacity: "1",
   };
 
   
@@ -58,6 +58,10 @@ class influencerCard extends Component {
   render() {
     const divStyle = {
       backgroundImage: 'url(' + this.props.i.profilePic + ')',
+      // background: "rgba(255, 255, 255, 0.3)",
+      filter: "alpha(opacity=50)",
+      // backgroundBlendMode: "lighten",
+      
       height: "43vh",
       // width: "25vw",
       width: "24vw",
@@ -69,20 +73,25 @@ class influencerCard extends Component {
       backgroundPosition: "center",
       backgroundSize: "100% 100%",
       boxShadow: "20px",
-      opacity: this.state.opacity
+      opacity: this.state.opacity,
+      // backgroundColor: "black",
+      
       // padding: "20px"
-    };
-    console.log(this.props.i.expertise[0])
-    console.log(this.getGlyphicon(this.props.i.expertise[0]))
+    };  
+
     return (
       
       <Link href={`review/${this.props.i._id}`} key={this.props.index}>  
-        <div  onMouseLeave={this.opaqueOff} onMouseEnter={this.opaqueOn} style={divStyle} >
+        <div className="expert-card" style={divStyle} >
           <div className="top-card">      
             <div className={`category-bubble ${this.props.i.expertise[0]}`}>
                 <img src={this.getGlyphicon(this.props.i.expertise[0])} alt="the product" className="icon"/>
                 <span className="category-name">{this.props.i.expertise}</span>
             </div>
+            <div className="quote-hover">
+              <img id="quote-pic" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1568057128/quotes.svg" alt="Quotes" />
+              <p>Lorem ipsum hyea fieqof, cuando pudes , lmetele, kasndaw . punto y coma.</p>
+              </div>
             </div>
             <div className="bottom-card">
               <div id="name-votes">
