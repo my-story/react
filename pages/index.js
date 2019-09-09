@@ -5,6 +5,7 @@ import InfluencerServices from '../src/services/InfluencerServices';
 import SearchBar from '../src/components/influencer/SearchInfluencer';
 // import InfluencerItem from "../src/components/influencer/InfluencerItem";
 import InfluencerCard from '../src/components/influencer/InfluencerCard';
+import Modal from "react-responsive-modal";
 
 
 class InfluencerList extends Component {
@@ -14,8 +15,10 @@ class InfluencerList extends Component {
     category: [
       "Athlete", "Musician", "Tech", "Artist"
     ],
-    search_expert:[]
+    search_expert:[],
+    open: false
   }
+  
 
   fetchInfluencer = () => {
     InfluencerServices.getAll()
@@ -46,8 +49,17 @@ class InfluencerList extends Component {
 
   }
 
+  onOpenModal = () => {
+    this.setState({ open: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ open: false });
+  };
+
   render() {
-    const { influencers, category } = this.state
+    const { influencers, category, open } = this.state
+   
     return (
       <div className="index-page">
         <div className="expert-section">
@@ -99,7 +111,46 @@ class InfluencerList extends Component {
           <div className="heyhey-message">
             <h1>Hey hey!</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
-            <button><b>Share an opinion</b></button>
+            {/* <button><b>Share an opinion</b></button> */}
+            <div> 
+              <button onClick={this.onOpenModal}><b>Share an opinion</b></button>
+              <Modal id="pop-up-css" open={open} onClose={this.onCloseModal} center>
+                <h2>Share your opinion</h2>
+                <p>We greatly appreciate you feedback!</p>
+
+                <ol>
+                  <li>Have you enjoyed the overall experience of the application?</li>
+                  <div class="btn-group mr-2" role="group" aria-label="First group" clicked>
+                    <button type="button" class="btn btn-secondary">1</button>
+                    <button type="button" class="btn btn-secondary">2</button>
+                    <button type="button" class="btn btn-secondary">3</button>
+                    <button type="button" class="btn btn-secondary">4</button>
+                    <button type="button" class="btn btn-secondary">5</button>
+                    <button type="button" class="btn btn-secondary">6</button>
+                    <button type="button" class="btn btn-secondary">7</button>
+                    <button type="button" class="btn btn-secondary">8</button>
+                    <button type="button" class="btn btn-secondary">9</button>
+                    <button type="button" class="btn btn-secondary">10</button>
+                  </div>
+                  <li>Have you encountered any problems when using our site?</li>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"/>
+                      <label class="form-check-label" for="exampleRadios1">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
+                      <label class="form-check-label" for="exampleRadios2">
+                        No
+                      </label>
+                    </div>
+                  <li>If you would like to see something improve in this page what would it be?</li>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </ol>
+                <button className="feedback-submit-button"><span className="login-font">Submit</span></button>
+              </Modal>
+            </div>
           </div>
         </div>
 

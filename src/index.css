@@ -1230,4 +1230,20 @@ height: 3vh;
   background-color: #f3f2eb;
 }
 
+.feedback-submit-button{
+  margin-top: 5vh;
+  height: 5.5vh;	
+  width: 18vw;	
+  border-radius: 40px;	
+  border: none;
+  text-decoration: none;
+  outline: none !important;
+  background-color: #F66C4F;
+}
+
+#pop-up-css div{
+  display: flex;
+  justify-content: center;
+}
+
 
