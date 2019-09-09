@@ -653,7 +653,7 @@ body {
 .navbar-section span:hover {
   /* text-decoration: underline #F66C4F; */
   /* color: #f66c4f; */
-  border-bottom: 1px solid orange; 
+  border-bottom: 1px solid #f66c4f; 
   cursor: pointer;
 }
 
@@ -772,6 +772,7 @@ border-right: 3px solid black;
   width: auto;
 }
 
+
 /* Expert Card */
 .expert-card-section {
   display: flex;
@@ -857,11 +858,34 @@ border-right: 3px solid black;
   height: 20px;
   padding: 2px;
 }
+
+.expert-card:hover {
+  filter: grayscale(100%);
+}
+.expert-card:hover .quote-hover{
+  display: block;
+  /* opacity: 0.7; */
+  filter: none;
+}
 .top-card {
   height: 3vh;
 }
 
-
+.quote-hover {
+  position: relative;
+  width: 20vw;
+  /* border: 1px solid; */
+  left: 2vw;
+  top: 6vh;
+  font-size: 110%;
+  font-family: "Avenir Next";
+  /* font-weight: bold; */
+  color: white;
+  display: none;
+}
+#quote-pic {
+height: 3vh;
+}
 .product-card-bubble {
   /* align-self: flex-end; */
   padding: 0 2vw 1.5vh 0;
@@ -895,13 +919,14 @@ border-right: 3px solid black;
   bottom: -5vh;
   /* box-shadow: -10px -4px 10px 0 rgba(0,0,0,0); */
   background-color: #f7f7f7;
-  box-shadow: 10px 10px 10px black;
+  filter: none !important;
+
 }
-/* 
-.product-card-bubble .bubble-product-prize {
-  display: hidden;
-  color: black;
-} */
+
+.product-card-bubble:hover .quote-hover{
+  display: none;
+  /* color: black; */
+} 
 #name-inside-product {
   text-align: center;
   max-width: 100%;
@@ -912,7 +937,6 @@ border-right: 3px solid black;
   font-size: 140%;
   color: #f66c4f;
   padding-left: calc(50% - 2vw);
-
   margin-bottom: 5vh;
 }
 #name-inside-product,

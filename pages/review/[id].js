@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
-import Link from 'next/link'
+import Link from 'next/link';
 import * as toastr from 'toastr';
+import ReviewServices from '../../src/services/ReviewServices';
+import InfluencerServices from '../../src/services/InfluencerServices';
 import UserContext from '../../src/components/contexts/UserContext';
 import ReviewUpdate from '../../src/components/reviews/ReviewUpdate';
-import ReviewServices from '../../src/services/ReviewServices';
 import CartBubble from '../../src/components/cart/CartBubble';
 import Votes from '../../src/components/votes/Votes';
+import InfluencerCard from '../../src/components/influencer/InfluencerCard';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import {FacebookShareButton, TwitterShareButton,  WhatsappShareButton} from "react-share";
 
@@ -14,6 +16,7 @@ class ReviewOne extends Component {
   static contextType = UserContext;
   
   state = {
+    influencers: [],
     review: {},
     disableVoteButtons: false,
     update: false,
@@ -23,13 +26,27 @@ class ReviewOne extends Component {
     return { id };
   }
 
+
   componentDidMount() {
+    // this.fetchInfluencer();
+
     const { id } = this.props;
     ReviewServices.getReview(id)
       .then((review) => this.setState(() => ({review: review})))
       .catch(() => toastr.error('Error occured while fetching review. Please try later.'));
   }
 
+  fetchInfluencer = () => {
+    InfluencerServices.getAll()
+      .then(influencers => this.setState({
+        ...this.state,
+        influencers
+    
+      }),
+      console.log("trying to get ingflu")
+      )
+      .catch((err) => console.log(err))
+  }
   update = () => {
     this.setState({
       update: true
@@ -217,6 +234,8 @@ class ReviewOne extends Component {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
+    const influencers = this.state;
+    console.log(this.state);
 
     if (this.context.user.role !== "Admin") {
       return (
@@ -244,8 +263,6 @@ class ReviewOne extends Component {
             </div>
               <div>
                 {this.videoDraw()}
-              
-
               </div>
               <p>{product.model}</p>
               {/* <img src={influencer.profilePic} alt={influencer.name} /> */}
@@ -278,6 +295,17 @@ class ReviewOne extends Component {
               </div>
             </div>
           </div>
+
+          <div className="expert-card-section">
+        {influencers.map((i, index) => {
+          return (
+            <div>
+              <InfluencerCard i={i} index={index} />
+            </div> 
+          )
+        })}
+        </div>
+
           <CartBubble product={product}/>
         </div>
       );
