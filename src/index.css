@@ -850,6 +850,8 @@ border-right: 3px solid black;
 .top-card {
   height: 3vh;
 }
+
+
 .product-card-bubble {
   /* align-self: flex-end; */
   padding: 0 2vw 1.5vh 0;
@@ -862,7 +864,6 @@ border-right: 3px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-
   box-shadow: -10px -4px 10px 0 rgba(0, 0, 0, 0);
   background-color: #f7f7f7;
 }
