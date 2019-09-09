@@ -28,7 +28,7 @@ class ReviewOne extends Component {
 
 
   componentDidMount() {
-    // this.fetchInfluencer();
+    this.fetchInfluencer();
 
     const { id } = this.props;
     ReviewServices.getReview(id)
@@ -41,10 +41,7 @@ class ReviewOne extends Component {
       .then(influencers => this.setState({
         ...this.state,
         influencers
-    
-      }),
-      console.log("trying to get ingflu")
-      )
+      }))
       .catch((err) => console.log(err))
   }
   update = () => {
@@ -234,11 +231,12 @@ class ReviewOne extends Component {
     const review = this.state.review;
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
-    const influencers = this.state;
-    console.log(this.state);
+    const influencers = this.state.influencers;
+    // console.log(influencers);
 
     if (this.context.user.role !== "Admin") {
       return (
+      <div>
         <div className="review-page">
           <div >
             <div>
@@ -295,19 +293,18 @@ class ReviewOne extends Component {
               </div>
             </div>
           </div>
-
-          <div className="expert-card-section">
+          <CartBubble product={product}/>
+        </div>
+        <div className="expert-card-section">
         {influencers.map((i, index) => {
           return (
             <div>
-              <InfluencerCard i={i} index={index} />
+              <InfluencerCard review="yes" i={i} index={index} />
             </div> 
           )
         })}
-        </div>
-
-          <CartBubble product={product}/>
-        </div>
+       </div>
+      </div>
       );
     } else {
       if (this.state.update) {

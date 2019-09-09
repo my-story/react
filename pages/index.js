@@ -9,7 +9,6 @@ import Modal from "react-responsive-modal";
 
 
 class InfluencerList extends Component {
-
   state = {
     influencers: [],
     category: [
