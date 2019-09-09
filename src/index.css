@@ -571,13 +571,22 @@ body {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  align-content: center;
   width: 40vw;
 }
 
-.navbar-section span p {
-  padding-left: 4vw;
-  margin: 0;
+.navbar-section span{
+  margin-left: 4vw;
+  margin-top: 2.5vh;
+
+  /* align-self: center; */
+  /* margin-top: 0; */
 }
+.navbar-section span:first-child p {
+  padding: 0;
+  margin-bottom: 0;
+}
+
 
 .search-bar {
   width: 15vw;
@@ -641,9 +650,10 @@ body {
   padding-left: 2vw;
 }
 
-.navbar-section p:hover {
+.navbar-section span:hover {
   /* text-decoration: underline #F66C4F; */
-  color: #f66c4f;
+  /* color: #f66c4f; */
+  border-bottom: 1px solid orange; 
   cursor: pointer;
 }
 
