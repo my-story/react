@@ -68,7 +68,7 @@ class influencerCard extends Component {
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
-      borderRadius: "8px",
+      // borderRadius: "8px",
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
       backgroundSize: "100% 100%",

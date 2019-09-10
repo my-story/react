@@ -21,7 +21,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   color: #000000;
-  font-family: Hind;
+  /* font-family: Hind */
+  font-family: "Hind", sans-serif;
+;
   font-size: 40px;
   font-weight: bold;
   line-height: 64px;
@@ -81,7 +83,9 @@ body {
 
 .category-name {
   color: #ffffff;
-  font-family: Hind;
+  /* font-family: Hind */
+  font-family: "Hind", sans-serif;
+;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0.2px;
@@ -101,7 +105,9 @@ body {
   /* width: 130px;	 */
   padding-right: 15px;
   color: #bababa;
-  font-family: Hind;
+  /* font-family: Hind */
+  font-family: "Hind", sans-serif;
+;
   font-size: 13px;
   font-weight: bold;
   letter-spacing: 0.2px;
@@ -157,7 +163,9 @@ body {
 .text-inside-bubble {
   display: none;
   color: #3d676a;
-  font-family: Hind;
+  /* font-family: Hind */
+  font-family: "Hind", sans-serif;
+;
   padding-right: 1.5vw;
   margin: 0;
   font-size: 120%;
@@ -174,7 +182,9 @@ body {
 .add-to-cart {
   /* padding-bottom: 60px; */
   font-size: 80%;
-  font-family: Hind;
+  /* font-family: Hind */
+  font-family: "Hind", sans-serif;
+;
   height: 5vh;
   width: 12vw;
   border-radius: 25px;
@@ -261,7 +271,11 @@ body {
   margin-right: 1vw;
   padding-top: 0.4vh;
   color: #bababa;
-  font-family: Hind;
+  /* font-family: Hind */
+  font-family: "Hind", sans-serif;
+
+
+;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -368,7 +382,10 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   font-size: 78%;
-  font-family: Hind;	
+  /* font-family: Hind */
+  font-family: "Hind", sans-serif;
+
+;	
   /* margin-bottom: 5vh; */
 }
 
@@ -493,7 +510,10 @@ body {
   height: 26px;	
   width: 46px;	
   color: #FFFFFF;	
-  font-family: Hind;	
+  /* font-family: Hind */
+  font-family: "Hind", sans-serif;
+  
+;	
   font-size: 13px;	
   font-weight: bold;	
   letter-spacing: 0.2px;	
@@ -1177,7 +1197,8 @@ height: 3vh;
   top: 84vh;
 }
 .donate-message h2 {
-  font-family: Hind, sans-serif;
+  /* font-family: Hind */
+  font-family: "Hind", sans-serif;
   font-weight: 300;
   padding-bottom: 2.5vh;
 }
@@ -1260,3 +1281,4 @@ height: 3vh;
 } */
 
 
+/* /* font-family: Hind */
