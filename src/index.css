@@ -859,9 +859,33 @@ border-right: 3px solid black;
   padding: 2px;
 }
 
+.expert-card-review:hover {
+  /* filter: grayscale(90%); */
+  transform: scale(0.7)
+}
+
+.expert-card-section-review {
+  display: flex;
+  height: 40vh;
+  align-self: center;
+  /* width: 80%;  */
+  margin-left: 15vw;
+  margin-right: 15vw;
+  justify-content: center;
+  border: solid 1px black;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+
+.expert-card-review:hover .quote-hover{
+  display: block;
+  /* opacity: 0.7; */
+  filter: none;
+}
+
 .expert-card:hover {
   filter: grayscale(100%);
-
 }
 .expert-card:hover .quote-hover{
   display: block;
@@ -902,6 +926,45 @@ height: 3vh;
   box-shadow: -10px -4px 10px 0 rgba(0, 0, 0, 0);
   background-color: #f7f7f7;
 }
+
+.product-card-bubble-review{
+  padding: 0 2vw 1.5vh 0;
+  border-radius: 50%;
+  height: 145px;
+  min-width: 145px;
+  position: relative;
+  right: -35px;
+  bottom: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -10px -4px 10px 0 rgba(0, 0, 0, 0);
+  background-color: #f7f7f7;
+}
+
+.product-card-bubble-review:hover {
+  /* transition: 0.5s; */
+  /* transform: scale(0.7); */
+  margin: -25px 0 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 50%;
+  min-height: 44vh;
+  min-width: 25vw;
+  position: relative;
+  right: 3.5vw;
+  bottom: -5vh;
+  /* box-shadow: -10px -4px 10px 0 rgba(0,0,0,0); */
+  background-color: #f7f7f7;
+  filter: none !important;
+
+}
+
+
 
 .product-card-bubble:hover {
   /* transition: 0.5s; */
