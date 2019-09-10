@@ -57,6 +57,7 @@ body {
 .category-name {
   display: flex;
   flex-direction: row;
+
 }
 .author {
   justify-content: flex-end;
@@ -132,8 +133,9 @@ body {
 }
 
 .product-bubble {
-  background-color: rgba(192, 192, 192, 0.4);
-  box-shadow: -10px -4px 26px 0 rgba(0, 0, 0, 0.06);
+  background: rgba(192, 192, 192, 0.4);
+  z-index: 1;
+  /* box-shadow: -10px -4px 26px 0 rgba(0, 0, 0, 0.06); */
   /* height: 181.25px;	
   width: 168.75px;	 */
   height: 21vh;
@@ -145,6 +147,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 /* Product Bubble in review */
@@ -814,6 +817,7 @@ border-right: 3px solid black;
   top: -5px;
   left: -5px;
 }
+
 #blue-dash {
   background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png");
   background-size: cover;
@@ -883,19 +887,22 @@ border-right: 3px solid black;
   /* filter: grayscale(90%); */
   transform: scale(0.7)
 }
+.div-review-cards {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
 
 .expert-card-section-review {
   display: flex;
   height: 40vh;
   align-self: center;
-  /* width: 80%;  */
-  margin-left: 15vw;
-  margin-right: 15vw;
+  width: 100%; 
   justify-content: center;
-  border: solid 1px black;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
+
 
 
 .expert-card-review:hover .quote-hover{
@@ -912,6 +919,7 @@ border-right: 3px solid black;
   /* opacity: 0.7; */
   filter: none;
 }
+
 .top-card {
   height: 3vh;
 }
@@ -1041,6 +1049,19 @@ height: 3vh;
 .product-card-bubble:hover #prize-inside-product {
   display: flex;
 }
+
+.product-card-bubble-review:hover #product-picture {
+  height: 13.5vh;
+  margin-top: 1vh;
+  align-self: center;
+}
+.product-card-bubble-review:hover #name-inside-product {
+  display: flex;
+  align-self: center;
+}
+.product-card-bubble-review:hover #prize-inside-product {
+  display: flex;
+} 
 
 #product-picture {
   height: 9.5vh;

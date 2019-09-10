@@ -82,9 +82,9 @@ class influencerCard extends Component {
     const divStyleReview = {
       backgroundImage: 'url(' + this.props.i.profilePic + ')',
       // background: "rgba(255, 255, 255, 0.3)",
-      filter: "alpha(opacity=50)",
+      // filter: "alpha(opacity=50)",
       // backgroundBlendMode: "lighten",
-      transform: "scale(0.7)",
+      transform: "scale(0.8)",
       maxHeight: "43vh",
       // width: "25vw",
       maxWidth: "24vw",
@@ -95,7 +95,7 @@ class influencerCard extends Component {
       backgroundRepeat: "no-repeat",
       backgroundPosition: "center",
       backgroundSize: "100% 100%",
-      boxShadow: "20px",
+      // boxShadow: "20px",
       opacity: this.state.opacity,
       // backgroundColor: "black",
       
