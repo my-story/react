@@ -115,24 +115,24 @@ class InfluencerList extends Component {
               <button onClick={this.onOpenModal}><b>Share an opinion</b></button>
               <Modal id="pop-up-css" className="modal" open={open} onClose={this.onCloseModal} center>
                 <div className="heading-pop-up">
-                <h2>Share your opinion</h2>
+                <h2><b>Share your opinion</b></h2>
                 <p>We greatly appreciate you feedback!</p>
                 </div>
-                <ol>
-                  <li>Have you enjoyed the overall experience of the application?</li>
-                  <div class="btn-group mr-2" role="group" aria-label="First group" clicked>
-                    <button type="button" class="btn btn-secondary">1</button>
-                    <button type="button" class="btn btn-secondary">2</button>
-                    <button type="button" class="btn btn-secondary">3</button>
-                    <button type="button" class="btn btn-secondary">4</button>
-                    <button type="button" class="btn btn-secondary">5</button>
-                    <button type="button" class="btn btn-secondary">6</button>
-                    <button type="button" class="btn btn-secondary">7</button>
-                    <button type="button" class="btn btn-secondary">8</button>
-                    <button type="button" class="btn btn-secondary">9</button>
-                    <button type="button" class="btn btn-secondary">10</button>
+                <ol className="questions-pop-up">
+                  <li id="question-modal">Have you enjoyed the overall experience of the application?</li>
+                  <div id="number-bar" className="btn-group mr-2" role="group" aria-label="First group" clicked>
+                    <button type="button" id="pop-up-bttn" className="btn btn-secondary">1</button>
+                    <button type="button" id="pop-up-bttn" className="btn btn-secondary">2</button>
+                    <button type="button" id="pop-up-bttn" className="btn btn-secondary">3</button>
+                    <button type="button" id="pop-up-bttn" className="btn btn-secondary">4</button>
+                    <button type="button" id="pop-up-bttn" className="btn btn-secondary">5</button>
+                    <button type="button" id="pop-up-bttn"className="btn btn-secondary">6</button>
+                    <button type="button" id="pop-up-bttn" className="btn btn-secondary">7</button>
+                    <button type="button" id="pop-up-bttn" className="btn btn-secondary">8</button>
+                    <button type="button" id="pop-up-bttn" className="btn btn-secondary">9</button>
+                    <button type="button" id="pop-up-bttn" className="btn btn-secondary">10</button>
                   </div>
-                  <li>Have you encountered any problems when using our site?</li>
+                  <li id="question-modal">Have you encountered any problems when using our site?</li>
                   <div className="yes-no">
                     <div class="form-check">
                       <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"/>
@@ -147,7 +147,7 @@ class InfluencerList extends Component {
                       </label>
                     </div>
                     </div>
-                  <li>If you would like to see something improve in this page what would it be?</li>
+                  <li id="question-modal">If you would like to see something improve in this page what would it be?</li>
                   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </ol>
                 <div className="button-div">
