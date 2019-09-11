@@ -352,7 +352,7 @@ body {
   flex-direction: row;
   max-width: 24vw;
   justify-content: space-between;
-  border: solid 1px;
+  /* border: solid 1px; */
 }
 .name-last-container input {
   width: 45%;
@@ -676,7 +676,7 @@ body {
 .navbar-section span:hover {
   /* text-decoration: underline #F66C4F; */
   /* color: #f66c4f; */
-  border-bottom: 1px solid #f66c4f; 
+  border-bottom: 1.5px solid #f66c4f; 
   cursor: pointer;
 }
 
@@ -844,30 +844,9 @@ border-right: 3px solid black;
   background-color: #DA55A5;
 }
 
-#name-votes {
-  display: flex;
-  color: white;
-  flex-direction: column;
-  padding-left: 1vw;
-  align-self: flex-end;
-  min-width: 8vw;
-  /* max-height: 5vh; */
-}
 
-#name-card {
-  font-size: 120%;
-  display: flex;
-  flex-direction: row;
-  min-width: 12vw;
 
-  /* border: 1px solid; */
-}
 
-.bottom-card {
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-}
 
 .votes {
   display: flex;
@@ -911,19 +890,6 @@ border-right: 3px solid black;
   filter: none;
 }
 
-.expert-card:hover {
-  filter: grayscale(100%);
-}
-.expert-card:hover .quote-hover{
-  display: block;
-  /* opacity: 0.7; */
-  filter: none;
-}
-
-.top-card {
-  height: 3vh;
-}
-
 .quote-hover {
   position: relative;
   width: 20vw;
@@ -939,21 +905,7 @@ border-right: 3px solid black;
 #quote-pic {
 height: 3vh;
 }
-.product-card-bubble {
-  /* align-self: flex-end; */
-  padding: 0 2vw 1.5vh 0;
-  border-radius: 50%;
-  height: 145px;
-  min-width: 145px;
-  position: relative;
-  right: -35px;
-  bottom: -30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: -10px -4px 10px 0 rgba(0, 0, 0, 0);
-  background-color: #f7f7f7;
-}
+
 
 .product-card-bubble-review{
   padding: 0 2vw 1.5vh 0;
@@ -994,26 +946,7 @@ height: 3vh;
 
 
 
-.product-card-bubble:hover {
-  /* transition: 0.5s; */
-  margin: -25px 0 0 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  justify-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
-  border-radius: 50%;
-  min-height: 44vh;
-  min-width: 25vw;
-  position: relative;
-  right: 3.5vw;
-  bottom: -5vh;
-  /* box-shadow: -10px -4px 10px 0 rgba(0,0,0,0); */
-  background-color: #f7f7f7;
-  filter: none !important;
 
-}
 
 .product-card-bubble:hover .quote-hover{
   display: none;
@@ -1211,6 +1144,7 @@ height: 3vh;
 .category-bar span:hover {
   color: white;
   background-color: #f66c4f;
+  cursor: pointer;
 }
 
 #category-bubble {
@@ -1399,3 +1333,107 @@ margin: 2vh 0 0 1vh;
 
 
 /* /* font-family: Hind */
+
+/*
+test cards new ones
+
+*/
+
+.test-background-image {
+  /* background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567704529/rsz_lebron-james-chasing-ghosts-lead.jpg"); */
+  height: 43vh;
+  width: 24vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.expert-card {
+  height: 43vh;
+  width: 24vw;
+  border: 1px solid;
+}
+.top-card {
+  height: 3vh;
+  position: relative;
+  bottom: 44vh;
+}
+.product-card-bubble:hover .quote-hover {
+  display: none;
+}
+.bottom-card:hover .quote-hover {
+  display: none;
+} 
+.expert-card:hover .test-background-image {
+  filter: brightness(0.4);
+}
+
+.expert-card:hover .quote-hover{
+  display: block;
+  filter: none;
+}
+.bottom-card {
+  display: flex;
+  height: 92%;
+  flex-direction: row;
+  position: relative;
+  /* bottom: 37vh; */
+  top: -42vh;
+  left: 0.2vw;
+  overflow: hidden;
+}
+.product-card-bubble:hover {
+  /* transition: 0.5s; */
+  margin: -25px 0 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 50%;
+  min-height: 44vh;
+  min-width: 25vw;
+  position: relative;
+  top: 5vh;
+  right: 4vw;
+
+  /* box-shadow: -10px -4px 10px 0 rgba(0,0,0,0); */
+  background-color: #f7f7f7;
+  filter: none !important;
+
+}
+.product-card-bubble {
+  /* align-self: flex-end; */
+  padding: 0 2vw 1.5vh 0;
+  border-radius: 50%;
+  height: 145px;
+  min-width: 145px;
+  position: relative;
+  top: 22vh;
+  right: -3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: -10px -4px 10px 0 rgba(0, 0, 0, 0); */
+  background-color: #f7f7f7;
+}
+#name-votes {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  padding-left: 0.5vw;
+  align-self: flex-end;
+  min-width: 8vw;
+  min-height: 12vh;
+  max-height: 5vh;
+  /* border: 1px solid red; */
+}
+
+#name-card {
+  font-size: 120%;
+  display: flex;
+  flex-direction: row;
+  min-width: 12vw;
+
+  /* border: 1px solid; */
+}
