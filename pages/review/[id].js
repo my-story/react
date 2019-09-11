@@ -296,11 +296,14 @@ class ReviewOne extends Component {
           <CartBubble product={product}/>
         </div>
         <div className="expert-card-section-review">
+        <div className="div-review-cards">
+        <h2>Other reviews</h2>
         {influencers.map((i, index) => {
           return (
             <InfluencerCard review="yes" i={i} index={index} />
           )
         })}
+            </div>
        </div>
       </div>
       );
