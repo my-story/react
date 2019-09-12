@@ -133,7 +133,7 @@ body {
 }
 
 .product-bubble {
-  background: rgba(192, 192, 192, 0.4);
+  background-color: #f7f7f7;
   z-index: 1;
   /* box-shadow: -10px -4px 26px 0 rgba(0, 0, 0, 0.06); */
   /* height: 181.25px;	
@@ -211,7 +211,7 @@ body {
 }
 
 .product-bubble:hover .product-inside-bubble {
-  transform: translate(5vw, -4vh);
+  transform: translate(3.8vw, -4vh);
 }
 
 .product-inside-bubble {
@@ -254,6 +254,7 @@ body {
 }
 
 .bottom-review-container {
+  margin-top: 2vh;
   display: flex;
   /* border: 1px solid; */
   flex-direction: row;
@@ -266,6 +267,13 @@ body {
   flex-direction: row;
   /* border: 1px solid; */
   align-items: center;
+
+  height: 5vh;
+
+}
+.votes-container span {
+  padding-top: 2vh;
+  font-size: 120%;
 }
 
 .share-text {
@@ -871,11 +879,14 @@ border-right: 3px solid black;
 .div-review-cards {
   display: flex;
   justify-content: flex-start;
-  margin-left: 10vw;
-  width: 90vw;
+  margin-top: 5vh;
+  margin-left: 16vw;
+  font-family: "Hind", sans-serif;
+  
+  width: 100vw;
 }
 
-/* .expert-card-section-review {
+.expert-card-section-review {
   display: flex;
   height: 40vh;
   align-self: center;
@@ -883,7 +894,7 @@ border-right: 3px solid black;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-} */
+}
 
 /* .expert-card-review:hover .quote-hover{
   display: block;
@@ -893,21 +904,19 @@ border-right: 3px solid black;
 .quote-hover {
   position: relative;
   width: 20vw;
-  /* border: 1px solid; */
   left: 2vw;
   top: 6vh;
   font-size: 110%;
   font-family: "Avenir Next";
-  /* font-weight: bold; */
   color: white;
   display: none;
 }
+
 #quote-pic {
 height: 3vh;
 }
 
-
-.product-card-bubble-review{
+.product-card-bubble-review {
   padding: 0 2vw 1.5vh 0;
   border-radius: 50%;
   height: 145px;
@@ -1435,5 +1444,10 @@ test cards new ones
 test cards new ones - REVIEW
 */
 .review {
-  transform: scale(0.7);
+  transform: scale(0.8);
+}
+.cards-review {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid; */
 }

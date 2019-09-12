@@ -9,7 +9,10 @@ const { TextArea } = Input;
 class ReviewForm extends Component {
     state= {
       title:"",
-      review:"",
+      one:"",
+      two:"",
+      three:"",
+      specs:"",
       influencer:this.props.influencer,
       video:"",
       voicenote:"",
@@ -26,7 +29,10 @@ class ReviewForm extends Component {
     handleSubmit = () => {
       ReviewServices.createReview({
           title: this.state.title,
-          review: this.state.review,
+          one: this.state.one,
+          two: this.state.two,
+          three: this.state.three,
+          specs: this.state.specs,
           influencer: this.state.influencer,
           video: this.state.video,
           voicenote: this.state.voicenote,
@@ -48,7 +54,10 @@ class ReviewForm extends Component {
           return(
             <div>  
               <Input name="title" placeholder="Please enter title " allowClear onChange={this.onChange} />
-              <TextArea rows={4} name="review" placeholder="Please enter review of review" onChange={this.onChange} />
+              <TextArea rows={4} name="one" placeholder="How I Got here..." onChange={this.onChange} />
+              <TextArea rows={4} name="two" placeholder="How X helped me..." onChange={this.onChange} />
+              <TextArea rows={4} name="three" placeholder="Here it is!..." onChange={this.onChange} />
+              <TextArea rows={4} name="specs" placeholder="SPECS" onChange={this.onChange} />
               <Input name="influencer" placeholder="Please enter infleuncer ID " defaultValue={this.state.influencer._id} allowClear onChange={this.onChange} />
               <Input name="video" placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
               <Input name="voicenote" placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
