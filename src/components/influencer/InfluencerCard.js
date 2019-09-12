@@ -37,7 +37,6 @@ class influencerCard extends Component {
 
     for(let i = 0; i < arr.length; i++){
       if(Object.keys(arr[i]).join('') === category){
-        console.log(arr[i])
         return arr[i][category];
       }
     }
@@ -60,33 +59,33 @@ class influencerCard extends Component {
       backgroundImage: 'url(' + this.props.i.profilePic + ')',
     };  
 
-    const divStyleReview = {
-      backgroundImage: 'url(' + this.props.i.profilePic + ')',
-      // background: "rgba(255, 255, 255, 0.3)",
-      // filter: "alpha(opacity=50)",
-      // backgroundBlendMode: "lighten",
-      transform: "scale(0.8)",
-      maxHeight: "43vh",
-      // width: "25vw",
-      maxWidth: "24vw",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-      borderRadius: "8px",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center",
-      backgroundSize: "100% 100%",
-      // boxShadow: "20px",
-      opacity: this.state.opacity,
-      // backgroundColor: "black",
+    // const divStyleReview = {
+    //   backgroundImage: 'url(' + this.props.i.profilePic + ')',
+    //   // background: "rgba(255, 255, 255, 0.3)",
+    //   // filter: "alpha(opacity=50)",
+    //   // backgroundBlendMode: "lighten",
+    //   transform: "scale(0.8)",
+    //   maxHeight: "43vh",
+    //   // width: "25vw",
+    //   maxWidth: "24vw",
+    //   display: "flex",
+    //   flexDirection: "column",
+    //   justifyContent: "space-between",
+    //   borderRadius: "8px",
+    //   backgroundRepeat: "no-repeat",
+    //   backgroundPosition: "center",
+    //   backgroundSize: "100% 100%",
+    //   // boxShadow: "20px",
+    //   opacity: this.state.opacity,
+    //   // backgroundColor: "black",
       
-      // padding: "20px" 
-    };  
+    //   // padding: "20px" 
+    // };  
 
     if (this.props.review === "yes"){
       return(
         <Link href={`review/${this.props.i._id}`} key={this.props.index}>  
-          <div className="expert-card">
+          <div className="expert-card review">
           <div style={photoBackground} className="test-background-image"></div>
             <div className="top-card">      
               <div className={`category-bubble ${this.props.i.expertise[0]}`}>
@@ -100,7 +99,7 @@ class influencerCard extends Component {
               </div>
               <div className="bottom-card">
               <div id="name-votes">
-                  <p id="name-card"><b>{this.props.i.name.firstName}{this.props.i.name.lastName}</b></p>
+                  <p id="name-card"><b>{this.props.i.name.firstName} {this.props.i.name.lastName}</b></p>
                 <div className="votes">
                   <p>upvotes</p>
                   <p> {this.votes()}</p>
@@ -134,7 +133,7 @@ class influencerCard extends Component {
               </div>
               <div className="bottom-card">
               <div id="name-votes">
-                  <p id="name-card"><b>{this.props.i.name.firstName}{this.props.i.name.lastName}</b></p>
+                  <p id="name-card"><b>{this.props.i.name.firstName} {this.props.i.name.lastName}</b></p>
                 <div className="votes">
                   <p>upvotes</p>
                   <p> {this.votes()}</p>
@@ -149,10 +148,6 @@ class influencerCard extends Component {
             </div>
           </div>
           </div>
-          {/* <div>
-            <div className="test-background-image"></div>
-
-          </div> */}
         </Link>
       )
     }

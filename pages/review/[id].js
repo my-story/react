@@ -228,11 +228,10 @@ class ReviewOne extends Component {
 
 
   render() {
-    const review = this.state.review;
+    const review = this.state.review || {};
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
     const influencers = this.state.influencers;
-    // console.log(influencers);
 
     if (this.context.user.role !== "Admin") {
       return (
@@ -272,7 +271,10 @@ class ReviewOne extends Component {
             {/* <h3>Review</h3>.
              */}
             {/* <p> title: {review.title}</p> */}
-            <p> review: {review.review}</p>
+            <p> review: {review.one}</p>
+            <p> review: {review.two}</p>
+            <p> review: {review.three}</p>
+
             {/* <p> voicenote: {review.voicenote}</p> */}
             {/* <video controls src={review.video} /> */}
             {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
@@ -297,13 +299,15 @@ class ReviewOne extends Component {
         </div>
         <div className="expert-card-section-review">
         <div className="div-review-cards">
-        <h2>Other reviews</h2>
+        <h2><b>Similar Sages</b></h2>
         </div>
+        <div className="cards-review">
         {influencers.map((i, index) => {
           return (
             <InfluencerCard review="yes" i={i} index={index} />
           )
         })}
+        </div>
        </div>
       </div>
       );

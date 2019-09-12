@@ -39,7 +39,7 @@ class NavBar extends Component {
 						<p id="mystory-name">My Story</p>
 						<Link href="/">
 							<span>
-								<p>EXPERTS</p>
+								<p>SAGES</p>
 							</span>
 						</Link>
 						<Link href="/products">
@@ -84,7 +84,7 @@ class NavBar extends Component {
 								<p id="mystory-name" >My Story</p>
 								<Link href="/">
 									<span>
-										<p>EXPERTS</p>
+										<p>SAGES</p>
 									</span>
 								</Link>
 								<Link href="/products">
