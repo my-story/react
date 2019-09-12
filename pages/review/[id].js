@@ -298,12 +298,12 @@ class ReviewOne extends Component {
         <div className="expert-card-section-review">
         <div className="div-review-cards">
         <h2>Other reviews</h2>
+        </div>
         {influencers.map((i, index) => {
           return (
             <InfluencerCard review="yes" i={i} index={index} />
           )
         })}
-            </div>
        </div>
       </div>
       );
