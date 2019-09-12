@@ -862,17 +862,20 @@ border-right: 3px solid black;
   padding: 2px;
 }
 
+/* 
 .expert-card-review:hover {
-  /* filter: grayscale(90%); */
+  filter: grayscale(90%);
   transform: scale(0.7)
-}
+} */
+
 .div-review-cards {
   display: flex;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: flex-start;
+  margin-left: 10vw;
+  width: 90vw;
 }
 
-.expert-card-section-review {
+/* .expert-card-section-review {
   display: flex;
   height: 40vh;
   align-self: center;
@@ -880,15 +883,12 @@ border-right: 3px solid black;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-}
+} */
 
-
-
-.expert-card-review:hover .quote-hover{
+/* .expert-card-review:hover .quote-hover{
   display: block;
-  /* opacity: 0.7; */
   filter: none;
-}
+} */
 
 .quote-hover {
   position: relative;
@@ -1332,13 +1332,9 @@ margin: 2vh 0 0 1vh;
 } */
 
 
-/* /* font-family: Hind */
-
 /*
 test cards new ones
-
 */
-
 .test-background-image {
   /* background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567704529/rsz_lebron-james-chasing-ghosts-lead.jpg"); */
   height: 43vh;
@@ -1350,7 +1346,6 @@ test cards new ones
 .expert-card {
   height: 43vh;
   width: 24vw;
-  border: 1px solid;
 }
 .top-card {
   height: 3vh;
@@ -1395,7 +1390,7 @@ test cards new ones
   min-width: 25vw;
   position: relative;
   top: 5vh;
-  right: 4vw;
+  right: 5vw;
 
   /* box-shadow: -10px -4px 10px 0 rgba(0,0,0,0); */
   background-color: #f7f7f7;
@@ -1409,7 +1404,7 @@ test cards new ones
   height: 145px;
   min-width: 145px;
   position: relative;
-  top: 22vh;
+  top: 23vh;
   right: -3vw;
   display: flex;
   justify-content: center;
@@ -1434,6 +1429,11 @@ test cards new ones
   display: flex;
   flex-direction: row;
   min-width: 12vw;
+}
 
-  /* border: 1px solid; */
+/*
+test cards new ones - REVIEW
+*/
+.review {
+  transform: scale(0.7);
 }

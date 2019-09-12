@@ -86,7 +86,8 @@ class influencerCard extends Component {
     if (this.props.review === "yes"){
       return(
         <Link href={`review/${this.props.i._id}`} key={this.props.index}>  
-          <div className="expert-card-review" style={divStyleReview} >
+          <div className="expert-card">
+          <div style={photoBackground} className="test-background-image"></div>
             <div className="top-card">      
               <div className={`category-bubble ${this.props.i.expertise[0]}`}>
                   <img src={this.getGlyphicon(this.props.i.expertise[0])} alt="the product" className="icon"/>
@@ -94,24 +95,22 @@ class influencerCard extends Component {
               </div>
               <div className="quote-hover">
                 <img id="quote-pic" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1568057128/quotes.svg" alt="Quotes" />
-                <p>Lorem ipsum hyea fieqof, cuando pudes , lmetele, kasndaw . punto y coma.</p>
-                </div>
+                <p> Lorem ipsum hyea fieqof, cuando pudes , lmetele, kasndaw punto y coma.</p>
+              </div>
               </div>
               <div className="bottom-card">
-                <div id="name-votes">
-                  <p id="name-card"><b>{this.props.i.name.firstName} {this.props.i.name.lastName} </b></p>
-              <div className="votes">
-                <p>upvotes</p>
-                <p> {this.votes()}</p>
+              <div id="name-votes">
+                  <p id="name-card"><b>{this.props.i.name.firstName}{this.props.i.name.lastName}</b></p>
+                <div className="votes">
+                  <p>upvotes</p>
+                  <p> {this.votes()}</p>
+                </div>
               </div>
-            </div>
-            <div className="product-card-bubble-review">
+            <div className="product-card-bubble">
               <img id="product-picture" src={this.state.product.images} alt="product-picture"/>
-              <div className="bubble-product-prize-review">
+              <div>
               <p id="name-inside-product"><b>{this.state.product.model}</b></p>
               <p id="prize-inside-product">${this.state.product.prize}</p>
-              <div>
-              </div>
               </div>
             </div>
           </div>
