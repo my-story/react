@@ -31,6 +31,7 @@ class ReviewOne extends Component {
     this.fetchInfluencer();
 
     const { id } = this.props;
+    // console.log(id)
     ReviewServices.getReview(id)
       .then((review) => this.setState(() => ({review: review})))
       .catch(() => toastr.error('Error occured while fetching review. Please try later.'));

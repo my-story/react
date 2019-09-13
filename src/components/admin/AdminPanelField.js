@@ -32,6 +32,14 @@ class AdminPanelField extends Component {
     Router.push('/productUpdate/' + this.state.product[0]._id);
   }
 
+  onClickInfluencer = () => {
+    Router.push('/influencerUpdate/' + this.props.influencer._id);
+  }
+
+  onClickReview = () => {
+    Router.push('/reviewUpdate/' + this.props.influencer._id);
+  }
+
   //{this.props.influencer._id}
   //{this.state.product[0]._id}
   //{this.state.review._id}
@@ -40,9 +48,9 @@ class AdminPanelField extends Component {
     if (this.state.product && this.state.review){
     return(
       <ul>
-        <li>Influencer: {this.props.influencer.name.firstName} {this.props.influencer.name.lastName}</li>
+        <li onClick={this.onClickInfluencer}>Influencer: {this.props.influencer.name.firstName} {this.props.influencer.name.lastName}</li>
         <li onClick={this.onClickProduct}>Product: {this.state.product[0].model}</li>
-        <li>Review: {this.state.review.title}</li>
+        <li onClick={this.onClickReview}>Review: {this.state.review.title}</li>
       </ul>
     )
     } else {
