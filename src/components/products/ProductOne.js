@@ -18,7 +18,7 @@ class ProductOne extends Component {
   delete = () => {
     let id = this.props.i.influencer._id;
     ProductServices.deleteProduct(id)
-      .then(() => toastr.success("deleted the review"))
+      .then(() => toastr.success("deleted the product"))
       .catch(err=>console.log(err))
   };
 
@@ -29,12 +29,12 @@ class ProductOne extends Component {
   };
 
   saidNo = () => {
-    toastr.error("didn't delete the review");
+    toastr.error("didn't delete the product");
   };   
 
   submit = () => {
     confirmAlert({
-      title: 'Confirm to delete this review',
+      title: 'Confirm to delete this product',
       message: 'Are you sure to do this.',
       buttons: [
         {

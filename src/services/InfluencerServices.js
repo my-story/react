@@ -24,6 +24,9 @@ const getOne = (id) => http.get(`/influencer/${id}`)
 const addReward = (reward, id) => http.post(`/influencer/reward/${id}`, reward)
   .then((res) => res.data);
 
+const getAllAdmin = () => http.get("influencer/all/admin")
+  .then((res) => res.data);
+
 export default {
     createInfluencer,
     getAll,
@@ -32,5 +35,6 @@ export default {
     searchFilter,
     updateInfluencer,
     getOne,
-    addReward
+    addReward,
+    getAllAdmin
 }
