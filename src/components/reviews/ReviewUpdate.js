@@ -10,7 +10,10 @@ class ReviewUpdate extends Component {
 
   state = {
     title: "",
-    review: "",
+    one:"",
+    two:"",
+    three:"",
+    specs:"",
     video: "",
     voicenote: "",
     influencer: "",
@@ -26,7 +29,10 @@ class ReviewUpdate extends Component {
   componentDidMount = () =>{
     this.setState({
       title: this.props.oldReview.title,
-      review: this.props.oldReview.review,
+      one: this.props.oldReview.one,
+      two: this.props.oldReview.two,
+      three: this.props.oldReview.three,
+      specs: this.props.oldReview.specs,
       video: this.props.oldReview.video,
       voicenote: this.props.oldReview.voicenote,
       influencer: this.props.oldReview.influencer._id,
@@ -39,7 +45,10 @@ class ReviewUpdate extends Component {
     
     const newReview = {
       title: this.state.title,
-      review: this.state.review,
+      one: this.state.one,
+      two: this.state.two,
+      three: this.state.three,
+      specs: this.state.specs,
       influencer: this.state.influencer,
       video: this.state.video,
       voicenote: this.state.voicenote,
@@ -63,7 +72,10 @@ class ReviewUpdate extends Component {
       return (
         <div>
           <Input name="title" defaultValue={this.props.oldReview.title} placeholder="Please enter title " allowClear onChange={this.onChange} />
-          <TextArea rows={4} defaultValue={this.props.oldReview.review} name="review" placeholder="Please enter review of review" onChange={this.onChange} />
+          <TextArea rows={4} name="one" placeholder="How I Got here..." defaultValue={this.props.oldReview.review.one} onChange={this.onChange} />
+          <TextArea rows={4} name="two" placeholder="How X helped me..." defaultValue={this.props.oldReview.review.two} onChange={this.onChange} />
+          <TextArea rows={4} name="three" placeholder="Here it is!..." defaultValue={this.props.oldReview.review.three}onChange={this.onChange} />
+          <TextArea rows={4} name="specs" placeholder="SPECS" defaultValue={this.props.oldReview.review.specs} onChange={this.onChange} />
           <Input name="influencer" defaultValue={this.props.oldReview.influencer._id} placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
           <Input name="video" defaultValue={this.props.oldReview.video} placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
           <Input name="voicenote" defaultValue={this.props.oldReview.voicenote} placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />

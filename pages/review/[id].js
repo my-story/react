@@ -229,6 +229,7 @@ class ReviewOne extends Component {
 
 
   render() {
+    const specs = ["100 Yards","Big","Chillen","Super-Soaker"];
     const review = this.state.review || {};
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
@@ -262,19 +263,38 @@ class ReviewOne extends Component {
               <div>
                 {this.videoDraw()}
               </div>
-              <p>{product.model}</p>
-              {/* <img src={influencer.profilePic} alt={influencer.name} /> */}
-              {/* <p>name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-              <p>expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
-              <p>review: {influencer.review}</p> */}
           </div>
           <div>
-            {/* <h3>Review</h3>.
-             */}
-            {/* <p> title: {review.title}</p> */}
-            <p> review: {review.one}</p>
-            <p> review: {review.two}</p>
-            <p> review: {review.three}</p>
+            <div className="review-of-product">
+              <div>
+              <h5><b>How did I get here?</b></h5>
+              {/* <p>{review.one}</p> */}
+              <p>“Back when I had hair in the eighties, Comedy was just this thing I toyed with -  a few people said my Richard Pryor impressions were funny so I gave it a go, now looking back as comedy morphed into commentating. I’m so thankful for the experiences that made me who I am;  where would I be without the hustle of Jeff that sparked a bidding war for my unique brand of blue comedy, where would I be without… believing…”</p>
+              </div>
+              <div>
+              <h5><b>How <u style={{textDecoration:"underline dotted #97cfdc"}}>IT</u> helped me succeed</b></h5>
+              <p>“ So no man is an island, we know this but certainly man can get a leg up with a few props, for me this came in the form is  (product / experience X)    … I realized that X would help me… and then in turn I could use it to…”</p>
+              {/* <p>{review.two}</p> */}
+              </div>
+              <div>
+              <h5><b>What is it?</b></h5>
+              {/* <p>{review.three}</p> */}
+              <p> Ex -  X has this cool little … that allowed me to… while still being able to…  no one else is doing this . This means I can…. While still being able to … and it also means I don;t have to buy additional….
+                Then add  Why it is a  Difference maker , why you love it , why you  will always use it 
+                Example -The first major difference I see is that (X) isn’t like… or….  . It’s functionality  is far superior...
+                </p>
+              </div>
+              <div className="specs-review">
+              <h5><b>Practical Specs</b></h5>
+              {/* <p>{review.three}</p> */}
+              {specs.map((spec, index)=> {
+                return(
+                  <li>{spec}</li>
+                )
+              })}
+              </div>
+            </div>
+
 
             {/* <p> voicenote: {review.voicenote}</p> */}
             {/* <video controls src={review.video} /> */}
