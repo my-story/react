@@ -657,7 +657,7 @@ body {
   opacity: 0.8;
 }
 .search-result p {
-  padding-left: 1vw;
+  padding-left: 1vw; 
   font-size: 130%;
 }
 #search-picture {
