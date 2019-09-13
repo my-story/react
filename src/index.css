@@ -133,7 +133,7 @@ body {
 }
 
 .product-bubble {
-  background-color: #f7f7f7;
+  background-color: #3d676a;
   z-index: 1;
   /* box-shadow: -10px -4px 26px 0 rgba(0, 0, 0, 0.06); */
   /* height: 181.25px;	
@@ -165,7 +165,7 @@ body {
 
 .text-inside-bubble {
   display: none;
-  color: #3d676a;
+  color: white;
   /* font-family: Hind */
   font-family: "Hind", sans-serif;
 ;
@@ -211,7 +211,7 @@ body {
 }
 
 .product-bubble:hover .product-inside-bubble {
-  transform: translate(3.8vw, -4vh);
+  transform: translate(4.2vw, -4vh);
 }
 
 .product-inside-bubble {
@@ -641,14 +641,16 @@ body {
   border-bottom: 1px solid black;
 } */
 .search-result {
+  position: relative;
+  left: 1vw;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  border-bottom: 1px solid black;
-  min-height: 50px;
+  align-items: baseline;
+  justify-content: center;
+  border: 1px solid black;
+  /* min-height: 50px; */
   /* padding: 1.5vh 0 0 1vw; */
-  max-width: 240px;
+  min-width: 15vw;
 }
 .search-result:hover {
   cursor: pointer;
@@ -875,14 +877,29 @@ border-right: 3px solid black;
   filter: grayscale(90%);
   transform: scale(0.7)
 } */
+.specs-review {
+  margin-bottom: 3vh;
+}
 
+.review-of-product {
+  margin-top: 4vh;
+}
+.review-of-product h5 {
+  font-family: "Hind", sans-serif;
+  margin-bottom: 1.5vh;
+  /* font-size: 10%; */
+}
+.review-of-product p {
+  font-family: Hind;
+  margin-bottom: 5vh;
+  text-indent: 4.5%;
+}
 .div-review-cards {
   display: flex;
   justify-content: flex-start;
   margin-top: 5vh;
   margin-left: 16vw;
   font-family: "Hind", sans-serif;
-  
   width: 100vw;
 }
 
@@ -1335,10 +1352,6 @@ margin: 2vh 0 0 1vh;
   visibility: visible;
   border: 2px solid #3D676A;
 }
-/* .yes-no {
-  display: flex;
-  flex-direction: row;
-} */
 
 
 /*

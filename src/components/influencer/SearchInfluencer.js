@@ -19,10 +19,6 @@ class SearchBar extends Component {
 	}
 
 render() {
-
-// const search = this.props.results || []
-// console.log(search);
-// console.log(this.props);
 if(this.state.search_expert.length === 0){
     return (
     <div className="searchbar-container">

@@ -100,21 +100,7 @@ class NavBar extends Component {
 								</span>
 							</div>
 							<div className="icons-account-cart">
-								{/* <div className="search-bar-input"> */}
-								{/* <img id="search-bar-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566509579/search.svg" alt="account profile" /> */}
-								{/* </div> */}
 								<SearchBar/>
-								{/* <div className="search-results-container">
-            {search.map((result, index) => {
-                console.log(result)
-                return(
-                    <div key={index}>
-                        <p>{result.name.firstName}</p>
-                    </div> 
-                )
-            })}
-
-			</div> */}
 							<Link href="/login">
 								<span>
 								<p>LOG IN</p>
