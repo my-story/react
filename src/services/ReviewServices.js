@@ -16,6 +16,10 @@ const getReview = (id) =>
   http.get(`/reviews/specific/${id}`)
     .then((res) => res.data);
 
+const getReviewAdmin = (id) =>
+  http.get(`/reviews/specific/admin/${id}`)
+    .then((res) => res.data);
+
 const deleteReview = (user, id) =>
   http.post(`/reviews/delete`, user)
     .then((res) => res);
@@ -41,5 +45,6 @@ export default {
   voteUp,
   voteDown,
   undoVoteUp,
-  undoVoteDown
+  undoVoteDown,
+  getReviewAdmin
 };

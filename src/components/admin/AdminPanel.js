@@ -22,7 +22,6 @@ class AdminPanel extends Component {
 
 
   render() {
-    console.log(this.state.influencers)
     return(
       <div>
         {this.state.influencers.map((i, index) => {

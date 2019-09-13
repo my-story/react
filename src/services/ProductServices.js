@@ -24,6 +24,9 @@ const updateProduct = (id, product) => http.post(`/product/edit/${id}`, product)
 const updateTotal = (id, qty) => http.post(`/product/update/total/${id}`, qty)
   .then((res) => res.data);
 
+const getOneAdmin = (id) => http.get(`/product/details/admin/${id}`)
+  .then((res) => res.data);
+
 
 
 export default {
@@ -34,5 +37,6 @@ export default {
   searchProduct,
   deleteProduct,
   updateProduct,
-  updateTotal
+  updateTotal,
+  getOneAdmin
 }
