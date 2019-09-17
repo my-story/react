@@ -24,6 +24,7 @@ class InfluencerUpdate extends Component {
   componentDidMount() {
     InfluencerServices.getOne(this.props.id)
       .then(({ data: influencer }) => {
+        // console.log(influencer.profilePic);
         this.setState(state => ({ 
           data: {
             expertise: influencer.expertise,
@@ -103,7 +104,7 @@ class InfluencerUpdate extends Component {
         </div>
       )
     } else {
-      Router.push('/');
+      Router.push('/admin/influencer-chart');
       return null;
     }
   }

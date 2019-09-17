@@ -86,7 +86,7 @@ class ProductUpdate extends Component {
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
     if (this.state.productCreated) {
-      Router.push('/');
+      Router.push('/admin/influencer-chart');
       return null;
     }
     return (
