@@ -13,17 +13,24 @@ class Signup extends Component {
     username: '',
     password: '',
     // signedup: false,
+    password2:'',
     login: true,
   };
 
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+    
+      if(this.state.password !== this.state.password2){
+        toastr.error("Passwords Dont Match")
+      } else {
+        return
+    }
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault(event);
-
+  
     let schema = new passwordValidator();
 
     schema
@@ -83,11 +90,15 @@ class Signup extends Component {
               </div>
               <input className="inputs-login-styling margin-input-login" placeholder="Email" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
               <input className="inputs-login-styling margin-input-login" placeholder="Password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
-              <input className="inputs-login-styling margin-input-login" placeholder="Confirm Password/not working" />
+              <input className="inputs-login-styling margin-input-login" placeholder="Confirm Password/not working" name="password2" onChange={e => this.handleChange(e)}/>
 
             </div>
             {/* <button type="submit" className="button-id">Submit</button> */}
-            <button type="submit" className="login-button"><span className="login-font">Sign Up</span></button>
+            <button type="submit" className="sign-up-button form"><span className="login-font">Sign Up</span></button>
+            <div className="terms-conditions-div">
+              <p>By clicking this Sign up button you agree to our</p>
+              <p>Terms and Conditions and Privacy Policy</p>
+            </div>
             {/* <p>Already have account?
               <Link href={"/login"}> Login</Link>
             </p> */}
