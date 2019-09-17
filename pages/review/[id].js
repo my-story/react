@@ -237,7 +237,7 @@ class ReviewOne extends Component {
 
     if (this.context.user.role !== "Admin") {
       return (
-      <div>
+      <div className="review-outer-page">
         <div className="review-page">
           <div >
             <div>

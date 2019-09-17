@@ -104,7 +104,7 @@ class MyApp extends App {
               <Component {...pageProps} giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser} />
             </UserProvider>
           </QtyProvider>
-        {/* <Footer></Footer> */}
+        <Footer></Footer>
         </Container>
 
       );

@@ -78,12 +78,12 @@ class Signup extends Component {
           <p className="s-login">Sign Up</p>
             <div className="signup-container">
               <div className="name-last-container">
-                <input placeholder="First Name" type="text" name="firstName" />
-                <input placeholder="Last Name" type="text" name="lastName" />
+                <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" />
+                <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" />
               </div>
-              <input placeholder="Email" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
-              <input placeholder="Password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
-              <input placeholder="Confirm Password/not working" />
+              <input className="inputs-login-styling margin-input-login" placeholder="Email" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+              <input className="inputs-login-styling margin-input-login" placeholder="Password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
+              <input className="inputs-login-styling margin-input-login" placeholder="Confirm Password/not working" />
 
             </div>
             {/* <button type="submit" className="button-id">Submit</button> */}
