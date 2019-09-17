@@ -336,14 +336,14 @@ body {
 }
 
 .signup-container {
-  height: 30vh;
-  border: solid 1px;
+  height: 26vh;
   width: 40vw;
   /* width:  */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
+
 .signup-container input {
   height: 4vh;
 }
@@ -522,6 +522,27 @@ body {
   text-decoration: none;
   outline: none !important;
   background-color: #F66C4F;
+}
+.sign-up-button {
+  height: 5.4vh;	
+  width: 18vw;	
+  border-radius: 40px;	
+  border: none;
+  text-decoration: none;
+  outline: none !important;
+  background-color: #F66C4F;
+}
+.form {
+  margin:-1vh;
+}
+.terms-conditions-div {
+  padding-top: 2vh;
+  font-size: 66%;
+  font-family: "Avenir Next";
+  text-align: center;
+}
+.terms-conditions-div p:last-child {
+  color: #97CFDC;
 }
 
 .login-font{
