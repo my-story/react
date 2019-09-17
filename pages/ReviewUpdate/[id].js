@@ -30,6 +30,7 @@ class ReviewUpdate extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+
   getReview = () => {
     ReviewServices.getReview(this.props.id)
       .then((review) =>{
@@ -104,7 +105,7 @@ class ReviewUpdate extends Component {
         )
       }
     } else {
-      Router.push('/');
+      Router.push('/admin/influencer-chart');
       return null;
     }
   }
