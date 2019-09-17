@@ -10,7 +10,10 @@ class ReviewUpdate extends Component {
 
   state = {
     title: "",
-    review: "",
+    one: "",
+    two: "",
+    three: "",
+    specs: "",
     video: "",
     voicenote: "",
     influencer: "",
@@ -27,13 +30,16 @@ class ReviewUpdate extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  getReview = () =>{
-    console.log(this.props);
+
+  getReview = () => {
     ReviewServices.getReview(this.props.id)
       .then((review) =>{
         this.setState({
           title: review.title,
-          review: review.review,
+          one: review.review.one,
+          two: review.review.two,
+          three: review.review.three,
+          specs: review.review.specs,
           video: review.video,
           voicenote: review.voicenote,
           influencer: review.influencer._id,
@@ -52,7 +58,10 @@ class ReviewUpdate extends Component {
     
     const newReview = {
       title: this.state.title,
-      review: this.state.review,
+      one: this.state.one,
+      two: this.state.two,
+      three: this.state.three,
+      specs: this.state.specs,
       influencer: this.state.influencer,
       video: this.state.video,
       voicenote: this.state.voicenote,
@@ -70,14 +79,17 @@ class ReviewUpdate extends Component {
 
 
   render() {
-    console.log(this.state)
+
     // console.log(this.props.oldReview.title)
     if (this.context.user.role === "Admin" && !this.state.created) {
       if(this.state.title){
         return (
           <div>
             <Input name="title" defaultValue={this.state.title} placeholder="Please enter title " allowClear onChange={this.onChange} />
-            <TextArea rows={4} defaultValue={this.state.review} name="review" placeholder="Please enter review of review" onChange={this.onChange} />
+            <TextArea rows={4} name="one" placeholder="How I Got here..." defaultValue={this.state.one} onChange={this.onChange} />
+            <TextArea rows={4} name="two" placeholder="How X helped me..." defaultValue={this.state.two} onChange={this.onChange} />
+            <TextArea rows={4} name="three" placeholder="Here it is!..." defaultValue={this.state.three} onChange={this.onChange} />
+            <TextArea rows={4} name="specs" placeholder="SPECS" defaultValue={this.state.specs} onChange={this.onChange} />
             <Input name="influencer" defaultValue={this.state.influencer} placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
             <Input name="video" defaultValue={this.state.video} placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
             <Input name="voicenote" defaultValue={this.state.voicenote} placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
