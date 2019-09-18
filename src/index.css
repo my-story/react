@@ -1549,3 +1549,43 @@ test cards new ones - REVIEW
   flex-direction: row;
   /* border: 1px solid; */
 }
+.about-page {
+  height: 100vh;
+}
+.about-heading {
+  height: 19vh;
+  width: 100%;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10vh;
+}
+.about-heading div {
+  display: flex;
+  flex-direction: flex-start;
+}
+.about-heading span {
+  display: inline;
+  font-family: Hind;
+  font-size: 6.7vh;
+}
+#overall-expirience{
+  display: inline;
+}
+.about-description {
+  height: 80vh;
+  width: 100%;
+}
+.description {
+  font-family: "Avenir Next";
+  height: 15vh;
+  width: 36vw;
+  margin-left: 15vw;
+  text-align: justify;
+}
+.about-who-are-we {
+  height: 65vh;
+  border: 1px solid;
+}

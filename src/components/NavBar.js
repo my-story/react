@@ -92,9 +92,11 @@ class NavBar extends Component {
 										<p>PRODUCTS</p>
 									</span>
 								</Link>
+								<Link href="/about">
 								<span>
 									<p>ABOUT</p>
 								</span>
+								</Link>
 								<span>
 									<p>CONTACT</p>
 								</span>

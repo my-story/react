@@ -73,7 +73,7 @@ class InfluencerList extends Component {
             <p id="im-john"> Hey!<br></br>
             I'm John,<br></br>
             </p>
-            <p id="master-of" style={{color:"#F66C4F"}}>the Master of<br></br>
+            <p id="master-of" style={{color:"#F66C4F "}}>the Master of<br></br>
             Opinions.</p> 
             <p id="skip-intro">Skip intro</p>
           </div>

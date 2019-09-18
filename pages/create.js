@@ -59,7 +59,6 @@ class InfluencerCreate extends Component {
 
     const { selectedItems, data } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-    console.log(this.state);
     
     if (this.props.user.role === "Admin") {
       if (!this.state.done) {
