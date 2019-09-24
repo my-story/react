@@ -1553,7 +1553,7 @@ test cards new ones - REVIEW
   /* border: 1px solid; */
 }
 .about-page {
-  height: 240vh;
+  height: 250vh;
 }
 .about-heading {
   height: 19vh;
@@ -1637,6 +1637,17 @@ test cards new ones - REVIEW
 }
 
 .about-donate-container {
-  height: 40vh;
-  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  margin: 8vh 15vw 0 15vw;
+
+}
+.about-donate-section {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50vh;
+  width: 90%;
 }

@@ -48,9 +48,20 @@ function About(){
 							</div>
 						</div>
 					</div>
-					<div className="about-donate-container">
-
-					</div>
+				<div className="about-donate-container">
+        			<div className="about-donate-section">
+          			<div className="donate-message">
+            			<h2>Want to help us with<br></br>growing up and scaling?</h2>
+            <p>We’ll appreciate your help and involvement!.</p>
+              <div className="donate-buttons">
+              <p>Donate</p>
+              </div>
+          </div>
+          <div> 
+            <img id="donate-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566410262/Screenshot_from_2019-08-21_13-57-13.png" alt="donate-picture-logo"/>
+          </div>
+        </div>
+		</div>
         </div>
     )
 }
