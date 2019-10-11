@@ -33,7 +33,7 @@ body {
   font-size: 40px;
   font-weight: bold;
   line-height: 64px;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
   padding-top: 3.6vh;
 }
 
@@ -132,8 +132,8 @@ body {
 }
 
 .video {
-  margin-top: 20px;
-  height: 60vh;
+  margin-top: 2vh;
+  height: 49vh;
   width: 100%;
   background-color: rgba(192, 192, 192, 0.4);
 }
@@ -201,6 +201,9 @@ body {
   color: white;
   border: none;
 }
+.product {
+  width: 10vw;
+}
 .add-to-cart:hover {
   /* height: 5vh; */
   width: 14vw;
@@ -263,7 +266,7 @@ body {
 }
 
 .bottom-review-container {
-  margin-top: 2vh;
+  margin-top: 4vh;
   display: flex;
   /* border: 1px solid; */
   flex-direction: row;
@@ -945,6 +948,7 @@ border-right: 3px solid black;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 3.5vh;
 }
 
 /* .expert-card-review:hover .quote-hover{
@@ -1650,4 +1654,36 @@ test cards new ones - REVIEW
   align-items: center;
   height: 50vh;
   width: 90%;
+}
+.main-image{
+  height: 20vh;
+  width: auto;
+}
+.product-first-section{
+/* border: 1px solid black; */
+height: 80vh;
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+}
+
+#product-pictures {
+  /* height: 100%; */
+  width: 40%;
+  border: 1px black;
+  display: flex;
+  justify-content: center;
+}
+#product-description {
+  width: 50%;
+  border:1px black;
+}
+#product-description > div {
+  width: 80%;
+}
+#product-prize {
+  font-size: 2.8vh;
+  font-weight: bold;
+  color: #F66C4F;
+  font-family: "Avenir Next";
 }
