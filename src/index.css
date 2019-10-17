@@ -33,7 +33,7 @@ body {
   font-size: 40px;
   font-weight: bold;
   line-height: 64px;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
   padding-top: 3.6vh;
 }
 
@@ -132,8 +132,8 @@ body {
 }
 
 .video {
-  margin-top: 20px;
-  height: 60vh;
+  margin-top: 2vh;
+  height: 49vh;
   width: 100%;
   background-color: rgba(192, 192, 192, 0.4);
 }
@@ -193,7 +193,6 @@ body {
   font-size: 80%;
   /* font-family: Hind */
   font-family: "Hind", sans-serif;
-;
   height: 5vh;
   width: 12vw;
   border-radius: 25px;
@@ -201,6 +200,13 @@ body {
   background-color: #f66c4f;
   color: white;
   border: none;
+}
+.product {
+  width: 10vw;
+}
+.add-to-cart:hover {
+  /* height: 5vh; */
+  width: 14vw;
 }
 
 .prize-bubble {
@@ -260,7 +266,7 @@ body {
 }
 
 .bottom-review-container {
-  margin-top: 2vh;
+  margin-top: 4vh;
   display: flex;
   /* border: 1px solid; */
   flex-direction: row;
@@ -942,6 +948,7 @@ border-right: 3px solid black;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-top: 3.5vh;
 }
 
 /* .expert-card-review:hover .quote-hover{
@@ -1550,7 +1557,7 @@ test cards new ones - REVIEW
   /* border: 1px solid; */
 }
 .about-page {
-  height: 100vh;
+  height: 250vh;
 }
 .about-heading {
   height: 19vh;
@@ -1575,8 +1582,9 @@ test cards new ones - REVIEW
   display: inline;
 }
 .about-description {
-  height: 80vh;
+  height: 85vh;
   width: 100%;
+  margin-bottom: 8vh;
 }
 .description {
   font-family: "Avenir Next";
@@ -1587,5 +1595,95 @@ test cards new ones - REVIEW
 }
 .about-who-are-we {
   height: 65vh;
-  border: 1px solid;
+  width: 100%;
+}
+#who-title {
+  font-size: 5vh;
+  font-family: Hind;
+  width: 80%;
+  margin-left: 12vw;
+}
+#who-description {
+  width: 40%;
+  height: 10vh;
+  margin-left: 12vw;
+  line-height: 30px;
+  font-family: "Avenir Next";
+}
+
+.about-workers-container {
+  height: 48vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2vh 12vw 0 12vw;
+}
+#about-picture {
+  height: 38vh;	
+  width: 18vw;
+}
+.about-workers-card {
+  width: 30vw;
+  margin-right: 3vw; 
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.about-worker-name {
+  padding-left: 1vw;
+}
+.about-worker-name h5{
+  font-family: Hind;
+  line-height: 34px;
+  font-weight: bold;
+  font-size: 2.5vh;
+}
+
+.about-donate-container {
+  display: flex;
+  justify-content: center;
+  margin: 8vh 15vw 0 15vw;
+
+}
+.about-donate-section {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50vh;
+  width: 90%;
+}
+.main-image{
+  height: 20vh;
+  width: auto;
+}
+.product-first-section{
+/* border: 1px solid black; */
+height: 80vh;
+display: flex;
+flex-flow: row wrap;
+justify-content: space-between;
+}
+
+#product-pictures {
+  /* height: 100%; */
+  width: 40%;
+  border: 1px black;
+  display: flex;
+  justify-content: center;
+}
+#product-description {
+  width: 50%;
+  border:1px black;
+}
+#product-description > div {
+  width: 80%;
+}
+#product-prize {
+  font-size: 2.8vh;
+  font-weight: bold;
+  color: #F66C4F;
+  font-family: "Avenir Next";
 }

@@ -83,20 +83,25 @@ class ProductDetail extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <h3>Product Detail</h3>
-        <ul>
-          <li><img src={this.state.images[0]} alt="the product" /></li>
-          <li>category: {this.state.category}</li>
-          <li>description: {this.state.description}</li>
-          <li>influencer: {this.state.influencer.name ? this.state.influencer.name.firstName + ' ' + this.state.influencer.name.lastName : ''}</li>
-          <li>model: {this.state.model}</li>
-          <li>price: {this.state.prize}</li>
-          <li>amount in stock: {this.state.total}</li>
-        </ul>
-        <button onClick={this.addCart}>add to cart</button>
 
+    return (
+      <div className="product-detail-page">
+        <section className="product-first-section">
+          <div id="product-pictures">
+            <img className="main-image" src={this.state.images[0]} alt="the product" />
+          </div>
+        <div id="product-description">
+          <div>
+          <h2 id="product-model"><b>{this.state.model}</b></h2>
+          <p>Product # {this.state._id}</p>
+          <p>{this.state.description}</p>
+          <p id="product-prize">${this.state.prize}</p>
+          <button onClick={this.addCart} className="product add-to-cart"><b>Add to Cart</b></button>
+          
+          </div>
+        </div>
+        </section>
+        <button onClick={this.addCart}>add to cart</button>
       </div>
 
     )
