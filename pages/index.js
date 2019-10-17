@@ -63,11 +63,8 @@ class InfluencerList extends Component {
       <div className="index-page">
         <div className="expert-section">
           <div className="expert-div">
-            <div id="expert-orange-bubble">
             <img id="expert-illustration" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380238/3260_Converted.png" alt="expert illustration" />
-            </div>
-            <img className="background-blue-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png" />
-            <img className="background-orange-bubble" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1569352461/orange-bubble.svg" />
+            <img className="background-blue-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png" alt="blue-dash"/>
           </div>
           <div className="expert-message">
             <p id="im-john"> Hey!<br></br>
@@ -79,19 +76,8 @@ class InfluencerList extends Component {
           </div>
         </div>
         <h2 style={{paddingBottom: "20px"}}><b>Top Recomendations</b></h2>
-        {/* Search Bar Reactive  */}
-
         <div>
-          {/* <SearchBar getFilter={this.getFilter} /> */}
-          {/* {category.map((c, index) => {
-            return (
-              <div key={index}>
-                <button value={c} onClick={(e) => this.filterCategory(e)}>{c}</button>
-              </div>
-            )
-          })} */}
         </div>
-
         <div className="expert-card-section">
         {influencers.map((i, index) => {
           return (
