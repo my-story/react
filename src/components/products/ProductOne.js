@@ -50,42 +50,23 @@ class ProductOne extends Component {
   };
 
   render() {
+    console.log(this.props);
 
-    if (this.context.user.role === "Admin") {
-      if (this.state.update === true) {
-        Router.push('/productUpdate/' + this.props.i._id);
-        return null;
-      };
-      return(
-        <div key={this.props.index} className="influencer-card">
-          <Link key={this.props.index} href={`product/${this.props.i._id}`}>
-              <div>
-                <p>model: {this.props.i.model}</p>
-                <p>description: {this.props.i.description}</p>
-                <p>influencer: {this.props.i.influencer.name.firstName}</p>
-                <img height="100" src={this.props.i.images[0]} alt={this.props.i.name} />
-              </div>
-          </Link>
-          <div>
-          <button onClick={this.submit}>Delete</button>
-          <button onClick={this.update}>Update</button>
-          </div>
-        </div> 
-      )
-    } else {
-      return(
-        <div key={this.props.index} className="influencer-card">
-          <Link key={this.props.index} href={`product/${this.props.i._id}`}>
-              <div>
-                <p>model: {this.props.i.model}</p>
-                <p>description: {this.props.i.description}</p>
-                <p>influencer: {this.props.i.influencer.name.firstName}</p>
-                <img height="100" src={this.props.i.images[0]} alt={this.props.i.name} />
+    return(
+        <div key={this.props.index} className="product-big-card">
+          <Link key={this.props.index} href={`product/${this.props.i._id}`} >
+              <div className="product-big-card-image">
+                <img className="product-big-card-image-size" src={this.props.i.images[0]} alt={this.props.i.name} />
+                <div className="p-product-big">
+                  <span>{this.props.i.model}</span>
+                </div>
+                <div className="p-product-big">
+                  <span>${this.props.i.prize}</span>
+                </div>
               </div>
           </Link>
         </div>
-      )
-    }
+    )
   }
 }
 
