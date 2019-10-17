@@ -583,6 +583,41 @@ body {
   border: solid 1px black;
   width: 20vw;
 }
+
+.product-all-page {
+  margin: 0 12vw 0 12vw;
+}
+.product-card {
+  border: solid 1px black;
+  width: 20vw;
+}
+
+
+.product-big-card {
+  /* border: solid 1px black; */
+  background-color: #F9F8F4;
+  height: 43vh;
+  width: 24vw;
+}
+
+.product-big-card-image{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.product-big-card-image-size{
+  margin-top: 4vh;
+  height: 30vh;
+  margin-bottom: 2vh;
+}
+
+.p-product-big{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .create-card {
   /* display: flex; */
   height: 30vh;
@@ -1457,6 +1492,7 @@ test cards new ones
   background-position: center;
   background-size: 100% 100%;
 }
+
 .expert-card {
   height: 43vh;
   width: 24vw;

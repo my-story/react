@@ -44,7 +44,7 @@ class ProductList extends Component {
   render() {
     const { products, category } = this.state
     return (
-      <div>
+      <div className="product-all-page">
         <div>
           <SearchBar getFilter={this.searchBar} />
         </div>
@@ -58,13 +58,15 @@ class ProductList extends Component {
           })}
 
         </div>
-        {products.map((i, index) => {
-          return (
-            <div>
-              <ProductOne i={i} index={index} />
-            </div>
-          )
-        })}
+        <div className="expert-card-section">
+          {products.map((i, index) => {
+            return (
+              <div>
+                <ProductOne i={i} index={index} />
+              </div>
+            )
+          })}
+        </div>
       </div>
     )
   }
