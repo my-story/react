@@ -3,7 +3,7 @@ import * as toastr from 'toastr';
 import Cookies from 'universal-cookie';
 import QtyContext from "../../src/components/contexts/QtyContext";
 import ProductServices from '../../src/services/ProductServices';
-
+import Votes from "../../src/components/votes/Votes";
 
 class ProductDetail extends Component {
   state = {
@@ -88,20 +88,56 @@ class ProductDetail extends Component {
       <div className="product-detail-page">
         <section className="product-first-section">
           <div id="product-pictures">
+            <div id="product-pictures-circle">
             <img className="main-image" src={this.state.images[0]} alt="the product" />
+            <div id="image-circle">
+              <img id="options-pictures" src={this.state.images[0]} alt="options-pictures" />
+            </div>
+            </div>
           </div>
         <div id="product-description">
           <div>
           <h2 id="product-model"><b>{this.state.model}</b></h2>
-          <p>Product # {this.state._id}</p>
-          <p>{this.state.description}</p>
+          <div className="product-number-div">
+          <p id="product-number1">Product #</p>
+          <p id="product-number">{this.state._id}</p>
+          </div>
+          <div className="product-description-div">
+          <p id="product-description">{this.state.description}</p>
+          </div>
           <p id="product-prize">${this.state.prize}</p>
           <button onClick={this.addCart} className="product add-to-cart"><b>Add to Cart</b></button>
-          
           </div>
         </div>
         </section>
-        <button onClick={this.addCart}>add to cart</button>
+        <section className="specification">
+          <h2><b>Specifications</b></h2>
+          <div>
+            <ul>
+              <li>You know that good good</li>
+              <li>You know that good good</li>
+              <li>You know that good good</li>
+              <li>You know that good good</li>
+
+            </ul>
+          </div>
+        </section>
+        <section className="product-expert-quote">
+        <div className="product-expert-picture">
+          <div>
+
+          </div>
+          <div>
+          <Votes></Votes>
+          </div>
+        </div>
+        <div>
+          <img alt="quotes-air" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1568057128/quotes.svg"/>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fermentum massa justo, sit amet feugiat mi tempus.</p>
+          <p>Review by Joshua Sterling</p>
+        </div>
+        </section>
+
       </div>
 
     )

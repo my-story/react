@@ -41,8 +41,6 @@ body {
   position: absolute;
   left: 11vw;
   height: 23vh;
-  /* height: 181.25px;	
-  width: 168.75px;	 */
   width: 12.5vw;
   background: linear-gradient(
     180deg,
@@ -51,6 +49,13 @@ body {
     rgba(0, 0, 0, 0.75) 100%
   );
   border-radius: 200px;
+}
+.background-orange-bubble {
+  height: 50vh;
+  position: relative;
+  left: 5vw;
+  bottom: 15vh;
+
 }
 
 .subheading {
@@ -206,7 +211,7 @@ body {
 }
 .add-to-cart:hover {
   /* height: 5vh; */
-  width: 14vw;
+  opacity: 0.8;
 }
 
 .prize-bubble {
@@ -858,7 +863,7 @@ border-right: 3px solid black;
 .expert-div {
   height: 50vh;
   width: auto;
-  background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566236933/shape.svg");
+  background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1569352461/orange-bubble.svg");
   background-size: cover;
   margin-right: 5vw;
 }
@@ -1692,23 +1697,53 @@ test cards new ones - REVIEW
   width: 90%;
 }
 .main-image{
-  height: 20vh;
+  height: 28vh;
   width: auto;
+  position: relative;
+  left: 4vw;
+}
+#image-circle {
+  height: 10vh;
+  width: 5.6vw;
+  border-radius: 50%;
+  background-color: #F9F8F4;
+  position: relative;
+  left: 16vw;
+  top: 10vh;
+  box-shadow: -11px 4px 20px 0 rgba(0,0,0,0.05);
+  border: 2px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#options-pictures {
+  height: 4vh;
+  width: 3vw;
 }
 .product-first-section{
 /* border: 1px solid black; */
-height: 80vh;
+height: 67vh;
 display: flex;
 flex-flow: row wrap;
 justify-content: space-between;
 }
 
-#product-pictures {
-  /* height: 100%; */
-  width: 40%;
-  border: 1px black;
+#product-pictures-circle {
+  height: 80vh;
+  width: 50vw;
+  border-radius: 50%;
+  background-color: #F9F8F4;
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 28vh;
+  right: 8vw;
+}
+#product-pictures {
+  height: 100%;
+  width: 40%;
+
 }
 #product-description {
   width: 50%;
@@ -1717,9 +1752,76 @@ justify-content: space-between;
 #product-description > div {
   width: 80%;
 }
+#product-model {
+  font-size: 7.5vh;
+}
+#product-number1 {
+  font-size: 1.6vh;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  padding-right: 0.5vw;
+  color: black;
+}
+#product-number {
+  font-size: 1.6vh;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  color: #F9F8F4;
+}
+.product-description-div {
+  width:45vw;
+  text-align: left;
+}
+#product-description {
+  font-family: "Avenir Next";
+  color: #3D676A;
+  font-size: 2vh;
+  /* width: 100%; */
+}
+.product-number-div {
+  display: flex;
+  flex-direction: row;
+}
 #product-prize {
   font-size: 2.8vh;
   font-weight: bold;
   color: #F66C4F;
   font-family: "Avenir Next";
+}
+.specification {
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20vw 0 20vw;
+}
+.specification h2 {
+  margin-bottom: 2.5vh;
+  margin-left: 3vw;
+}
+.specification li {
+  font-family: "Avenir Next";
+  font-size: 2vh;
+  line-height: 26px;
+}
+
+.specification ul {
+  list-style:none;
+}
+.specification li::before {
+content: "•";
+color: red;
+margin-right: 1vw
+}
+
+.product-expert-quote {
+  height: 20vh;
+  border:solid 1px black;
+  margin: 0 20vw 0 20vw;
+  display: flex;
+  flex-direction: row;
+}
+.product-expert-picture {
+  height: 100%;
+  width: 10vw;
+  border: 1px solid;
 }
