@@ -10,7 +10,7 @@ class ProductList extends Component {
     user: {},
     productsNew: [],
     category: [
-      "Sports", "Music", "Tech", "Clothes"
+      "All","Sports", "Music", "Tech", "Clothes"
     ],
   };
 
@@ -35,9 +35,13 @@ class ProductList extends Component {
   };
 
   searchBar = (e) => {
-    ProductService.searchProduct(e.target.value)
+    if(e === "All"){
+      this.fetchProducts()
+    } else {
+      ProductService.searchProduct(e)
       .then((res) => this.setState({ products: res }))
       .catch((err) => console.log(err))
+    }
   };
 
 
@@ -45,19 +49,24 @@ class ProductList extends Component {
     const { products, category } = this.state
     return (
       <div className="product-all-page">
+        {/* <p>Products</p>
         <div>
           <SearchBar getFilter={this.searchBar} />
-        </div>
+        </div> */}
         <div>
-          {category.map((c, index) => {
-            return (
-              <div>
-                <button value={c} onClick={(e) => this.searchBar(e)}>{c}</button>
-              </div>
-            )
-          })}
-
-        </div>
+          <div className="category-bar"> 
+            <p><b>All Categories: </b></p>
+            <div>
+              {category.map((c, index) => {
+                return (
+                  <div>
+                    <span id="category-bubble" title={c} onClick={() => this.searchBar(c)}>{c}</span>
+                  </div>
+                )
+               })}
+            </div>
+          </div>
+          </div>
         <div className="expert-card-section">
           {products.map((i, index) => {
             return (
