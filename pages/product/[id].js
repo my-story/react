@@ -26,7 +26,6 @@ class ProductDetail extends Component {
 
   componentDidMount() {
     const { id } = this.props;
-
     ProductServices.productDetail(id)
       .then((res) => this.setState(res))
       .catch(err => console.log(err))
@@ -83,7 +82,13 @@ class ProductDetail extends Component {
   };
 
   render() {
+  const { influencer } = this.state || {};
+  const {name} = this.state.influencer || {};
+  console.log(name);
 
+  if (influencer === undefined){
+    return <div></div>
+  } else {
     return (
       <div className="product-detail-page">
         <section className="product-first-section">
@@ -114,27 +119,36 @@ class ProductDetail extends Component {
           <h2><b>Specifications</b></h2>
           <div>
             <ul>
-              <li>You know that good good</li>
-              <li>You know that good good</li>
-              <li>You know that good good</li>
-              <li>You know that good good</li>
-
+              <li>You know that good good, it is good indeed boyy</li>
+              <li>You know that good good, it is good indeed boyy</li>
+              <li>You know that good good, it is good indeed boyy</li>
             </ul>
+            <ul>
+              <li>You know that good good, it is good indeed boyy</li>
+              <li>You know that good good, it is good indeed boyy</li>
+              <li>You know that good good, it is good indeed boyy</li>
+            </ul>
+
           </div>
         </section>
         <section className="product-expert-quote">
         <div className="product-expert-picture">
           <div>
-
+            <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
           </div>
           <div>
           <Votes></Votes>
           </div>
         </div>
-        <div>
-          <img alt="quotes-air" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1568057128/quotes.svg"/>
+        <div className="expert-quote">
+          <img alt="quotes-air" id="quotes-air" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1568057128/quotes.svg"/>
+          <div>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer fermentum massa justo, sit amet feugiat mi tempus.</p>
-          <p>Review by Joshua Sterling</p>
+          <div className="link-review-div">
+            <p id="link-to-review">Conversation with PLACEHOLDER</p>
+            <img id ="arrow-right" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1571419511/icons8-expand-arrow-24.png" alt="arrow" />
+          </div>
+          </div>
         </div>
         </section>
 
@@ -143,5 +157,7 @@ class ProductDetail extends Component {
     )
   }
 }
+  }
+    
 
 export default ProductDetail;
