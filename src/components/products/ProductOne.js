@@ -49,11 +49,30 @@ class ProductOne extends Component {
     });
   };
 
+  getGlyphicon = (category) =>{
+    const Comedy = "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567710375/icons8-comedy-100_1.png";
+    const Athlete = "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567788668/icons8-sport-96.png";
+    const Author = "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567788259/icons8-paragraph-96.png"; 
+
+    const arr = [{"Comedian": Comedy}, {"Athlete": Athlete}, {"Author": Author}];
+
+    for(let i = 0; i < arr.length; i++){
+      if(Object.keys(arr[i]).join('') === category){
+        return arr[i][category];
+      }
+    }
+  }
+
   render() {
-    console.log(this.props);
+    const category = this.props.i.influencer.expertise[0];
+    // using the influencer category for know 
 
     return(
         <div key={this.props.index} className="product-big-card">
+           <div className={`category-bubble ${category}`}>
+            <img src={this.getGlyphicon(category)} alt="the product" className="icon"/>
+            <span className="category-name">{category}</span>
+           </div>
           <Link key={this.props.index} href={`product/${this.props.i._id}`} >
               <div className="product-big-card-image">
                 <img className="product-big-card-image-size" src={this.props.i.images[0]} alt={this.props.i.name} />
