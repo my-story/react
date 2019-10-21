@@ -1700,7 +1700,7 @@ test cards new ones - REVIEW
   height: 28vh;
   width: auto;
   position: relative;
-  left: 4vw;
+  left: 7vw;
 }
 #image-circle {
   height: 10vh;
@@ -1708,8 +1708,36 @@ test cards new ones - REVIEW
   border-radius: 50%;
   background-color: #F9F8F4;
   position: relative;
-  left: 16vw;
-  top: 10vh;
+  left: 22vw;
+  top: 6vh;
+  box-shadow: -11px 4px 20px 0 rgba(0,0,0,0.05);
+  border: 2px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#image-circle2 {
+  height: 10vh;
+  width: 5.6vw;
+  border-radius: 50%;
+  background-color: #F9F8F4;
+  position: relative;
+  left: 14vw;
+  top: 16.5vh;
+  box-shadow: -11px 4px 20px 0 rgba(0,0,0,0.05);
+  border: 2px solid #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#image-circle3 {
+  height: 10vh;
+  width: 5.6vw;
+  border-radius: 50%;
+  background-color: #F9F8F4;
+  position: relative;
+  left: 5vw;
+  top: 26vh;
   box-shadow: -11px 4px 20px 0 rgba(0,0,0,0.05);
   border: 2px solid #FFFFFF;
   display: flex;
@@ -1769,17 +1797,15 @@ justify-content: space-between;
   font-size: 1.6vh;
   font-weight: bold;
   letter-spacing: 0.2px;
-  color: #F9F8F4;
+  color: #BABABA;
 }
 .product-description-div {
   width:45vw;
-  text-align: left;
 }
 #product-description {
   font-family: "Avenir Next";
   color: #3D676A;
   font-size: 2vh;
-  /* width: 100%; */
 }
 .product-number-div {
   display: flex;

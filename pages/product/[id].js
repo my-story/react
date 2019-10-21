@@ -98,6 +98,12 @@ class ProductDetail extends Component {
             <div id="image-circle">
               <img id="options-pictures" src={this.state.images[0]} alt="options-pictures" />
             </div>
+            <div id="image-circle2">
+              <img id="options-pictures" src={this.state.images[0]} alt="options-pictures" />
+            </div>
+            <div id="image-circle3">
+              <img id="options-pictures" src={this.state.images[0]} alt="options-pictures" />
+            </div>
             </div>
           </div>
         <div id="product-description">
@@ -105,7 +111,7 @@ class ProductDetail extends Component {
           <h2 id="product-model"><b>{this.state.model}</b></h2>
           <div className="product-number-div">
           <p id="product-number1">Product #</p>
-          <p id="product-number">{this.state._id}</p>
+          <p id="product-number">{this.state._id} should alter ID</p>
           </div>
           <div className="product-description-div">
           <p id="product-description">{this.state.description}</p>
