@@ -1916,11 +1916,16 @@ margin-right: 1vw
   width: auto;
   transform: rotate(-90deg);
 }
+.contact-page {
+  height: 73.5vh;
+  margin: 0 7vw 0 7vw;
+}
 .contact-page h1{
   font-family: Hind;	
   font-size: 8vh;	
   font-weight: bold;	
   line-height: 8vh;
+  margin: 10vh 0 8vh 0;
 }
 .contact-section {
   width: 100%;
@@ -1931,7 +1936,6 @@ margin-right: 1vw
 .contact-inputs {
   width: 50%;
   height: 30vh;
-  border: 1px solid;  
 }
 .submit-button {
   font-weight: bold;
@@ -1949,4 +1953,33 @@ margin-right: 1vw
   margin-top: 1vh;
   width: 38vw;
  text-align: right;
+}
+.contact-address {
+  /* border: 1px solid; */
+  height: 30vh;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+#terms-heading {
+  font-family: Hind;
+  font-size: 8vh;
+  line-height: 8vh;
+}
+.terms-first-p {
+  font-family: "Avenir Next";
+  color: #3D676A;
+  width: 49.48%;
+  border: 1px solid;
+}
+.terms-inform-div{
+  display: flex;
+  flex-direction: row;
+}
+.terms-inform {
+  width: 49.48%;
+}
+.terms-content {
+  width: 11.2%;
 }
