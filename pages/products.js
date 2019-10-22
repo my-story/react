@@ -8,7 +8,6 @@ class ProductList extends Component {
   state = {
     products: [],
     user: {},
-    productsNew: [],
     category: [
       "All","Sports", "Music", "Tech", "Clothes"
     ],
@@ -44,9 +43,22 @@ class ProductList extends Component {
     }
   };
 
+  filterPriceDecending = () => {
+    ProductService.filterPriceDecending()
+    .then((res) => this.setState({ products: res }))
+    .catch((err) => console.log(err))
+  }
+
+  filterPriceAcending = () => {
+    ProductService.filterPriceAcending()
+    .then((res) => this.setState({ products: res }))
+    .catch((err) => console.log(err))
+  }
+
 
   render() {
     const { products, category } = this.state
+
     return (
       <div className="product-all-page">
         {/* <p>Products</p>
@@ -58,7 +70,7 @@ class ProductList extends Component {
         </div>
         <div>
           <div className="category-bar"> 
-            <p><b>All Categories: </b></p>
+            <p><b className="all-categories-p" >All Categories: </b></p>
             <div>
               {category.map((category, index) => {
                 return (
@@ -68,6 +80,10 @@ class ProductList extends Component {
                 )
                })}
             </div>
+          </div>
+          <div>
+            <button onClick={this.filterPriceDecending}>High-To-Low:</button>
+            <button onClick={this.filterPriceAcending}>Low-To-High:</button>
           </div>
           <div className="all-products-span-div">
             <span className="all-products-span">All Products ({this.state.products.length})</span>

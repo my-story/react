@@ -27,6 +27,12 @@ const updateTotal = (id, qty) => http.post(`/product/update/total/${id}`, qty)
 const getOneAdmin = (id) => http.get(`/product/details/admin/${id}`)
   .then((res) => res.data);
 
+const filterPriceDecending = () => http.get(`/product/filter/price/decending`)
+  .then((res) => res.data);
+
+const filterPriceAcending = () => http.get(`/product/filter/price/acending`)
+  .then((res) => res.data);
+
 
 
 export default {
@@ -38,5 +44,7 @@ export default {
   deleteProduct,
   updateProduct,
   updateTotal,
-  getOneAdmin
+  getOneAdmin,
+  filterPriceDecending,
+  filterPriceAcending
 }
