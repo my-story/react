@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Link from 'next/link';
 
 class Footer extends Component{
   render(){
@@ -17,7 +18,7 @@ class Footer extends Component{
 					</div>
 				</div>
 				<div className="important-info">
-					<p>Terms & Conditions</p>
+				<Link href="/terms_conditions"><p>Terms & Conditions</p></Link>	
 					<p>Privacy Policy</p>
 					<p>Support</p>
 					<p>Contact</p>
