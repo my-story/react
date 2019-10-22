@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 
+// NEEDS BACKEND ROUTESS
+// NEEDS BACKEND ROUTESS
+// NEEDS BACKEND ROUTESS
+// NEEDS BACKEND ROUTESS
+// NEEDS BACKEND ROUTESS
+// NEEDS BACKEND ROUTESS
+
 class Contact extends Component {
     render(){
         return(
+
             <div className="contact-page">
                 <h1> Contact us - <br></br>warm response guaranteed  </h1>
                 <div className="contact-section">
@@ -18,7 +26,10 @@ class Contact extends Component {
                         <div>
                         </div>
                     </div>
-                    <h3>Address</h3>
+                    <div className="contact-address">
+                    <p><b>478 Young Drive <br></br> 
+                    Brandon, FL 33511, United States</b></p>
+                    </div>
                 </div>
 
             </div>
