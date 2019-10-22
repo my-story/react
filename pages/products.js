@@ -3,6 +3,7 @@ import ProductService from '../src/services/ProductServices';
 import SearchBar from '../src/components/influencer/SearchInfluencer';
 import ProductOne from "../src/components/products/ProductOne";
 import CategoryBubbleOne from '../src/components/category/CategoryBubbleOne';
+import { Menu, Dropdown, Icon } from 'antd';
 
 class ProductList extends Component {
   state = {
@@ -12,6 +13,7 @@ class ProductList extends Component {
       "All","Sports", "Music", "Tech", "Clothes"
     ],
   };
+
 
   fetchProducts = () => {
     ProductService.getAll()
@@ -59,6 +61,23 @@ class ProductList extends Component {
   render() {
     const { products, category } = this.state
 
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <span onClick={this.filterPriceDecending}>
+            High-To-Low
+          </span>
+        </Menu.Item>
+        <Menu.Item>
+          <span onClick={this.filterPriceAcending}>
+            Low-To-High
+          </span>
+        </Menu.Item>
+      </Menu>
+    );
+    
+
+
     return (
       <div className="product-all-page">
         {/* <p>Products</p>
@@ -82,8 +101,12 @@ class ProductList extends Component {
             </div>
           </div>
           <div>
-            <button onClick={this.filterPriceDecending}>High-To-Low:</button>
-            <button onClick={this.filterPriceAcending}>Low-To-High:</button>
+            <span><b>Sort by: </b></span>
+            <Dropdown overlay={menu}>
+              <span className="ant-dropdown-link">
+                price <Icon type="down" />
+              </span>
+            </Dropdown>
           </div>
           <div className="all-products-span-div">
             <span className="all-products-span">All Products ({this.state.products.length})</span>
