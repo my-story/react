@@ -50,9 +50,11 @@ class NavBar extends Component {
 						<span>
 							<p>ABOUT</p>
 						</span>
+						<Link href="/contact-us">
 						<span>
 							<p>CONTACT</p>
 						</span>
+						</Link>
 					</div>
 					<div className="icons-account-cart">
 						{/* <img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565379958/ucer.svg" alt="account profile" /> */}
@@ -97,9 +99,11 @@ class NavBar extends Component {
 									<p>ABOUT</p>
 								</span>
 								</Link>
+								<Link href="/contact-us">
 								<span>
 									<p>CONTACT</p>
 								</span>
+								</Link>
 							</div>
 							<div className="icons-account-cart">
 								<SearchBar/>
