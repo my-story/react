@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ProductService from '../src/services/ProductServices';
 import SearchBar from '../src/components/influencer/SearchInfluencer';
 import ProductOne from "../src/components/products/ProductOne";
-
+import CategoryBubbleOne from '../src/components/category/CategoryBubbleOne';
 
 class ProductList extends Component {
   state = {
@@ -54,19 +54,25 @@ class ProductList extends Component {
           <SearchBar getFilter={this.searchBar} />
         </div> */}
         <div>
+          <h1>Products</h1>
+        </div>
+        <div>
           <div className="category-bar"> 
             <p><b>All Categories: </b></p>
             <div>
-              {category.map((c, index) => {
+              {category.map((category, index) => {
                 return (
                   <div>
-                    <span id="category-bubble" title={c} onClick={() => this.searchBar(c)}>{c}</span>
+                    <CategoryBubbleOne searchbar={this.searchBar} category={category}></CategoryBubbleOne>
                   </div>
                 )
                })}
             </div>
           </div>
+          <div className="all-products-span-div">
+            <span className="all-products-span">All Products ({this.state.products.length})</span>
           </div>
+        </div>
         <div className="expert-card-section">
           {products.map((i, index) => {
             return (
