@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Router from 'next/router';
 import { Input } from 'antd';
-import UserContext from '../../src/components/contexts/UserContext';
-import ReviewServices from "../../src/services/ReviewServices";
+import UserContext from '../../components/contexts/UserContext';
+import ReviewServices from "../../services/ReviewServices";
 
 const { TextArea } = Input;
 
