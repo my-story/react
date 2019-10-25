@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ProductService from '../src/services/ProductServices';
-import SearchBar from '../src/components/influencer/SearchInfluencer';
-import ProductOne from "../src/components/products/ProductOne";
+import ProductService from '../services/ProductServices';
+import SearchBar from '../components/influencer/SearchInfluencer';
+import ProductOne from "../components/products/ProductOne";
 
 
 class ProductList extends Component {

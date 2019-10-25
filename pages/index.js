@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // import Slider from "react-slick";
 import Link from 'next/link'
-import InfluencerServices from '../src/services/InfluencerServices';
-import SearchBar from '../src/components/influencer/SearchInfluencer';
+import InfluencerServices from '../services/InfluencerServices';
+import SearchBar from '../components/influencer/SearchInfluencer';
 // import InfluencerItem from "../src/components/influencer/InfluencerItem";
-import InfluencerCard from '../src/components/influencer/InfluencerCard';
+import InfluencerCard from '../components/influencer/InfluencerCard';
 import Modal from "react-responsive-modal";
 
 

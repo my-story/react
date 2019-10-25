@@ -1,17 +1,17 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import Cookies from 'universal-cookie';
-import NavBar from '../src/components/NavBar';
-import { QtyProvider } from "../src/components/contexts/QtyContext"
-import { UserProvider } from "../src/components/contexts/UserContext";
+import NavBar from '../components/NavBar';
+import { QtyProvider } from "../components/contexts/QtyContext"
+import { UserProvider } from "../components/contexts/UserContext";
 // import { NavBarCssProvider } from "../src/components/contexts/NavBarCssContext";
-import AuthServices from '../src/services/AuthServices';
-import '../src/index.css';
+import AuthServices from '../services/AuthServices';
+import '../components/styles/index.css';
 import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'toastr/build/toastr.css';
 import 'antd/dist/antd.css'; 
-import Footer from '../src/components/Footer';
+import Footer from '../components/Footer';
 
 class MyApp extends App {
   state = {

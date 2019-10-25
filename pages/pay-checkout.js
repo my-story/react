@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Router from 'next/router';
 import Cookies from 'universal-cookie';
-import Stripe from '../src/components/payment/Stripe';
-import UserContext from '../src/components/contexts/UserContext';
+import Stripe from '../components/payment/Stripe';
+import UserContext from '../components/contexts/UserContext';
 
 const cookies = new Cookies();
 

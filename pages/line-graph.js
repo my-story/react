@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import './App.css';
 import { XYPlot, LineSeries } from 'react-vis';
-import StripeButton from '../src/components/influencer/InfluencerProfile';
+import StripeButton from '../components/influencer/InfluencerProfile';
 import '../node_modules/react-vis/dist/style.css';
 
 //Still working last check July 7

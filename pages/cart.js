@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import Cookies from 'universal-cookie';
-import QtyContext from "../src/components/contexts/QtyContext";
-import CartItem from "../src/components/cart/CartItem";
+import QtyContext from "../components/contexts/QtyContext";
+import CartItem from "../components/cart/CartItem";
 
 class CartLanding extends Component {
 

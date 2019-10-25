@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
-import Rates from '../src/components/cart/RatesShipping';
-import OrderServices from '../src/services/OrderServices';
+import Rates from '../components/cart/RatesShipping';
+import OrderServices from '../services/OrderServices';
 
 class FinalCheckout extends Component {
 

@@ -5,7 +5,7 @@ import Router from 'next/router';
 import validator from 'email-validator';
 import passwordValidator from 'password-validator';
 import * as toastr from 'toastr';
-import AuthServices from '../src/services/AuthServices';
+import AuthServices from '../services/AuthServices';
 import Login from './login';
 
 class Signup extends Component {

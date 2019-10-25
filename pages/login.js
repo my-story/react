@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Router from 'next/router';
 import * as toastr from 'toastr';
-import AuthServices from '../src/services/AuthServices';
+import AuthServices from '../services/AuthServices';
 import Signup from './signup';
 
 class Login extends Component {

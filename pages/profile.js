@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import UserContext from '../src/components/contexts/UserContext'
+import UserContext from '../components/contexts/UserContext'
 
 class Profile extends Component {
   state = {

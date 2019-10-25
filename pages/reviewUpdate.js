@@ -1,3 +1,3 @@
-import ReviewUpdate from '../src/components/reviews/ReviewUpdate';
+import ReviewUpdate from '../components/reviews/ReviewUpdate';
 
 export default ReviewUpdate;

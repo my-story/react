@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Router from 'next/router';
 import { Input, Tooltip, Icon, Select } from 'antd';
 import * as toastr from 'toastr';
-import InfluencerServices from '../src/services/InfluencerServices';
-import ProductCreate from '../src/components/products/ProductCreate';
+import InfluencerServices from '../services/InfluencerServices';
+import ProductCreate from '../components/products/ProductCreate';
 
 const OPTIONS = ["Athlete", "Musician", "Tech", "Artist"];
 

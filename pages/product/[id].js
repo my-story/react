@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import * as toastr from 'toastr';
 import Cookies from 'universal-cookie';
-import QtyContext from "../../src/components/contexts/QtyContext";
-import ProductServices from '../../src/services/ProductServices';
-import Votes from "../../src/components/votes/Votes";
+import QtyContext from "../../components/contexts/QtyContext";
+import ProductServices from '../../services/ProductServices';
+import Votes from "../../components/votes/Votes";
 
 class ProductDetail extends Component {
   state = {

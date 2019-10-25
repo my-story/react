@@ -1,6 +1,6 @@
 import React from 'react'
 import Cookies from 'universal-cookie'
-import QtyContext from '../src/components/contexts/QtyContext'
+import QtyContext from '../components/contexts/QtyContext'
 
 class OrderPaid extends React.Component {
   static contextType = QtyContext

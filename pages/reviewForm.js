@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Router from 'next/router';
 import { Input } from 'antd';
-import ReviewServices from "../src/services/ReviewServices"
+import ReviewServices from "../services/ReviewServices"
 
 const { TextArea } = Input;
 

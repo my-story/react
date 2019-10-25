@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AdminPanel from "../../src/components/admin/AdminPanel";
+import AdminPanel from "../../components/admin/AdminPanel";
 
 class InfluencerChart extends Component {
   state = { 

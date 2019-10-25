@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Router from 'next/router';
 import { Input, Checkbox } from 'antd';
-import * as toastr from 'toastr'
+import * as toastr from 'toastr';
 import Cookies from 'universal-cookie';
-import countries from '../src/constants/Countries.js'
-import OrderServices from '../src/services/OrderServices'
-import UserContext from '../src/components/contexts/UserContext';
+import countries from '../constants/Countries';
+import OrderServices from '../services/OrderServices';
+import UserContext from '../components/contexts/UserContext';
 
 class ShippingRates extends Component {
 
