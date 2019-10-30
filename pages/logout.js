@@ -1,3 +1,3 @@
-// import Logout from '../components/auth/Logout';
+import Logout from '../components/auth/Logout';
 
-// export default Logout
+export default Logout
