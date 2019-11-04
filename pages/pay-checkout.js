@@ -68,7 +68,7 @@ class CartPay extends Component {
       Router.push('/');
       return null;
     }
-
+console.log(this.props)
     return (
       <div>
         <h2>
