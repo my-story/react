@@ -75,6 +75,7 @@ console.log(this.props)
         // </div>
         // <div>
     <div style={this.props.style} key={this.props.index}>
+      
     <Link href={`review/${this.props.influencer._id}`}>        
         <div className="category-card">
             <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565215728/icon.svg" alt="the product" className="icon"/>

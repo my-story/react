@@ -51,7 +51,7 @@ class ReviewForm extends Component {
             Router.push('/');
             return null;
         } else {
-          return(
+          return (
             <div>  
               <Input name="title" placeholder="Please enter title " allowClear onChange={this.onChange} />
               <TextArea rows={4} name="one" placeholder="How I Got here..." onChange={this.onChange} />
