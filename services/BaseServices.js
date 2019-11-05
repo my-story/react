@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: "https://sages-backend.herokuapp.com/",  
+  baseURL: process.env.REACT_APP_BASE_URL || process.env.REACT_APP_BASE_URL_DEV,  
   withCredentials: true
 })
 
