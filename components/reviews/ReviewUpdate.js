@@ -63,11 +63,7 @@ class ReviewUpdate extends Component {
       .catch(err => console.log(err));
   }
 
-
-
   render() {
-    console.log(this.state)
-    console.log(this.props.oldReview.title)
     if (this.context.user.role === "Admin" && !this.state.created) {
       return (
         <div>

@@ -73,7 +73,8 @@ class ProductOne extends Component {
             <img src={this.getGlyphicon(category)} alt="the product" className="icon"/>
             <span className="category-name">{category}</span>
            </div>
-          <Link key={this.props.index} href={`product/${this.props.i._id}`} >
+      
+          <Link href="product/[id]" as={`product/${this.props.i._id}`} key={this.props.index} prefetch>
               <div className="product-big-card-image">
                 <img className="product-big-card-image-size" src={this.props.i.images[0]} alt={this.props.i.name} />
                 <div className="p-product-big">
