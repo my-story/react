@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL || process.env.REACT_APP_BASE_URL_DEV,  
+  baseURL: process.env.REACT_APP_BASE_URL_DEV || process.env.REACT_APP_BASE_URL,  
   withCredentials: true
 })
 
