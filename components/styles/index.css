@@ -2033,3 +2033,59 @@ margin-right: 1vw
   cursor: pointer;
   text-decoration: underline #F66C4F;
 }
+.survival-kit-section {
+  border:black solid 1px;
+  width: 100%;
+}
+.survival-habits-heading {
+  /* width: 100%; */
+  font-family: "Hind";
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 8vh 18vw 5vh 16vw;
+  
+}
+.not-clicked {
+  padding: 0;
+  border: none;
+  background: none;
+  outline: 0 !important;
+
+}
+.clicked-show {
+  padding: 0;
+  border: none;
+  background: none;
+  border-bottom: 1.5px solid #f66c4f; 
+  outline: 0 !important;
+}
+.survival-kit-section h5 {
+  font-family: "Hind";
+  font-weight: 700;
+  /* font-size */
+}
+.survival-kit-section p{
+  font-family: "Avenir Next";
+  font-size: 95%;
+}
+.survival-kit-card {
+  height: 15vh;
+  border: 1px solid;
+}
+.survival-card-image-div {
+  width: 10vw;
+  height: 100%;
+  border-right: 1px solid; 
+
+  border-radius:50%;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#survival-image {
+  height: 10vh;
+  width: auto;
+}

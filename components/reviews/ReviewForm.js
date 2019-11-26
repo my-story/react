@@ -1,8 +1,8 @@
-import React,{ Component } from 'react'
-// import { Redirect} from 'react-router-dom'
+import React,{ Component } from 'react';
+// import { Redirect} from 'react-router-dom';
 import Router from 'next/router';
 import { Input } from 'antd';
-import ReviewServices from "../../services/ReviewServices"
+import ReviewServices from "../../services/ReviewServices";
 
 const { TextArea } = Input;
 
