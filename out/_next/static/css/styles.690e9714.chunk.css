@@ -682,7 +682,8 @@ body {
 }
 .signup-container input::placeholder {
   color: #BABABA;	
-  font-family: "Avenir Next";	
+  font-family: Arial, Helvetica, san-serif;
+;	
   font-size: 1.6vh;	
 }
 .signup-form {
@@ -805,7 +806,8 @@ body {
   height: 2.2vh;	
   width: 3vw;	
   color: #BABABA;	
-  font-family: "Avenir Next";	
+  font-family: Arial, Helvetica, san-serif;
+;	
   font-size: 1.6vh;	
 }
 
@@ -885,7 +887,8 @@ body {
 .terms-conditions-div {
   padding-top: 2vh;
   font-size: 66%;
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   text-align: center;
 }
 .terms-conditions-div p:last-child {
@@ -1340,7 +1343,8 @@ border-right: 3px solid black;
   left: 2vw;
   top: 6vh;
   font-size: 110%;
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   color: white;
   display: none;
 }
@@ -1640,7 +1644,8 @@ height: 3vh;
 .video-message p {
   height: 8vh;
   width: 15vw;
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   color: #3d676a;
 }
 
@@ -1684,7 +1689,8 @@ height: 3vh;
 }
 
 .donate-message p {
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   color: #3d676a;
 }
 .donate-buttons {
@@ -1986,7 +1992,8 @@ test cards new ones - REVIEW
   margin-bottom: 8vh;
 }
 .description {
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   height: 15vh;
   width: 36vw;
   margin-left: 15vw;
@@ -2007,7 +2014,8 @@ test cards new ones - REVIEW
   height: 10vh;
   margin-left: 12vw;
   line-height: 30px;
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
 }
 
 .about-workers-container {
@@ -2161,7 +2169,8 @@ justify-content: space-between;
   width:45vw;
 }
 #product-description {
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   color: #3D676A;
   font-size: 2vh;
 }
@@ -2173,7 +2182,8 @@ justify-content: space-between;
   font-size: 2.8vh;
   font-weight: bold;
   color: #F66C4F;
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
 }
 .specification {
   height: 30vh;
@@ -2193,7 +2203,8 @@ justify-content: flex-start;
 align-items: flex-start;
 }
 .specification li {
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   font-size: 2vh;
   line-height: 26px;
 }
@@ -2237,7 +2248,8 @@ margin-right: 1vw
 
 .expert-quote p {
   font-size: 2.3vh;
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   padding-top: 2vh;
 }
 .link-review-div {
@@ -2319,7 +2331,8 @@ margin-right: 1vw
   justify-content: flex-end;
 }
 .terms-first-p {
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   color: #3D676A;
   width: 60%;
   font-size: 2vh;
@@ -2342,7 +2355,8 @@ margin-right: 1vw
 .terms-contact {
   margin-top: 5vh;
   color: #3D676A;
-  font-family: "Avenir Next";
+  font-family: Arial, Helvetica, san-serif;
+;
   font-size: 1.8vh;
   line-height: 1vh; 
 }
