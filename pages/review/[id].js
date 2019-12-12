@@ -237,20 +237,19 @@ class ReviewOne extends Component {
   }
 
   render() {
-    console.log(this.state)
     const review = this.state.review || {};
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
     const influencers = this.state.influencers;
 
+console.log(influencer)
     if (this.context.user.role !== "Admin") {
       if(this.state.kit === true) {
         return (
-
           //THIS IS FOR SURVIVAL KIT CLICKED
 <div className="review-outer-page">
         <div className="review-page">
-          <div >
+          <div>
             <div>
               <img src={influencer.profilePic} alt="Expert Image" className="influencer-pic" />
               <p className="heading" >{review.title}</p>
@@ -258,10 +257,7 @@ class ReviewOne extends Component {
             <div className="subheading">
               <div className="category-name">
                 <p className="author">by: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-
-  
                 <div className="category-card">
-
                   <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567710375/icons8-comedy-100_1.png" alt="the product" className="icon"/>
                   <span className="photography">{influencer.expertise}</span>
                 </div>
@@ -275,16 +271,48 @@ class ReviewOne extends Component {
                 {this.videoDraw()}
               </div>
           </div>
+
           <div>
             <div className="survival-kit-section">
+            <h5>Few words about {influencer.name && influencer.name.firstName}</h5>
+              <p>
+               He is a world wide best selling author, Israel's Squash national champion of 2000, and proffesor of happiness. Tal has dedicated his life for helping the most needed... etc.
+                </p>
+                <div className="books-section">
+                 <h5>BOOKS:</h5>
+                 <div className="book-container">
+                   <div className="book-card">
+                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                     <p><b>Title of Book jajaa Es largo vamos a ver</b></p>
+                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                   </div>
+                   <div className="book-card">
+                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                     <p><b>Title of Book</b></p>
+                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                   </div>
+                   <div className="book-card">
+                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                     <p><b>Title of Book fwefwe </b></p>
+                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                   </div>
+                   <div className="book-card">
+                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                     <p><b>Title of Book www  wef</b></p>
+                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                   </div>
+                   <div className="book-card">
+                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                     <p><b>Title of Book fwef wfefwe </b></p>
+                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                   </div>
+                   
+                 </div>
+              </div>
               <section className="survival-habits-heading">
                 <button className="clicked-show">SURVIVAL KITS</button>
                 <button className="not-clicked" onClick={this.habits}> HABITS</button>
               </section>
-              <h5>few words about the kit</h5>
-              <p>X has this cool little … that allowed me to… while still being able to…  no one else is doing this . This means I can…. While still being able to … and it also means I don;t have to buy additional….
-                Then add  Why it is a  Difference maker , why you love it , why you  will always use it 
-                Example -The first major differ</p>
                 <SurvivalKit></SurvivalKit>
             </div>
             {this.audioDraw()}
@@ -361,9 +389,16 @@ class ReviewOne extends Component {
               <p>X has this cool little … that allowed me to… while still being able to…  no one else is doing this . This means I can…. While still being able to … and it also means I don;t have to buy additional….
                 Then add  Why it is a  Difference maker , why you love it , why you  will always use it 
                 Example -The first major differ</p>
-                <div>
-                  product card
-                </div>
+              <div>
+                 <h5>BOOKS:</h5>
+                 <div>
+                   <div>
+                     <img src="" alt="Book" />
+                     <p>Title of Book</p>
+                     <button className="book-button add-to-cart"><b>Add to Cart</b></button>
+                   </div>
+                 </div>
+              </div>
             </div>
             {this.audioDraw()}
             <div className="bottom-review-container">
