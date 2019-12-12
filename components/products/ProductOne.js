@@ -65,7 +65,8 @@ class ProductOne extends Component {
 
   render() {
     const category = this.props.i.influencer.expertise[0];
-    // using the influencer category for know 
+    // console.log(this.props.i.influencer.expertise[0])
+    // using the influencer category for now 
 
     return(
         <div key={this.props.index} className="product-big-card">
