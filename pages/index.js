@@ -62,10 +62,12 @@ class InfluencerList extends Component {
     return (
       <div className="index-page">
         <div className="expert-section">
-          <div className="expert-div">
-            <img id="expert-illustration" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380238/3260_Converted.png" alt="expert illustration" />
-            <img className="background-blue-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png" alt="blue-dash"/>
+          <div className="expert-video">
+            <div>
+            <video className="video" controls src="https://res.cloudinary.com/dpt8pbi8n/video/upload/v1567711319/y2mate.com_-_joe_rogan_where_does_freedom_of_speech_end_jCPfU45L3iM_1080p.mp4" />
+            </div>
           </div>
+          <div className="expert-div">
           <div className="expert-message">
             <p id="im-john"> Hey!<br></br>
             I'm John,<br></br>
@@ -73,6 +75,9 @@ class InfluencerList extends Component {
             <p id="master-of" style={{color:"#F66C4F "}}>the Master of<br></br>
             Opinions.</p> 
             <p id="skip-intro">Skip intro</p>
+          </div>
+            {/* <img id="expert-illustration" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380238/3260_Converted.png" alt="expert illustration" /> */}
+            <img className="background-blue-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png" alt="blue-dash"/>
           </div>
         </div>
         <h2 style={{paddingBottom: "20px"}}><b>Top Recomendations</b></h2>

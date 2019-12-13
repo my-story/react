@@ -799,12 +799,26 @@ body {
 /* Expert Section */
 .expert-section {
   height: 75vh;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  border: 1px solid;
   /* justify-content: space-around; */
-  align-items: baseline;
+  /* align-items: baseline; */
 }
+.expert-div {
+  height: 380px;
 
+  border: 1px solid;
+  width: 500px;
+  background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1569352461/orange-bubble.svg");
+  background-size: cover;
+  margin-right: 5vw;
+}
+.expert-video {
+  width: 80vw;
+  border: 1px solid;
+}
 .expert-message {
   /* height: 45vh; */
   width: 50vw;
@@ -867,13 +881,7 @@ border-right: 3px solid black;
 }
 
 /* Expert Illustration */
-.expert-div {
-  height: 50vh;
-  width: auto;
-  background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1569352461/orange-bubble.svg");
-  background-size: cover;
-  margin-right: 5vw;
-}
+
 
 #expert-illustration {
   width: 33vw;
