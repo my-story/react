@@ -15,9 +15,6 @@ body {
 
 
 /* for lap-top my-size */
-.review-outer-page {
-  height: 255vh;
-}
 
 .review-page {
   margin: 0 23vw 0 25vw;
@@ -42,12 +39,6 @@ body {
   left: 11vw;
   height: 23vh;
   width: 12.5vw;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.14) 34.64%,
-    rgba(0, 0, 0, 0.75) 100%
-  );
   border-radius: 200px;
 }
 .background-orange-bubble {
@@ -2088,7 +2079,7 @@ margin-right: 1vw
   font-size: 95%;
 }
 .survival-kit-card {
-  height: 17vh;
+  height: 150px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2099,7 +2090,7 @@ margin-right: 1vw
   margin-bottom: 2vh;
 }
 .survival-card-image-div {
-  width: 15vw;
+  width: 160px;
   position: relative;
   left: -2vw;
   height: 200%;
@@ -2109,6 +2100,24 @@ margin-right: 1vw
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.tips-card {
+  height: 180px;
+}
+.tip-image-div {
+  /* height: 200%; */
+  width: 120px;
+  padding-left: 1.5vw;
+
+}
+#tip-intro-description {
+  /* padding-bottom: 0; */
+  width: 400px;
+  font-size: 14px;
+  font-family: Avenir;
+}
+.technique {
+  padding-right: 10px;
 }
 #survival-image {
   height: 10vh;
@@ -2130,20 +2139,23 @@ margin-right: 1vw
 #product-name {
   font-size: 18px;
 }
+#tip-name {
+  font-size: 15px;
+}
 .kit-category-bubble {
   display: flex;
   flex-direction: row;
   padding-bottom: 1vh;
 }
 .kit-category-bubble div {
-  height: 2.8vh;	
-  width: 6.6vw;	
+  height: 22px;	
+  width: 75px;	
   border-radius: 20px;	
   background-color: #56ACC8;
   margin-right: 0.5vw;
   margin-bottom: 1vh;
   font-family: Hind;	
-  font-size: 90%;	
+  /* font-size: 10px;	 */
   font-weight: bold;	
   letter-spacing: 0.2px;	
   /* line-height: 20px; */
@@ -2152,11 +2164,50 @@ margin-right: 1vw
   align-items: center;
 }
 .kit-category-bubble span {
-  font-size: 12px;
+  font-size: 10px;
   color: white;
   padding-left: 0.25vw;
 }
+.learn-more-survival {
+  display: flex;
+  flex-direction: row;
+}
+.learn-more {
+  display: flex;
+  flex-direction: column;
+}
+.learn-word {
+  display: flex;
+  flex-direction: flex-start;
+}
+#follow-these-steps {
+margin-bottom: -0.5px;
+}
+
+/* OPEN OR CLOSE container */
+.learn-div {
+  /* display: none; */
+}
+.learn-technique {
+  display: flex;
+  line-height: 1.4;
+  width: 300px;
+  flex-direction: column;
+  /* border: 1px solid; */
+  
+}
+.learn-technique ol {
+  text-decoration: underline #F66C4F;
+}
+
 .learn-more span {
+  padding-bottom: 10px;
+  font-size: 14px;
+  color: #ABABAB;	
+  font-family: Arial, Helvetica, san-serif;
+}
+.learn-more-survival span {
+  padding-bottom: 10px;
   font-size: 14px;
   color: #ABABAB;	
   font-family: Arial, Helvetica, san-serif;
@@ -2173,7 +2224,14 @@ padding-left: 0.5vw;
   justify-content: center;
   flex-direction: column;
   padding-right: 1vw;
-
+}
+.tip-save-div {
+  margin-bottom: 15px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 1vw;
 }
 
 .line-2 {	
@@ -2223,6 +2281,7 @@ padding-left: 0.5vw;
   max-width: 700px;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap
 }
 .book-card {
   /* padding: 2px 0 6px 0; */
@@ -2236,4 +2295,7 @@ padding-left: 0.5vw;
 .book-card p {
   font-size: 12px;
   text-align: center;
+}
+.open {
+  height: 350px;
 }

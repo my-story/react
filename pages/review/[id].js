@@ -17,6 +17,12 @@ import SurvivalKit from '../../components/reviews/SurvivalKit';
 class ReviewOne extends Component {
   static contextType = UserContext;
   
+  // constructor(props){
+	// 	super(props)
+	// 	this.myInput = React.createRef();
+	// 	this.state= {height:null};
+  // }
+   
   state = {
     influencers: [],
     review: {},
@@ -31,6 +37,7 @@ class ReviewOne extends Component {
 
 
   componentDidMount() {
+    // this.setState({height:this.myInput.current.offsetHeight});
     this.fetchInfluencer();
 
     const { id } = this.props;
@@ -241,13 +248,14 @@ class ReviewOne extends Component {
     const influencer = this.state.review.influencer || {};
     const product = this.state.review.product || {};
     const influencers = this.state.influencers;
+    // const height = this.state;
 
-console.log(influencer)
     if (this.context.user.role !== "Admin") {
       if(this.state.kit === true) {
         return (
           //THIS IS FOR SURVIVAL KIT CLICKED
-<div className="review-outer-page">
+          // style={{height:height}}ref={this.myInput} READ the height of page 
+<div style={{height:"350vh"}} className="review-outer-page">
         <div className="review-page">
           <div>
             <div>
@@ -332,7 +340,7 @@ console.log(influencer)
               </div>
             </div>
           </div>
-          <CartBubble product={product}/>
+          {/* <CartBubble product={product}/> */}
         </div>
         <div className="expert-card-section-review">
         <div className="div-review-cards">
@@ -352,7 +360,7 @@ console.log(influencer)
         return (
 
           //This is for habits
-          <div className="review-outer-page">
+          <div style={{height:"350vh"}} className="review-outer-page">
         <div className="review-page">
           <div >
             <div>
@@ -417,7 +425,7 @@ console.log(influencer)
               </div>
             </div>
           </div>
-          <CartBubble product={product}/>
+          {/* <CartBubble product={product}/> */}
         </div>
         <div className="expert-card-section-review">
         <div className="div-review-cards">
