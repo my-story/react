@@ -84,7 +84,7 @@ class influencerCard extends Component {
 
     if (this.props.review === "yes"){
       return(
-        <Link href="review/[id]" as={`review/${this.props.i._id}`} key={this.props.index} prefetch>  
+        <Link href="/review/[id]" as={`/review/${this.props.i._id}`} key={this.props.index} prefetch>  
           <div className="expert-card review">
           <div style={photoBackground} className="test-background-image"></div>
             <div className="top-card">      

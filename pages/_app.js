@@ -7,6 +7,7 @@ import { UserProvider } from "../components/contexts/UserContext";
 // import { NavBarCssProvider } from "../src/components/contexts/NavBarCssContext";
 import AuthServices from '../services/AuthServices';
 import '../components/styles/index.css';
+import '../components/styles/mobile.css';
 import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'toastr/build/toastr.css';
