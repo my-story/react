@@ -250,6 +250,7 @@ class ReviewOne extends Component {
     const influencers = this.state.influencers;
     // const height = this.state;
 
+    console.log(review.video)
     if (this.context.user.role !== "Admin") {
       if(this.state.kit === true) {
         return (
