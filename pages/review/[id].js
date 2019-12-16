@@ -310,11 +310,7 @@ class ReviewOne extends Component {
                      <p><b>Title of Book www  wef</b></p>
                      <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
                    </div>
-                   <div className="book-card">
-                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
-                     <p><b>Title of Book fwef wfefwe </b></p>
-                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
-                   </div>
+   
                    
                  </div>
               </div>
