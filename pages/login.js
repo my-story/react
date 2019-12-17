@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Router from 'next/router';
+
 import * as toastr from 'toastr';
 import AuthServices from '../services/AuthServices';
 import Signup from './signup';
@@ -59,6 +59,7 @@ class Login extends Component {
     if (this.state.loggedin) {
       return (
         <div className="login-form-parent">
+
           <div className="login-rectangle">
             <form className="login-form" onSubmit={this.handleFormSubmit}>
               <p className="p-login">Log in</p>
