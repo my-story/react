@@ -1,13 +1,13 @@
 @media only screen and (max-width: 480px) {
     .review-page {
         margin: 0 5vw 0 5vw;
-      }
+      };
       .book-card {
         margin-top: 2vh;
-			}
+	};
 			.book-container {
 			justify-content: center;
-			}
+			};
       .heading {
 				display: flex;
 				flex-direction: column;				
@@ -20,7 +20,7 @@
         line-height: 28px;
         margin-bottom: 0;
         padding-top: 0;
-			}
+			};
 			.influencer-pic {
 				position: relative;
 				left: 0;
@@ -28,12 +28,19 @@
 				width: auto;
 				border-radius: 200px;
 				margin: 0;
-			}
+			};
 			.subheading {
 				display: flex;
 				flex-direction: row;
 				justify-content: space-between;
 				width: 100%;
 				padding-top: 1vh;
-			}
+			};
+			.orange-login-rectangle {
+				min-width: 100vw;
+				background-color: red;
+				height: 100vh;
+				/* margin: 0;	 */
+			};
+
   }

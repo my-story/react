@@ -90,7 +90,12 @@ class Signup extends Component {
               </div>
               <input className="inputs-login-styling margin-input-login" placeholder="Email" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
               <input className="inputs-login-styling margin-input-login" placeholder="Password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
-              <input className="inputs-login-styling margin-input-login" placeholder="Confirm Password/not working" name="password2" onChange={e => this.handleChange(e)}/>
+              {/* <input className="inputs-login-styling margin-input-login" placeholder="Confirm Password/not working" name="password2" onChange={e => this.handleChange(e)}/> */}
+              <span className="see-password">
+              <button style={{border:"none", background:"none"}} type="button">
+                  <img height="18px" src="https://img.icons8.com/ios-glyphs/30/000000/illuminati.png"/>
+              </button>
+              </span>
 
             </div>
             {/* <button type="submit" className="button-id">Submit</button> */}

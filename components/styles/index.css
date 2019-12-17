@@ -2,6 +2,7 @@
 @import "~slick-carousel/slick/slick-theme.css";
 @import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
 
+  
 body {
   margin: 0;
   padding: 0;
@@ -329,7 +330,7 @@ body {
 .orange-signup-rectangle {
   margin-top: 15vh;
   height: 46vh;
-  width: 50vw;
+  max-width: 500px;
   border-radius: 2px;
   background-color: #f66c4f;
   display: flex;
@@ -413,6 +414,17 @@ body {
 #forgot-password {
   color: #97cfdc;
 }
+.see-password {
+  position: relative;
+  border: none;
+  background: none;
+  bottom: 48px;
+  left: 200px;
+}
+.see-password:hover {
+background: white;
+}
+
 .remember-me-container{
   display: flex;
   align-items: center;
