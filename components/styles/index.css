@@ -1676,7 +1676,7 @@ test cards new ones - REVIEW
   display: inline;
 }
 .about-description {
-  height: 85vh;
+  /* height: 30vh; */
   width: 100%;
   margin-bottom: 8vh;
 }

@@ -15,6 +15,7 @@ function About(){
 				<div className="description">
                 <p>We do this by handpicking specific experts and asking them for a product, place, experience, etc., which has helped them personally be successful in their careers and achieve their goals. Luckily, they have decided to share their insights with you so that you can unlock your true potential</p>
 				</div>
+			</div>
         		<div className="video-section">
           			<div className="video-message">
             		<h1><b>What is it all about?</b></h1>
@@ -26,7 +27,7 @@ function About(){
 						<img id="about-us-video" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566405071/Video.png" alt="video-about-us"/>
 					</div>
         		</div>
-					</div>
+			
 					<div className="about-who-are-we">
 						<div id="who-title"><span><b>Who are we?</b></span></div>
 						<div id="who-description"><span>Few words about your team and corporate values. Lorem ipsum dolor. Few words about your team and corporate values. Lorem ipsum dolor.</span></div>

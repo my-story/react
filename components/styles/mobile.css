@@ -48,9 +48,30 @@
 				margin: 0;
 
 			}
+			/* .about-page {
+				margin: 0;
+			} */
 			.about-heading {
 				height: 10vh;
-				font-size: 10%;
+				width: 100%;
 			}
+			.about-heading span{
+				font-size: 20px;	
+			}
+			.about-description {
+				height: 30vh;
+				min-width: 20vw;
+				display: flex;
+				justify-content: center;
+			  }
+			  .about-description {
+				/* height: 10vh; */
+				min-width: 25vw;
+				/* margin-bottom: 8vh; */
+			  }
+			  .description {
+				width: 80%;
+				margin: 0 1vw 0 1vw;
+			  }
 
   }
