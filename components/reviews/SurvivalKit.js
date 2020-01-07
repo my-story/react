@@ -3,11 +3,6 @@ import React,{ Component } from 'react';
 class SurvivalKit extends Component {
 
 
-
-
-
-
-
     learnMore = (e) => {
         const clase = e.target.className;
         if(clase !== "open") {

@@ -1,0 +1,18 @@
+@media (min-width: 768px) and (max-width: 1024px) {
+    .orange-login-rectangle {
+        width: 65vw;
+    }
+    .orange-signup-rectangle {
+        width: 65vw;
+    }
+    .login-form {
+        min-width: 40vw;
+        background-color: white;
+    }
+    .signup-rectangle {
+        width: 35vw;
+    }
+    .not-signup-container p {
+        margin-left: 4vw;
+    }
+  }

@@ -318,6 +318,24 @@ class ReviewOne extends Component {
                 <button className="clicked-show">SURVIVAL KITS</button>
                 <button className="not-clicked" onClick={this.habits}> HABITS</button>
               </section>
+              <div className="rectangle-survival-title">
+                <div className="rectangle-title-div">
+                  <h3>Title of survival kit</h3>
+                  <h4>3 products, 1 tip</h4>
+                </div>  
+                <div className="rectangle-subtitle-div">
+                  <div className="rectangle-sage-div">
+                    <img className="rectangle-sage-picture " src="https://secureservercdn.net/198.71.233.41/l7i.589.myftpupload.com/wp-content/uploads/2019/06/Joe-Rogan-1080x1080.jpg?time=1566930175" alt="Sage Picture" />
+                    <span>By Sage's Name</span>
+                  </div>
+                  <div className="rectangle-add-all-div">
+                    <p>Favorite all</p>
+                    <button className="recangle-add-button">
+                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+                    </button>
+                  </div>
+                </div>   
+              </div>
                 <SurvivalKit></SurvivalKit>
             </div>
             {this.audioDraw()}
