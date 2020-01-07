@@ -9,6 +9,7 @@ import { UserProvider } from "../components/contexts/UserContext";
 import AuthServices from '../services/AuthServices';
 import '../components/styles/index.css';
 import '../components/styles/mobile.css';
+import '../components/styles/tablet.css';
 import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'toastr/build/toastr.css';

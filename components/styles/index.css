@@ -2319,3 +2319,81 @@ padding-left: 0.5vw;
 .open {
   height: 350px;
 }
+
+
+.rectangle-survival-title {	
+  height: 120px;	
+  width: 100%;	
+  border-radius: 2px;	
+  background: radial-gradient(circle, #4BBD78 0%, #FFFBD5 99.08%, #FFFFFF 100%);	
+  box-shadow: 0 -6px 31px 0 rgba(0,0,0,0.08);
+  margin-bottom: 1vh;
+}
+.rectangle-title-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2vh 2vw 2vh 2vw;
+}
+
+.rectangle-title-div h3 {
+  font-family: "Hind";	
+  font-size: 22px;	
+  font-weight: bold;	
+  line-height: 30px;
+}
+.rectangle-title-div h4 {
+  font-family: "Hind";	
+  font-size: 16px;	
+  font-weight: bold;	
+  line-height: 30px;
+}
+.rectangle-subtitle-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 2vw 2vh 2vw;
+}
+.rectangle-sage-div {
+  height: 45px;
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.rectangle-sage-picture {
+  height: 100%;	
+  width: auto;
+border-radius: 50%;
+}
+.rectangle-sage-div span {
+  color: #3D676A;	
+  font-family: "Hind";	
+  font-size: 14px;	
+  font-weight: 600;
+  padding-left: 0.5vw;
+}
+
+.rectangle-add-all-div {
+  letter-spacing: 0.20px;
+  padding-top: 1.5vh;
+  font-size: 14px;	
+  font-weight: 600;
+  height: 45px;
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.recangle-add-button {
+  padding: 0;
+border: none;
+background: none;
+margin-right: 1vw;
+}
+.recangle-add-button:hover {
+opacity: 0.4;
+}
