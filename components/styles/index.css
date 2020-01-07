@@ -2334,18 +2334,18 @@ padding-left: 0.5vw;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding: 2vh 2vw 0 2vw;
+  padding: 2vh 2vw 2vh 2vw;
 }
 
 .rectangle-title-div h3 {
   font-family: "Hind";	
-  font-size: 25px;	
+  font-size: 22px;	
   font-weight: bold;	
   line-height: 30px;
 }
 .rectangle-title-div h4 {
   font-family: "Hind";	
-  font-size: 18px;	
+  font-size: 16px;	
   font-weight: bold;	
   line-height: 30px;
 }
@@ -2392,7 +2392,7 @@ border-radius: 50%;
   padding: 0;
 border: none;
 background: none;
-margin-right: 0.5vw;
+margin-right: 1vw;
 }
 .recangle-add-button:hover {
 opacity: 0.4;
