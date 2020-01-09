@@ -19,7 +19,7 @@ class Terms extends Component {
                 </div>
                 <section className="terms-inform-div">
                     <div className="terms-content">
-                        <p><b>Content</b></p>
+                        <p id="content-head"><b>Content</b></p>
                         <AnchorLink href='#eligibility'><p id="content-content">Eligibility</p></AnchorLink>
                         <AnchorLink href='#registration'><p id="content-content">Registration and User Account</p></AnchorLink>                        
                         <AnchorLink href='#services'><p id="content-content">The Services</p></AnchorLink>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import AuthServices from '../services/AuthServices';
+import Signup from './signup';
 import Link from 'next/link';
 import MediaQuery from 'react-responsive';
 import * as toastr from 'toastr';
-import AuthServices from '../services/AuthServices';
-import Signup from './signup';
 
 class Login extends Component {
 

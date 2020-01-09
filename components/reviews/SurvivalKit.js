@@ -16,15 +16,16 @@ class SurvivalKit extends Component {
     //     console.log(id)
 
     // }
-    componentDidMount() {
-        // this.fetchSurvival();
-        // this.setState({id:this.props.id})
-        KitServices.getKit(this.props.id)
-            .then((kit) => {
-                this.setState({kit})
-            })
-            .catch(() => toastr.error('Error occured while fetching kit. Please try later.'));
-    }
+    
+    // componentDidMount() {
+    //     // this.fetchSurvival();
+    //     // this.setState({id:this.props.id})
+    //     KitServices.getKit(this.props.id)
+    //         .then((kit) => {
+    //             this.setState({kit})
+    //         })
+    //         .catch(() => toastr.error('Error occured while fetching kit. Please try later.'));
+    // }
     learnMore = (e) => {
         const clase = e.target.className;
         if(clase !== "open") {

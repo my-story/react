@@ -1,12 +1,13 @@
 
 import React, { Component } from 'react';
+import AuthServices from '../services/AuthServices';
+import Login from './login';
 import Link from 'next/link';
-import Router from 'next/router';
 import validator from 'email-validator';
 import passwordValidator from 'password-validator';
 import * as toastr from 'toastr';
-import AuthServices from '../services/AuthServices';
-import Login from './login';
+import MediaQuery from 'react-responsive';
+
 
 class Signup extends Component {
   state = {
@@ -77,8 +78,42 @@ class Signup extends Component {
   }
 
   render() {
-    if (this.state.login) {
+    if (!this.state.login) {
+    return(<Login></Login>)
+    }
       return (
+        <div>
+        <MediaQuery maxDeviceWidth={490}>
+        <div className="mobile-login-page">
+        <div className="mobile-login-form">
+          <div className="">
+            <form className="login-form" onSubmit={this.handleFormSubmit}>
+              <div className="p-login-header">
+              <p className="p-login">Sign up</p>             
+              <p className="new-signup">Welcome to Rebound</p>    
+              {/* <Link href="login" as={`login`}><p className="new-login signup">SIGN UP FOR FREE!</p></Link> */}
+              </div>
+              <div className="inputs-login">
+              <div className="name-last-container">
+                <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" />
+                <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" />
+              </div>
+                <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
+                <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
+                <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
+                <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img>
+              <button type="submit" className="login-button"><span className="login-font">Sign up</span></button>
+              </div>              
+              <div className="remember-div">
+                <span>Already have an account?</span>
+                <Link href="login" as={`login`}><span id="account-log-in">Log in</span></Link>
+              </div>
+            </form>
+          </div>
+        </div>
+        </div>
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={700}>
         <div className="login-form-parent">
           <div className="signup-rectangle">
           <form className="signup-form" onSubmit={this.handleFormSubmit}>
@@ -116,23 +151,12 @@ class Signup extends Component {
             </div>
           </div>
         </div>
-
-      )
-    } else  {
-      return (
-        <div>
-        <Login></Login>
+        </MediaQuery>
         </div>
       )
-    // } 
-  //   if (this.state.signedup) {
-  //     Router.push('/login');
-  //     return null;
+}
+}
 
-  // }
-}
-}
-}
 
 export default Signup;
 
