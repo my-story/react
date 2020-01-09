@@ -103,7 +103,7 @@
 				  margin-top: 20vh;
 				  display: flex;
 				  flex-direction: row;
-				  max-width: 80%;
+				  max-width: 85%;
 			  }
 			  .inputs-login-styling{
 				width: 90%;
@@ -130,4 +130,62 @@
 			  .signup:hover {
 				border-bottom: 1px #F66C4F;
 			}
+			.new-signup {	
+				font-size: 3vh;	
+				font-weight: normal;		
+				text-align: center;
+				font-family: "Hind";
+			  }
+			  .name-last-container {
+				  /* border: 1px solid; */
+				  margin-right: 12px;
+				  min-width: 235px;
+				height: 50px;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+			
+			  }
+			  .name-last-container input {
+				width: 45%;
+				height: 48px;
+			  }
+			  .remember-div {
+				  font-family: "Hind";
+				  height: 40px;
+				  margin-top: 200px;
+				  display: flex;
+				align-items: center;
+			  }
+			  #account-log-in {
+				  color: #F66C4F;
+				  font-weight: bold;
+			  }
+			  .terms-page {
+				margin: 0 5vw 0 5vw;
+			  }
+			  .terms-first-p {
+				font-family: Arial, Helvetica, san-serif;
+				color: #3D676A;
+				width: 100%;
+				font-size: 2vh;
+				margin-right: 14vw;
+				text-align: justify;
+			  }
+			  .terms-inform {
+				width: 80%;
+				margin-right: 0vw;
+				font-size: 2vh;
+			  }
+			  .terms-content {
+				margin-top: 30px;
+				margin-left: -5px;
+				width: 11.2%;
+			  }
+			  #content-content {
+				  font-weight: bold;
+			  }
+			  #content-head {
+				font-size: 105%;
+			  }
   }
