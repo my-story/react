@@ -103,7 +103,7 @@ class ShippingRates extends Component {
 
     } else {
       Router.push({
-        pathname: '/final-checkout',
+        pathname: '/shipping_rate',
         query: { 
           address: JSON.stringify(this.state.addressCheck), 
           billing: this.state.billing 
