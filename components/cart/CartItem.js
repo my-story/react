@@ -56,14 +56,15 @@ class CardItem extends Component {
         <div className="cart-container">
           <div className="cart-name">
             <div className="cart-image-div">
-          {/* <img className="cart-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567706048/bobbymarley4k_1.jpg" alt="product-image" /> */}
+          <img className="cart-image" src="https://www.arlo.com/images/Arlov4/home/product-j-1--a.png" alt="product-image" />
           </div>
-            <div>
-              <p><b>Name of product saes</b></p>
+            <div className="cart-product-name">
+              <p><b>Name of product 500 version Go-pro, Ultimate Edition</b></p>
               <p>Backed by saes</p>
             </div>
           </div>
           <div className="input-group mb-3">
+            <p>Quantity</p>
               <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer._id)}>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -75,10 +76,9 @@ class CardItem extends Component {
                 <option value="8">8</option>
                 <option value="9">9</option>
               </select>
-            </div>
-          <div>
-            <p>Pirce : {}</p>
-            <p>cancel</p>
+          </div>
+          <div className="cart-price">
+            <p>$ {this.props.product.prize}</p>
           </div>
         </div>
       )

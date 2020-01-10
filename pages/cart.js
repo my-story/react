@@ -145,24 +145,27 @@ class CartLanding extends Component {
               <p># items</p>
               </div>
               <div className="cart-total">
-                <p>Total</p>
-                <p>$230123</p>
+                <p><b>Total</b></p>
+                <p>${this.state.total}</p>
               </div>
             </div>
             {this.state.products.map((i, index) => {
               return (
                 <div key={index} className="products-card">
                   <CartItem user={this.props.user} key={index} product={i} updateTotal={this.updateTotal.bind(this)} />
-                  <button onClick={(e) => this.delete(e, i)}>Delete</button>
+                  <button className="cart-delete" onClick={(e) => this.delete(e, i)}>X</button>
                 </div>
               )
             })}
-            <h3>Total:{this.state.total}</h3>
-
-            <Link href={"/shipping"}>
-              <button onClick={this.onCheckout}>Checkout</button>
+            <div className="cart-checkout-div">
+              <div>
+            <p id="cart-total"><b>Total</b></p> 
+            <p> ${this.state.total}</p>
+            </div>
+            <Link href={"/shipping_address"}>
+              <button id="cart-checkout" onClick={this.onCheckout}>Proceed to checkout</button>
             </Link>
-
+            </div>
 
           </div>
         )
