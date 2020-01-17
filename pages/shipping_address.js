@@ -77,7 +77,7 @@ class ShippingRates extends Component {
 
 
   render() {
-
+console.log(this.state)
     if (this.getTotal() === 0) {
       Router.push('/');
       return null;
