@@ -205,7 +205,7 @@ class InfluencerList extends Component {
             <img id="about-us-video" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566405071/Video.png" alt="video-about-us"/>
           </div>
         </div>
-        <div className="donate-margin">
+        {/* <div className="donate-margin">
         <div className="donate-section">
           <div className="donate-message">
             <h2>A short message calling<br></br>for the donations</h2>
@@ -221,7 +221,7 @@ class InfluencerList extends Component {
             <img id="donate-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566410262/Screenshot_from_2019-08-21_13-57-13.png" alt="donate-picture-logo"/>
           </div>
         </div>
-        </div>
+        </div> */}
         
       </div>
     )

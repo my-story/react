@@ -84,7 +84,6 @@ class ProductDetail extends Component {
   render() {
   const { influencer } = this.state || {};
   const {name} = this.state.influencer || {};
-  console.log(name);
 
   if (influencer === undefined){
     return <div></div>
@@ -105,9 +104,9 @@ class ProductDetail extends Component {
               <img id="options-pictures" src={this.state.images[0]} alt="options-pictures" />
             </div>
             </div>
-          </div>
+        </div>
         <div id="product-description">
-          <div>
+          <div className="product-model-div">
           <h2 id="product-model"><b>{this.state.model}</b></h2>
           <div className="product-number-div">
           <p id="product-number1">Product #</p>
@@ -125,19 +124,24 @@ class ProductDetail extends Component {
           <h2><b>Specifications</b></h2>
           <div>
             <ul>
+              <li>You know that good good, it is good indeed boyy pero q es lo que pasa si le meto mas palabras jajaja , lqql</li>
+              <li>You know that good good, it is good indeed boyy</li>
+              <li>You know that good good, it is good indeed boyy</li>
               <li>You know that good good, it is good indeed boyy</li>
               <li>You know that good good, it is good indeed boyy</li>
               <li>You know that good good, it is good indeed boyy</li>
             </ul>
-            <ul>
-              <li>You know that good good, it is good indeed boyy</li>
-              <li>You know that good good, it is good indeed boyy</li>
-              <li>You know that good good, it is good indeed boyy</li>
-            </ul>
-
           </div>
         </section>
-        <section className="product-expert-quote">
+        
+        {/* Code function that gets bakced by list */}
+        <section className="product-backed-by">
+          <div>
+            <p><b>Backed by:</b></p>
+            <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
+          </div>
+        </section>
+        {/* <section className="product-expert-quote">
         <div className="product-expert-picture">
           <div>
             <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
@@ -156,7 +160,7 @@ class ProductDetail extends Component {
           </div>
           </div>
         </div>
-        </section>
+        </section> */}
       </div>
 
     )
