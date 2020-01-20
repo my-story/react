@@ -7,8 +7,11 @@ class Footer extends Component{
 			<footer className="footer-container">
 				<div className="logo-div">
 					<div className="logo-copywrite">
-						<p>My Story</p>
-						<p>Copyright @ 2019 My Story</p>
+					<img id="rebound-footer-logo" src="https://pngmafia.net/image/2019/01/3529520_0-min.png" alt="Rebound-Logo"/>
+					<div className="logo-copywrite">
+						<p>Rebound</p>
+						<p>Copyright @ 2019 Rebound</p>
+					</div>
 					</div>
 					<div className="nav-footer">
 						<p>Experts</p>
@@ -22,7 +25,7 @@ class Footer extends Component{
 					<p>Privacy Policy</p>
 					<p>Support</p>
 					<p>Contact</p>
-					<p id="donate-footer">Donate</p>
+					{/* <p id="donate-footer">Donate</p> */}
 				</div>	
 			</footer>
 			)

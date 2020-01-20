@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import Link from 'next/link';
 import {Icon} from 'antd';
+import MediaQuery from 'react-responsive';
+import { slide as Menu } from 'react-burger-menu'
 import Logout from './auth/Logout';
 // import InfluencerServices from '../services/InfluencerServices';
 import {QtyConsumer} from './contexts/QtyContext';
 import SearchBar from './influencer/SearchInfluencer';
-import { thisExpression } from '@babel/types';
 
 
 
@@ -15,6 +16,10 @@ class NavBar extends Component {
 		user: "",
 	}
 
+	showSettings (event) {
+		event.preventDefault();
+
+	  }
 	adjustState = () => {
 		this.setState({
 				logged: this.props.islogged,
@@ -30,9 +35,22 @@ class NavBar extends Component {
 	render() {
 		// const  search  = this.state.search_expert || [];
 		// console.log(this.state.search_expert);
+		
 		if (this.props.islogged) {
 			return(
 				<div>
+					<MediaQuery maxDeviceWidth={490}>
+					<div  className="navbar-burder-div">
+					<Menu>
+						<a id="home" className="menu-item" href="/">Home</a>
+						<a id="about" className="menu-item" href="/about">About</a>
+						<a id="contact" className="menu-item" href="/contact">Contact</a>
+						<a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+					</Menu>
+					</div>
+					</MediaQuery>
+
+				<MediaQuery minDeviceWidth={700}>		
 				<div className="nav-bar">
 					<div className="navbar-section">
 						{/* <img id="logo-mystory" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" alt="logo mystory" /> */}
@@ -74,12 +92,25 @@ class NavBar extends Component {
 					</Link>
 					</div>
 				</div>
+				</MediaQuery>
 			</div>
 			);
 			
 		} else {
 				return(
 					<div>
+					<MediaQuery maxDeviceWidth={490}>
+					<div className="navbar-burder-div">
+					<Menu>
+						<a id="menu" className="menu-item" href="/">Sages</a>
+						<a id="about" className="menu-item" href="/products">Store</a>
+						<a id="contact" className="menu-item" href="/about">About Us</a>
+						<a id="contact" className="menu-item" href="/contact-us">Contact</a>
+						<a id="login" className="menu-item" href="/login">Log in</a>
+					</Menu>
+					</div>
+					</MediaQuery>
+					<MediaQuery minDeviceWidth={700}>
 						<div className="nav-bar">
 							<div className="navbar-section">
 								{/* <img id="logo-mystory" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" alt="logo mystory" /> */}
@@ -119,6 +150,7 @@ class NavBar extends Component {
 							</Link>
 							</div>
 						</div>
+						</MediaQuery>
 					</div>
 				);
 		}
