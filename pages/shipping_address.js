@@ -6,6 +6,7 @@ import Cookies from 'universal-cookie';
 import countries from '../constants/Countries';
 import OrderServices from '../services/OrderServices';
 import UserContext from '../components/contexts/UserContext';
+import OrderReview from '../components/cart/OrderReview';
 
 class ShippingRates extends Component {
 
@@ -85,19 +86,45 @@ console.log(this.state)
 
     if (this.state.addressCheck === "") {
       return (
-        <div>
-          <Input name="name" placeholder="Enter Name" onChange={this.onChange} />
-          <Input name="company" placeholder="Enter Company" onChange={this.onChange} />
-          <Input name="street1" placeholder="Enter Complete Street" onChange={this.onChange} />
-          <Input name="city" placeholder="Enter City" onChange={this.onChange} />
-          <Input name="state" placeholder="Enter State " onChange={this.onChange} />
-          <Input name="zip" type="number" placeholder="Enter Zipcode" onChange={this.onChange} />
-          <Input name="country" placeholder="Enter Country" onChange={this.onChange} />
-          <Checkbox onChange={this.useBilling}>Use this as your Billing Address?</Checkbox>
-
+        <div className="checkout-page">
+          <div className="checkout-container">
+            <h2>Checkout</h2>
+            <div className="checkout-timeline">
+              <p id="checkout-clicked"><b>1. SHIPPING DETAILS</b></p>
+              <p>2. PAYMENT DETAILS</p>
+              <p>3. ORDER REVIEW</p>
+            </div>
+          </div>
+          <span id="checkout-personal">Personal Information</span>
+          <div className="checkout-address-input">
+            <div>
+              <p>First Name</p>
+              <Input id="checkout-input" name="name" placeholder="Enter Name" onChange={this.onChange} />
+              <p>Last Name</p>          
+              <Input id="checkout-input"name="company" placeholder="Enter Company" onChange={this.onChange} />
+              <p>Address</p>
+              <Input id="checkout-input" name="street1" placeholder="Enter Complete Street" onChange={this.onChange} />
+              </div>
+              <div>
+              <p>City</p>          
+              <Input id="checkout-input" name="city" placeholder="Enter City" onChange={this.onChange} />
+              <p>State</p>         
+              <Input id="checkout-input" name="state" placeholder="Enter State " onChange={this.onChange} />
+              <p>Zipcode</p>    
+              <Input id="checkout-input" name="zip" type="number" placeholder="Enter Zipcode" onChange={this.onChange} />
+              <p>Country</p>          
+              <Input id="checkout-input" name="country" placeholder="Enter Country" onChange={this.onChange} />
+              <Checkbox onChange={this.useBilling}>Use this as your Billing Address?</Checkbox>
+            </div>
+          </div>
           <div>
             <button onClick={() => this.validateAddress()}>Check address</button>
           </div>
+          
+          <div >
+           <OrderReview></OrderReview>
+         </div>
+        
         </div>
       );
 

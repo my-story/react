@@ -102,11 +102,11 @@ class NavBar extends Component {
 					<MediaQuery maxDeviceWidth={490}>
 					<div className="navbar-burder-div">
 					<Menu>
-						<a id="menu" className="menu-item" href="/">Sages</a>
-						<a id="about" className="menu-item" href="/products">Store</a>
-						<a id="contact" className="menu-item" href="/about">About Us</a>
-						<a id="contact" className="menu-item" href="/contact-us">Contact</a>
-						<a id="login" className="menu-item" href="/login">Log in</a>
+						<a id="mobile-nav" className="menu-item" href="/">Sages</a>
+						<a id="mobile-nav" className="menu-item" href="/products">Store</a>
+						<a id="mobile-nav" className="menu-item" href="/about">About Us</a>
+						<a id="mobile-nav" className="menu-item" href="/contact-us">Contact</a>
+						<a id="mobile-nav" className="menu-item" href="/login">Log in</a>
 					</Menu>
 					</div>
 					</MediaQuery>

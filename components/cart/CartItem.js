@@ -49,17 +49,19 @@ class CardItem extends Component {
     return(arr);
   }
 
-  render(){
+  render() {
+    const { product } = this.state;
+    console.log(product);
 
     if (this.state.product.total >= 9) {
       return(
         <div className="cart-container">
           <div className="cart-name">
             <div className="cart-image-div">
-          <img className="cart-image" src="https://www.arlo.com/images/Arlov4/home/product-j-1--a.png" alt="product-image" />
+          <img className="cart-image" src={product.images[0]} alt="product-image" />
           </div>
             <div className="cart-product-name">
-              <p><b>Name of product 500 version Go-pro, Ultimate Edition</b></p>
+              <p><b>{product.model}</b></p>
               <p>Backed by saes</p>
             </div>
           </div>

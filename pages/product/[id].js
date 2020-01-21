@@ -115,12 +115,14 @@ class ProductDetail extends Component {
           <div className="product-description-div">
           <p id="product-description">{this.state.description}</p>
           </div>
+          <div className="product-price-add">
           <p id="product-prize">${this.state.prize}</p>
           <button onClick={this.addCart} className="product add-to-cart"><b>Add to Cart</b></button>
           </div>
+          </div>
         </div>
         </section>
-        <section className="specification">
+        <div className="specification">
           <h2><b>Specifications</b></h2>
           <div>
             <ul>
@@ -132,7 +134,7 @@ class ProductDetail extends Component {
               <li>You know that good good, it is good indeed boyy</li>
             </ul>
           </div>
-        </section>
+        </div>
         
         {/* Code function that gets bakced by list */}
         <section className="product-backed-by">
