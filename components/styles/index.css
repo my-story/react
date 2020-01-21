@@ -2574,7 +2574,11 @@ flex-direction: row;
 
 .order-summary-container {
   height: 530px;	
-  width: 338px;
+  width: 310px;
+
+  position: absolute;
+  top: 33vh;
+  right: 12vw;
 
 }
 .order-title {
@@ -2585,6 +2589,7 @@ flex-direction: row;
   justify-content: space-between;
   border-bottom: 0.5px solid #BABABA;
   font-family: Hind;
+  margin-bottom: 2vh;
 }
 .order-title h2 {
   font-size: 22px;	
@@ -2677,12 +2682,164 @@ Note: Beware of modifying this element as it can break the animations - you shou
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
 }
+#mobile-nav {
+  border-bottom: 2.5px solid #F66C4F;
+}
 .navbar-burder-div {
   height: 14vh;
   /* padding-bottom: 10px; */
   width:100%;
   background-color: #f7f7f7;
+  overflow: hidden;
 }
 .navbar-burder-div a:last-child {
   margin-top: 2vh;
+}
+
+/* //FIN DEL NAVBAR MOBILE */
+.checkout-page {
+  margin: 0 12vw 0 12vw;
+  height: 100vh;
+}
+.checkout-container {
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-bottom: 4vh;
+}
+#checkout-clicked {
+  color: black;
+}
+.checkout-container div {
+  padding-left: 2vw;
+  display: flex;
+  flex-direction: row;
+  font-family: Hind;	
+  font-size: 10px;	
+  font-weight: 600;	
+  letter-spacing: 0.4px;	
+  /* line-height: 23px; */
+}
+.checkout-timeline p {
+  padding-left: 1vw;
+  color: #BABABA;
+}
+#checkout-clicked {
+  color: black;
+}
+.checkout-container h2 {
+  margin-right: 1vw;
+  font-family: Hind;	
+  font-size: 70px;	
+  font-weight: bold;	
+  /* line-height: 132px; */
+}
+.checkout-address-input {
+width: 600px;
+height: 260px;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+}
+#checkout-personal {
+  width: 100%;
+  font-family: Hind;	font-size: 28px;	font-weight: bold;
+}
+.checkout-address-input p{
+ margin-bottom: -1px;
+ font-weight: bold;
+font-family: Hind;	font-size: 14px;
+}
+.checkout-address-input div{
+width: 50%;
+margin-right: 2vw;
+
+}
+#checkout-input {
+margin-right: 100px;
+margin-bottom: 2vh;
+}
+.order-item-container {
+  height: 100px;
+  width: 100%;
+  border-bottom: 0.5px solid #F3F2EB;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1vh;
+}
+.order-picture-div {
+  height: 70px;	
+  width: 70px;
+  background-color: #F7F7F7;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2vw;
+}
+#order-image {
+  height: 48px;	
+  width: auto;
+}
+.order-item-model {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.order-item-model p:last-child {
+  font-size: 14px;
+
+}
+.order-item-model p:first-child {
+  font-family: Hind;	
+  font-size: 14px;
+
+}
+.order-item-model div{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ font-size: 14px;
+}
+.winner {
+  margin-top: 1vh;
+}
+.winner p:last-child{
+  color: #F66C4F;
+  font-size: 22px;
+}
+.order-price p:last-child {
+  color: #F66C4F;
+}
+.order-review-card {
+  align-self: flex-end;
+  height: 120px;	
+  width: 104%;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  justify-content: flex-end;
+
+}
+
+.order-review-card div{
+  display: flex;
+  height: 25px;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.order-subtotal p {
+  font-size: 14px;	
+  font-weight: 600;
+  margin-bottom: 2.5vh;
+}
+.order-subtotal p:first-child {
+  padding-left: 6.5vw;
+  font-family: Hind;	
 }
