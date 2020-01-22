@@ -3,6 +3,7 @@ import Router from 'next/router';
 import Cookies from 'universal-cookie';
 import Stripe from '../components/payment/Stripe';
 import UserContext from '../components/contexts/UserContext';
+import OrderReview from '../components/cart/OrderReview'; 
 
 const cookies = new Cookies();
 
@@ -71,25 +72,25 @@ class CartPay extends Component {
 console.log(this.props)
     return (
       <div>
-        <h2>
-          order review:
-              </h2>
-        <div>
-          <p>Order Summary</p>
-          {products.map((i, index) => {
-            return (
-              <div key={index} className="influencer-card">
-                <p>name: {i.model}</p>
-                <p>price: {i.price}</p>
-                <p> {i.description} </p>
-              </div>
-            )
-          })}
-          <p>Price: ${this.getTotal()}</p>
-          <p>Shipping: ${this.props.rate.amount}</p>
-          <p>Tax: ${this.state.tax}</p>
-          <p>Total: ${this.state.total}</p>
+<div className="checkout-page">
+          <div className="checkout-container">
+            <h2>Checkout</h2>
+            <div className="checkout-timeline">
+              <p id="checkout-clicked"><b>1. SHIPPING DETAILS</b></p>
+              <p>2. PAYMENT DETAILS</p>
+              <p>3. ORDER REVIEW</p>
+            </div>
+          </div>
+          <span id="checkout-personal">Personal Information</span>
+          <div>
+            <button onClick={() => this.validateAddress()}>Check address</button>
+          </div>
+          <div >
+           <OrderReview></OrderReview>
+         </div>
+        
         </div>
+      );
         <Stripe user={this.props.user} address={this.props.address} total={this.state.total}></Stripe>
       </div>
     )

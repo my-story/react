@@ -19,8 +19,6 @@ class CartLanding extends Component {
 
   static contextType = QtyContext;
 
-
-
   fetchCart = () => {
     const cookies = new Cookies();
     if (cookies.get('Products') !== undefined) {
@@ -141,20 +139,33 @@ class CartLanding extends Component {
         this.getTotal();
         return (
           <div className="cart-page">
+            <div className="cart-heading">
+              <div>
+              <h1>Your Cart</h1>
+              <p># items</p>
+              </div>
+              <div className="cart-total">
+                <p><b>Total</b></p>
+                <p>${this.state.total}</p>
+              </div>
+            </div>
             {this.state.products.map((i, index) => {
               return (
                 <div key={index} className="products-card">
                   <CartItem user={this.props.user} key={index} product={i} updateTotal={this.updateTotal.bind(this)} />
-                  <button onClick={(e) => this.delete(e, i)}>Delete</button>
+                  <button className="cart-delete" onClick={(e) => this.delete(e, i)}>X</button>
                 </div>
               )
             })}
-            <h3>Total:{this.state.total}</h3>
-
-            <Link href={"/shipping"}>
-              <button onClick={this.onCheckout}>Checkout</button>
+            <div className="cart-checkout-div">
+              <div>
+            <p id="cart-total"><b>Total</b></p> 
+            <p> ${this.state.total}</p>
+            </div>
+            <Link href={"/shipping_address"}>
+              <button id="cart-checkout" onClick={this.onCheckout}>Proceed to checkout</button>
             </Link>
-
+            </div>
 
           </div>
         )

@@ -84,7 +84,7 @@ class influencerCard extends Component {
 
     if (this.props.review === "yes"){
       return(
-        <Link href="review/[id]" as={`review/${this.props.i._id}`} key={this.props.index} prefetch>  
+        <Link href="/review/[id]" as={`/review/${this.props.i._id}`} key={this.props.index} prefetch>  
           <div className="expert-card review">
           <div style={photoBackground} className="test-background-image"></div>
             <div className="top-card">      
@@ -105,13 +105,13 @@ class influencerCard extends Component {
                   <p> {this.votes()}</p>
                 </div>
               </div>
-            <div className="product-card-bubble">
+            {/* <div className="product-card-bubble">
               <img id="product-picture" src={this.state.product.images} alt="product-picture"/>
               <div>
               <p id="name-inside-product"><b>{this.state.product.model}</b></p>
               <p id="prize-inside-product">${this.state.product.prize}</p>
               </div>
-            </div>
+            </div> */}
           </div>
           </div>
         </Link>

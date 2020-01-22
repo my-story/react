@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Router from 'next/router';
-import * as toastr from 'toastr';
 import AuthServices from '../services/AuthServices';
 import Signup from './signup';
+import Link from 'next/link';
+import MediaQuery from 'react-responsive';
+import * as toastr from 'toastr';
 
 class Login extends Component {
 
@@ -55,48 +56,85 @@ class Login extends Component {
     this.savePath();
   }
 
+
+
   render() {
-    if (this.state.loggedin) {
-      return (
-        <div className="login-form-parent">
-          <div className="login-rectangle">
-            <form className="login-form" onSubmit={this.handleFormSubmit}>
-              <p className="p-login">Log in</p>
-              <div className="inputs-login">
-                <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
-                <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
-                <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
-                <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img>
-              </div>
-              <button type="submit" className="login-button"><span className="login-font">Log in</span></button>
-              <div className="forgot-pass-parent">
-                <div className="remember-me-container">
-                <input type="checkbox"/><span>Remember Me</span>
-                </div>
-                <span id="forgot-password" to="recover-pass">Forgot Password?</span>
-              </div>
-            </form>
-          </div>
-          <div className="orange-login-rectangle">
-            <div className="not-signup-container">
-              <p><b>Don't have an account yet?</b></p> 
-              <button className="sign-up-button" onClick={this.signUp}><b>Sign up</b></button>
-            </div>
-          </div>
-        </div>
-      )
-    } else {
+
+    // const isLaptopScreen = useMediaQuery({ query: '(min-device-width: 1224px)' })
+    // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1220px)' })
+    // const isTabletOrMobileDevice = useMediaQuery({
+    //   query: '(max-device-width: 1224px)'
+    // })
+
+    if (!this.state.loggedin) {
       return (
         <div>
       <Signup></Signup>
         </div>
       )
     }
-    
-    // if (this.state.loggedin) {
-    //     Router.push('/')
-    //     return null;
-    // } 
+      return (
+        <div>
+        <MediaQuery maxDeviceWidth={490}>
+        <div className="mobile-login-page">
+        <div className="mobile-login-form">
+          <div className="">
+            <form className="login-form" onSubmit={this.handleFormSubmit}>
+              <div className="p-login-header">
+              <p className="p-login">Log in</p>             
+              <p className="new-login">New to Rebound?</p>    
+              <Link href="signup" as={`signup`}><p className="new-login signup">SIGN UP FOR FREE!</p></Link>
+              </div>
+              <div className="inputs-login">
+                <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
+                <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
+                <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
+                <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img>
+              <button type="submit" className="login-button"><span className="login-font">Log in</span></button>
+              </div>              
+              <div className="remember-div">
+                <div className="">
+                <input type="checkbox"/><span>Remember Me</span>
+                </div>
+                <span id="forgot-password" to="recover-pass">Forgot Password?</span>
+              </div>
+            </form>
+          </div>
+        </div>
+        </div>
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={700}>
+                <div className="login-form-parent">
+                  <div className="login-rectangle">
+                    <form className="login-form" onSubmit={this.handleFormSubmit}>
+                      <p className="p-login">Log In</p>
+                      <div className="inputs-login">
+        
+                        <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
+                        <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
+                        <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
+                        <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img>
+                      </div>
+                      <button type="submit" className="login-button"><span className="login-font">Log in</span></button>
+                      <div className="forgot-pass-parent">
+                        <div className="remember-me-container">
+                        <input type="checkbox"/><span>Remember Me</span>
+                        </div>
+                        <span id="forgot-password" to="recover-pass">Forgot Password?</span>
+                      </div>
+                    </form>
+                  </div>
+                  <div className="orange-login-rectangle">
+                    <div className="not-signup-container">
+                      <p><b>Don't have an account yet?</b></p> 
+                      <button className="sign-up-button" onClick={this.signUp}><b>Sign up</b></button>
+                    </div>
+                  </div>
+                </div>
+                </MediaQuery>
+                </div>
+
+      )
   }
 }
 

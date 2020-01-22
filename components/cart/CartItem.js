@@ -49,15 +49,24 @@ class CardItem extends Component {
     return(arr);
   }
 
-  render(){
+  render() {
+    const { product } = this.state;
+    console.log(product);
 
     if (this.state.product.total >= 9) {
       return(
-        <ul>
-          <li>{this.props.product.model}</li>
-          <li>Price:{this.props.product.prize}</li>
-          <li>
-            <div className="input-group mb-3">
+        <div className="cart-container">
+          <div className="cart-name">
+            <div className="cart-image-div">
+          <img className="cart-image" src={product.images[0]} alt="product-image" />
+          </div>
+            <div className="cart-product-name">
+              <p><b>{product.model}</b></p>
+              <p>Backed by saes</p>
+            </div>
+          </div>
+          <div className="input-group mb-3">
+            <p>Quantity</p>
               <select className="custom-select" id="inputGroupSelect01" defaultValue={this.props.product.qty} onChange={(e) => this.onChange(e, this.props.product.influencer._id)}>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -69,9 +78,11 @@ class CardItem extends Component {
                 <option value="8">8</option>
                 <option value="9">9</option>
               </select>
-            </div>
-          </li>
-        </ul>
+          </div>
+          <div className="cart-price">
+            <p>$ {this.props.product.prize}</p>
+          </div>
+        </div>
       )
     } else {
       if (this.state.product.total < 9) {
