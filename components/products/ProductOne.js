@@ -68,21 +68,22 @@ class ProductOne extends Component {
     // console.log(this.props.i.influencer.expertise[0])
     // using the influencer category for now 
 
-    return(
+    return( 
         <div key={this.props.index} className="product-big-card">
            <div className={`category-bubble ${category}`}>
             <img src={this.getGlyphicon(category)} alt="the product" className="icon"/>
             <span className="category-name">{category}</span>
            </div>
-      
           <Link href="product/[id]" as={`product/${this.props.i._id}`} key={this.props.index} prefetch>
               <div className="product-big-card-image">
                 <img className="product-big-card-image-size" src={this.props.i.images[0]} alt={this.props.i.name} />
-                <div className="p-product-big">
-                  <span>{this.props.i.model}</span>
-                </div>
-                <div className="p-product-big">
-                  <span>${this.props.i.prize}</span>
+               <div className="p-product-info-div"> 
+                  {/* <div className="p-product-big"> */}
+                  <span id="product-card-name">{this.props.i.model} fewf  fweffef fef</span>
+                  {/* </div> */}
+                  {/* <div className="p-product-big"> */}
+                  <span id="product-card-price">${this.props.i.prize}</span>
+                  {/* </div> */}
                 </div>
               </div>
           </Link>

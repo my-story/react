@@ -620,7 +620,8 @@ background: white;
 
 .product-big-card {
   /* border: solid 1px black; */
-  background-color: #F9F8F4;
+  /* background-color: #F9F8F4; */
+  background-color: #F7F7F7;
   height: 43vh;
   width: 24vw;
 }
@@ -2842,4 +2843,90 @@ margin-bottom: 2vh;
 .order-subtotal p:first-child {
   padding-left: 6.5vw;
   font-family: Hind;	
+}
+
+.p-product-info-div {
+  display: flex;
+  text-align: flex-start;
+  flex-direction: column;
+  width: 90%;
+  max-height: 55px;
+
+}
+#product-card-name {
+  font-family: Hind;	
+  font-size: 16px;	
+  font-weight: bold;
+}
+#product-card-price {
+  color: #F66C4F;	
+  font-size: 19px;	
+  font-weight: 500;
+}
+.index-best-book-div {
+  height: 50vh;
+  width: 100%;
+  border: 1px solid;
+  margin-top: 8vh;
+
+}
+.best-book-header {
+  text-align: center;
+}
+.best-book-header h1 {
+  font-family: Hind;
+  font-weight: bold;
+  font-size: 50px;
+}
+.best-book-info-div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 2vh;
+}
+.best-book-pictures {
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+}
+#best-book-cover {
+  height: 100%;
+  padding-right: 30px;
+  padding-left: 30px;
+  background-color: #F7F7F7;
+}
+#best-book-author {
+  height: 60%;
+  width: auto;
+  /* border-radius: 50%; */
+  position: relative;
+  top: 220px;
+  right: 50px;
+}
+.best-book-title-div {
+  margin-top: 2vh;
+}
+.best-book-title-div h2 {
+  font-family: Hind;
+  font-weight: bold;
+  font-size: 30px;
+}
+#best-author-p {
+  font-weight: bold;
+  font-size: 15px;
+}
+#best-description-p {
+  font-size: 15px;
+}
+.best-book-title-div button {
+  font-family: "Hind", sans-serif;
+  padding: 0 2vw 0 2vw;
+  color: white;
+  height: 7vh;
+  width: auto;
+  border-radius: 30px;
+  background-color: #f66c4f;
+  text-decoration: none;
+  border: none;
 }
