@@ -107,13 +107,13 @@ class ProductDetail extends Component {
         </div>
         <div id="product-description">
           <div className="product-model-div">
-          <h2 id="product-model"><b>{this.state.model}</b></h2>
+            <h2 id="product-model"><b>{this.state.model}</b></h2>
           <div className="product-number-div">
-          <p id="product-number1">Product #</p>
-          <p id="product-number">{this.state._id} should alter ID</p>
+            <p id="product-number1">Product #</p>
+            <p id="product-number">{this.state._id} should alter ID</p>
           </div>
           <div className="product-description-div">
-          <p id="product-description">{this.state.description}</p>
+            <p id="product-description-1">{this.state.description}</p>
           </div>
           <div className="product-price-add">
           <p id="product-prize">${this.state.prize}</p>
@@ -137,12 +137,15 @@ class ProductDetail extends Component {
         </div>
         
         {/* Code function that gets bakced by list */}
-        <section className="product-backed-by">
+        <div className="product-backed-by">
           <div>
             <p><b>Backed by:</b></p>
             <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
+            <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
+            <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
+            
           </div>
-        </section>
+        </div>
         {/* <section className="product-expert-quote">
         <div className="product-expert-picture">
           <div>
