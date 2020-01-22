@@ -2866,7 +2866,6 @@ margin-bottom: 2vh;
 .index-best-book-div {
   height: 50vh;
   width: 100%;
-  border: 1px solid;
   margin-top: 8vh;
 
 }
@@ -2891,18 +2890,18 @@ margin-bottom: 2vh;
   flex-direction: row;
 }
 #best-book-cover {
-  height: 100%;
-  padding-right: 30px;
+  height: 75%;
+  padding-right: 60px;
   padding-left: 30px;
   background-color: #F7F7F7;
 }
 #best-book-author {
-  height: 60%;
+  height: 50%;
   width: auto;
   /* border-radius: 50%; */
   position: relative;
-  top: 220px;
-  right: 50px;
+  top: 160px;
+  right: 40px;
 }
 .best-book-title-div {
   margin-top: 2vh;
@@ -2921,6 +2920,7 @@ margin-bottom: 2vh;
 }
 .best-book-title-div button {
   font-family: "Hind", sans-serif;
+  font-weight: bold;
   padding: 0 2vw 0 2vw;
   color: white;
   height: 7vh;
