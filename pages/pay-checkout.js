@@ -16,13 +16,13 @@ class CartPay extends Component {
   }
 
   static contextType = UserContext;
-   static getInitialProps({ query: { rate, address, billing } }) {
-    return { 
-      rate: JSON.parse(rate), 
-      address: JSON.parse(address), 
-      billing: JSON.parse(billing) 
-    };
-  }
+  //  static getInitialProps({ query: { rate, address, billing } }) {
+  //   return { 
+  //     rate: JSON.parse(rate),
+  //     address: JSON.parse(address), 
+  //     billing: JSON.parse(billing) 
+  //   };
+  // }
 
   getTotal = () => {
     let counter = 0;
@@ -51,11 +51,11 @@ class CartPay extends Component {
 
   //Arreglar cuando tengamos reward percentages, sacar fees nuestros y tax verdadero
   totalCost = () => {
-    const { rate } = this.props;
-    let total = 0;
-    let tax = Number((+this.getTotal() * 0.025).toFixed(2));
-    total = Number((+rate.amount + +this.getTotal() + +tax).toFixed(2));
-    this.setState({ total, tax });
+    // const { rate } = this.props;
+    // let total = 0;
+    // let tax = Number((+this.getTotal() * 0.025).toFixed(2));
+    // total = Number((+rate.amount + +this.getTotal() + +tax).toFixed(2));
+    // this.setState({ total, tax });
   }
 
   componentDidMount() {
@@ -76,22 +76,20 @@ console.log(this.props)
           <div className="checkout-container">
             <h2>Checkout</h2>
             <div className="checkout-timeline">
-              <p id="checkout-clicked"><b>1. SHIPPING DETAILS</b></p>
-              <p>2. PAYMENT DETAILS</p>
-              <p>3. ORDER REVIEW</p>
+              <p><b>1. SHIPPING DETAILS</b></p>
+              <p id="checkout-clicked">2. PAYMENT DETAILS</p>
             </div>
           </div>
-          <span id="checkout-personal">Personal Information</span>
+          <span id="checkout-personal">Payment Information</span>
+          <Stripe user={this.props.user} address={this.props.address} total={this.state.total}></Stripe>
           <div>
-            <button onClick={() => this.validateAddress()}>Check address</button>
+            {/* <button onClick={() => this.validateAddress()}>Check address</button> */}
           </div>
           <div >
            <OrderReview></OrderReview>
          </div>
         
         </div>
-      );
-        <Stripe user={this.props.user} address={this.props.address} total={this.state.total}></Stripe>
       </div>
     )
   }

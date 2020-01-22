@@ -64,6 +64,7 @@ class ProductOne extends Component {
   }
 
   render() {
+    console.log(this.props)
     const category = this.props.i.influencer.expertise[0];
     // console.log(this.props.i.influencer.expertise[0])
     // using the influencer category for now 

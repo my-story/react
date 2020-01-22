@@ -9,7 +9,7 @@ import UserContext from '../contexts/UserContext';
 import InfluencerServices from '../../services/InfluencerServices';
 import ProductServices from '../../services/ProductServices';
 import PaymentServices from '../../services/PaymentServices';
-
+import { Input } from 'antd';
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -160,10 +160,22 @@ class CheckoutForm extends Component {
 
     return (
       <div className="checkout">
-        <p>Would you like to complete the purchase?</p>
-        <input type="text" name="name" onChange={this.onChange}/>
-        <input type="email" name="email" onChange={this.onChange}/>
-        <CardElement />
+        <div className="checkout-address-input2">
+          <div>
+            <p>Name on Card</p>
+            <Input id="checkout-input" type="text" name="name" placeholder="John Doe" onChange={this.onChange}/>
+            <p>Email</p>
+            <Input id="checkout-input" type="email" name="email" placeholder="john@gmail.com" onChange={this.onChange}/> 
+          </div>
+         {/* <p>Name on Card</p>
+         <Input id="checkout-input2" type="text" name="name" placeholder="John Doe" onChange={this.onChange}/>
+         <p>Email</p>
+         <Input id="checkout-input2" type="email" name="email" placeholder="john@gmail.com" onChange={this.onChange}/> */}
+        </div>
+        <div className="checkout-card">
+          <CardElement/>
+        </div>
+        <br></br>
         <button ref="submitbutton" onClick={this.submit}>Send</button>
       </div>
     );

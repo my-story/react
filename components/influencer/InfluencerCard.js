@@ -59,6 +59,8 @@ class influencerCard extends Component {
       backgroundImage: 'url(' + this.props.i.profilePic + ')',
     };  
 
+    console.log(this.state.product)
+
     // const divStyleReview = {
     //   backgroundImage: 'url(' + this.props.i.profilePic + ')',
     //   // background: "rgba(255, 255, 255, 0.3)",
@@ -142,8 +144,8 @@ class influencerCard extends Component {
             <div className="product-card-bubble">
               <img id="product-picture" src={this.state.product.images} alt="product-picture"/>
               <div>
-              <p id="name-inside-product"><b>{this.state.product.model}</b></p>
-              <p id="prize-inside-product">${this.state.product.prize}</p>
+                <p id="name-inside-product"><b>{this.state.product.model}</b></p>
+                <p id="prize-inside-product">${this.state.product.prize}</p> 
               </div>
             </div>
           </div>

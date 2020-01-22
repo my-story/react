@@ -50,6 +50,9 @@ class ShippingRates extends Component {
     let { address } = this.state;
     address[e.target.name] = e.target.value;
     this.setState({ address });
+    const cookies = new Cookies();
+    cookies.set("Address", address, { path: '/' });
+    console.log(cookies.get("Address"))
   }
 
   validateAddress = () => {
@@ -84,6 +87,7 @@ console.log(this.state)
       return null;
     }
 
+
     if (this.state.addressCheck === "") {
       return (
         <div className="checkout-page">
@@ -92,7 +96,6 @@ console.log(this.state)
             <div className="checkout-timeline">
               <p id="checkout-clicked"><b>1. SHIPPING DETAILS</b></p>
               <p>2. PAYMENT DETAILS</p>
-              <p>3. ORDER REVIEW</p>
             </div>
           </div>
           <span id="checkout-personal">Personal Information</span>
