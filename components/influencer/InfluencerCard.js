@@ -14,7 +14,7 @@ class influencerCard extends Component {
 
   
 
-  componentDidMount() {
+  componentDidMount = () => {
     ReviewServices.getReview(this.props.i._id)
       .then((review) => this.setState(() => ({ review: review, product: review.product })))
       .catch(() => console.log('Error occured while fetching review. Please try later.'));
@@ -55,34 +55,14 @@ class influencerCard extends Component {
   }
 
   render() {
+    console.log(this.props.influencer);
+
     const photoBackground= {
       backgroundImage: 'url(' + this.props.i.profilePic + ')',
+
     };  
 
-    console.log(this.state.product)
 
-    // const divStyleReview = {
-    //   backgroundImage: 'url(' + this.props.i.profilePic + ')',
-    //   // background: "rgba(255, 255, 255, 0.3)",
-    //   // filter: "alpha(opacity=50)",
-    //   // backgroundBlendMode: "lighten",
-    //   transform: "scale(0.8)",
-    //   maxHeight: "43vh",
-    //   // width: "25vw",
-    //   maxWidth: "24vw",
-    //   display: "flex",
-    //   flexDirection: "column",
-    //   justifyContent: "space-between",
-    //   borderRadius: "8px",
-    //   backgroundRepeat: "no-repeat",
-    //   backgroundPosition: "center",
-    //   backgroundSize: "100% 100%",
-    //   // boxShadow: "20px",
-    //   opacity: this.state.opacity,
-    //   // backgroundColor: "black",
-      
-    //   // padding: "20px" 
-    // };  
 
     if (this.props.review === "yes"){
       return(

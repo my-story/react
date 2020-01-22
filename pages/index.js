@@ -192,7 +192,7 @@ class InfluencerList extends Component {
           </div>
           </div>
         </div>
-
+{/* 
         <div className="video-section">
           <div className="video-message">
             <h1><b>What is it all about?</b></h1>
@@ -204,24 +204,28 @@ class InfluencerList extends Component {
             <input type="image" id="video-start" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566406923/btn.svg" />
             <img id="about-us-video" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566405071/Video.png" alt="video-about-us"/>
           </div>
-        </div>
-        {/* <div className="donate-margin">
-        <div className="donate-section">
-          <div className="donate-message">
-            <h2>A short message calling<br></br>for the donations</h2>
-            <p>Sages focuses on giving back to the community.<br></br> 
-            For every sale made, 10% will be donated to a <br></br>
-            foundation chosen by the expert.</p>
-              <div className="donate-buttons">
-              <p>Donate</p>
-              <p>Learn more about what we do</p>
-              </div>
-          </div>
-          <div> 
-            <img id="donate-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566410262/Screenshot_from_2019-08-21_13-57-13.png" alt="donate-picture-logo"/>
-          </div>
-        </div>
         </div> */}
+
+
+            <div className="index-best-book-div">
+            <div className="best-book-header">
+              <h1>The Best Book This Week</h1>
+            </div>
+            <div className="best-book-info-div">
+              <div className="best-book-pictures">
+                <img id="best-book-cover" src="https://www.bookcoversclub.com/wp-content/uploads/2018/02/book-cover-352.jpg" alt="Book Cover" />
+                <img id="best-book-author" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Robert_Greene_B%26W.jpg" alt="Author Picture" />
+              </div>
+              <div className="best-book-title-div">
+                <h2>Name of the book</h2>
+                <p id="best-author-p">Author: Jota Jota Cisneros</p>
+                <p id="best-description-p">Descripcion del libro. Lorem ipsum saes, toca ver que aprendemos del libro para poder saaessss.esto es un test.!</p>
+                <button>Get the Book</button>
+              </div>
+            </div>
+
+            </div>
+
         
       </div>
     )
