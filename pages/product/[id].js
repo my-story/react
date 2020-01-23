@@ -108,10 +108,10 @@ class ProductDetail extends Component {
         <div id="product-description">
           <div className="product-model-div">
             <h2 id="product-model"><b>{this.state.model}</b></h2>
-          <div className="product-number-div">
+          {/* <div className="product-number-div">
             <p id="product-number1">Product #</p>
             <p id="product-number">{this.state._id} should alter ID</p>
-          </div>
+          </div> */}
           <div className="product-description-div">
             <p id="product-description-1">{this.state.description}</p>
           </div>

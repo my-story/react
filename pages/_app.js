@@ -110,9 +110,9 @@ class MyApp extends App {
 
           <QtyProvider value={{ getQtyState: this.state.getQty, updateQty: this.updateQty }}>
             {/* <NavBarCssProvider value={{css: this.state.NavBarCss}}> */}
-              <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
+            <UserProvider value={{ user: this.state.loggedInUser, islogged: this.state.islogged, setAddress: this.getAddress, address: this.state.clientAddress }}>            
+            <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
             {/* </NavBarCssProvider> */}
-            <UserProvider value={{ user: this.state.loggedInUser, islogged: this.state.islogged, setAddress: this.getAddress, address: this.state.clientAddress }}>
               <Component {...pageProps} giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser} />
             </UserProvider>
           </QtyProvider>

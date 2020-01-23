@@ -55,19 +55,14 @@ class influencerCard extends Component {
   }
 
   render() {
-    console.log(this.props.influencer);
-
-    const photoBackground= {
-      backgroundImage: 'url(' + this.props.i.profilePic + ')',
-
-    };  
+    console.log("each influecner" + this.props.i);
 
 
 
     if (this.props.review === "yes"){
       return(
         <Link href="/review/[id]" as={`/review/${this.props.i._id}`} key={this.props.index} prefetch>  
-          <div className="expert-card review">
+          {/* <div className="expert-card review">
           <div style={photoBackground} className="test-background-image"></div>
             <div className="top-card">      
               <div className={`category-bubble ${this.props.i.expertise[0]}`}>
@@ -87,21 +82,24 @@ class influencerCard extends Component {
                   <p> {this.votes()}</p>
                 </div>
               </div>
-            {/* <div className="product-card-bubble">
+            <div className="product-card-bubble">
               <img id="product-picture" src={this.state.product.images} alt="product-picture"/>
               <div>
               <p id="name-inside-product"><b>{this.state.product.model}</b></p>
               <p id="prize-inside-product">${this.state.product.prize}</p>
               </div>
-            </div> */}
+            </div>
           </div>
+          </div> */}
+          <div>
+
           </div>
         </Link>
       )
     } else {
       return (
         <Link href="review/[id]" as={`review/${this.props.i._id}`} key={this.props.index} prefetch>  
-          <div className="expert-card">
+          {/* <div className="expert-card">
           <div style={photoBackground} className="test-background-image"></div>
             <div className="top-card">      
               <div className={`category-bubble ${this.props.i.expertise[0]}`}>
@@ -129,6 +127,30 @@ class influencerCard extends Component {
               </div>
             </div>
           </div>
+          </div> */}
+          <div className="expert-card-container">
+            <div className="expert-card-name">
+              <div>
+
+              </div>
+              <div>
+
+              </div>
+              <div>
+                {this.props.i.name.firstName}
+              </div>
+            </div>
+
+            <div className="expert-card-paragraph">
+              <p>
+              Classic looks and all-game comfort are what these juniors' soccer cleats are all about. They feature a lightweight, durable synthetic upper. They're designed for stability and speed on firm ground.
+              </p>
+            </div>
+            <div className="expert-card-picture-div">
+              <div className="expert-card-picture-round">
+                {/* <img src="" alt="Sage picture" /> */}
+              </div>
+            </div>
           </div>
         </Link>
       )

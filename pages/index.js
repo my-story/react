@@ -213,13 +213,15 @@ class InfluencerList extends Component {
             </div>
             <div className="best-book-info-div">
               <div className="best-book-pictures">
-                <img id="best-book-cover" src="https://www.bookcoversclub.com/wp-content/uploads/2018/02/book-cover-352.jpg" alt="Book Cover" />
+                <img id="best-book-cover" src="https://miro.medium.com/max/3000/1*r6rpoanJHbvwZpSW7mZjzg.jpeg" alt="Book Cover" />
                 <img id="best-book-author" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Robert_Greene_B%26W.jpg" alt="Author Picture" />
               </div>
               <div className="best-book-title-div">
-                <h2>Name of the book</h2>
-                <p id="best-author-p">Author: Jota Jota Cisneros</p>
-                <p id="best-description-p">Descripcion del libro. Lorem ipsum saes, toca ver que aprendemos del libro para poder saaessss.esto es un test.!</p>
+                <h2>The Alchemist, 25th Anniversary: A Fable About Following Your Dream </h2>
+                <p id="best-author-p">Paulo Coelho | #86 in Books on Amazon</p>
+                <p id="best-description-p">
+                Paulo Coelho's enchanting novel has inspired a devoted following around the world. This story, dazzling in its powerful simplicity and soul-stirring wisdom, is about an Andalusian shepherd boy named Santiago who travels from his homeland in Spain to the Egyptian desert in search of a treasure buried near the Pyramids. Along the way he meets a Gypsy woman, a man who calls himself king, and an alchemist, all of whom point Santiago in the direction of his quest. No one knows what the treasure is, or if Santiago will be able to surmount the obstacles in his path. But what starts out as a journey to find worldly goods turns into a discovery of the treasure found within. Lush, evocative, and deeply humane, the story of Santiago.
+                </p>
                 <button>Get the Book</button>
               </div>
             </div>
