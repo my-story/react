@@ -2758,6 +2758,25 @@ justify-content: space-between;
  font-family: Hind;	font-size: 14px;
  }
 
+ .checkout-font{
+  font-weight: bold;
+  font-family: Hind;	font-size: 14px;
+ }
+
+ .checkout-font-a{
+  color: #F66C4F;
+  font-weight: bold;
+  font-family: Hind;	
+  font-size: 14px;
+ }
+
+ .checkout-font-a:hover{
+  text-decoration: none;
+  color: #F66C4F;
+ }
+
+ 
+
  .checkout-address-input2 div{
  width: 50%;
  margin-right: 2vw;
@@ -2787,6 +2806,16 @@ margin-bottom: 2vh;
 .checkout-card{
   margin-right: 40%;
   margin-top: 1.5%;
+}
+
+.shipping-confirmation p{
+  margin: 0px;
+  font-family: Hind;	
+  font-size: 12px;
+}
+
+.shipping-checkout-div{
+  margin-top: 5%;
 }
 
 #checkout-input2 {

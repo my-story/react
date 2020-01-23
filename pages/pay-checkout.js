@@ -69,10 +69,11 @@ class CartPay extends Component {
       Router.push('/');
       return null;
     }
-console.log(this.props)
+    const cookies = new Cookies();
+
     return (
       <div>
-<div className="checkout-page">
+        <div className="checkout-page">
           <div className="checkout-container">
             <h2>Checkout</h2>
             <div className="checkout-timeline">
@@ -86,7 +87,17 @@ console.log(this.props)
             {/* <button onClick={() => this.validateAddress()}>Check address</button> */}
           </div>
           <div >
-           <OrderReview></OrderReview>
+           <OrderReview button="Pay Now"></OrderReview>
+         </div>
+         <div className="shipping-checkout-div">
+          <span className="checkout-font">Address<a className="checkout-font-a" href="/shipping_address"> [edit]</a></span>
+          <div className="shipping-confirmation">
+            <p>{cookies.get("Address").name} {cookies.get("Address").lastName}</p>
+            <p>{cookies.get("Address").street1}</p>
+            <p>{cookies.get("Address").city} {cookies.get("Address").zip}</p>
+            <p>{cookies.get("Address").state}</p>
+            <p>{cookies.get("Address").country}</p>
+          </div>
          </div>
         
         </div>

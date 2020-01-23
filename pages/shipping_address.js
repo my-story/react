@@ -14,7 +14,7 @@ class ShippingRates extends Component {
     products: "",
     address: {
       name: "",
-      company: "",
+      lastName: "",
       street1: "",
       city: "",
       state: "",
@@ -30,6 +30,10 @@ class ShippingRates extends Component {
   componentDidMount = () => {
     const cookies = new Cookies();
     this.setState({ products: cookies.get('Products'), countries });
+    if (cookies.get("Address") !== undefined) {
+      this.setState({ address: cookies.get('Address')});
+      console.log("hey")
+    }
   }
 
   getTotal() {
@@ -81,7 +85,7 @@ class ShippingRates extends Component {
 
 
   render() {
-console.log(this.state)
+    console.log(this.state)
     if (this.getTotal() === 0) {
       Router.push('/');
       return null;
@@ -102,30 +106,25 @@ console.log(this.state)
           <div className="checkout-address-input">
             <div>
               <p>First Name</p>
-              <Input id="checkout-input" name="name" placeholder="Enter Name" onChange={this.onChange} />
+              <Input id="checkout-input" name="name" value={this.state.address.name} placeholder="Enter Name" onChange={this.onChange} />
               <p>Last Name</p>          
-              <Input id="checkout-input"name="company" placeholder="Enter Company" onChange={this.onChange} />
+              <Input id="checkout-input"name="lastName" value={this.state.address.lastName}  placeholder="Enter Last Name" onChange={this.onChange} />
               <p>Address</p>
-              <Input id="checkout-input" name="street1" placeholder="Enter Complete Street" onChange={this.onChange} />
+              <Input id="checkout-input" name="street1" value={this.state.address.street1} placeholder="Enter Complete Street" onChange={this.onChange} />
               </div>
               <div>
               <p>City</p>          
-              <Input id="checkout-input" name="city" placeholder="Enter City" onChange={this.onChange} />
+              <Input id="checkout-input" name="city" value={this.state.address.city} placeholder="Enter City" onChange={this.onChange} />
               <p>State</p>         
-              <Input id="checkout-input" name="state" placeholder="Enter State " onChange={this.onChange} />
+              <Input id="checkout-input" name="state" value={this.state.address.state} placeholder="Enter State " onChange={this.onChange} />
               <p>Zipcode</p>    
-              <Input id="checkout-input" name="zip" type="number" placeholder="Enter Zipcode" onChange={this.onChange} />
+              <Input id="checkout-input" name="zip" type="number" value={this.state.address.zip} placeholder="Enter Zipcode" onChange={this.onChange} />
               <p>Country</p>          
-              <Input id="checkout-input" name="country" placeholder="Enter Country" onChange={this.onChange} />
-              <Checkbox onChange={this.useBilling}>Use this as your Billing Address?</Checkbox>
+              <Input id="checkout-input" name="country" value={this.state.address.country} placeholder="Enter Country" onChange={this.onChange} />
             </div>
           </div>
-          <div>
-            <button onClick={() => this.validateAddress()}>Check address</button>
-          </div>
-          
           <div >
-           <OrderReview></OrderReview>
+           <OrderReview button="Proceed to Payment"></OrderReview>
          </div>
         
         </div>

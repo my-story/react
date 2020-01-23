@@ -107,7 +107,7 @@ class OrderReview extends Component {
                 </div>
                 <div className="order-button">
                 <Link href={"/pay-checkout"}>
-                <button id="cart-checkout" style={{width:"215px",height:"54px", margin:" 2vh 0 0 8vw"}}>Proceed to payment</button>
+            <button id="cart-checkout" style={{width:"215px",height:"54px", margin:" 2vh 0 0 8vw"}}>{this.props.button}</button>
                 </Link>
                 </div>
               </div>
