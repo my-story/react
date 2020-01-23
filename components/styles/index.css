@@ -624,6 +624,7 @@ background: white;
   background-color: #F7F7F7;
   height: 43vh;
   width: 24vw;
+  /* margin: 0 2vw 2vh 2vw; */
 }
 
 .product-big-card-image{
@@ -668,10 +669,15 @@ background: white;
   margin: 5vh 2vw 5vh 2vw;
   font-family: "Hind", sans-serif;
 }
-
+#logout-button {
+  padding: 0;
+border: none;
+background: none;
+}  
 #shopping-cart {
   height: 2vh;
   width: auto;
+  margin-bottom: 2.5vh;
 }
 
 #logo-mystory {
@@ -839,46 +845,6 @@ background: white;
   bottom: 25px;
 }
 
-/* #im-john {
-animation: typing-text 2s, blink 0.5s infinite alternate;
-overflow: hidden;
-white-space: nowrap;
-border-right: 3px solid black;
-
-}
-#master-of {
-  animation-fill-mode: both;
-  animation: typing-text2 2s, blink 0.5s infinite alternate;
-  animation-delay: 2s;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid black;
-}
-@keyframes typing-text {
-  from {
-    width: 0;
-  }
-  to {
-    width: 31vw;
-  }
-}
-@keyframes typing-text2 {
-  from {
-    width: 0;
-  }
-  to {
-    width: 31vw;
-  }
-}
-@keyframes blink {
- from {
-   border-color: transparent;
- }
- to {
-   border-color: black;
- }
-} */
-
 .expert-message p {
   font-size: 8vh;
   font-family: "Hind", sans-serif;
@@ -913,10 +879,9 @@ border-right: 3px solid black;
 /* Expert Card */
 .expert-card-section {
   display: flex;
-  height: 50vh;
   width: 100%;
   justify-content: space-between;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
 }
 
@@ -979,11 +944,7 @@ border-right: 3px solid black;
   padding: 2px;
 }
 
-/* 
-.expert-card-review:hover {
-  filter: grayscale(90%);
-  transform: scale(0.7)
-} */
+
 .specs-review {
   margin-bottom: 3vh;
 }
@@ -1010,6 +971,31 @@ border-right: 3px solid black;
   width: 100vw;
 }
 
+.expert-card-container {
+  height: 170px;
+  width: 100%;  
+  margin-bottom: 2vh;
+  background-color: #f9f8f4;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+
+}
+.expert-card-name {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+.expert-card-paragraph {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.expert-card-picture-div {
+  width: 25%;
+}
 .expert-card-section-review {
   display: flex;
   height: 40vh;
@@ -1040,6 +1026,12 @@ border-right: 3px solid black;
 
 #quote-pic {
 height: 3vh;
+}
+.product-card-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .product-card-bubble-review {
@@ -1078,58 +1070,17 @@ height: 3vh;
   filter: none !important;
 
 }
-
-
-
-
-
-.product-card-bubble:hover .quote-hover{
-  display: none;
-  /* color: black; */
-} 
-#name-inside-product {
-  text-align: center;
-  max-width: 100%;
-  text-decoration: underline dotted #97cfdc;
-
+.expert-card-picture-round {
+  border: 1px solid;
+  height: 120%;
+  position: relative;
+  left: 5vw;
+  bottom: 2vh;
+  border-radius: 80%;
+  padding-left: 5vw;
+  background-image: url("https://images.gr-assets.com/authors/1201840056p8/566.jpg");
+  background-size: cover;
 }
-#prize-inside-product {
-  font-size: 140%;
-  color: #f66c4f;
-  padding-left: calc(50% - 2vw);
-  margin-bottom: 5vh;
-}
-#name-inside-product,
-#prize-inside-product {
-  display: none;
-  width: 100%;
-}
-
-.product-card-bubble:hover #product-picture {
-  height: 13.5vh;
-  margin-top: 1vh;
-  align-self: center;
-}
-.product-card-bubble:hover #name-inside-product {
-  display: flex;
-  align-self: center;
-}
-.product-card-bubble:hover #prize-inside-product {
-  display: flex;
-}
-
-.product-card-bubble-review:hover #product-picture {
-  height: 13.5vh;
-  margin-top: 1vh;
-  align-self: center;
-}
-.product-card-bubble-review:hover #name-inside-product {
-  display: flex;
-  align-self: center;
-}
-.product-card-bubble-review:hover #prize-inside-product {
-  display: flex;
-} 
 
 #product-picture {
   height: 9.5vh;
@@ -1541,14 +1492,7 @@ margin: 2vh 0 0 1vh;
 /*
 test cards new ones
 */
-.test-background-image {
-  /* background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567704529/rsz_lebron-james-chasing-ghosts-lead.jpg"); */
-  height: 43vh;
-  width: 24vw;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
-}
+
 
 .expert-card {
   height: 43vh;
@@ -1562,27 +1506,10 @@ test cards new ones
 .product-card-bubble:hover .quote-hover {
   display: none;
 }
-.bottom-card:hover .quote-hover {
-  display: none;
-} 
-.expert-card:hover .test-background-image {
-  filter: brightness(0.4);
-}
 
-.expert-card:hover .quote-hover{
-  display: block;
-  filter: none;
-}
-.bottom-card {
-  display: flex;
-  height: 92%;
-  flex-direction: row;
-  position: relative;
-  /* bottom: 37vh; */
-  top: -42vh;
-  left: 0.2vw;
-  overflow: hidden;
-}
+
+
+
 .product-card-bubble:hover {
   /* transition: 0.5s; */
   margin: -25px 0 0 0;
@@ -2922,18 +2849,21 @@ margin-bottom: 2vh;
   flex-direction: row;
 }
 #best-book-cover {
-  height: 75%;
-  padding-right: 60px;
-  padding-left: 30px;
+  height: auto;
+  border-radius: 25px;
+  width: 80%;
+  /* padding-right: 60px;
+  padding-left: 30px; */
   background-color: #F7F7F7;
 }
 #best-book-author {
   height: 50%;
   width: auto;
+  border-radius: 25px;
   /* border-radius: 50%; */
   position: relative;
-  top: 160px;
-  right: 40px;
+  top: 190px;
+  right: 60px;
 }
 .best-book-title-div {
   margin-top: 2vh;
@@ -2955,8 +2885,8 @@ margin-bottom: 2vh;
   font-weight: bold;
   padding: 0 2vw 0 2vw;
   color: white;
-  height: 7vh;
-  width: auto;
+  height: 60px;
+  width: 200px;
   border-radius: 30px;
   background-color: #f66c4f;
   text-decoration: none;

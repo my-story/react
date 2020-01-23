@@ -35,6 +35,7 @@ class CheckoutForm extends Component {
   componentDidMount () {
     const cookies = new Cookies();
     let products = cookies.get("Products");
+    console.log(products)
     this.setState({products});
   };
 
@@ -152,6 +153,7 @@ class CheckoutForm extends Component {
   
 
   render() {
+    console.log(this.state);
 
     if (this.state.paid === true ) {
       Router.push('/order-fulfillment');

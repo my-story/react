@@ -6,7 +6,8 @@ import { slide as Menu } from 'react-burger-menu'
 import Logout from './auth/Logout';
 // import InfluencerServices from '../services/InfluencerServices';
 import {QtyConsumer} from './contexts/QtyContext';
-import SearchBar from './influencer/SearchInfluencer';
+import UserContext from './contexts/UserContext';
+// import SearchBar from './influencer/SearchInfluencer';
 
 
 
@@ -15,6 +16,8 @@ class NavBar extends Component {
 		logged: "",
 		user: "",
 	}
+
+	static contextType = UserContext;
 
 	showSettings (event) {
 		event.preventDefault();
@@ -28,13 +31,13 @@ class NavBar extends Component {
 	}
 	componentDidMount = () => {
 		this.adjustState();
+		this.setState({userLogged:JSON.stringify(this.context.user)})
 	}
 
 
 
 	render() {
-		// const  search  = this.state.search_expert || [];
-		// console.log(this.state.search_expert);
+		console.log("user jeje " + this.state.userLogged)
 		
 		if (this.props.islogged) {
 			return(
@@ -73,24 +76,26 @@ class NavBar extends Component {
 							<p>CONTACT</p>
 						</span>
 						</Link>
-					</div>
-					<div className="icons-account-cart">
+					{/* <div className="icons-account-cart"> */}
 						{/* <img id="account-glyph" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565379958/ucer.svg" alt="account profile" /> */}
 				{/* Search Bar Functionality */}
 						{/* <div> */}
-						<SearchBar />
+						{/* <SearchBar /> */}
 						
 						{/* </div> */}
 
-					 	<span className="links-nav">
-				 			<Logout {...this.props}>Logout</Logout>
+					 	<span >
+							 <Logout {...this.props}>Logout</Logout>
+							 
 				 		</span>
 					<Link href="/cart">
 						<span>
 						<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
 						</span>
 					</Link>
+					{/* </div> */}
 					</div>
+
 				</div>
 				</MediaQuery>
 			</div>
@@ -135,9 +140,7 @@ class NavBar extends Component {
 									<p>CONTACT</p>
 								</span>
 								</Link>
-							</div>
-							<div className="icons-account-cart">
-								<SearchBar/>
+						
 							<Link href="/login">
 								<span>
 								<p>LOG IN</p>
@@ -148,7 +151,8 @@ class NavBar extends Component {
 									<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
 								</span>
 							</Link>
-							</div>
+						
+							</div>						
 						</div>
 						</MediaQuery>
 					</div>

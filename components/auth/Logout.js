@@ -21,7 +21,7 @@ class Logout extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={event => this.handleClick(event)} >Logout</button>
+        <button id="logout-button" onClick={event => this.handleClick(event)} >Logout</button>
       </div>
     )
   }

@@ -112,7 +112,7 @@ class ProductList extends Component {
             <span className="all-products-span">All Products ({this.state.products.length})</span>
           </div>
         </div>
-        <div className="expert-card-section">
+        <div className="product-card-section">
           {products.map((i, index) => {
             return (
               <div>
