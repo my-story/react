@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import AuthServices from '../services/AuthServices';
 import Login from './login';
 import Link from 'next/link';
+import Router from 'next/router';
 import validator from 'email-validator';
 import passwordValidator from 'password-validator';
 import * as toastr from 'toastr';
@@ -15,18 +16,12 @@ class Signup extends Component {
     password: '',
     // signedup: false,
     password2:'',
-    login: true,
   };
 
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    
-      if(this.state.password !== this.state.password2){
-        toastr.error("Passwords Dont Match")
-      } else {
-        return
-    }
+
   }
 
   handleFormSubmit = (event) => {
@@ -50,7 +45,11 @@ class Signup extends Component {
 
       return toastr.error("Password must have Uppercase, Lowecase, Digits, and min length is 8");
 
-    } else {
+    } else if (this.state.password !== this.state.password2) {
+      
+      return toastr.error("Passwords Dont Match")
+    }
+    else {
       const { username, password } = this.state;
 
       const user = {
@@ -60,27 +59,25 @@ class Signup extends Component {
 
       AuthServices.signup(user)
         .then(response => {
-          if (response.data) {
-            console.log("sucessful signup");
-            this.setState({
-              signedup: true
-            })
-          } else {
-            console.log("signup error");
+          console.log(response)
+          //response.data.error
+
+          if (response.data.username) {
+          Router.push({
+            pathname: '/login',
+            query: { username: this.state.username },
+          });
+          } else if (response.data.error){
+            toastr.error("User Taken")
+            console.log("User taken");
           }
         }).catch(error => {
           console.log(error);
         })
     }
   }
-  login = () => {
-    this.setState({login:false})
-  }
 
   render() {
-    if (!this.state.login) {
-    return(<Login></Login>)
-    }
       return (
         <div>
         <MediaQuery maxDeviceWidth={490}>
@@ -100,8 +97,10 @@ class Signup extends Component {
               </div>
                 <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
                 <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
-                <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
-                <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img>
+                <input placeholder="Password" type="password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
+                <input placeholder="Re-type password" type="password" className="inputs-login-styling margin-input-login" name="password2" onChange={e => this.handleChange(e)} />
+                
+                {/* <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img> */}
               <button type="submit" className="login-button"><span className="login-font">Sign up</span></button>
               </div>              
               <div className="remember-div">
@@ -124,13 +123,10 @@ class Signup extends Component {
                 <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" />
               </div>
               <input className="inputs-login-styling margin-input-login" placeholder="Email" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
-              <input className="inputs-login-styling margin-input-login" placeholder="Password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
+              <input className="inputs-login-styling margin-input-login" placeholder="Password" type="password" name="password" onChange={e => this.handleChange(e)} />
+              <input className="inputs-login-styling margin-input-login" placeholder="Re-type password" type="password" name="password2" onChange={e => this.handleChange(e)} />
+             
               {/* <input className="inputs-login-styling margin-input-login" placeholder="Confirm Password/not working" name="password2" onChange={e => this.handleChange(e)}/> */}
-              <span className="see-password">
-              <button style={{border:"none", background:"none"}} type="button">
-                  <img height="18px" src="https://img.icons8.com/ios-glyphs/30/000000/illuminati.png"/>
-              </button>
-              </span>
 
             </div>
             {/* <button type="submit" className="button-id">Submit</button> */}
@@ -147,7 +143,7 @@ class Signup extends Component {
           <div className="orange-signup-rectangle">
             <div className="not-signup-container">
               <p><b>Have an account?</b></p> 
-              <button className="sign-up-button" onClick={this.login}><b>Log In</b></button>
+            <a href="/login"> <button className="sign-up-button" ><b>Log In</b></button> </a>
             </div>
           </div>
         </div>

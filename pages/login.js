@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthServices from '../services/AuthServices';
 import Signup from './signup';
 import Link from 'next/link';
+import Router from 'next/router';
 import MediaQuery from 'react-responsive';
 import * as toastr from 'toastr';
 
@@ -10,7 +11,6 @@ class Login extends Component {
   state = {
     username: '',
     password: '',
-    loggedin: true,
     path: '',
     // signUp: false,
   };
@@ -35,12 +35,10 @@ class Login extends Component {
       .then(response => {
         if (response.status === 200) {
           this.props.giveuser(response.data);
-          this.setState({
-            loggedin: true
-          })
+          Router.push('/');
         }
       }).catch(error => {
-        toastr.error("invalid username or password");
+        toastr.error("Invalid username or password");
         console.log(error);
       })
   }
@@ -55,24 +53,29 @@ class Login extends Component {
   componentDidMount = () => {
     this.savePath();
   }
+  showMail = () => {
+    const {username} = this.state;
+
+    if (username === "") {
+      return( <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img> )
+    } else {
+      return(<div style={{width:"1.25vw"}}></div>)
+    }
+  }
+  showLock = () => {
+    const {password} = this.state;
+
+    if (password === "") {
+      return( <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img> )
+    } else {
+      return(<div style={{width:"1.25vw"}}></div>)
+    }
+  }
 
 
 
   render() {
-
-    // const isLaptopScreen = useMediaQuery({ query: '(min-device-width: 1224px)' })
-    // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1220px)' })
-    // const isTabletOrMobileDevice = useMediaQuery({
-    //   query: '(max-device-width: 1224px)'
-    // })
-
-    if (!this.state.loggedin) {
-      return (
-        <div>
-      <Signup></Signup>
-        </div>
-      )
-    }
+console.log(this.props.location)
       return (
         <div>
         <MediaQuery maxDeviceWidth={490}>
@@ -83,11 +86,11 @@ class Login extends Component {
               <div className="p-login-header">
               <p className="p-login">Log in</p>             
               <p className="new-login">New to Rebound?</p>    
-              <Link href="signup" as={`signup`}><p className="new-login signup">SIGN UP FOR FREE!</p></Link>
+              <Link href="/signup" as={`/signup`}><p className="new-login signup">SIGN UP FOR FREE!</p></Link>
               </div>
               <div className="inputs-login">
                 <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
-                <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
+                
                 <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
                 <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img>
               <button type="submit" className="login-button"><span className="login-font">Log in</span></button>
@@ -104,35 +107,37 @@ class Login extends Component {
         </div>
         </MediaQuery>
         <MediaQuery minDeviceWidth={700}>
-                <div className="login-form-parent">
-                  <div className="login-rectangle">
-                    <form className="login-form" onSubmit={this.handleFormSubmit}>
-                      <p className="p-login">Log In</p>
-                      <div className="inputs-login">
-        
-                        <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
-                        <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
-                        <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
-                        <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img>
-                      </div>
-                      <button type="submit" className="login-button"><span className="login-font">Log in</span></button>
-                      <div className="forgot-pass-parent">
-                        <div className="remember-me-container">
-                        <input type="checkbox"/><span>Remember Me</span>
-                        </div>
-                        <span id="forgot-password" to="recover-pass">Forgot Password?</span>
-                      </div>
-                    </form>
-                  </div>
-                  <div className="orange-login-rectangle">
-                    <div className="not-signup-container">
-                      <p><b>Don't have an account yet?</b></p> 
-                      <button className="sign-up-button" onClick={this.signUp}><b>Sign up</b></button>
-                    </div>
-                  </div>
+          <div className="login-form-parent">
+            <div className="login-rectangle">
+              <form className="login-form" onSubmit={this.handleFormSubmit}>
+                <p className="p-login">Log In</p>
+                <div className="inputs-login">
+  
+                  <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
+                  {this.showMail()}
+                  {/* <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img> */}
+                  <input placeholder="Password" className="inputs-login-styling margin-input-login" type="password" name="password" onChange={e => this.handleChange(e)} />
+                  {this.showLock()}
+                  {/* <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img> */}
                 </div>
-                </MediaQuery>
+                <button type="submit" className="login-button"><span className="login-font">Log in</span></button>
+                <div className="forgot-pass-parent">
+                  <div className="remember-me-container">
+                  <input type="checkbox"/><span>Remember Me</span>
+                  </div>
+                  <span id="forgot-password" to="recover-pass">Forgot Password?</span>
                 </div>
+              </form>
+            </div>
+            <div className="orange-login-rectangle">
+              <div className="not-signup-container">
+                <p><b>Don't have an account yet?</b></p> 
+              <a href="/signup"> <button className="sign-up-button" ><b>Sign up</b></button> </a>
+              </div>
+            </div>
+          </div>
+          </MediaQuery>
+          </div>
 
       )
   }

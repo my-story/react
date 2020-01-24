@@ -37,7 +37,7 @@ class NavBar extends Component {
 
 
 	render() {
-		console.log("user jeje " + this.state.userLogged)
+		// console.log("user jeje " + this.state.userLogged)
 		
 		if (this.props.islogged) {
 			return(
