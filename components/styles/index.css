@@ -454,7 +454,7 @@ background: white;
   box-shadow: none;
   border: none;
   background-color: #F7F7F7;
-  padding: 1vh 0 1vh 1.5vw;
+  padding: 1.5vh 0 3vh 0.5vw;
   align-content: center;
   outline: none !important;
   margin-left: 1vw;
@@ -528,6 +528,7 @@ background: white;
   flex-wrap: wrap;
   color: #FFFFFF;
   justify-content: center;
+  align-items: center;
 }
 .not-signup-container p {
   font-size: 3vh;
