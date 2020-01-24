@@ -14,10 +14,8 @@ class InfluencerCreate extends Component {
       expertise: [],
       firstname: "",
       lastname: "",
-      review: "",
-      percentage: "",
+      description: "",
       user: this.props.user,
-      countries: "",
       profilePic: ""
     },
     selectedItems: [],
@@ -43,7 +41,7 @@ class InfluencerCreate extends Component {
   onSubmit = () => {
     let { data } = this.state;
 
-    if (data.expertise.length === 0 || data.firstname.length === 0 || data.lastname.length === 0 || data.review.length === 0) {
+    if (data.expertise.length === 0 || data.firstname.length === 0 || data.lastname.length === 0 || data.description.length === 0) {
       toastr.error("Please complete all required fields");
       return;
     }
@@ -56,7 +54,6 @@ class InfluencerCreate extends Component {
   };
 
   render() {
-
     const { selectedItems, data } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
     
@@ -72,7 +69,7 @@ class InfluencerCreate extends Component {
                 </Tooltip>
               } />
               <Input name="lastname" placeholder="Lastname" allowClear onChange={this.onChange} />
-              <Input name="review" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
+              <Input name="description" placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
               <Input name="profilePic" placeholder="Add images URL" allowClear onChange={this.onChange} />
               <Select
                 mode="multiple"
@@ -86,8 +83,6 @@ class InfluencerCreate extends Component {
                   </Select.Option>
                 ))}
               </Select>
-              <Input name="percentage" type="Number" placeholder="Percentage of profit of product (Write in decimals)" onChange={this.onChange} />
-
               <button onClick={this.onSubmit}>Submit</button>
             </div>
           </div>
