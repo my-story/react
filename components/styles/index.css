@@ -2897,6 +2897,7 @@ margin-bottom: 2vh;
 }
 .best-book-title-div {
   margin-top: 2vh;
+  max-width:60%;
 }
 .best-book-title-div h2 {
   font-family: Hind;
