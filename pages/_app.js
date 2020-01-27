@@ -14,6 +14,7 @@ import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'toastr/build/toastr.css';
 import 'antd/dist/antd.css'; 
+import 'react-dropdown/style.css'
 import Footer from '../components/Footer';
 
 class MyApp extends App {

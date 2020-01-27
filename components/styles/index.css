@@ -1262,7 +1262,7 @@ height: 3vh;
 /* Video Section */
 .video-section {
   height: 60vh;
-  position: absolute;
+  /* position: absolute; */
   left: 5vw;
   right: 5vw;
   margin: 8vh 0 8vh 0;
@@ -1302,9 +1302,9 @@ height: 3vh;
 
 #video-start {
   height: 10vh;
-  position: absolute;
-  top: 37vh;
-  left: 37vw;
+  position: relative;
+  top: 150px;
+  left: 45px;
 }
 
 /* Donate Section */
@@ -1851,6 +1851,13 @@ margin-right: 1vw
   margin-bottom: 1vh;
   margin-left: 1vw;
 }
+#profile-picture {
+  height: 6vh;
+  width: auto;;
+  border-radius: 200%;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+}
 .product-backed-by {
   /* width: 50%; */
   margin: 0 20vw 0 20vw;
@@ -2256,6 +2263,7 @@ padding-left: 0.5vw;
 .book-card p {
   font-size: 12px;
   text-align: center;
+  /* padding: 0 1vw 0 1vw; */
 }
 .open {
   height: 350px;
@@ -2893,7 +2901,7 @@ margin-bottom: 2vh;
   /* border-radius: 50%; */
   position: relative;
   top: 190px;
-  right: 60px;
+  right: 90px;
 }
 .best-book-title-div {
   margin-top: 2vh;
@@ -2922,4 +2930,35 @@ margin-bottom: 2vh;
   background-color: #f66c4f;
   text-decoration: none;
   border: none;
+}
+#dropdown-basic{
+  background-color: white;
+  color: black;
+  padding: 0;
+border: none;
+background: none;
+}
+.dropdown-menu {
+color: black;
+}
+.dropdown-account-nav {
+  padding-left: 1vw;
+  margin-left: 3vw;
+  font-family: Hind;
+  color: black;
+
+}
+
+.profile-page {
+  margin: 0 12vw 0 12vw;
+  border: solid;
+}
+
+.profile-profile-menu {
+  width: 285px;
+  border: solid;
+}
+.video-youtube {
+  width: 100%;
+  height: 380px;
 }

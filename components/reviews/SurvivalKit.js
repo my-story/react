@@ -4,20 +4,28 @@ import * as toastr from 'toastr';
 
 class SurvivalKit extends Component {
     state = {
-        // id: this.props.id,
+        id: "",
         kit: {}
     }
     static getInitialProps({ query: { id } }) {
         return { id };
       }
 
+
+
+
+    
     // fetchSurvival = () => {
-    //     const {id} = this.props; 
-    //     console.log(id)
+    //     let {id} = this.props;
+    //         KitServices.getKit(id)
+    //             .then((kit) => {
+    //                 this.setState(kit)
+    //             })
+    //             .catch((e) => console.log(e))
 
     // }
     
-    // componentDidMount() {
+    componentWillMount() {
     //     // this.fetchSurvival();
     //     // this.setState({id:this.props.id})
     //     KitServices.getKit(this.props.id)
@@ -25,7 +33,9 @@ class SurvivalKit extends Component {
     //             this.setState({kit})
     //         })
     //         .catch(() => toastr.error('Error occured while fetching kit. Please try later.'));
-    // }
+    // this.fetchSurvival()
+    }
+
     learnMore = (e) => {
         const clase = e.target.className;
         if(clase !== "open") {
@@ -34,6 +44,7 @@ class SurvivalKit extends Component {
     }
     render(){
     
+        console.log(this.props);
 
         if (!this.props.id) {
             return (<div>...</div>)
