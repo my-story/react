@@ -231,7 +231,14 @@ class ReviewOne extends Component {
     } else {
       return(
         <div>
-            <video className="video" controls src={review.video} />
+            {/* <video className="video" controls src={review.video} /> */}
+            <iframe src='https://www.youtube.com/embed/E7wJTI-1dvQ'
+        frameBorder='0'
+        allow='autoplay; encrypted-media'
+        allowFullScreen
+        title='video'
+        className='video-youtube'
+/>
         </div>
       )
     };
