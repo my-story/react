@@ -1,7 +1,7 @@
 import http from './BaseServices';
 
 const getKit = (id) => {
-    http.get('/kit/get', id)
+    http.get(`/kit/${id}`)
     .then((res) => res.data);
 }
 
