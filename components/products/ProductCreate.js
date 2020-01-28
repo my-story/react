@@ -88,7 +88,7 @@ class ProductCreate extends Component {
             <TextArea name="description" rows={4} placeholder="Please enter product description"  onChange={this.onChange} />
             <Select
             mode="multiple"
-            placeholder="Inserted are removed"
+            placeholder="Pick Category"
             value={product.category}
             onChange={this.handleChange}
             style={{ width: '100%' }}
