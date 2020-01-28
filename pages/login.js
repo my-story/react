@@ -15,8 +15,7 @@ class Login extends Component {
     password: '',
     path: '',
     password2:'',
-    signup: null,
-    // signUp: false,
+    signup: false,
   };
 
 
@@ -64,14 +63,17 @@ class Login extends Component {
 
       AuthServices.signup(user)
         .then(response => {
-          console.log(response)
-          //response.data.error
-
           if (response.data.username) {
-          Router.push({
-            pathname: '/login',
-            query: { username: this.state.username },
-          });
+            AuthServices.login(user)
+              .then(response => {
+                if (response.status === 200) {
+                  this.props.giveuser(response.data);
+                  Router.push('/');
+                }
+              }).catch(error => {
+                toastr.error("Invalid username or password");
+                console.log(error);
+              })
           } else if (response.data.error){
             toastr.error("User Taken")
             console.log("User taken");
@@ -82,7 +84,7 @@ class Login extends Component {
     }
   }
 
-  handleFormSubmit = (event) => {
+  handleFormSubmitLogin = (event) => {
     event.preventDefault();
     const { username, password } = this.state;
 
@@ -132,101 +134,102 @@ class Login extends Component {
     }
   }
 
-  // switchState = () => {
+  switchState = () => {
+    this.setState({signup: true})
+  // } else if (this.state.signup === true) {
   //   this.setState({signup: false})
-  // // } else if (this.state.signup === true) {
-  // //   this.setState({signup: false})
-  // }
-  // switchStateBack(){
-  //   this.setState({signup: true})
-  // // } else if (this.state.signup === true) {
-  // //   this.setState({signup: false})
-  // }
+  }
+  switchStateBack = () => {
+    this.setState({signup: false})
+  // } else if (this.state.signup === true) {
+  //   this.setState({signup: false})
+  }
 
   render() {
 
     console.log(this.state)
     // if (this.state.signup === true) {
-    //   return (
-    //     <div>
-    //     <MediaQuery maxDeviceWidth={490}>
-    //     <div className="mobile-login-page">
-    //     <div className="mobile-login-form">
-    //       <div className="">
-    //         <form className="login-form" onSubmit={this.handleFormSubmitSignup}>
-    //           <div className="p-login-header">
-    //           <p className="p-login">Sign up</p>             
-    //           <p className="new-signup">Welcome to Rebound</p>    
-    //           {/* <Link href="login" as={`login`}><p className="new-login signup">SIGN UP FOR FREE!</p></Link> */}
-    //           </div>
-    //           <div className="inputs-login">
-    //           <div className="name-last-container">
-    //             <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" />
-    //             <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" />
-    //           </div>
-    //             <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
-    //             <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
-    //             <input placeholder="Password" type="password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
-    //             <input placeholder="Re-type password" type="password" className="inputs-login-styling margin-input-login" name="password2" onChange={e => this.handleChange(e)} />
-                
-    //             {/* <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img> */}
-    //           <button type="submit" className="login-button"><span className="login-font">Sign up</span></button>
-    //           </div>              
-    //           <div className="remember-div">
-    //             <span>Already have an account?</span>
-    //             <Link href="login" as={`login`}><span id="account-log-in">Log in</span></Link>
-    //           </div>
-    //         </form>
-    //       </div>
-    //     </div>
-    //     </div>
-    //     </MediaQuery>
-    //     <MediaQuery minDeviceWidth={700}>
-    //     <div className="login-form-parent">
-    //       <div className="signup-rectangle">
-    //       <form className="signup-form" onSubmit={this.handleFormSubmit}>
-    //       <p className="s-login">Sign Up</p>
-    //         <div className="signup-container">
-    //           <div className="name-last-container">
-    //             <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" />
-    //             <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" />
-    //           </div>
-    //           <input className="inputs-login-styling margin-input-login" placeholder="Email" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
-    //           <input className="inputs-login-styling margin-input-login" placeholder="Password" type="password" name="password" onChange={e => this.handleChange(e)} />
-    //           <input className="inputs-login-styling margin-input-login" placeholder="Re-type password" type="password" name="password2" onChange={e => this.handleChange(e)} />
-             
-    //           {/* <input className="inputs-login-styling margin-input-login" placeholder="Confirm Password/not working" name="password2" onChange={e => this.handleChange(e)}/> */}
-
-    //         </div>
-    //         {/* <button type="submit" className="button-id">Submit</button> */}
-    //         <button type="submit" className="sign-up-button form"><span className="login-font">Sign Up</span></button>
-    //         <div className="terms-conditions-div">
-    //           <p>By clicking this Sign up button you agree to our</p>
-    //           <p>Terms and Conditions and Privacy Policy</p>
-    //         </div>
-    //         {/* <p>Already have account?
-    //           <Link href={"/login"}> Login</Link>
-    //         </p> */}
-    //       </form>
-    //       </div>
-    //       <div className="orange-signup-rectangle">
-    //         <div className="not-signup-container">
-    //           <p><b>Have an account?</b></p> 
-    //         <button className="sign-up-button" onCLick={() => this.switchState()} ><b>Log In</b></button>
-    //         </div>
-    //       </div>
-    //     </div>
-    //     </MediaQuery>
-    //     </div>
-    //   )
-    // } else {
+      if (this.state.signup === true){
       return (
         <div>
         <MediaQuery maxDeviceWidth={490}>
         <div className="mobile-login-page">
         <div className="mobile-login-form">
           <div className="">
-            <form className="login-form" onSubmit={this.handleFormSubmit}>
+            <form className="login-form" onSubmit={this.handleFormSubmitSignup}>
+              <div className="p-login-header">
+              <p className="p-login">Sign up</p>             
+              <p className="new-signup">Welcome to Rebound</p>    
+              {/* <Link href="login" as={`login`}><p className="new-login signup">SIGN UP FOR FREE!</p></Link> */}
+              </div>
+              <div className="inputs-login">
+              <div className="name-last-container">
+                <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" />
+                <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" />
+              </div>
+                <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
+                <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
+                <input placeholder="Password" type="password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
+                <input placeholder="Re-type password" type="password" className="inputs-login-styling margin-input-login" name="password2" onChange={e => this.handleChange(e)} />
+                
+                {/* <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img> */}
+              <button type="submit" className="login-button"><span className="login-font">Sign up</span></button>
+              </div>              
+              <div className="remember-div">
+                <span>Already have an account?</span>
+                <Link href="login" as={`login`}><span id="account-log-in">Log in</span></Link>
+              </div>
+            </form>
+          </div>
+        </div>
+        </div>
+        </MediaQuery>
+        <MediaQuery minDeviceWidth={700}>
+        <div className="login-form-parent">
+          <div className="signup-rectangle">
+          <form className="signup-form" onSubmit={this.handleFormSubmitSignup}>
+          <p className="s-login">Sign Up</p>
+            <div className="signup-container">
+              <div className="name-last-container">
+                <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" />
+                <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" />
+              </div>
+              <input className="inputs-login-styling margin-input-login" placeholder="Email" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
+              <input className="inputs-login-styling margin-input-login" placeholder="Password" type="password" name="password" onChange={e => this.handleChange(e)} />
+              <input className="inputs-login-styling margin-input-login" placeholder="Re-type password" type="password" name="password2" onChange={e => this.handleChange(e)} />
+             
+              {/* <input className="inputs-login-styling margin-input-login" placeholder="Confirm Password/not working" name="password2" onChange={e => this.handleChange(e)}/> */}
+
+            </div>
+            {/* <button type="submit" className="button-id">Submit</button> */}
+            <button type="submit" className="sign-up-button form"><span className="login-font">Sign Up</span></button>
+            <div className="terms-conditions-div">
+              <p>By clicking this Sign up button you agree to our</p>
+              <p>Terms and Conditions and Privacy Policy</p>
+            </div>
+            {/* <p>Already have account?
+              <Link href={"/login"}> Login</Link>
+            </p> */}
+          </form>
+          </div>
+          <div className="orange-signup-rectangle">
+            <div className="not-signup-container">
+              <p><b>Have an account?</b></p> 
+            <button className="sign-up-button" onClick={this.switchStateBack} ><b>Log In</b></button>
+            </div>
+          </div>
+        </div>
+        </MediaQuery>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+        <MediaQuery maxDeviceWidth={490}>
+        <div className="mobile-login-page">
+        <div className="mobile-login-form">
+          <div className="">
+            <form className="login-form" onSubmit={this.handleFormSubmitLogin}>
               <div className="p-login-header">
               <p className="p-login">Log in</p>             
               <p className="new-login">New to Rebound?</p>    
@@ -253,7 +256,7 @@ class Login extends Component {
         <MediaQuery minDeviceWidth={700}>
           <div className="login-form-parent">
             <div className="login-rectangle">
-              <form className="login-form" onSubmit={this.handleFormSubmit}>
+              <form className="login-form" onSubmit={this.handleFormSubmitLogin}>
                 <p className="p-login">Log In</p>
                 <div className="inputs-login">
   
@@ -276,7 +279,7 @@ class Login extends Component {
             <div className="orange-login-rectangle">
               <div className="not-signup-container">
                 <p><b>Don't have an account yet?</b></p> 
-              <button className="sign-up-button" ><b>Sign up</b></button> 
+              <button className="sign-up-button" onClick={this.switchState}><b>Sign up</b></button> 
               </div>
             </div>
           </div>
@@ -284,11 +287,9 @@ class Login extends Component {
           </div>
 
       )
+    }
   }
 }
-
-      
-
 
 export default Login;
 
