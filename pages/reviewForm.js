@@ -41,7 +41,7 @@ class ReviewForm extends Component {
       return (
         <div>
           <Input name="title" placeholder="Please enter title " allowClear onChange={this.onChange} />
-          <TextArea rows={4} name="review" placeholder="Please enter review of review" onChange={this.onChange} />
+          <TextArea rows={4} name="review" placeholder="Please enter Podcast Description [review]" onChange={this.onChange} />
           <Input name="influencer" placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
           <Input name="video" placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
           <Input name="voicenote" placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
