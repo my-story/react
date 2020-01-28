@@ -14,6 +14,7 @@ class ReviewUpdate extends Component {
     two: "",
     three: "",
     specs: "",
+    kit: "",
     video: "",
     voicenote: "",
     influencer: "",
@@ -40,6 +41,7 @@ class ReviewUpdate extends Component {
           two: review.review.two,
           three: review.review.three,
           specs: review.review.specs,
+          kit: review.kit,
           video: review.video,
           voicenote: review.voicenote,
           influencer: review.influencer._id,
@@ -64,6 +66,7 @@ class ReviewUpdate extends Component {
       specs: this.state.specs,
       influencer: this.state.influencer,
       video: this.state.video,
+      kit: this.state.kit,
       voicenote: this.state.voicenote,
     }
     
@@ -91,6 +94,7 @@ class ReviewUpdate extends Component {
             <TextArea rows={4} name="three" placeholder="Here it is!..." defaultValue={this.state.three} onChange={this.onChange} />
             <TextArea rows={4} name="specs" placeholder="SPECS" defaultValue={this.state.specs} onChange={this.onChange} />
             <Input name="influencer" defaultValue={this.state.influencer} placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
+            <Input name="kit" defaultValue={this.state.kit} placeholder="Please enter kit ID " allowClear onChange={this.onChange} />
             <Input name="video" defaultValue={this.state.video} placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
             <Input name="voicenote" defaultValue={this.state.voicenote} placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
             <button onClick={this.handleSubmit}>Update</button>

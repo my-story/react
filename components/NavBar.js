@@ -40,8 +40,11 @@ class NavBar extends Component {
 
 	render() {
 		const {userLogged} = this.state;
-		
+	
 		if (this.props.islogged) {
+			if (!userLogged) {
+				return(<div></div>)
+			}
 			return(
 				<div>
 					<MediaQuery maxDeviceWidth={490}>

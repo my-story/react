@@ -45,11 +45,12 @@ class AdminPanelField extends Component {
   //{this.state.review._id}
 
   render() {
+    console.log(this.state)
     if (this.state.product && this.state.review){
     return(
       <ul>
         <li onClick={this.onClickInfluencer}>Influencer: {this.props.influencer.name.firstName} {this.props.influencer.name.lastName}</li>
-        <li onClick={this.onClickProduct}>Product: {this.state.product[0].model}</li>
+        {/* <li onClick={this.onClickProduct}>Product: {this.state.product[0].model}</li> */}
         <li onClick={this.onClickReview}>Review: {this.state.review.title}</li>
       </ul>
     )
