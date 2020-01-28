@@ -11,7 +11,7 @@ import ReviewUpdate from '../../components/reviews/ReviewUpdate';
 import CartBubble from '../../components/cart/CartBubble';
 import Votes from '../../components/votes/Votes';
 import InfluencerCard from '../../components/influencer/InfluencerCard';
-import SurvivalKit from '../../components/reviews/SurvivalKit';
+import ProductKit from '../../components/reviews/ProductKit';
 
 
 class ReviewOne extends Component {
@@ -26,9 +26,10 @@ class ReviewOne extends Component {
   state = {
     influencers: [],
     review: {},
+    kit: {},
+    kitTrue: true,
     disableVoteButtons: false,
     update: false,
-    kit: true,
   }
 
   static getInitialProps({ query: { id } }) {
@@ -39,13 +40,20 @@ class ReviewOne extends Component {
   componentDidMount() {
     // this.setState({height:this.myInput.current.offsetHeight});
     this.fetchInfluencer();
+    // this.fetchSurvivalKit();
 
     const { id } = this.props;
     // console.log(id)
     ReviewServices.getReview(id)
-      .then((review) => this.setState(() => ({review: review})))
-      .catch(() => toastr.error('Error occured while fetching review. Please try later.'));
+      .then((review) => {
+        this.setState({
+          review,
+          kit: review.kit
+        })
+      })
+      .catch(() => toastr.error('Error occured while fetching. Please try later.'));
   }
+
 
   fetchInfluencer = () => {
     InfluencerServices.getAll()
@@ -253,13 +261,12 @@ class ReviewOne extends Component {
   render() {
     const review = this.state.review || {};
     const influencer = this.state.review.influencer || {};
-    const product = this.state.review.product || {};
     const influencers = this.state.influencers;
-    // const height = this.state;
 
-    console.log(influencer._id)
+    console.log(this.state)
+
     if (this.context.user.role !== "Admin") {
-      if(this.state.kit === true) {
+      if(this.state.kitTrue === true) {
         return (
           //THIS IS FOR SURVIVAL KIT CLICKED
           // style={{height:height}}ref={this.myInput} READ the height of page 
@@ -343,7 +350,8 @@ class ReviewOne extends Component {
                   </div>
                 </div>   
               </div>
-                <SurvivalKit id={influencer._id}></SurvivalKit>
+            
+                <ProductKit kit={this.state.kit}></ProductKit>
             </div>
             {this.audioDraw()}
             <div className="bottom-review-container">
@@ -472,8 +480,8 @@ class ReviewOne extends Component {
         return (
           <div>
             <div>
-              <Link href={`/product/${product._id}`}>Buy Now </Link>
-            <p>{product.model}</p>
+              {/* <Link href={`/product/${product._id}`}>Buy Now </Link> */}
+            {/* <p>{product.model}</p> */}
               <img src={influencer.profilePic} alt={influencer.name} />
               <p>Name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
               <p>Expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
