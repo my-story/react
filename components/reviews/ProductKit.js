@@ -8,11 +8,8 @@ class ProductKit extends Component {
 
     state = {
         id: "",
-        kit: this.props.kit,
-        products: this.props.kit.products,
-        tips: this.props.kit.tips,
-        techniques: this.props.kit.techniques,
-        };
+        product: {}
+    };
     
   
 
@@ -34,7 +31,7 @@ class ProductKit extends Component {
     // }
     
     componentDidMount() {
-        this.setState({kit: this.props.kit})
+        this.setState({product: this.props.product})
     }
 
     learnMore = (e) => {
@@ -45,11 +42,12 @@ class ProductKit extends Component {
     }
     render(){
     
-    const {kit} = this.props;
-        const {products} = this.props.kit;
+    // const {kit} = this.props;
+    // const {products} = this.props.kit;
 
-    console.log(kit.products)
-        if (!this.state.kit && this.states.kit.products.length === 0) {
+    console.log("esteee prouduct kit" , this.props.product)
+
+        if (this.props.product.length === 0) {
             return (<div>...</div>)
         }  else {
             return (
