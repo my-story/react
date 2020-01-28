@@ -55,7 +55,6 @@ class influencerCard extends Component {
   }
 
   render() {
-    console.log("each influecner" + this.props.i);
 
 
 

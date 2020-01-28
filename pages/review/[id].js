@@ -27,6 +27,7 @@ class ReviewOne extends Component {
     influencers: [],
     review: {},
     kit: {},
+    products: [],
     kitTrue: true,
     disableVoteButtons: false,
     update: false,
@@ -53,6 +54,7 @@ class ReviewOne extends Component {
       })
       .catch(() => toastr.error('Error occured while fetching. Please try later.'));
   }
+
 
 
   fetchInfluencer = () => {
@@ -230,7 +232,6 @@ class ReviewOne extends Component {
   // }
 
   videoDraw = () => {
-    const {review} = this.state;
 
     if (this.state.review.video === "") {
       return(
@@ -262,11 +263,12 @@ class ReviewOne extends Component {
     const review = this.state.review || {};
     const influencer = this.state.review.influencer || {};
     const influencers = this.state.influencers;
-
-    console.log(this.state)
+    const kit = this.state.kit;
+    const products = this.state.kit.products;
+    
 
     if (this.context.user.role !== "Admin") {
-      if(this.state.kitTrue === true) {
+      if(this.state.kitTrue === true && products !== undefined) {
         return (
           //THIS IS FOR SURVIVAL KIT CLICKED
           // style={{height:height}}ref={this.myInput} READ the height of page 
@@ -350,8 +352,15 @@ class ReviewOne extends Component {
                   </div>
                 </div>   
               </div>
-            
-                <ProductKit kit={this.state.kit}></ProductKit>
+            {/*MAP goes HERE of 3 */}
+                {products.forEach((product, index) => {
+                  // console.log(product,index)
+                  return(
+                <ProductKit product={product} index={index}></ProductKit>
+                )
+                })}
+             
+                
             </div>
             {this.audioDraw()}
             <div className="bottom-review-container">
