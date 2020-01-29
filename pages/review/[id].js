@@ -268,7 +268,7 @@ class ReviewOne extends Component {
     
 
     if (this.context.user.role !== "Admin") {
-      if(this.state.kitTrue === true && products !== undefined) {
+      if (this.state.kitTrue === true && products !== undefined) {
         return (
           //THIS IS FOR SURVIVAL KIT CLICKED
           // style={{height:height}}ref={this.myInput} READ the height of page 

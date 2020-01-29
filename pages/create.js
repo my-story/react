@@ -4,6 +4,7 @@ import { Input, Tooltip, Icon, Select } from 'antd';
 import * as toastr from 'toastr';
 import InfluencerServices from '../services/InfluencerServices';
 import ProductCreate from '../components/products/ProductCreate';
+import Link from 'next/link';
 
 const OPTIONS = ["Athlete", "Musician", "Tech", "Artist"];
 
@@ -61,6 +62,9 @@ class InfluencerCreate extends Component {
       if (!this.state.done) {
         return (
           <div>
+              <div>
+                <Link href="/kit/create">Kit Create</Link>
+              </div>
             <h1>Create Influencer</h1>
             <div className="create-card">
               <Input name="firstname" placeholder="Enter Person's first name" onChange={this.onChange} prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} suffix={

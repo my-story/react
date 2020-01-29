@@ -8,8 +8,21 @@ class KitCreate extends Component {
     state = {
         kit : {
             influencer: "",
-            products: [],
-            // tips: [],
+            products: [{
+                product: "",
+                comment: ""
+            }],
+            tips: [{
+                header: "",
+                description: "",
+                video: ""
+            }],
+            techniques: [{
+                header: "",
+                description: "",
+                video: ""
+            }],
+            category: "",
             role: ""
         }
     }
@@ -28,13 +41,29 @@ class KitCreate extends Component {
         this.setState( {product} )
       };
 
+    submit = () => {
+        // KitServices.kitCreate
+    }
+
       
     render() {
+
+        console.log(this.state)
         return (
             <div>
                  <Input name="influencer" placeholder="Please enter influencer id"  onChange={this.onChange} />
-                 <TextArea name="products" rows={4} type="text" placeholder="Add products id separated [space]" onChange={this.onChangeProduct} />
-                 {/* <TextArea name="tips" rows={4} type="text" placeholder="Add Cloudinary images url separated by a space" onChange={this.onChangeImage} /> */}
+                 <TextArea name="products.product" rows={4} type="text" placeholder="Add products id separated [space]" onChange={this.onChangeProduct} />
+                 <TextArea name="products.comment" rows={4} type="text" placeholder="Add products id separated [space]" onChange={this.onChangeProduct} />
+                 
+                 
+                 <TextArea name="tips.header" rows={4} type="text" placeholder="Add tip header" onChange={this.onChangeProduct} />
+                 
+                 <TextArea name="tips.description" rows={4} type="text" placeholder="Explain tip" onChange={this.onChangeProduct} />
+                 
+                 <TextArea name="techniques.header" rows={4} type="text" placeholder="Add technique header" onChange={this.onChangeProduct} />
+                 <TextArea name="techniques.description" rows={4} type="text" placeholder="Explain technique" onChange={this.onChangeProduct} />
+                 
+                 <button onClick={this.submit}>Submit</button>
             </div>
         )
     }
