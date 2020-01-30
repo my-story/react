@@ -275,10 +275,8 @@ class ReviewOne extends Component {
     const kit = this.state.kit;
     
 
-<<<<<<< HEAD
-    if (this.context.user.role !== "Admin") {
-      if (this.state.kitTrue === true && products !== undefined) {
-=======
+
+
     if(this.state.kit === {} || this.state.kit === undefined){
       return(
         <div>
@@ -287,7 +285,6 @@ class ReviewOne extends Component {
       )
     } else {
       if(this.state.kitTrue === true) {
->>>>>>> eb3e07195fe85025d1000c3cc3604a5b1cb39705
         return (
 
 
