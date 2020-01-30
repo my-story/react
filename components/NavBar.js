@@ -52,6 +52,7 @@ class NavBar extends Component {
 					<Menu>
 						<a id="home" className="menu-item" href="/">Home</a>
 						<a id="about" className="menu-item" href="/about">About</a>
+						<a id="about" className="menu-item" href="/podcasts">Podcasts</a>
 						<a id="contact" className="menu-item" href="/contact">Contact</a>
 						<a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
 					</Menu>
@@ -67,6 +68,11 @@ class NavBar extends Component {
 							<span>
 								<p>SAGES</p>
 							</span>
+						</Link>
+						<Link href="/podcasts">
+						<span>
+							<p>PODCASTS</p>
+						</span>
 						</Link>
 						<Link href="/products">
 							<span>
@@ -126,6 +132,7 @@ class NavBar extends Component {
 					<div className="navbar-burder-div">
 					<Menu>
 						<a id="mobile-nav" className="menu-item" href="/">Sages</a>
+						<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
 						<a id="mobile-nav" className="menu-item" href="/products">Store</a>
 						<a id="mobile-nav" className="menu-item" href="/about">About Us</a>
 						<a id="mobile-nav" className="menu-item" href="/contact-us">Contact</a>
@@ -141,6 +148,11 @@ class NavBar extends Component {
 								<Link href="/">
 									<span>
 										<p>SAGES</p>
+									</span>
+								</Link>
+								<Link href="/podcasts">
+									<span>
+										<p>PODCASTS</p>
 									</span>
 								</Link>
 								<Link href="/products">
