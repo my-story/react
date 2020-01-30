@@ -275,6 +275,8 @@ class ReviewOne extends Component {
     const kit = this.state.kit;
     
 
+
+
     if(this.state.kit === {} || this.state.kit === undefined){
       return(
         <div>

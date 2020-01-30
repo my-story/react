@@ -56,7 +56,7 @@ class influencerCard extends Component {
 
   render() {
 
-
+console.log(this.state)
 
     if (this.props.review === "yes"){
       return(
