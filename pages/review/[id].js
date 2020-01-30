@@ -12,7 +12,7 @@ import CartBubble from '../../components/cart/CartBubble';
 import Votes from '../../components/votes/Votes';
 import InfluencerCard from '../../components/influencer/InfluencerCard';
 import ProductKit from '../../components/reviews/ProductKit';
-
+import KitServices from '../../services/KitServices'
 
 class ReviewOne extends Component {
   static contextType = UserContext;
@@ -27,7 +27,6 @@ class ReviewOne extends Component {
     influencers: [],
     review: {},
     kit: {},
-    products: [],
     kitTrue: true,
     disableVoteButtons: false,
     update: false,
@@ -39,18 +38,27 @@ class ReviewOne extends Component {
 
 
   componentDidMount() {
-    // this.setState({height:this.myInput.current.offsetHeight});
     this.fetchInfluencer();
-    // this.fetchSurvivalKit();
 
     const { id } = this.props;
-    // console.log(id)
+
     ReviewServices.getReview(id)
       .then((review) => {
         this.setState({
-          review,
-          kit: review.kit
+          review: review
         })
+      })
+      .catch(() => toastr.error('Error occured while fetching. Please try later.'));
+      
+      this.getkit(id)
+  }
+
+  getkit = (id) => {
+    KitServices.getKit(id)
+      .then((kit) => {
+          this.setState({
+              kit: kit
+          })
       })
       .catch(() => toastr.error('Error occured while fetching. Please try later.'));
   }
@@ -65,6 +73,7 @@ class ReviewOne extends Component {
       }))
       .catch((err) => console.log(err))
   }
+  
   update = () => {
     this.setState({
       update: true
@@ -253,10 +262,10 @@ class ReviewOne extends Component {
     };
   };
   habits = () => {
-    this.setState({kit:false})
+    this.setState({kitTrue:false})
   }
   survival = () => {
-    this.setState({kit:true})
+    this.setState({kitTrue:true})
   }
 
   render() {
@@ -264,37 +273,47 @@ class ReviewOne extends Component {
     const influencer = this.state.review.influencer || {};
     const influencers = this.state.influencers;
     const kit = this.state.kit;
-    const products = this.state.kit.products;
     
 
+<<<<<<< HEAD
     if (this.context.user.role !== "Admin") {
       if (this.state.kitTrue === true && products !== undefined) {
+=======
+    if(this.state.kit === {} || this.state.kit === undefined){
+      return(
+        <div>
+          <p>Loadingg........</p>
+        </div>
+      )
+    } else {
+      if(this.state.kitTrue === true) {
+>>>>>>> eb3e07195fe85025d1000c3cc3604a5b1cb39705
         return (
-          //THIS IS FOR SURVIVAL KIT CLICKED
-          // style={{height:height}}ref={this.myInput} READ the height of page 
-<div style={{height:"350vh"}} className="review-outer-page">
-        <div className="review-page">
-          <div>
+
+
+        <div style={{height:"350vh"}} className="review-outer-page">
+          <div className="review-page">
             <div>
-              <img src={influencer.profilePic} alt="Expert Image" className="influencer-pic" />
-              <p className="heading" >{review.title}</p>
-            </div>
-            <div className="subheading">
-              <div className="category-name">
-                <p className="author">by: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-                <div className="category-card">
-                  <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567710375/icons8-comedy-100_1.png" alt="the product" className="icon"/>
-                  <span className="photography">{influencer.expertise}</span>
+              <div>
+                <img src={influencer.profilePic} alt="Expert Image" className="influencer-pic" />
+                <p className="heading" >{review.title}</p>
+              </div>
+              <div className="subheading">
+                <div className="category-name">
+                  <p className="author">by: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+                  <div className="category-card">
+                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567710375/icons8-comedy-100_1.png" alt="the product" className="icon"/>
+                    <span className="photography">{influencer.expertise}</span>
+                  </div>
+                </div>
+                <div className="profile-instagram">
+                  <p className="profile-name">{influencer.name && influencer.name.firstName}'s profile</p>
+                  <img  className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565290822/instagram.svg" alt="instagram"/>
                 </div>
               </div>
-              <div className="profile-instagram">
-                <p className="profile-name">{influencer.name && influencer.name.firstName}'s profile</p>
-                <img  className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565290822/instagram.svg" alt="instagram"/>
-              </div>
-            </div>
-              <div>
-                {this.videoDraw()}
-              </div>
+                <div>
+                  {this.videoDraw()}
+                </div>
           </div>
 
           <div>
@@ -351,15 +370,18 @@ class ReviewOne extends Component {
                     </button>
                   </div>
                 </div>   
+                {/* <div className="border">
+                  {products.forEach((product, index) => {
+                    console.log(index)
+                    return(
+                      <ProductKit product={product} index={index}></ProductKit>
+                    )
+                  })}
+              </div> */}
               </div>
-            {/*MAP goes HERE of 3 */}
-                {products.forEach((product, index) => {
-                  // console.log(product,index)
-                  return(
-                <ProductKit product={product} index={index}></ProductKit>
-                )
-                })}
-             
+              <div>
+                <ProductKit kit={kit}></ProductKit>
+              </div>
                 
             </div>
             {this.audioDraw()}
@@ -377,23 +399,23 @@ class ReviewOne extends Component {
                 <FacebookShareButton url={"headspace.com"}><img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566411204/facebook.svg" alt="facebook button"/></FacebookShareButton>
                 <TwitterShareButton url={"amazon.com"}><img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566411510/twitter.svg" alt="twitter button"/></TwitterShareButton>
               </div>
+              </div>
+              </div>
+              {/* <CartBubble product={product}/> */}
+            </div>
+            <div className="expert-card-section-review">
+            <div className="div-review-cards">
+            <h2><b>Similar Sages</b></h2>
+            </div>
+            <div className="cards-review">
+            {influencers.map((i, index) => {
+              return (
+                <InfluencerCard review="yes" i={i} index={index} />
+              )
+            })}
             </div>
           </div>
-          {/* <CartBubble product={product}/> */}
-        </div>
-        <div className="expert-card-section-review">
-        <div className="div-review-cards">
-        <h2><b>Similar Sages</b></h2>
-        </div>
-        <div className="cards-review">
-        {influencers.map((i, index) => {
-          return (
-            <InfluencerCard review="yes" i={i} index={index} />
-          )
-        })}
-        </div>
-       </div>
-      </div>
+          </div>
       );
       } else {
         return (
@@ -481,49 +503,7 @@ class ReviewOne extends Component {
       </div>
         )
       }
-
-    } else {
-      if (this.state.update) {
-        return (<ReviewUpdate oldReview={this.state.review} />);
-      } else {
-        return (
-          <div>
-            <div>
-              {/* <Link href={`/product/${product._id}`}>Buy Now </Link> */}
-            {/* <p>{product.model}</p> */}
-              <img src={influencer.profilePic} alt={influencer.name} />
-              <p>Name: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-              <p>Expertise: {influencer.expertise && influencer.expertise.join(', ')}</p>
-              <p>Review: {influencer.review}</p>
-            </div>
-            <div>
-              <h3>Review</h3>
-              <p> Title: {review.title}</p>
-              <p> Review: {review.review}</p>
-              <p> Voicenote: {review.voicenote}</p>
-              {/* <video controls src={review.video} /> */}
-              {/* <audio ref="audio_tag" src={review.voicenote} controls/> */}
-              {this.videoDraw()}
-              {this.audioDraw()}
-              <button onClick={this.update}>Update</button>
-              <br />
-              <button onClick={this.submit}>Delete</button>
-              <div>
-                <Votes
-                  isDownvoted={this.isDownvoted()}
-                  isUpvoted={this.isUpvoted()}
-                  votes={this.votes()}
-                  voteDown={this.downvote}
-                  voteUp={this.upvote}
-                />
-              </div>
-            </div>
-          </div>
-        )
-
-      }
     }
-
   }
 }
 
