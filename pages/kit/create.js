@@ -36,19 +36,13 @@ class KitCreate extends Component {
         kit[e.target.name] = e.target.value
         this.setState( {kit} )
       };
-
-      // onChangeProduct = (e) => {
-      //   let { kit } = this.state;
-      //   let value = e.target.value;
-      //   kit[e.target.name] = value.split(' ');
-      //   this.setState( {kit} )
-      // };
-
+        
       handleChange = (selectedItems) => {
         this.setState({
-          kit: {
-            ...this.state,
+          kit : {
+            ...this.state.kit,
             category: selectedItems
+
           }
         })
       };
@@ -62,14 +56,12 @@ class KitCreate extends Component {
           product,
           comment
         }
-        // console.log(object, "    " , productsArray, productsComments)
+
         let array = this.state.kit.products;
         let newArray = array.push(object);
 
         if(object !== "") {
           this.setState({products: newArray})
-          
-          // console.log(object, this.state.kit.products)
         }
         };    
         
@@ -119,44 +111,27 @@ class KitCreate extends Component {
           this.addBackend();
           // console.log("ready for backend")
         }
-      }
-
-      // productsAddArray = () => {
-      // const {kit, productsArray, productsComments} = this.state;
-      // const {product,comment} = this.state.kit.products;
-      // this.setState({
-      //  product : this.state.kit.productsArray,
-      //  comment : this.state.kit.productsComments
-      // })
-      //   this.fixComments();
-
-      // // }
-      // // saveState = () => {
-      //   this.fixComments();
-      //   this.fixTips();
-      //   this.fixTechniques();
-      // }
+      };
 
       addBackend () {
         const {kit} = this.state;
 
         KitServices.kitCreate(kit)
           .then((kit)=>{
-            console.log(kit)
             this.setState({
               kit: kit,
               kitCreate:true
             })
           })
           .catch((e)=>console.log(e))
-      }
+      };
       
       
       
     render() {
       const { kit, selectedItems } = this.state;
       const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-        console.log(this.state)
+
         return (
             <div className="create-survival-kit-div">
                  <Input name="influencer" placeholder="Please enter influencer id"  onChange={this.onChange} />
@@ -171,10 +146,10 @@ class KitCreate extends Component {
                  <button onClick={this.fixTechniques}> Add techniques </button>                                  
                  <Input name="category" placeholder="Please enter category"  onChange={this.onChange} />
                 
-                 {/* <Select
+                 <Select
                 mode="multiple"
                 placeholder="This is the Category. ADMIN can create new categories"
-                // value={kit.category}
+                name="category"
                 onChange={this.handleChange}
                 style={{ width: '100%' }}>
                 {filteredOptions.map(item => (
@@ -182,7 +157,7 @@ class KitCreate extends Component {
                     {item}
                   </Select.Option>
                 ))}
-              </Select> */}
+              </Select>
 
                  {/* <TextArea name="tips" rows={4} type="text" placeholder="Add Cloudinary images url separated by a space" onChange={this.onChangeImage} /> */}
                  <button onClick={this.saveState}>Save State</button>                 

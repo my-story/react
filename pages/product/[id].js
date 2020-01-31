@@ -81,11 +81,18 @@ class ProductDetail extends Component {
     };
   };
 
+  backedByProduct = () => {
+    const {id} = this.state._id;
+    
+  }
+
   render() {
   const { influencer } = this.state || {};
+  const {model} = this.state || "";
   const {name} = this.state.influencer || {};
 
-  if (influencer === undefined){
+ 
+  if (model === undefined){
     return <div></div>
   } else {
     return (
@@ -140,9 +147,9 @@ class ProductDetail extends Component {
         <div className="product-backed-by">
           <div>
             <p><b>Backed by:</b></p>
+            {/* <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
             <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
-            <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
-            <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" />
+            <img id="expert-quote-picture" src={influencer.profilePic} alt="Sage" /> */}
             
           </div>
         </div>

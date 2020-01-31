@@ -10,10 +10,6 @@ class ReviewUpdate extends Component {
 
   state = {
     title: "",
-    one: "",
-    two: "",
-    three: "",
-    specs: "",
     kit: "",
     video: "",
     voicenote: "",
@@ -37,11 +33,7 @@ class ReviewUpdate extends Component {
       .then((review) =>{
         this.setState({
           title: review.title,
-          one: review.review.one,
-          two: review.review.two,
-          three: review.review.three,
-          specs: review.review.specs,
-          kit: review.kit,
+          kit: review.kit._id,
           video: review.video,
           voicenote: review.voicenote,
           influencer: review.influencer._id,
@@ -60,10 +52,6 @@ class ReviewUpdate extends Component {
     
     const newReview = {
       title: this.state.title,
-      one: this.state.one,
-      two: this.state.two,
-      three: this.state.three,
-      specs: this.state.specs,
       influencer: this.state.influencer,
       video: this.state.video,
       kit: this.state.kit,
@@ -89,10 +77,6 @@ class ReviewUpdate extends Component {
         return (
           <div>
             <Input name="title" defaultValue={this.state.title} placeholder="Please enter title " allowClear onChange={this.onChange} />
-            <TextArea rows={4} name="one" placeholder="How I Got here..." defaultValue={this.state.one} onChange={this.onChange} />
-            <TextArea rows={4} name="two" placeholder="How X helped me..." defaultValue={this.state.two} onChange={this.onChange} />
-            <TextArea rows={4} name="three" placeholder="Here it is!..." defaultValue={this.state.three} onChange={this.onChange} />
-            <TextArea rows={4} name="specs" placeholder="SPECS" defaultValue={this.state.specs} onChange={this.onChange} />
             <Input name="influencer" defaultValue={this.state.influencer} placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
             <Input name="kit" defaultValue={this.state.kit} placeholder="Please enter kit ID " allowClear onChange={this.onChange} />
             <Input name="video" defaultValue={this.state.video} placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
