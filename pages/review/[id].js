@@ -17,12 +17,6 @@ import KitServices from '../../services/KitServices'
 class ReviewOne extends Component {
   static contextType = UserContext;
   
-  // constructor(props){
-	// 	super(props)
-	// 	this.myInput = React.createRef();
-	// 	this.state= {height:null};
-  // }
-   
   state = {
     influencers: [],
     review: {},
@@ -275,8 +269,6 @@ class ReviewOne extends Component {
     const kit = this.state.kit;
     
 
-
-
     if(this.state.kit === {} || this.state.kit === undefined){
       return(
         <div>
@@ -286,7 +278,6 @@ class ReviewOne extends Component {
     } else {
       if(this.state.kitTrue === true) {
         return (
-
 
         <div style={{height:"350vh"}} className="review-outer-page">
           <div className="review-page">
@@ -376,9 +367,9 @@ class ReviewOne extends Component {
                   })}
               </div> */}
               </div>
-              <div>
+              {/* <div> */}
                 <ProductKit kit={kit}></ProductKit>
-              </div>
+              {/* </div> */}
                 
             </div>
             {this.audioDraw()}

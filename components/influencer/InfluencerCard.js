@@ -42,6 +42,13 @@ class influencerCard extends Component {
     }
   }
 
+  displayCategory = () => {
+    if (this.state.review.kit.category !== undefined) {
+      return(<div>{this.state.review.kit.category}</div>)
+    } else {
+      return(<div></div>)
+    }
+  }
   opaqueOn = () => {
     this.setState({
       opacity: "0.3"
@@ -55,10 +62,9 @@ class influencerCard extends Component {
   }
 
   render() {
+    const {review} = this.state;
 
-console.log(this.state)
-
-    if (this.props.review === "yes"){
+    if (this.props.review === "yes" || review.kit === undefined){
       return(
         <Link href="/review/[id]" as={`/review/${this.props.i._id}`} key={this.props.index} prefetch>  
           {/* <div className="expert-card review">
@@ -133,7 +139,8 @@ console.log(this.state)
 
               </div>
               <div>
-
+                
+              {this.displayCategory()}
               </div>
               <div>
                 {this.props.i.name.firstName}

@@ -14,7 +14,7 @@ class ReviewForm extends Component {
       video:"",
       voicenote:"",
       created:false,
-      product: this.props.product,
+      // product: this.props.product,
       reviewDone:{}
     }
 
@@ -30,7 +30,7 @@ class ReviewForm extends Component {
           video: this.state.video,
           kit: this.state.kit,
           voicenote: this.state.voicenote,
-          product: this.state.product,
+          // product: this.state.product,
           user: this.props.user
         })
         .then((res) => this.setState({created:true,reviewDone:res}))

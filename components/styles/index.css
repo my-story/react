@@ -2758,7 +2758,8 @@ margin-bottom: 2vh;
 }
 
 .product-kit-page{
-  height: 50vh;
+  min-height: 120vh;
+  border: solid;
 }
 
 #checkout-input2 {
