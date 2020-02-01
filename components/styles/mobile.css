@@ -1,25 +1,24 @@
 @media only screen and (max-width: 480px) {
-    .review-page {
-        margin: 0 5vw 0 5vw;
-      }
-      .book-card {
-        margin-top: 2vh;
+			.review-page {
+				margin: 0 5vw 0 5vw;
+			}
+			.book-card {
+				margin-top: 2vh;
 			}
 			.book-container {
-			justify-content: center;
+				justify-content: center;
 			}
-      .heading {
+			.heading {
 				display: flex;
 				flex-direction: column;				
 				flex-wrap: wrap;
-        color: #000000;
-        /* font-family: Hind */
-        font-family: "Hind", sans-serif;
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 28px;
-        margin-bottom: 0;
-        padding-top: 0;
+				color: #000000;
+				font-family: "Hind", sans-serif;
+				font-size: 20px;
+				font-weight: bold;
+				line-height: 28px;
+				margin-bottom: 0;
+				padding-top: 0;
 			}
 			.influencer-pic {
 				position: relative;
@@ -47,10 +46,7 @@
 				min-width: 100vw;
 				margin: 0;
 
-			}
-			/* .about-page {
-				margin: 0;
-			} */
+			}	
 			.about-heading {
 				height: 10vh;
 				width: 100%;
@@ -114,8 +110,8 @@
 				width: 55vw;
 			  }
 			  .remember-div {
-				  height: 11vh;
-				  margin-top: 28vh;
+				  /* height: 11vh; */
+				  margin-top: 25vh;
 				  font-size: 90%;
 				  display: flex;
 				  flex-direction: column;
@@ -152,7 +148,7 @@
 			  }
 			  .remember-div {
 				  font-family: "Hind";
-				  height: 40px;
+				  height: 20px;
 				  margin-top: 200px;
 				  display: flex;
 				align-items: center;
@@ -319,4 +315,44 @@
 				  #expert-quote-picture {
 					height: 8vh;
 				  }
+				  .index-page {
+					margin: 0 5vw 0 5vw;
+				  }
+				  .expert-card-paragraph p {
+					font-size: 80%;
+				  }
+				  .best-book-pictures {
+					width: 100%;
+					display: flex;
+					flex-direction: row;
+					height: 200px; 
+					justify-content: center;
+				  }
+
+					#best-book-cover {
+					height: auto;
+					border-radius: 25px;
+					width: 65%;
+					/* padding-right: 60px;
+					padding-left: 30px; */
+					background-color: #F7F7F7;
+					}
+					#best-book-author {
+					height: 100px;
+					width: auto;
+					border-radius: 25px;
+					/* border-radius: 50%; */
+					position: relative;
+					top: 50px;
+					right: 20px;
+					}
+				  .best-book-info-div {
+					flex-direction: column;
+					
+				  }
+				  .best-book-title-div {
+					margin-top: 2vh;
+					max-width:100%;
+				  }
+				
   }

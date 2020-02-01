@@ -980,7 +980,6 @@ background: none;
   display: flex;
   flex-direction: row;
   overflow: hidden;
-
 }
 .expert-card-name {
   width: 25%;
@@ -2266,6 +2265,7 @@ padding-left: 0.5vw;
 .book-card p {
   font-size: 12px;
   text-align: center;
+  width: 70%;
   /* padding: 0 1vw 0 1vw; */
 }
 .open {
@@ -2872,7 +2872,6 @@ margin-bottom: 2vh;
   height: 50vh;
   width: 100%;
   margin-top: 8vh;
-
 }
 .best-book-header {
   text-align: center;

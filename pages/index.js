@@ -100,7 +100,7 @@ class InfluencerList extends Component {
           </div>
           <div className="heyhey-message">
             <h1>Hey hey!</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+            <p>Share your opinion!</p>
             {/* <button><b>Share an opinion</b></button> */}
             <div> 
               <button onClick={this.onOpenModal}><b>Share an opinion</b></button>
