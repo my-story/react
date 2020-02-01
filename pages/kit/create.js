@@ -11,6 +11,7 @@ const OPTIONS = ["Addiction", "Sleep", "Spirituality"];
 class KitCreate extends Component {
     state = {
         kit : {
+          title: "",
           influencer: false,
           products: [],
           product: [],
@@ -134,6 +135,7 @@ class KitCreate extends Component {
 
         return (
             <div className="create-survival-kit-div">
+                 <Input name="title" placeholder="Please enter title"  onChange={this.onChange} />
                  <Input name="influencer" placeholder="Please enter influencer id"  onChange={this.onChange} />
                  <TextArea name="product" rows={4} type="text" placeholder="Add product id" onChange={this.onChange} />
                  <TextArea name="comment" rows={4} type="text" placeholder="Add product" onChange={this.onChange} />
