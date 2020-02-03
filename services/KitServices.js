@@ -9,8 +9,16 @@ const kitCreate = (kit) => http.post('/kit/create',kit)
 const kitProductBacked = (id) => http.get('/kit/popular', id)
   .then((res) => res.data)
 
+const getKitAdmin = (id) => http.get(`/kit/admin/${id}`)
+  .then((res) => res.data);
+
+const updateKit = (kit, id) => http.post(`/kit/update/${id}`, kit)
+  .then((res) => res.data);
+
 export default {
     getKit,
     kitCreate,
-    kitProductBacked
+    kitProductBacked,
+    getKitAdmin,
+    updateKit
 }

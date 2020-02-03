@@ -8,7 +8,7 @@ class influencerCard extends Component {
   
   state = {
     review: {},
-    product: {},
+    kit: {},
     opacity: "1",
   };
 
@@ -16,7 +16,7 @@ class influencerCard extends Component {
 
   componentDidMount = () => {
     ReviewServices.getReview(this.props.i._id)
-      .then((review) => this.setState(() => ({ review: review, product: review.product })))
+      .then((review) => this.setState(() => ({ review: review })))
       .catch(() => console.log('Error occured while fetching review. Please try later.'));
   }
 
@@ -44,14 +44,15 @@ class influencerCard extends Component {
 
   displayCategory = () => {
     if (this.state.review.kit.category !== undefined) {
-      return(<div>{this.state.review.kit.category}</div>)
+      console.log(this.state.review.kit.category)
+      return(<div id={`card-kit-category`} className={this.state.review.kit.category}></div>)
     } else {
       return(<div></div>)
     }
   }
   displayTitle = () => {
     if (this.state.review.kit.title !== undefined) {
-      return(<div>{this.state.review.kit.title}</div>)
+      return(<div id="card-kit-title"><b>{this.state.review.kit.title}</b></div>)
     } else {
       return(<div></div>)
     }
@@ -71,7 +72,7 @@ class influencerCard extends Component {
 
   render() {
     const {review} = this.state;
-    console.log(review.kit)
+    
     if (this.props.review === "yes" || review.kit === undefined){
       return(
         <Link href="/review/[id]" as={`/review/${this.props.i._id}`} key={this.props.index} prefetch>  
@@ -144,14 +145,13 @@ class influencerCard extends Component {
           <div className="expert-card-container">
             <div className="expert-card-name">
               <div>
-              {this.displayTitle()}
-              </div>
-              <div>
-                
               {this.displayCategory()}
               </div>
               <div>
-                {this.props.i.name.firstName}
+              {this.displayTitle()}
+              </div>
+              <div id="card-kit-name">
+                {this.props.i.name.firstName} {this.props.i.name.lastName}
               </div>
             </div>
 
