@@ -40,7 +40,15 @@ class KitUpdate extends Component {
     componentDidMount = () => {
       KitServices.getKitAdmin(this.props.id)
         .then((kit) => this.setState({
-          kit: kit
+          kit: {
+            title: kit.title,
+            influencer: kit.influencer,
+            products: kit.products,
+            tips: kit.tips,
+            techniques: kit.techniques,
+            category: kit.category,
+            _id: kit._id,
+          }
         }))
            
         .catch((err) => console.log(err))
@@ -139,7 +147,7 @@ class KitUpdate extends Component {
             products: kit.products,
             tips: kit.tips,
             techniques: kit.techniques,
-            category: kit.category
+            category: kit.category[0]
           }
         }, id)
         // console.log(kit)
@@ -159,7 +167,6 @@ class KitUpdate extends Component {
     render() {
       const { kit, kitOld, selectedItems } = this.state;
       const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-console.log(this.state);
 
       if (this.state.kit) {
         return (

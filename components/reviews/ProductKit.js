@@ -5,26 +5,41 @@ import * as toastr from 'toastr';
 class ProductKit extends Component {
 
     state = {
-        kit: "",
+        
     };
     
     static getInitialProps({ query: { id } }) {
         return { id };
     }
 
-    
-    // componentDidMount = () => {
-    //     if (this.state.kit === undefined ) {
-    //     this.setState({kit: this.props.kit[0]})
-    //     } else {
-    //         return
-    //     }
+    componentDidMount = () => {
+        KitServices.getKit(this.props.id)
+        .then((kit) => {
+            this.setState({kit})
+        })
+        .catch((err) => console.log(err))
+        }
+
 
     // }
     // getReview = () => {
     //     this.setState({kit: this.props.kit[0]})
     // }
 
+//Add three dots ... after a certain length of the string.
+    shrinkParagraph = (p) => {
+        // const {kit} = this.state;
+        const length = p.length;
+         if (length > 100){
+             return(
+                 <p>{p.substring(0,100)} ...</p>
+             )
+         } else {
+            return(
+                <p>{p}...</p>
+            )
+         }
+    }
     learnMore = (e) => {
         const clase = e.target.className;
         if(clase !== "open") {
@@ -32,38 +47,39 @@ class ProductKit extends Component {
         }
     }
     render(){
-        // console.log(this.props.kit[0])
+        
+        const {kit} = this.state || {};
 
+        console.log(kit)
 
-        if (this.state === undefined) {
-            return(<div></div>)
+        if (kit === undefined || kit.products === undefined) {
+            return(<div>...</div>)
         } else {
             return (
                 <div className="product-kit-page">
-                {/* {this.props.kit[0].products.map((p, index) => {
-                    console.log( "este consolo log ", p.product)
+                {kit.products.map((p, index) => {
+                    let product = p.product;
+                    
                     return(
                         <div key={index} className="survival-kit-card">
                         <div className="survival-card-image-div">
-                            <img id="survival-image" src="https://www.stickpng.com/assets/images/580b585b2edbce24c47b2b90.png"/>
+                            <img id="survival-image" src={product.images}/>
                         </div>
                         <div className="kit-description-div">
-                            <p>Manduka</p>
-                            <p id="product-name"><b>Pro Yoga Mat</b></p>
+                            <p id="product-name"><b>{product.model}</b></p>
                             <div className="kit-category-bubble">
                                 <div>
                                     <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324090/heart-kit.svg"alt="" />
-                                    <span>Category</span>
-                                </div>
-                                <div>
-                                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324090/heart-kit.svg"alt="" />
-                                    <span>Category</span>
+                                    <span>{product.category}</span>
                                 </div>
                             </div>
+                            <div className="kit-description-p">
+                                {this.shrinkParagraph(p.comment)}
+                            </div>
                             <div className="learn-more-survival">
-                                <span>Learn more</span>
+                                <p>Learn more</p>
                                 <img id="arrow-down-kit" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324512/chevron-left_2_copy_2.svg" alt="laern more arrow" />
-                                </div>
+                            </div>
                         </div>
                         <div className="line-2"></div>
                         <div className="survival-prize-div">
@@ -71,13 +87,13 @@ class ProductKit extends Component {
                                 <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
                                 
                             </div>
-                            <p id="survival-prize">$150</p>
+                            <p id="survival-prize">${product.prize}</p>
                             <button className="survival-kit-add-to-cart">Add to card</button>
                         
                         </div>
                     </div>
                     )
-                })} */}
+                })}
     
                 <div className=" open survival-kit-card">
                     <div className="survival-card-image-div">

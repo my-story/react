@@ -72,7 +72,7 @@ class influencerCard extends Component {
 
   render() {
     const {review} = this.state;
-    console.log(review)
+    
     if (this.props.review === "yes" || review.kit === undefined){
       return(
         <Link href="/review/[id]" as={`/review/${this.props.i._id}`} key={this.props.index} prefetch>  

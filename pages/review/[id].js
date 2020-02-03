@@ -269,7 +269,7 @@ class ReviewOne extends Component {
     const kit = this.state.kit;
     
 
-    if(this.state.kit === {} || this.state.kit === undefined){
+    if(this.state.kit === {} || this.state.kit === undefined || this.state.review.influencer === undefined){
       return(
         <div>
           <p>Loadingg........</p>
@@ -368,7 +368,7 @@ class ReviewOne extends Component {
               </div> */}
               </div>
               {/* <div> */}
-                <ProductKit kit={kit}></ProductKit>
+                <ProductKit id={influencer._id}></ProductKit>
               {/* </div> */}
                 
             </div>
