@@ -41,15 +41,16 @@ class NavBar extends Component {
 	render() {
 		const {userLogged} = this.state;
 	
-		if (this.props.islogged) {
-			if (!userLogged) {
-				return(<div></div>)
-			}
+		if (userLogged) {
 			return(
 				<div>
 					<MediaQuery maxDeviceWidth={490}>
 					<div  className="navbar-burder-div">
 					<Menu>
+						<div clasName="menu-profile-div">
+							<img className="menu-profile-image" src="https://cdn.shopify.com/s/files/1/1425/8892/products/SID400205--Batman-LS-Bust.jpg?v=1571268366" />
+							<p id="menu-profile-name">User Lastname</p>
+						</div>
 						<a id="home" className="menu-item" href="/">Home</a>
 						<a id="about" className="menu-item" href="/about">About</a>
 						<a id="about" className="menu-item" href="/podcasts">Podcasts</a>
