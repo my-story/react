@@ -11,7 +11,7 @@ import ReviewUpdate from '../../components/reviews/ReviewUpdate';
 import CartBubble from '../../components/cart/CartBubble';
 import Votes from '../../components/votes/Votes';
 import InfluencerCard from '../../components/influencer/InfluencerCard';
-import ProductKit from '../../components/reviews/ProductKit';
+import SurvivalKit from '../../components/survivalKit/SurvivalKit';
 import KitServices from '../../services/KitServices'
 
 class ReviewOne extends Component {
@@ -368,7 +368,7 @@ class ReviewOne extends Component {
               </div> */}
               </div>
               {/* <div> */}
-                <ProductKit id={influencer._id}></ProductKit>
+                <SurvivalKit id={influencer._id}></SurvivalKit>
               {/* </div> */}
                 
             </div>

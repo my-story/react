@@ -2147,14 +2147,16 @@ margin-right: 1vw
 }
 #product-name {
   font-size: 18px;
-  padding-top: 1.5vh;
+  /* padding-top: 1.5vh; */
 }
 #tip-name {
   font-size: 15px;
 }
+
 .kit-category-bubble {
   display: flex;
   flex-direction: row;
+
 }
 .kit-category-bubble div {
   height: 22px;	
@@ -2180,8 +2182,13 @@ margin-right: 1vw
 .learn-more-survival {
   display: flex;
   flex-direction: row;
-  margin-top: 1vh;
+  margin-top: 1vh;  
+  height: 30px;
+  width: 100px;
 
+}
+.learn-more-survival:hover {
+cursor: pointer;
 }
 .learn-more {
   display: flex;
@@ -2629,6 +2636,21 @@ width: auto;
 Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
 */
+.menu-profile-div {
+  min-height: 40px;
+  min-width: 100px;
+  /* border-bottom: solid; */
+}
+.menu-profile-image {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+#menu-profile-name {
+  font-weight: bold;
+  font-size: 25px;
+  color: #F66C4F;
+}
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
