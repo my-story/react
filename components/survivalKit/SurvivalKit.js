@@ -39,6 +39,7 @@ class SurvivalKit extends Component {
     render(){
         
         const {kit} = this.state || {};
+        console.log(kit);
 
         if (kit === undefined || kit.products === undefined) {
             return(<div>...</div>)
@@ -86,13 +87,79 @@ class SurvivalKit extends Component {
                 </div>
     
                 {/* //TIPS DESIGN FIGURE OUT How to dispaly all of them */}
-                <div onClick={this.learnMore} className="open survival-kit-card tips-card">
-                <div className="tip-image-div">
+            <div className="technique-survival-kit-card">
+            <div className="survival-card-image-div">
+                <img id="survival-image"/>
+            </div>
+            <div className="technique-kit-description-div">
+                <div className="technique-kit-name-category">
+                    <p id="technique-name"><b>Name of Technique</b></p>
+                    <p id="technique-word">Technique</p>
+                    <div className="technique-kit-category-bubble">
+                        <div>
+                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324090/heart-kit.svg"alt="" />
+                            <span>Category</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="technique-kit-description-p">
+                    <div>
+                        <p><b>Header</b></p>
+                    </div>
+                    <div className="technique-steps">
+                        <p>- description</p><br></br>
+                        <p>- description</p><br></br>        
+                    </div>
+                </div>
+            </div>
+            {/* <div className="line-2"></div>
+            <div className="survival-prize-div">
+            <div className="survival-save-favorite">
+                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+                </div>
+                <p id="survival-prize">$150</p>
+                <button className="survival-kit-add-to-cart">Add to card</button>
+            </div> */}
+        </div>
+        <div className="technique-survival-kit-card">
+            <div className="survival-card-image-div">
+                <img id="survival-image"/>
+            </div>
+            <div className="technique-rebound-kit-description-div">
+                <div className="technique-kit-name-category">
+                    <p id="technique-name"><b>Name of Technique</b></p>
+                    <p id="technique-word">Technique</p>
+                    <div className="technique-kit-category-bubble">
+                        <div>
+                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324090/heart-kit.svg"alt="" />
+                            <span>Category</span>
+                        </div>
+                    </div>
+                </div>
+                <div className="technique-kit-description-p">
+                    <div>
+                        <p><b>Header</b></p>
+                    </div>
+                    <div className="technique-steps">
+                        <p>- description</p><br></br>
+                        <p>- description</p><br></br>        
+                    </div>
+                </div>
+            </div>
+            <div className="line-2"></div>
+            <div className="technique-survival-prize-div">
+
+            </div>
+        </div>
+        {/* fwefwefwef */}
+
+                <div className="techniques-kit-card">
+                    <div className="tip-image-div">
                         <img id="survival-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1576256025/cloud.svg"/>
                     </div>
                     <div className="kit-description-div">
-                        <p style={{color:"#F66C4F"}}>Technique</p>
                         <p id="tip-name"><b>This is the name of the technique</b></p>
+                        <p style={{color:"#F66C4F"}}>Technique</p>
                         <div className="kit-category-bubble">
                             <div>
                                 <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324090/heart-kit.svg"alt="" />
@@ -105,13 +172,13 @@ class SurvivalKit extends Component {
                         </div>
                         <p id="tip-intro-description">Brief descriptin, yea yea , jajajaj esta tecnica es para energitarse despues de la siesta.</p>
                                 <div className="learn-more">
-                                                    <div className="learn-word">
+                                    <div className="learn-word">
                             <span>Learn more</span>
                             <img id="arrow-down-kit" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324512/chevron-left_2_copy_2.svg" alt="laern more arrow" />
-                                                    </div>
-                                                <div className="learn-div">
-                                                <div className="learn-technique"> 
-                                                <p id="follow-these-steps"><b>Follow these steps:</b></p>
+                            </div>
+                            <div className="learn-div">
+                            <div className="learn-technique"> 
+                            <p id="follow-these-steps"><b>Follow these steps:</b></p>
                             <ol style={{paddingLeft: "15px" }}>
                                 <li>Drink 8 water drinks</li>
                                 <li>Workout</li>

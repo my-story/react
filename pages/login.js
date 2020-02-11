@@ -16,6 +16,8 @@ class Login extends Component {
     path: '',
     password2:'',
     signup: false,
+    firstName: '',
+    lastName: ''
   };
 
 
@@ -54,11 +56,13 @@ class Login extends Component {
       return toastr.error("Passwords Dont Match")
     }
     else {
-      const { username, password } = this.state;
+      const { username, password, firstName, lastName } = this.state;
 
       const user = {
         username: username,
-        password: password
+        password: password,
+        firstName: firstName,
+        lastName: lastName
       };
 
       AuthServices.signup(user)
@@ -136,19 +140,14 @@ class Login extends Component {
 
   switchState = () => {
     this.setState({signup: true})
-  // } else if (this.state.signup === true) {
-  //   this.setState({signup: false})
   }
   switchStateBack = () => {
     this.setState({signup: false})
-  // } else if (this.state.signup === true) {
-  //   this.setState({signup: false})
+
   }
 
   render() {
 
-    console.log(this.state)
-    // if (this.state.signup === true) {
       if (this.state.signup === true){
       return (
         <div>
@@ -164,8 +163,8 @@ class Login extends Component {
               </div>
               <div className="inputs-login">
               <div className="name-last-container">
-                <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" />
-                <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" />
+                <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" onChange={e => this.handleChange(e)} />
+                <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" onChange={e => this.handleChange(e)}/>
               </div>
                 <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
                 <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567455103/email_icon.svg" alt="a mail"></img>
@@ -191,8 +190,8 @@ class Login extends Component {
           <p className="s-login">Sign Up</p>
             <div className="signup-container">
               <div className="name-last-container">
-                <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" />
-                <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" />
+                <input className="inputs-login-styling margin-input-login" placeholder="First Name" type="text" name="firstName" onChange={e => this.handleChange(e)} />
+                <input className="inputs-login-styling margin-input-login" placeholder="Last Name" type="text" name="lastName" onChange={e => this.handleChange(e)}/>
               </div>
               <input className="inputs-login-styling margin-input-login" placeholder="Email" type="text" name="username" value={this.state.username} onChange={e => this.handleChange(e)} />
               <input className="inputs-login-styling margin-input-login" placeholder="Password" type="password" name="password" onChange={e => this.handleChange(e)} />

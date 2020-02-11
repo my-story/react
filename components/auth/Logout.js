@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 import AuthServices from '../../services/AuthServices';
 
 class Logout extends React.Component {
@@ -11,6 +12,8 @@ class Logout extends React.Component {
         if (response.status === 200) {
           this.props.logout();
           console.log("Succesfull Logout");
+          Router.push('/login');
+
         } else {
           console.log("Already Logged-out");
         }
