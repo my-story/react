@@ -20,6 +20,7 @@ class KitCreate extends Component {
           header: [],
           description: [],
           techniques: [],
+          techniqueTitle: "",
           techniqueHeader: [],
           techniqueDescription: [],
           category: "",
@@ -87,37 +88,50 @@ class KitCreate extends Component {
       
       fixTechniques = () => {
         const {kit} = this.state;
-        const {techniqueHeader, techniqueDescription} = this.state.kit;
+        const {techniqueHeader, techniqueDescription, techniqueTitle} = this.state.kit;
+
+        let header = techniqueHeader.split(" , ");
+        let description = techniqueDescription.split(" , ");
+        let title = techniqueTitle;
 
         let object = {
-          techniqueHeader, 
-          techniqueDescription
+          title,
+          header, 
+          description
         }
 
         let array = this.state.kit.techniques;
         let newArray = array.push(object);
 
         if(object !== "") {
-          this.setState({techniques: newArray})
-          // console.log(object, this.state.kit.products)
+          this.setState({ techniques: newArray })
         }
       };
 
       onSubmit = () => {
-        let { kit } = this.state
+        let { kit } = this.state;
+
         if (kit.influencer === false) {
           toastr.error("Please complete all required fields")
           return
         } else {
           this.addBackend();
-          // console.log("ready for backend")
         }
       };
 
       addBackend () {
         const {kit} = this.state;
 
-        KitServices.kitCreate(kit)
+        KitServices.kitCreate({
+          kit: {
+            title: kit.title,
+            influencer: kit.influencer,
+            products: kit.products,
+            tips: kit.tips,
+            techniques: kit.techniques,
+            category: kit.category[0]
+          }
+        })
           .then((kit)=>{
             this.setState({
               kit: kit,
@@ -132,7 +146,7 @@ class KitCreate extends Component {
     render() {
       const { kit, selectedItems } = this.state;
       const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-
+console.log(this.state);
         return (
             <div className="create-survival-kit-div">
                  <Input name="title" placeholder="Please enter title"  onChange={this.onChange} />
@@ -142,7 +156,8 @@ class KitCreate extends Component {
                  <button onClick={this.fixComments}> Add products </button>
                  <TextArea name="header" rows={4} type="text" placeholder="Add tip header" onChange={this.onChange} />
                  <TextArea name="description" rows={4} type="text" placeholder="Add tip description" onChange={this.onChange} />
-                 <button onClick={this.fixTips}> Add tips </button>                 
+                 <button onClick={this.fixTips}> Add tips </button>    
+                 <TextArea name="techniqueTitle" rows={4} type="text" placeholder="Add technique title" onChange={this.onChange} />
                  <TextArea name="techniqueHeader" rows={4} type="text" placeholder="Add technique header" onChange={this.onChange} />
                  <TextArea name="techniqueDescription" rows={4} type="text" placeholder="Add technique description" onChange={this.onChange} />
                  <button onClick={this.fixTechniques}> Add techniques </button>                                  
@@ -161,8 +176,7 @@ class KitCreate extends Component {
                 ))}
               </Select>
 
-                 {/* <TextArea name="tips" rows={4} type="text" placeholder="Add Cloudinary images url separated by a space" onChange={this.onChangeImage} /> */}
-                 <button onClick={this.saveState}>Save State</button>                 
+                 {/* <TextArea name="tips" rows={4} type="text" placeholder="Add Cloudinary images url separated by a space" onChange={this.onChangeImage} /> */}               
                  <button onClick={this.onSubmit}>Submit</button>
             </div>
         )

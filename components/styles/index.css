@@ -2094,6 +2094,29 @@ margin-right: 1vw
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
   margin-bottom: 2vh;
 }
+.technique-survival-kit-card {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid; */
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  margin-bottom: 2vh;
+}
+.technique-rebound-survival-kit-card {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid; */
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  margin-bottom: 2vh;
+}
+
 .survival-card-image-div {
   width: 160px;
   position: relative;
@@ -2105,6 +2128,46 @@ margin-right: 1vw
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.techniques-kit-card {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid; */
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  margin-bottom: 2vh;
+}
+
+.technique-kit-category-bubble {
+  display: flex;
+  flex-direction: row;
+
+}
+.technique-kit-category-bubble div {
+  height: 22px;	
+  width: 75px;	
+  border-radius: 20px;	
+  background-color: #56ACC8;
+  margin-right: 0.5vw;
+  /* margin-bottom: 1vh; */
+  font-family: Hind;	
+  /* font-size: 10px;	 */
+  font-weight: bold;	
+  letter-spacing: 0.2px;	
+  /* line-height: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+.technique-kit-category-bubble span {
+  font-size: 10px;
+  color: white;
+  padding-left: 0.25vw;
 }
 .tips-card {
   height: 180px;
@@ -2128,6 +2191,49 @@ margin-right: 1vw
   height: 10vh;
   width: auto;
 }
+.technique-kit-description-div {
+  height: 90%;
+  width: 70%;
+  font-family: "Hind";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.technique-steps {
+  font-size: 12px;
+}
+.technique-rebound-kit-description-div {
+  border: solid;
+  height: 90%;
+  width: 250px;
+  padding-left: 30px;
+  font-family: "Hind";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.technique-survival-prize-div {
+  margin-left: 1vw;
+  border: solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  padding-right: 1vw;
+  height: 100%;
+  width: 220px;
+}
+.technique-kit-name-category {
+  height: 35%;
+  color: #f66c4f;
+}
+.technique-kit-name-category p {
+  font-size: 20px;
+  line-height: 5px;
+}
+#technique-word {
+  font-size: 13px;
+} 
 .kit-description-div {
   height: 90%;
   width: 220px;
@@ -2140,6 +2246,10 @@ margin-right: 1vw
   font-size: 12px;
   word-spacing: 2px;
   padding-top: 1vh;
+}
+.technique-kit-description-p {
+  height: 40%;
+  line-height: 2px;
 }
 
 .kit-description-p {
@@ -2156,7 +2266,6 @@ margin-right: 1vw
 .kit-category-bubble {
   display: flex;
   flex-direction: row;
-
 }
 .kit-category-bubble div {
   height: 22px;	
@@ -2245,6 +2354,7 @@ left: 1vw;
   padding-right: 1vw;
   height: 100%;
 }
+
 .tip-save-div {
   margin-bottom: 15px;
   height: 100%;
@@ -2329,7 +2439,7 @@ left: 1vw;
   height: 120px;	
   width: 100%;	
   border-radius: 2px;	
-  background: radial-gradient(circle, #4BBD78 0%, #FFFBD5 99.08%, #FFFFFF 100%);	
+  background: radial-gradient(circle, blue 0%, #FFFBD5 99.08%, #FFFFFF 100%);	
   box-shadow: 0 -6px 31px 0 rgba(0,0,0,0.08);
   margin-bottom: 1vh;
 }
@@ -2704,6 +2814,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 /* //FIN DEL NAVBAR MOBILE */
+
+#login-nav {
+  min-width: 35px;
+  margin-right: 5px;
+}
 .checkout-page {
   margin: 0 12vw 0 12vw;
   height: 100vh;
@@ -3037,4 +3152,11 @@ color: black;
 }
 .create-survival-kit-div {
   width: 50vw;
+}
+.cart-div {
+  /* border: solid; */
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+  padding-top: 15px;
 }

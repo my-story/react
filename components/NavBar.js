@@ -40,8 +40,9 @@ class NavBar extends Component {
 
 	render() {
 		const {userLogged} = this.state;
-	
-		if (userLogged) {
+		
+	if (userLogged) {
+		if (userLogged.length > 0) {
 			return(
 				<div>
 					<MediaQuery maxDeviceWidth={490}>
@@ -88,15 +89,6 @@ class NavBar extends Component {
 							<p>CONTACT</p>
 						</span>
 						</Link>
-
-					 	{/* <span >
-							 <Logout {...this.props}>Logout</Logout>
-						</span> */}
-						{/* <DropdownButton id="dropdown-item-button" title="Dropdown button">
-  <Dropdown.Item as="button">Action</Dropdown.Item>
-  <Dropdown.Item as="button">Another action</Dropdown.Item>
-  <Dropdown.Item as="button">Something else</Dropdown.Item>
-</DropdownButton> */}
 					<div className="dropdown-account-nav">
 						<Dropdown>
 						<Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -108,15 +100,16 @@ class NavBar extends Component {
 							<Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
 							<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
 							<Dropdown.Item href="#/action-3">
-							<Logout {...this.props}>Logout</Logout>
+							<Logout {...this.props} >Logout</Logout>
 							</Dropdown.Item>
 						</Dropdown.Menu>
 						</Dropdown>
 					</div>
 					<Link href="/cart">
-						<span>
-						<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
-						</span>
+						<div className="cart-div"> 
+						<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" />
+						<QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
+						</div>
 					</Link>
 					{/* </div> */}
 					</div>
@@ -125,7 +118,7 @@ class NavBar extends Component {
 				</MediaQuery>
 			</div>
 			);
-			
+	}	
 		} else {
 				return(
 					<div>
@@ -173,14 +166,14 @@ class NavBar extends Component {
 								</Link>
 						
 							<Link href="/login">
-								<span>
-								<p>LOG IN</p>
+								<span id="login-nav">
+								<p >LOG IN</p>
 								</span>
 							</Link>
 							<Link href="/cart">
-								<span>
+								<div className="cart-div">
 									<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
-								</span>
+								</div>
 							</Link>
 						
 							</div>						

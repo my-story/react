@@ -20,6 +20,7 @@ class KitUpdate extends Component {
           header: [],
           description: [],
           techniques: [],
+          techniqueTitle: "",
           techniqueHeader: [],
           techniqueDescription: [],
           category: "",
@@ -109,11 +110,16 @@ class KitUpdate extends Component {
       
       fixTechniques = () => {
         const {kit} = this.state;
-        const {techniqueHeader, techniqueDescription} = this.state.kit;
+        const {techniqueHeader, techniqueDescription, techniqueTitle} = this.state.kit;
+
+        let header = techniqueHeader.split(" , ");
+        let description = techniqueDescription.split(" , ");
+        let title = techniqueTitle;
 
         let object = {
-          techniqueHeader, 
-          techniqueDescription
+          title,
+          header, 
+          description
         }
 
         let array = this.state.kit.techniques;
@@ -167,6 +173,7 @@ class KitUpdate extends Component {
     render() {
       const { kit, kitOld, selectedItems } = this.state;
       const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
+      console.log(this.state);
 
       if (this.state.kit) {
         return (
