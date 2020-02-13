@@ -35,7 +35,7 @@ class MyApp extends App {
     });
   }
 
-  checkLogged() {
+  checkLogged = () => {
     AuthServices.loggedin()
       .then(res => {
         this.setState({ islogged: true, loggedInUser: res.data });
@@ -112,8 +112,9 @@ class MyApp extends App {
           <QtyProvider value={{ getQtyState: this.state.getQty, updateQty: this.updateQty }}>
             {/* <NavBarCssProvider value={{css: this.state.NavBarCss}}> */}
             <UserProvider value={{ user: this.state.loggedInUser, islogged: this.state.islogged, setAddress: this.getAddress, address: this.state.clientAddress }}>            
-            <NavBar islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
+            <NavBar {...pageProps} islogged={this.state.islogged} checklogged={this.checkLogged} logout={this.bye} user={this.state.loggedInUser}></NavBar>
             {/* </NavBarCssProvider> */}
+              
               <Component {...pageProps} giveuser={this.getUser} signout={this.bye} checklogged={this.checkLogged} user={this.state.loggedInUser} />
             </UserProvider>
           </QtyProvider>

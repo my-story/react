@@ -90,14 +90,15 @@ class KitCreate extends Component {
         const {kit} = this.state;
         const {techniqueHeader, techniqueDescription, techniqueTitle} = this.state.kit;
 
-        let header = techniqueHeader.split(" , ");
-        let description = techniqueDescription.split(" , ");
+        let descriptions = techniqueDescription.split(" , ");
         let title = techniqueTitle;
 
         let object = {
           title,
-          header, 
-          description
+          technique : {
+            techniqueHeader,
+            descriptions
+          }
         }
 
         let array = this.state.kit.techniques;
