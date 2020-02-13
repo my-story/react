@@ -103,7 +103,7 @@ class SurvivalKit extends Component {
                     </div>
                 </div>
                 <div className="technique-kit-description-p">
-                    <div>
+                    <div className="technique-header-div">
                         <p><b>Header</b></p>
                     </div>
                     <div className="technique-steps">
@@ -137,7 +137,7 @@ class SurvivalKit extends Component {
                     </div>
                 </div>
                 <div className="technique-kit-description-p">
-                    <div>
+                    <div className="technique-header-div">
                         <p><b>Header</b></p>
                     </div>
                     <div className="technique-steps">

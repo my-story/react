@@ -40,9 +40,9 @@ class NavBar extends Component {
 
 	render() {
 		const {userLogged} = this.state;
-		
-	if (userLogged) {
-		if (userLogged.length > 0) {
+		console.log(this.context.user)
+	if (this.context.user !== {}) {
+		// if (userLogged.length > 0) {
 			return(
 				<div>
 					<MediaQuery maxDeviceWidth={490}>
@@ -118,71 +118,71 @@ class NavBar extends Component {
 				</MediaQuery>
 			</div>
 			);
-	}	
-		} else {
-				return(
-					<div>
-					<MediaQuery maxDeviceWidth={490}>
-					<div className="navbar-burder-div">
-					<Menu>
-						<a id="mobile-nav" className="menu-item" href="/">Sages</a>
-						<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
-						<a id="mobile-nav" className="menu-item" href="/products">Store</a>
-						<a id="mobile-nav" className="menu-item" href="/about">About Us</a>
-						<a id="mobile-nav" className="menu-item" href="/contact-us">Contact</a>
-						<a id="mobile-nav" className="menu-item" href="/login">Log in</a>
-					</Menu>
-					</div>
-					</MediaQuery>
-					<MediaQuery minDeviceWidth={700}>
-						<div className="nav-bar">
-							<div className="navbar-section">
-								{/* <img id="logo-mystory" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" alt="logo mystory" /> */}
-								<p id="mystory-name" >My Story</p>
-								<Link href="/">
-									<span>
-										<p>SAGES</p>
-									</span>
-								</Link>
-								<Link href="/podcasts">
-									<span>
-										<p>PODCASTS</p>
-									</span>
-								</Link>
-								<Link href="/products">
-									<span>
-										<p>PRODUCTS</p>
-									</span>
-								</Link>
-								<Link href="/about">
-								<span>
-									<p>ABOUT</p>
-								</span>
-								</Link>
-								<Link href="/contact-us">
-								<span>
-									<p>CONTACT</p>
-								</span>
-								</Link>
-						
-							<Link href="/login">
-								<span id="login-nav">
-								<p >LOG IN</p>
-								</span>
-							</Link>
-							<Link href="/cart">
-								<div className="cart-div">
-									<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
-								</div>
-							</Link>
-						
-							</div>						
+	}	else {
+		return(
+			<div>
+			<MediaQuery maxDeviceWidth={490}>
+			<div className="navbar-burder-div">
+			<Menu>
+				<a id="mobile-nav" className="menu-item" href="/">Sages</a>
+				<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
+				<a id="mobile-nav" className="menu-item" href="/products">Store</a>
+				<a id="mobile-nav" className="menu-item" href="/about">About Us</a>
+				<a id="mobile-nav" className="menu-item" href="/contact-us">Contact</a>
+				<a id="mobile-nav" className="menu-item" href="/login">Log in</a>
+			</Menu>
+			</div>
+			</MediaQuery>
+			<MediaQuery minDeviceWidth={700}>
+				<div className="nav-bar">
+					<div className="navbar-section">
+						{/* <img id="logo-mystory" src="https://www.stickpng.com/assets/images/580b57fcd9996e24bc43c53e.png" alt="logo mystory" /> */}
+						<p id="mystory-name" >My Story</p>
+						<Link href="/">
+							<span>
+								<p>SAGES</p>
+							</span>
+						</Link>
+						<Link href="/podcasts">
+							<span>
+								<p>PODCASTS</p>
+							</span>
+						</Link>
+						<Link href="/products">
+							<span>
+								<p>PRODUCTS</p>
+							</span>
+						</Link>
+						<Link href="/about">
+						<span>
+							<p>ABOUT</p>
+						</span>
+						</Link>
+						<Link href="/contact-us">
+						<span>
+							<p>CONTACT</p>
+						</span>
+						</Link>
+				
+					<Link href="/login">
+						<span id="login-nav">
+						<p >LOG IN</p>
+						</span>
+					</Link>
+					<Link href="/cart">
+						<div className="cart-div">
+							<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
 						</div>
-						</MediaQuery>
-					</div>
-				);
-		}
-	}
+					</Link>
+				
+					</div>						
+				</div>
+				</MediaQuery>
+			</div>
+		);
 }
+}
+}
+
 
 export default NavBar;
