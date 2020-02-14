@@ -74,11 +74,17 @@ class KitUpdate extends Component {
   
       fixComments = () => {
         const {kit} = this.state;
-        const {product, comment} = kit;
-      
+        const {techniqueHeader, techniqueDescription, techniqueTitle} = this.state.kit;
+
+        let descriptions = techniqueDescription.split(" , ");
+        let title = techniqueTitle;
+
         let object = {
-          product,
-          comment
+          title,
+          technique : {
+            techniqueHeader,
+            descriptions
+          }
         }
 
         let array = this.state.kit.products;
@@ -108,19 +114,52 @@ class KitUpdate extends Component {
 
       };
       
+      // addSubHeading = () => {
+      //   const {techniqueHeader, techniqueDescription} = this.state.kit;
+
+      //   let descriptions = techniqueDescription.split(" , ");
+      //   let header = techniqueHeader;
+
+      //   let object = {
+      //     technique : {
+      //       header,
+      //       descriptions
+      //     }
+      //   }
+
+      //   let array = this.state.kit.techniques[0].technique;
+      //   let newArray = array.push(object);
+
+      //   if(object !== "") {
+      //     this.setState({
+      //       kit : {
+      //         ...this.state.kit,
+      //         techniques: {
+      //         ...this.state.kit.techniques,
+      //           technique : newArray
+      //         }
+      //       }
+      //     })
+      //     // console.log(object, this.state.kit.products)
+      //   }
+      // };
+
       fixTechniques = () => {
         const {kit} = this.state;
         const {techniqueHeader, techniqueDescription, techniqueTitle} = this.state.kit;
 
-        let header = techniqueHeader.split(" , ");
-        let description = techniqueDescription.split(" , ");
+        let descriptions = techniqueDescription.split(" , ");
+        let header = techniqueHeader;
         let title = techniqueTitle;
 
         let object = {
           title,
-          header, 
-          description
+          technique : {
+            header,
+            descriptions
+          }
         }
+
 
         let array = this.state.kit.techniques;
         let newArray = array.push(object);
@@ -186,8 +225,10 @@ class KitUpdate extends Component {
                <TextArea name="header" rows={4} type="text" placeholder="Add tip header" onChange={this.onChange} />
                <TextArea name="description" rows={4} type="text" placeholder="Add tip description" onChange={this.onChange} />
                <button onClick={this.fixTips}> Add tips </button>                 
+               <TextArea name="techniqueTitle" rows={4} type="text" placeholder="Add technique title" onChange={this.onChange} />               
                <TextArea name="techniqueHeader" rows={4} type="text" placeholder="Add technique header" onChange={this.onChange} />
                <TextArea name="techniqueDescription" rows={4} type="text" placeholder="Add technique description" onChange={this.onChange} />
+               {/* <button onClick={this.addSubHeading}> Add subheading technique </button>                                                  */}    
                <button onClick={this.fixTechniques}> Add techniques </button>                                  
                <Input name="category" placeholder="Please enter category"  onChange={this.onChange} />
               
