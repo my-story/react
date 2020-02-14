@@ -31,6 +31,9 @@ class ProductKit extends Component {
         }
     };
 
+    addFavorite = () => {
+        console.log(this.props.p._id)
+    }
     showMore = () => {
 
         if (this.state.size === "150px") {
@@ -77,8 +80,8 @@ class ProductKit extends Component {
             <div className="line-2"></div>
             <div className="survival-prize-div">
             <div className="survival-save-favorite">
-                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
-                </div>
+                <img onClick={this.addFavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+            </div>
                 <p id="survival-prize">${product.prize}</p>
                 <button className="survival-kit-add-to-cart">Add to card</button>
             </div>

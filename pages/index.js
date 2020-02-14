@@ -94,8 +94,12 @@ class InfluencerList extends Component {
         </div>
         <div className="heyhey-expert">
           <div className="expert-circle-background">
-            <img id="expert-circle" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565887285/3260_Converted_1.png" alt="expert-circle" />
+            {/* <img id="expert-circle" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565887285/3260_Converted_1.png" alt="expert-circle" /> */}
             <div id="big-circle"></div>
+            
+            <div id="medium2-circle"></div>
+            <div id="medium-circle"></div>
+            
             <div id="small-circle"></div>
           </div>
           <div className="heyhey-message">
