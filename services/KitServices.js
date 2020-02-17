@@ -15,10 +15,14 @@ const getKitAdmin = (id) => http.get(`/kit/admin/${id}`)
 const updateKit = (kit, id) => http.post(`/kit/update/${id}`, kit)
   .then((res) => res.data);
 
+const createTechnique = (technique) => http.post(`/kit/create/technique`, technique)
+  .then((res) => res.data);
+
 export default {
     getKit,
     kitCreate,
     kitProductBacked,
     getKitAdmin,
-    updateKit
+    updateKit,
+    createTechnique
 }

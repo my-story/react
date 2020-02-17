@@ -41,7 +41,7 @@ class NavBar extends Component {
 	render() {
 		const {userLogged} = this.state;
 		console.log(this.context.user)
-	if (this.context.user !== {}) {
+	if (this.context.user.length !== 0) {
 		// if (userLogged.length > 0) {
 			return(
 				<div>
