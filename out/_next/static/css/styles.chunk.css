@@ -1476,7 +1476,20 @@ height: 3vh;
   margin-top: 5vh;
   margin-left: 0.5vw;
 }
-
+#medium2-circle {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: #f66c4f;
+  margin: 3vh 3vw 0 0;
+}
+#medium-circle {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: #f66c4f;
+  margin: 3vh 3vw 0 0;
+}
 #small-circle {
   height: 29px;
   width: 29px;
@@ -2401,7 +2414,6 @@ margin-right: 1vw
 }
 .survival-kit-section p{
   font-family: Arial, Helvetica, san-serif;
-;
   font-size: 95%;
 }
 .survival-kit-card {
@@ -2415,6 +2427,29 @@ margin-right: 1vw
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
   margin-bottom: 2vh;
 }
+.technique-survival-kit-card {
+  height: 230px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid; */
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  margin-bottom: 2vh;
+}
+.technique-rebound-survival-kit-card {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  /* border: 1px solid; */
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  margin-bottom: 2vh;
+}
+
 .survival-card-image-div {
   width: 160px;
   position: relative;
@@ -2426,6 +2461,46 @@ margin-right: 1vw
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.techniques-kit-card {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* border: 1px solid; */
+  overflow: hidden;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  margin-bottom: 2vh;
+}
+
+.technique-kit-category-bubble {
+  display: flex;
+  flex-direction: row;
+
+}
+.technique-kit-category-bubble div {
+  height: 22px;	
+  width: 75px;	
+  border-radius: 20px;	
+  background-color: #56ACC8;
+  margin-right: 0.5vw;
+  /* margin-bottom: 1vh; */
+  font-family: Hind;	
+  /* font-size: 10px;	 */
+  font-weight: bold;	
+  letter-spacing: 0.2px;	
+  /* line-height: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+.technique-kit-category-bubble span {
+  font-size: 10px;
+  color: white;
+  padding-left: 0.25vw;
 }
 .tips-card {
   height: 180px;
@@ -2449,6 +2524,111 @@ margin-right: 1vw
   height: 10vh;
   width: auto;
 }
+#technique-name{
+  font-family: "Hind";
+  font-size: 24px;
+}
+.technique-kit-description-div {
+  height: 90%;
+  width: 70%;
+  font-family: "Hind";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.technique-steps {
+  font-size: 12px;
+  font-family: "Avenir Next" !important;
+}
+.technique-header-div p {
+  font-family: "Hind";
+  font-size: 12px;
+}
+.technique-rebound-kit-description-div {
+
+  height: 90%;
+  width: 280px;
+  /* padding-left: 30px; */
+  margin-left: -10px;
+  font-family: "Hind";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.technique-survival-prize-div {
+  margin-left: 1vw;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  margin-right: 5px;
+  height: 100%;
+  width: 240px;
+}
+.recomendation-technique-survival-prize-div {
+  margin-left: 1vw;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 5px;
+  height: 95%;
+  width: 210px;
+  background-color: #F7F7F7;
+}
+.recommend-div p {
+  font-family: Hind;
+  font-weight: medium;
+  font-size: 14px;
+  color: #f66c4f;
+
+}
+#recommend-product {
+  align-self: center;
+  height: 65%;
+}
+#recommend-price {
+  color: #f66c4f;
+}
+.recommend-div-product {
+  margin-top: 10px;
+  height: 80%;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+}
+.recommend-div-description {
+  padding-left: 10px;
+  width: 100%;
+  max-height: 95%;
+}
+.recommend-div-description h4 {
+  font-size: 13px;
+}
+.recommend-div-description p {
+  font-size: 10px;
+}
+.recommend-div {
+  margin-top: 5px;
+  max-height: 25px;
+  background-color: white; 
+  width: 80%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.technique-kit-name-category {
+  height: 35%;
+  color: #f66c4f;
+}
+.technique-kit-name-category p {
+  font-size: 20px;
+  line-height: 5px;
+}
+#technique-word {
+  font-size: 13px;
+  font-family: "Hind";
+} 
 .kit-description-div {
   height: 90%;
   width: 220px;
@@ -2462,17 +2642,25 @@ margin-right: 1vw
   word-spacing: 2px;
   padding-top: 1vh;
 }
+.technique-kit-description-p {
+  height: 40%;
+  line-height: 2px;
+}
 
 .kit-description-p {
   height: 35%;
+  font-family: "Avenir Next";
 }
+
 #product-name {
   font-size: 18px;
-  padding-top: 1.5vh;
+  /* padding-top: 1.5vh; */
+  font-family: Hind;
 }
 #tip-name {
   font-size: 15px;
 }
+
 .kit-category-bubble {
   display: flex;
   flex-direction: row;
@@ -2501,8 +2689,13 @@ margin-right: 1vw
 .learn-more-survival {
   display: flex;
   flex-direction: row;
-  margin-top: 1vh;
+  margin-top: 1vh;  
+  height: 30px;
+  width: 100px;
 
+}
+.learn-more-survival:hover {
+cursor: pointer;
 }
 .learn-more {
   display: flex;
@@ -2559,6 +2752,18 @@ left: 1vw;
   padding-right: 1vw;
   height: 100%;
 }
+
+.technique-survival-prize-div {
+  margin-left: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* flex-direction: column; */
+  padding-right: 1vw;
+  height: 100%;
+  width: 50px;
+}
+
 .tip-save-div {
   margin-bottom: 15px;
   height: 100%;
@@ -2586,6 +2791,7 @@ left: 1vw;
   /* bottom: 30px; */
   align-self: flex-end;
   position: relative;
+  /* width: 210px; */
 }
 .survival-save-favorite span {
   letter-spacing: 0.17px;
@@ -2611,6 +2817,13 @@ left: 1vw;
 .book-button {
   width: 90px;
   height:35px;
+}
+.book-button-recommend {
+  width: 90px;
+  height:35px;
+  padding: 0;
+  margin-bottom: 30px;
+
 }
 .book-container {
   margin-top: 2vh;
@@ -2643,7 +2856,7 @@ left: 1vw;
   height: 120px;	
   width: 100%;	
   border-radius: 2px;	
-  background: radial-gradient(circle, #4BBD78 0%, #FFFBD5 99.08%, #FFFFFF 100%);	
+  background: radial-gradient(circle, blue 0%, #FFFBD5 99.08%, #FFFFFF 100%);	
   box-shadow: 0 -6px 31px 0 rgba(0,0,0,0.08);
   margin-bottom: 1vh;
 }
@@ -2950,6 +3163,21 @@ width: auto;
 Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
 */
+.menu-profile-div {
+  min-height: 40px;
+  min-width: 100px;
+  /* border-bottom: solid; */
+}
+.menu-profile-image {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+}
+#menu-profile-name {
+  font-weight: bold;
+  font-size: 25px;
+  color: #F66C4F;
+}
 .bm-menu-wrap {
   position: fixed;
   height: 100%;
@@ -3003,6 +3231,11 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 /* //FIN DEL NAVBAR MOBILE */
+
+#login-nav {
+  min-width: 35px;
+  margin-right: 5px;
+}
 .checkout-page {
   margin: 0 12vw 0 12vw;
   height: 100vh;
@@ -3336,6 +3569,13 @@ color: black;
 }
 .create-survival-kit-div {
   width: 50vw;
+}
+.cart-div {
+  /* border: solid; */
+  display: flex;
+  padding-left: 10px;
+  align-items: center;
+  padding-top: 15px;
 }
 @media only screen and (max-width: 480px) {
 			.review-page {
