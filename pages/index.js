@@ -69,15 +69,15 @@ class InfluencerList extends Component {
           </div>
           <div className="expert-div">
           <div className="expert-message">
-            <p id="im-john"> Hey!<br></br>
-            I'm John,<br></br>
+            <p> Find the tools to overcome your adversities.</p>
+            <p id="expert-message-description">
+            We talk to professionals that have dealt with tremendous adversity, and find out what tips, 
+            techniques and products they used especifically for overcoming that problem.
             </p>
-            <p id="master-of" style={{color:"#F66C4F "}}>the Master of<br></br>
-            Opinions.</p> 
-            <p id="skip-intro">Skip intro</p>
+            <button id="survival-kit-button">SEE SURVIVAL KITS</button>
           </div>
             {/* <img id="expert-illustration" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380238/3260_Converted.png" alt="expert illustration" /> */}
-            <img className="background-blue-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png" alt="blue-dash"/>
+            {/* <img className="background-blue-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png" alt="blue-dash"/> */}
           </div>
         </div>
         <h2 style={{paddingBottom: "20px"}}><b>Top Survival Kits</b></h2>

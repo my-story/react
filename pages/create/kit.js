@@ -132,7 +132,7 @@ class KitCreate extends Component {
     render() {
       const { kit, selectedItems } = this.state;
       const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-console.log(this.state);
+
         return (
             <div className="create-survival-kit-div">
                  <Input name="title" placeholder="Please enter title"  onChange={this.onChange} />
@@ -140,7 +140,8 @@ console.log(this.state);
                  <TextArea name="product" rows={4} type="text" placeholder="Add product id" onChange={this.onChange} />
                  <TextArea name="comment" rows={4} type="text" placeholder="Add product" onChange={this.onChange} />
                  <button onClick={this.fixComments}> Add products </button>
-                 <TechniqueCreate getData={this.getTechnique}></TechniqueCreate>
+                 
+                 <TechniqueCreate influencer={this.state.kit.influencer} getData={this.getTechnique}></TechniqueCreate>
                  <TextArea name="header" rows={4} type="text" placeholder="Add tip header" onChange={this.onChange} />
                  <TextArea name="description" rows={4} type="text" placeholder="Add tip description" onChange={this.onChange} />
                  <button onClick={this.fixTips}> Add tips </button>    
