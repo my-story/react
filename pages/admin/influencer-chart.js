@@ -10,6 +10,9 @@ class InfluencerChart extends Component {
   render() {
     return(
       <div>
+        <div>
+          
+        </div>
         <AdminPanel></AdminPanel>
       </div>
     )
