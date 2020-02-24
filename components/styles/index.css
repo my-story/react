@@ -3279,7 +3279,11 @@ color: black;
   height: 380px;
 }
 .create-survival-kit-div {
-  width: 50vw;
+  width: 30vw;
+  border: 1px solid;
+}
+.technique-list-page {
+  border: solid;
 }
 .cart-div {
   /* border: solid; */
