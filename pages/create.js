@@ -91,9 +91,7 @@ class InfluencerCreate extends Component {
             </div>
           </div>
         );
-      } else {
-        return (<ProductCreate influencer={this.state.influencerDone}></ProductCreate>);
-      }
+      } 
     } else {
       Router.push('/');
       return null;

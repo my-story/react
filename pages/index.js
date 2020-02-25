@@ -57,7 +57,7 @@ class InfluencerList extends Component {
   };
 
   render() {
-    const { influencers, category, open } = this.state
+    const { influencers, open } = this.state
 
     return (
       <div className="index-page">

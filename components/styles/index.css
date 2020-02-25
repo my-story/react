@@ -3282,8 +3282,15 @@ color: black;
   width: 30vw;
   border: 1px solid;
 }
+.list-survival {
+  border-bottom: solid gray;
+}
 .technique-list-page {
   border: solid;
+}
+.create-survival-page {
+  display: flex;
+  flex-direction: row;
 }
 .cart-div {
   /* border: solid; */

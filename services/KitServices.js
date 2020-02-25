@@ -33,6 +33,9 @@ const createSurvivalTip = (tip) => http.post('/kit/create/tip', tip)
 const getListTips = () => http.get('/kit/list/tips')
   .then((res) => res.data)
 
+const getProductSurvival = (id) => http.get(`/kit/product/${id}`)
+  .then((res) => res.data)
+
 export default {
     getKit,
     kitCreate,
@@ -44,6 +47,7 @@ export default {
     createSurvivalProduct,
     getListProducts,
     createSurvivalTip,
-    getListTips
+    getListTips,
+    getProductSurvival  
 
 }

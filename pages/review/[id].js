@@ -15,7 +15,6 @@ import SurvivalKit from '../../components/survivalKit/SurvivalKit';
 import KitServices from '../../services/KitServices'
 
 class ReviewOne extends Component {
-  static contextType = UserContext;
   
   state = {
     influencers: [],
@@ -25,6 +24,9 @@ class ReviewOne extends Component {
     disableVoteButtons: false,
     update: false,
   }
+
+  static contextType = UserContext;
+
 
   static getInitialProps({ query: { id } }) {
     return { id };

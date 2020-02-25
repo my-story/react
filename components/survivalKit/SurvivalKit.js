@@ -38,9 +38,9 @@ class SurvivalKit extends Component {
          }
     }
     render(){
-        
         const {kit} = this.state || {};
-
+        console.log("KIT - SurvivalKit", kit)
+        
         if (kit === undefined || kit.products === undefined || kit.techniques === undefined) {
             return(<div>...</div>)
         } else {
@@ -48,6 +48,7 @@ class SurvivalKit extends Component {
                 <div className="product-kit-page">
                 {kit.products.map((p, index) => {
                     let product = p.product;
+    
                     return(
                     <ProductKit p={p} product={product}></ProductKit>
                     )
@@ -55,6 +56,7 @@ class SurvivalKit extends Component {
     
                 {/* //TIPS DESIGN FIGURE OUT How to dispaly all of them */}
             {kit.techniques.map((technique , index) => {
+        
                 return(
                     <TechniqueKit technique={technique}></TechniqueKit>
                 )

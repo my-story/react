@@ -53,42 +53,6 @@ class KitCreate extends Component {
         })
       };
 
-  
-      fixComments = () => {
-        const {kit} = this.state;
-        const {product, comment} = kit;
-      
-        let object = {
-          product,
-          comment
-        }
-
-        let array = this.state.kit.products;
-        let newArray = array.push(object);
-
-        if(object !== "") {
-          this.setState({products: newArray})
-        }
-        };    
-        
-      fixTips= () => {
-        const {kit} = this.state;
-        const {header, description} = this.state.kit;
-
-        let object = {
-          header, 
-          description
-        }
-        
-        let array = this.state.kit.tips;
-        let newArray = array.push(object);
-
-        if(object !== ""){
-          this.setState({tips: newArray})
-          // console.log(object, this.state.kit.products)
-        }
-
-      };
       
 
       onSubmit = () => {
@@ -105,13 +69,18 @@ class KitCreate extends Component {
       addBackend () {
         const {kit} = this.state;
 
+        const techniques = kit.techniques.split(' , ');
+        const tips = kit.tips.split(' , ');
+        const products = kit.products.split(' , ');
+
+
         KitServices.kitCreate({
           kit: {
             title: kit.title,
             influencer: kit.influencer,
-            products: kit.products,
-            tips: kit.tips,
-            techniques: kit.techniques,
+            products: products,
+            tips: tips,
+            techniques: techniques,
             category: kit.category[0]
           }
         })
@@ -124,22 +93,20 @@ class KitCreate extends Component {
           .catch((e)=> console.log(e))
       };
       
-      getTechnique = (technique) => {
-        const techniques = this.state.techniquesArray;
-        techniques.push(technique);
-
-        this.setState({techniquesArray: techniques});
-      };
       
     render() {
       const { kit, selectedItems } = this.state;
       const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
+      console.log(kit)
         return (
-            <div>
+            <div className="create-survival-page">
             <div className="create-survival-kit-div">
                  <Input name="title" placeholder="Please enter title"  onChange={this.onChange} />
                  <Input name="influencer" placeholder="Please enter influencer id"  onChange={this.onChange} />
+                 <Input name="techniques" placeholder="add technique id separated by ',' " onChange={this.onChange} />
+                 <Input name="tips" placeholder="add tips id separated by ',' " onChange={this.onChange} />
+                 <Input name="products" placeholder="add products id separated by ',' " onChange={this.onChange} />
                  
                  {/* <TechniqueCreate influencer={this.state.kit.influencer} getData={this.getTechnique}></TechniqueCreate> */}
    

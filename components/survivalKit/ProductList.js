@@ -13,14 +13,13 @@ class ProductList extends Component {
     }
     render() {
         const {products} = this.state;
-        console.log(products)
         if(products.length > 0) {
             return(
                 <div className="technique-list-page">
                      <h4>ProductsList</h4>
                     {products.map((product, index) => {
                         return(
-                            <div key={index}>
+                            <div className="list-survival" key={index}>
                                <p> ID :  {product._id}</p>
                                <p> Influencer : {product.influencer} </p>
                             </div>

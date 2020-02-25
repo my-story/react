@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+import * as toastr from 'toastr';
+import UserContext from '../../components/contexts/UserContext';
 
 class TechniqueKit extends Component {
     state = {
         techniques:[],
     }
 
+    static contextType = UserContext;
+
     componentDidMount() {
         this.setState({techniques: this.props.techniques})
     }
 
     addFavorite = () => {
+        if (!this.context.islogged) {
+            return toastr.info('Log in to favorite');
+        }
         console.log(this.props.technique._id)
     }
     render() {
@@ -32,23 +39,27 @@ class TechniqueKit extends Component {
                                 </div>
                             </div>
                         </div>
-                            {technique.technique.map((t ,index) => {
-                                return(
-                                    <div className="technique-kit-description-p">
-                                        <div className="technique-header-div">
-                                            <p><b>{t.header}</b></p>
-                                        </div>
-                                        {t.descriptions.map((description,index) => {
-                                            return(
-                                                <div key={index} className="technique-steps">
-                                                <p>- {description}</p><br></br>
-                                                {/* <p>- description</p><br></br>         */}
+                            {technique.subheading.map((t ,index) => {
+                                if(t.descriptions.length > 0){
+                                    return(
+                                        <div className="technique-kit-description-p">
+                                            <div className="technique-header-div">
+                                                <p><b>{t.header}</b></p>
                                             </div>
-                                            )
-                                        })}
-                 
-                                    </div>
-                                )
+                                            {t.descriptions.map((description,index) => {
+                                                
+                                                return(
+                                                    <div key={index} className="technique-steps">
+                                                    <p>- {description}</p><br></br>
+                                                    {/* <p>- description</p><br></br>         */}
+                                                </div>
+                                                )
+                                            })}
+                     
+                                        </div>
+                                    )
+                                }
+     
                             })}
    
                         </div>

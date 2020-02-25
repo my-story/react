@@ -3,6 +3,7 @@ import React,{ Component } from 'react';
 import { Input, Select } from 'antd';
 import * as toastr from 'toastr';
 import ProductServices from '../../services/ProductServices';
+import Router from 'next/router';
 import ReviewForm from '../reviews/ReviewForm';
 import UserContext from '../contexts/UserContext';
 const OPTIONS = ["Sports","Music","Tech","Clothes"];
@@ -16,7 +17,6 @@ class ProductCreate extends Component {
       description:"",
       category:[],
       images:[],
-      influencer: this.props.influencer._id,
       total: "",
     },
     selectedItems: [],
@@ -58,8 +58,7 @@ class ProductCreate extends Component {
 
   addBackend () {
     ProductServices.productForm(this.state.product)
-      .then((product)=>{
-        console.log(product)
+      .then((product)=> {
         this.setState({
           product: product,
           productCreated:true
@@ -73,9 +72,8 @@ class ProductCreate extends Component {
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
     if(this.state.productCreated){
-      return (<ReviewForm influencer={this.props.influencer} user={this.context.user} product={this.state.product}/>);
-      // Router.push('/');
-      // return null;
+        Router.push('/')
+        return null;
     }
       return(
         <div>
