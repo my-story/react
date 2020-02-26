@@ -2567,21 +2567,23 @@ left: 1vw;
   height: 120px;	
   width: 100%;	
   border-radius: 2px;	
-  background: radial-gradient(circle, blue 0%, #FFFBD5 99.08%, #FFFFFF 100%);	
+  /* background: radial-gradient(circle, blue 0%, #FFFBD5 99.08%, #FFFFFF 100%);	 */
+  background-color: #F66C4F;
   box-shadow: 0 -6px 31px 0 rgba(0,0,0,0.08);
+  /* opacity: 0.8; */
   margin-bottom: 1vh;
 }
 .rectangle-title-div {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   padding: 2vh 2vw 2vh 2vw;
 }
 
 .rectangle-title-div h3 {
   font-family: "Hind";	
-  font-size: 22px;	
+  font-size: 26px;	
   font-weight: bold;	
   line-height: 30px;
 }

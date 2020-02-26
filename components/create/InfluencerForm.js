@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Router from 'next/router';
+import Link from 'next/link';
 import { Input, Tooltip, Icon, Select } from 'antd';
 import * as toastr from 'toastr';
-import InfluencerServices from '../services/InfluencerServices';
-import ProductCreate from '../components/products/ProductCreate';
-import Link from 'next/link';
+import UserContext from '../contexts/UserContext';
+import InfluencerServices from '../../services/InfluencerServices';
+
 
 const OPTIONS = ["Athlete", "Musician", "Tech", "Artist"];
 
-class InfluencerCreate extends Component {
+class InfluencerForm extends Component {
 
   state = {
     data: {
@@ -16,13 +17,14 @@ class InfluencerCreate extends Component {
       firstname: "",
       lastname: "",
       description: "",
-      user: this.props.user,
       profilePic: ""
     },
     selectedItems: [],
     done: false,
     influencerDone: {},
   };
+
+  static contextType = UserContext;
 
   onChange = (e) => {
     let { data } = this.state;
@@ -58,7 +60,7 @@ class InfluencerCreate extends Component {
     const { selectedItems, data } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
     
-    if (this.props.user.role === "Admin") {
+    if (this.context.user.role === "Admin") {
       if (!this.state.done) {
         return (
           <div>
@@ -98,4 +100,5 @@ class InfluencerCreate extends Component {
     }
   }
 };
-export default InfluencerCreate;
+
+export default InfluencerForm;

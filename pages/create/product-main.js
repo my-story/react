@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import ProductCreate from '../../components/products/ProductCreate';
+import ProductForm from '../../components/create/ProductForm';
 
 class ProductMain extends Component {
     render() {
         return (
             <div>
-                <ProductCreate></ProductCreate>
+                <ProductForm></ProductForm>
             </div>
         );
     }

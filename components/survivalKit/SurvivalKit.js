@@ -3,6 +3,7 @@ import * as toastr from 'toastr';
 import KitServices from '../../services/KitServices';
 import ProductKit from './ProductKit';
 import TechniqueKit from './TechniqueKit';
+import TipKit from './TipKit';
 
 class SurvivalKit extends Component {
 
@@ -54,14 +55,25 @@ class SurvivalKit extends Component {
                     )
                 })}
     
-                {/* //TIPS DESIGN FIGURE OUT How to dispaly all of them */}
-            {kit.techniques.map((technique , index) => {
-        
-                return(
-                    <TechniqueKit technique={technique}></TechniqueKit>
-                )
-            })
-        }
+                {/* //Techniques DESIGN FIGURE OUT How to dispaly all of them */}
+                {kit.techniques.map((technique , index) => {
+            
+                    return(
+                        <TechniqueKit technique={technique}></TechniqueKit>
+                    )
+                })
+                }
+
+                {/* TIPS MAP */}
+                {kit.tips.map(( tip, index ) => {
+                    
+                    return(
+                        <div key={index}>
+                            <TipKit tip={tip}></TipKit>
+                        </div>
+                    )
+                })}
+
         <div className="technique-survival-kit-card">
             <div className="survival-card-image-div">
                 <img id="survival-image"/>

@@ -12,9 +12,14 @@ const logout = (user) => http.post('api/logout', user)
 const loggedin = () => http.get('api/private')
   .then(response => response);
 
+const favoriteTechnique = (id, technique) => http.post(`api/add/technique/${id}/${technique}`)
+  .then((res) => res.data);
+
+
 export default {
   signup,
   login,
   logout,
-  loggedin
+  loggedin,
+  favoriteTechnique
 }
