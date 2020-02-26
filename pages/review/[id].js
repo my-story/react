@@ -15,7 +15,6 @@ import SurvivalKit from '../../components/survivalKit/SurvivalKit';
 import KitServices from '../../services/KitServices'
 
 class ReviewOne extends Component {
-  static contextType = UserContext;
   
   state = {
     influencers: [],
@@ -25,6 +24,9 @@ class ReviewOne extends Component {
     disableVoteButtons: false,
     update: false,
   }
+
+  static contextType = UserContext;
+
 
   static getInitialProps({ query: { id } }) {
     return { id };
@@ -244,23 +246,24 @@ class ReviewOne extends Component {
       return(
         <div>
             {/* <video className="video" controls src={review.video} /> */}
-            <iframe src='https://www.youtube.com/embed/E7wJTI-1dvQ'
-        frameBorder='0'
-        allow='autoplay; encrypted-media'
-        allowFullScreen
-        title='video'
-        className='video-youtube'
-/>
+          <iframe src='https://www.youtube.com/embed/E7wJTI-1dvQ'
+            frameBorder='0'
+            allow='autoplay; encrypted-media'
+            allowFullScreen
+            title='video'
+            className='video-youtube' 
+          />
         </div>
       )
     };
   };
+
   habits = () => {
     this.setState({kitTrue:false})
-  }
+  };
   survival = () => {
     this.setState({kitTrue:true})
-  }
+  };
 
   render() {
     const review = this.state.review || {};
@@ -268,7 +271,7 @@ class ReviewOne extends Component {
     const influencers = this.state.influencers;
     const kit = this.state.kit;
     
-
+console.log()
     if(this.state.kit === {} || this.state.kit === undefined || this.state.review.influencer === undefined){
       return(
         <div>
@@ -343,13 +346,12 @@ class ReviewOne extends Component {
               </section>
               <div className="rectangle-survival-title">
                 <div className="rectangle-title-div">
-                  <h3>Title of survival kit</h3>
-                  <h4>3 products, 1 tip</h4>
+                  <h3>{kit.title}</h3>
                 </div>  
                 <div className="rectangle-subtitle-div">
                   <div className="rectangle-sage-div">
-                    <img className="rectangle-sage-picture " src="https://secureservercdn.net/198.71.233.41/l7i.589.myftpupload.com/wp-content/uploads/2019/06/Joe-Rogan-1080x1080.jpg?time=1566930175" alt="Sage Picture" />
-                    <span>By Sage's Name</span>
+                    <img className="rectangle-sage-picture " src={influencer.profilePic} alt="Sage Picture" />
+                    <span>By {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</span>
                   </div>
                   <div className="rectangle-add-all-div">
                     <p>Favorite all</p>

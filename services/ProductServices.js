@@ -12,6 +12,9 @@ const productImage = (product) => http.create('/product/upload/picture',product)
 const productDetail = (id) => http.get(`/product/details/${id}`)
   .then((res) => res.data);
 
+// const getSurvivalProduct = (id) => http.get('/product/survival/product', id)
+//   .then((res) => res.data)
+
 const searchProduct = (search) => http.get(`/product/filter?search=${search}`)
   .then((res) => res.data);
 
@@ -46,5 +49,6 @@ export default {
   updateTotal,
   getOneAdmin,
   filterPriceDecending,
-  filterPriceAcending
+  filterPriceAcending,
+  // getSurvivalProduct
 }

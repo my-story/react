@@ -13,14 +13,14 @@ class TechniqueList extends Component {
     }
     render() {
         const {techniques} = this.state;
-        console.log(techniques)
+
         if(techniques.length > 0) {
             return(
                 <div className="technique-list-page">
                     <h4>TechniqueList</h4>
                     {techniques.map((technique, index) => {
                         return(
-                            <div key={index}>
+                            <div className="list-survival" key={index}>
                                <p> ID :  {technique._id}</p>
                                <p> title :  {technique.title}</p>
                                <p> Influencer : {technique.influencer} </p>

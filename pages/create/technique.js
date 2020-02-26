@@ -40,7 +40,7 @@ class TechniqueCreate extends Component {
         const {description, header} = this.state.data;
 
         // if (/[,\-]/.test(description) === true) { 
-            const descriptions = description.split(',') ;
+        const descriptions = description.split(',') ;
         // } else {
         //     const descriptions = description;
         // }
@@ -99,7 +99,7 @@ class TechniqueCreate extends Component {
       // };
 
     render() {
-      console.log(this.state);
+
 
         return (
             <div>

@@ -15,14 +15,14 @@ class TipsList extends Component{
     }
     render() {
         const {tips} = this.state;
-        console.log(tips)
+
         if(tips.length > 0) {
             return(
                 <div className="technique-list-page">
                     <h4>TipsList</h4>
                     {tips.map((tip, index) => {
                         return(
-                            <div key={index}>
+                            <div className="list-survival" key={index}>
                                <p> ID :  {tip._id}</p>
                                <p> title :  {tip.header}</p>
                             </div>

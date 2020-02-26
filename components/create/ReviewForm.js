@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 // import { Redirect} from 'react-router-dom';
 import Router from 'next/router';
 import { Input } from 'antd';
+import UserContext from '../contexts/UserContext';
 import ReviewServices from "../../services/ReviewServices";
 
 const { TextArea } = Input;
@@ -18,6 +19,7 @@ class ReviewForm extends Component {
       reviewDone:{}
     }
 
+    static contextType = UserContext;
 
     onChange = (e) => {
       this.setState({[e.target.name]: e.target.value});
@@ -40,7 +42,7 @@ class ReviewForm extends Component {
     
 
     render() {
-      if (this.props.user.role === "Admin") {
+      if (this.context.user.role === "Admin") {
         if (this.state.created) {    
             Router.push('/');
             return null;
@@ -48,11 +50,11 @@ class ReviewForm extends Component {
           return (
             <div>  
               <Input name="title" placeholder="Please enter title " allowClear onChange={this.onChange} />
-              <Input name="influencer" placeholder="Please enter infleuncer ID " defaultValue={this.state.influencer._id} allowClear onChange={this.onChange} />
+              <Input name="influencer" placeholder="Please enter infleuncer ID "  allowClear onChange={this.onChange} />
               <Input name="video" placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
-              <Input name="kit" placeholder="Please enter kit id" allowClear defaultValue={this.state.kit._id} onChange={this.onChange} />
+              <Input name="kit" placeholder="Please enter kit id" allowClear  onChange={this.onChange} />
               <Input name="voicenote" placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
-              {/* <Input name="product" placeholder="Please enter influencer product" allowClear defaultValue={this.state.product._id} onChange={this.onChange} /> */}
+              {/* <Input name="product" placeholder="Please enter influencer product" allowClear onChange={this.onChange} /> */}
               <button onClick={this.handleSubmit}>Submit</button>
             </div>
           )}   
