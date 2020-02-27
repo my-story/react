@@ -22,14 +22,19 @@ class TechniqueKit extends Component {
             return toastr.info('Log in to favorite');
         } else {
             AuthServices.favoriteTechnique(user._id, this.props.technique._id)
+                .then(() => {
+                    toastr.info(`${this.props.technique.title} was favorited!`);
+                })
+                .catch((error) => console.log(error));
         }
-    }
+    };
+    
     render() {
         const {technique} = this.props;
  
         return (
             <div>
-            <div  className="technique-survival-kit-card">
+            <div className="technique-survival-kit-card">
             <div className="survival-card-image-div">
                 <img id="survival-image"/>
             </div>
@@ -76,13 +81,13 @@ class TechniqueKit extends Component {
                     <p id="survival-prize">$150</p>
                     <button className="survival-kit-add-to-cart">Add to card</button>
                 </div> */}
-                            <div className="line-2"></div>
-    <div className="technique-survival-prize-div">
-    <div className="survival-save-favorite">
-            <img onClick={this.addFavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
-    </div>
-        
-    </div>
+                        <div className="line-2"></div>
+                    <div className="technique-survival-prize-div">
+                    <div className="survival-save-favorite">
+                        <img onClick={this.addFavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+                    </div>
+                        
+                    </div>
             </div>
 
     </div>

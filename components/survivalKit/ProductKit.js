@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as toastr from 'toastr';
+import AuthServices from '../../services/AuthServices';
 import KitServices from '../../services/KitServices';
 import UserContext from '../../components/contexts/UserContext';
 
@@ -52,7 +53,6 @@ class ProductKit extends Component {
         console.log(this.props.p._id)
     }
     showMore = () => {
-
         if (this.state.size === "150px") {
             return(
             <div onClick={this.openCard} className="learn-more-survival">
@@ -70,12 +70,26 @@ class ProductKit extends Component {
         }
     };
 
+    addFavorite = () => {
+		const user = this.context.user;
+
+		if (!this.context.islogged) {
+				return toastr.info('Log in to favorite');
+		} else {
+				AuthServices.favoriteProduct(user._id, this.props.p._id)
+					.then(() => {
+									toastr.info(`Product recommendation was favorited!`);
+					})
+					.catch((error) => console.log(error));
+		}
+	};
+
     render(){
         const product = this.props.product;
         const productMain = this.state.product.product;
         const p = this.props.p;
-    
 
+				
        if (productMain === undefined) {
            return(<div>waiting on product survival kit</div>)
        } else {

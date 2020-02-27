@@ -15,11 +15,18 @@ const loggedin = () => http.get('api/private')
 const favoriteTechnique = (id, technique) => http.post(`api/add/technique/${id}/${technique}`)
   .then((res) => res.data);
 
+const favoriteTip = (id, tip) => http.post(`api/add/tip/${id}/${tip}`)
+  .then((res) => res.data)
+
+const favoriteProduct = (id, product) => http.post(`api/add/product/${id}/${product}`)
+  .then((res) => res.data)
 
 export default {
   signup,
   login,
   logout,
   loggedin,
-  favoriteTechnique
+  favoriteTechnique,
+  favoriteTip,
+  favoriteProduct
 }

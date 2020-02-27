@@ -1916,7 +1916,7 @@ margin-right: 1vw
   margin-left: 1vw;
 }
 #profile-picture {
-  height: 6vh;
+  height: 7vh;
   width: auto;;
   border-radius: 200%;
   margin-bottom: 1vh;
@@ -2120,6 +2120,7 @@ margin-right: 1vw
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
   margin-bottom: 2vh;
 }
+
 .technique-survival-kit-card {
   height: 230px;
   display: flex;
@@ -2142,7 +2143,49 @@ margin-right: 1vw
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
   margin-bottom: 2vh;
 }
+#tip-kit-box-description {
+  font-size: 12px;
+}
+.tip-kit-description {
+  max-height: 90%;
+  width: 70%;
+  font-family: "Hind";
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#tip-kit-header{
+  font-size: 14px;	  
+  color: #f66c4f;
+}
+.tip-kit-div-card {
+  height: 130px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  /* border: solid; */
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2vh;
 
+}
+.tip-card-image-div {
+  width: 160px;
+  /* border: solid; */
+  position: relative;
+  left: -2vw;
+  /* bottom: 5px; */
+  /* bottom: 8vh; */
+  height: 200%;
+  /* border-right: 1px solid;  */
+  border-radius:50%;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .survival-card-image-div {
   width: 160px;
   position: relative;
@@ -2389,11 +2432,23 @@ margin-right: 1vw
   margin-top: 1vh;  
   height: 30px;
   width: 100px;
-
+}
+.learn-more-survival-tip {
+  display: flex;
+  flex-direction: row;
+  /* align-self: flex-end; */
+  margin-top: 2vh;  
+  height: 30px;
+  width: 100px;
+  position: relative;
+  /* top: 20px; */
 }
 .learn-more-survival:hover {
 cursor: pointer;
 }
+.learn-more-survival-tip:hover {
+  cursor: pointer;
+  }
 .learn-more {
   display: flex;
   flex-direction: column;
@@ -2433,12 +2488,23 @@ margin-bottom: -0.5px;
   font-size: 12px;
   color: #ABABAB;	
 }
+.learn-more-survival-tip p {
+  font-family: Arial, Helvetica, san-serif;
+  font-size: 12px;
+  color: #ABABAB;	
+}
 #arrow-down-kit {
 position: relative;
 height: 8px;
 top: 1.5vh;
 left: 1vw;
 }
+#arrow-down-kit-tip {
+  position: relative;
+  height: 8px;
+  top: 0.5vh;
+  left: 1vw;
+  }
 
 .survival-prize-div {
   margin-left: 1vw;
@@ -2489,6 +2555,9 @@ left: 1vw;
   align-self: flex-end;
   position: relative;
   /* width: 210px; */
+}
+.survival-save-favorite:hover{
+  cursor: pointer;
 }
 .survival-save-favorite span {
   letter-spacing: 0.17px;

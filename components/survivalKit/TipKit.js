@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import * as toastr from 'toastr';
+import AuthServices from '../../services/AuthServices';
 import UserContext from '../../components/contexts/UserContext';
 
 class TipKit extends Component {
     state = {
-        tip: {},
-    }
+				tip: {},
+				size: "130px",
+				divSize: "60px"
+		}
+		
+    static contextType = UserContext;
 
     componentDidMount() {
         this.setState({tip: this.props.tip})
@@ -15,16 +20,74 @@ class TipKit extends Component {
             return toastr.info('Log in to favorite');
         }
         console.log(this.state.tip._id)
-    }
+		}
+
+		openCard = () => {
+			let newSize = this.state.size === '130px' ? '180px' : '130px';
+			let newDivSize = this.state.divSize === '60px' ? '110px' : '60px';
+			this.setState({ size: newSize, divSize:newDivSize });
+		};
+
+		showMore = () => {
+			if (this.state.size === "130px") {
+					return(
+					<div onClick={this.openCard} className="learn-more-survival-tip">
+							<p>Show more</p>
+							<img id="arrow-down-kit-tip" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324512/chevron-left_2_copy_2.svg" alt="laern more arrow" />
+					</div>
+					)
+			} else {
+					return(
+						<div>
+							<p id="tip-kit-box-description">Description of tip. Loremipsum, lore loremp rep sim lorempsu susp.</p>
+							<div onClick={this.openCard} className="learn-more-survival-tip">
+								<p>Show less</p>
+								<img style={{transform:"rotate(-180deg)"}}id="arrow-down-kit-tip" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324512/chevron-left_2_copy_2.svg" alt="laern more arrow" />
+							</div>
+						</div>
+					)
+			}
+	};
+
+	addFavorite = () => {
+		const user = this.context.user;
+
+		if (!this.context.islogged) {
+				return toastr.info('Log in to favorite');
+		} else {
+				AuthServices.favoriteTip(user._id, this.props.tip._id)
+						.then(() => {
+								toastr.info(`${this.props.tip.header} was favorited!`);
+						})
+						.catch((error) => console.log(error));
+		}
+};
+
     render() {
         const {tip} = this.state;
 
         return (
             <div>
-               <p>{tip.header}</p>
-               <p>{tip.description}</p>
-                Tips Needs Design
-            <img onClick={this.addFavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+							<div style={{height:this.state.size}} className="tip-kit-div-card">
+								<div className="tip-card-image-div">
+									<img id="survival-image"/>
+								</div>
+								<div className="tip-kit-description">
+									<p style={{fontSize:"25px", height: this.state.divSize}} id="tip-kit-header">
+										<b>Create pools of sanity, one for good and one for bad.</b>
+									</p>
+									{this.showMore()}
+
+									{/* <p>{tip.description}</p> */}
+								
+								</div>
+								<div className="line-2"></div>
+    						<div className="technique-survival-prize-div">
+									<div className="survival-save-favorite">
+										<img onClick={this.addFavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+									</div>
+								</div>
+							</div>
             </div>
         );
     }
