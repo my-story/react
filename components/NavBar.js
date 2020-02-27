@@ -33,14 +33,14 @@ class NavBar extends Component {
 	}
 	componentDidMount = () => {
 		this.adjustState();
-		this.setState({userLogged:this.context.user.username})
+		this.setState({userLogged:this.context.user})
 	}
 
 
 
 	render() {
 		const {userLogged} = this.state;
-		console.log(this.context.user)
+		console.log(userLogged)
 	if (this.context.user.length !== 0) {
 		// if (userLogged.length > 0) {
 			return(
@@ -92,8 +92,8 @@ class NavBar extends Component {
 					<div className="dropdown-account-nav">
 						<Dropdown>
 						<Dropdown.Toggle variant="success" id="dropdown-basic">
-							{userLogged} 
-							<img id="profile-picture" src="https://www.pikpng.com/pngl/m/286-2863567_contact-profile-user-default-female-suit-comments-profile.png" alt="Sage" />
+							{userLogged.firstName}
+							<img id="profile-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1582837688/Pngtree_silence_silent_alien_distortion_3922389.png" alt="Sage" />
 						</Dropdown.Toggle>
 
 						<Dropdown.Menu>
