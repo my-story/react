@@ -55,11 +55,16 @@ class TipKit extends Component {
 		if (!this.context.islogged) {
 				return toastr.info('Log in to favorite');
 		} else {
+			if(user.tips.includes(this.props.tip._id)){
+				return toastr.error(`${this.props.tip.header} has already been favorited!`)
+			} else {
 				AuthServices.favoriteTip(user._id, this.props.tip._id)
-						.then(() => {
-								toastr.info(`${this.props.tip.header} was favorited!`);
-						})
-						.catch((error) => console.log(error));
+					.then(() => {
+							toastr.info(`${this.props.tip.header} was favorited!`);
+					})
+					.catch((error) => console.log(error));
+			}
+				
 		}
 };
 
@@ -68,26 +73,26 @@ class TipKit extends Component {
 
         return (
             <div>
-							<div style={{height:this.state.size}} className="tip-kit-div-card">
-								<div className="tip-card-image-div">
-									<img id="survival-image"/>
-								</div>
-								<div className="tip-kit-description">
-									<p style={{fontSize:"25px", height: this.state.divSize}} id="tip-kit-header">
-										<b>Create pools of sanity, one for good and one for bad.</b>
-									</p>
-									{this.showMore()}
+				<div style={{height:this.state.size}} className="tip-kit-div-card">
+					<div className="tip-card-image-div">
+						<img id="survival-image" id="tip-bulb" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1582921452/TECHNIQUES_FONTGUIDEAsset_4_300x.png"/>
+					</div>
+					<div className="tip-kit-description">
+						<p style={{fontSize:"25px", height: this.state.divSize}} id="tip-kit-header">
+							Create pools of sanity, one for good and one for bad.
+						</p>
+						{this.showMore()}
 
-									{/* <p>{tip.description}</p> */}
-								
-								</div>
-								<div className="line-2"></div>
-    						<div className="technique-survival-prize-div">
-									<div className="survival-save-favorite">
-										<img onClick={this.addFavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
-									</div>
-								</div>
-							</div>
+						{/* <p>{tip.description}</p> */}
+					
+					</div>
+					<div className="line-2"></div>
+				<div className="technique-survival-prize-div">
+						<div className="survival-save-favorite">
+							<img onClick={this.addFavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+						</div>
+					</div>
+				</div>
             </div>
         );
     }

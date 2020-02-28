@@ -2543,6 +2543,11 @@ left: 1vw;
   border: 0.5px solid #D5D5D5;
   padding:0;
 }
+#tip-bulb {
+  /* background-color: red; */
+  height: 100px;
+  padding-left: 10px; 
+}
 #survival-prize {
   color: #000000;	
   font-family: Arial, Helvetica, san-serif;  
