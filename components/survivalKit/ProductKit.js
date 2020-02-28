@@ -76,11 +76,15 @@ class ProductKit extends Component {
 		if (!this.context.islogged) {
 				return toastr.info('Log in to favorite');
 		} else {
-				AuthServices.favoriteProduct(user._id, this.props.p._id)
-					.then(() => {
-									toastr.info(`Product recommendation was favorited!`);
-					})
-					.catch((error) => console.log(error));
+            if (user.products.includes(this.props.p._id)){
+                return toastr.error('Product recommendation has already been favorited :)');
+            } else {
+                AuthServices.favoriteProduct(user._id, this.props.p._id)
+                .then(() => {
+                                toastr.info(`Product recommendation was favorited!`);
+                })
+                .catch((error) => console.log(error));
+            }
 		}
 	};
 
@@ -88,7 +92,7 @@ class ProductKit extends Component {
         const product = this.props.product;
         const productMain = this.state.product.product;
         const p = this.props.p;
-
+    
 				
        if (productMain === undefined) {
            return(<div>waiting on product survival kit</div>)

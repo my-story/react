@@ -21,11 +21,16 @@ class TechniqueKit extends Component {
         if (!this.context.islogged) {
             return toastr.info('Log in to favorite');
         } else {
-            AuthServices.favoriteTechnique(user._id, this.props.technique._id)
+            if(user.techniques.includes(this.props.technique._id)){
+                return toastr.error(`${this.props.technique.title} is already favorited!`);
+            } else {
+                AuthServices.favoriteTechnique(user._id, this.props.technique._id)
                 .then(() => {
                     toastr.info(`${this.props.technique.title} was favorited!`);
                 })
                 .catch((error) => console.log(error));
+            }
+            
         }
     };
     
@@ -36,7 +41,7 @@ class TechniqueKit extends Component {
             <div>
             <div className="technique-survival-kit-card">
             <div className="survival-card-image-div">
-                <img id="survival-image"/>
+                <img id="survival-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1582921481/TECHNIQUES_FONTGUIDEAsset_6_300x.png"/>
             </div>
             <div className="technique-kit-description-div">
                 <div className="technique-kit-name-category">
