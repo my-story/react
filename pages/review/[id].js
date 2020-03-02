@@ -345,7 +345,7 @@ console.log()
                 <button className="not-clicked" onClick={this.habits}> HABITS</button>
               </section>
               <div className="rectangle-survival-title">
-                <div className="rectangle-title-div">
+                {/* <div className="rectangle-title-div">
                   <h3>{kit.title}</h3>
                 </div>  
                 <div className="rectangle-subtitle-div">
@@ -359,16 +359,21 @@ console.log()
                     <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
                     </button>
                   </div>
-                </div>   
-                {/* <div className="border">
-                  {products.forEach((product, index) => {
-                    console.log(index)
-                    return(
-                      <ProductKit product={product} index={index}></ProductKit>
-                    )
-                  })}
-              </div> */}
-              </div>
+                </div>    */}
+                <img className="rectangle-survival-title-picture" src={influencer.profilePic}/>
+                <div className="review-survival-title">
+                  <div>
+                    <h2 id="review-survival-title"><b>{kit.title}</b></h2>
+                  </div>
+                  <div>
+                     <h4 id="review-survival-title">{influencer.name.firstName} {influencer.name.lastName}</h4>
+                  </div>
+                </div>
+                {/* <div className="bookmark-survival-title"> */}
+							<img id="survival-title-bookmark-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+                {/* </div> */}
+            </div>
+              
               {/* <div> */}
                 <SurvivalKit id={influencer._id}></SurvivalKit>
               {/* </div> */}

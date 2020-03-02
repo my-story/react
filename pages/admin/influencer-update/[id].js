@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Router from 'next/router';
 import { Input, Tooltip, Icon, Select } from 'antd';
 import * as toastr from 'toastr';
-import UserContext from '../../components/contexts/UserContext';
-import InfluencerServices from '../../services/InfluencerServices';
+import UserContext from '../../../components/contexts/UserContext';
+import InfluencerServices from '../../../services/InfluencerServices';
 
 const OPTIONS = ["Athlete", "Musician", "Tech", "Artist"];
 
@@ -30,8 +30,7 @@ class InfluencerUpdate extends Component {
             expertise: influencer.expertise,
             firstName: influencer.name.firstName,
             lastName: influencer.name.lastName,
-            review: influencer.review,
-            percentage: influencer.percentage,
+            description: influencer.description,
             image: influencer.profilePic,
           }
         }));
@@ -56,7 +55,7 @@ class InfluencerUpdate extends Component {
   onSubmit = () => {
     let { data } = this.state;
 
-    if (data.expertise.length === 0 || data.firstName.length === 0 || data.lastName.length === 0 || data.review.length === 0) {
+    if (data.expertise.length === 0 || data.firstName.length === 0 || data.lastName.length === 0 || data.description.length === 0) {
       toastr.error("Please complete all required fields")
       return
     }
@@ -72,7 +71,7 @@ class InfluencerUpdate extends Component {
   render() {
     const { selectedItems, data } = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o))
-    
+    console.log(this.state)
     if (this.context.user.role === "Admin" && !this.state.done) {
       return (
         <div>
@@ -84,7 +83,7 @@ class InfluencerUpdate extends Component {
               </Tooltip>
             } />
             <Input name="lastName" value={data.lastName} placeholder="Last Name " allowClear onChange={this.onChange} />
-            <Input name="review" value={data.review} placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
+            <Input name="description" value={data.description} placeholder="Description of person, hobbies, sports, job, etc... " allowClear onChange={this.onChange} />
             <Select
               mode="multiple"
               placeholder="This is his/her Category. ADMIN can create new categories"
@@ -97,7 +96,6 @@ class InfluencerUpdate extends Component {
                 </Select.Option>
               ))}
             </Select>
-            <Input name="percentage" value={data.percentage} type="Number" placeholder="Percentage of profit of product (Write in decimals)" onChange={this.onChange} />
             <Input name="image" value={data.image} placeholder="image" onChange={this.onChange} />
             <button onClick={this.onSubmit}>Update</button>
           </div>

@@ -80,7 +80,7 @@ class InfluencerList extends Component {
             {/* <img className="background-blue-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380557/Bitmap_Copy.png" alt="blue-dash"/> */}
           </div>
         </div>
-        <h2 style={{paddingBottom: "20px"}}><b>Top Survival Kits</b></h2>
+        <h2 style={{paddingBottom: "20px", textAlign:"center"}}><b>Top Survival Kits</b></h2>
         <div>
         </div>
         <div className="expert-card-section">

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Router from 'next/router';
 import * as toastr from 'toastr'
 import { Input, Select } from 'antd';
-import ProductServices from '../../services/ProductServices';
+import ProductServices from '../../../services/ProductServices';
 
 const OPTIONS = ["Sports", "Music", "Tech", "Clothes"];
 const { TextArea } = Input;
