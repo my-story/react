@@ -44,7 +44,6 @@ class influencerCard extends Component {
 
   displayCategory = () => {
     if (this.state.review.kit.category !== undefined) {
-      console.log(this.state.review.kit.category)
       return(<div id={`card-kit-category`} className={this.state.review.kit.category}></div>)
     } else {
       return(<div></div>)
@@ -72,7 +71,7 @@ class influencerCard extends Component {
 
   render() {
     const {review} = this.state;
-
+  
     if (this.props.review === "yes" || review.kit === undefined){
       return(
         <Link href="/review/[id]" as={`/review/${this.props.i._id}`} key={this.props.index} prefetch>  
@@ -85,29 +84,26 @@ class influencerCard extends Component {
       return (
         <Link href="review/[id]" as={`review/${this.props.i._id}`} key={this.props.index} prefetch>  
           <div className="expert-card-container">
-            <div className="expert-card-name">
-              <div>
-              {this.displayCategory()}
-              </div>
-              <div>
-              {this.displayTitle()}
-              </div>
-              <div id="card-kit-name">
-                {this.props.i.name.firstName} {this.props.i.name.lastName}
-              </div>
-            </div>
-
-            <div className="expert-card-paragraph">
-              <p>
-              Classic looks and all-game comfort are what these juniors' soccer cleats are all about. They feature a lightweight, durable synthetic upper. They're designed for stability and speed on firm ground.
-              </p>
-            </div>
             <div className="expert-card-picture-div">
-              <div className="expert-card-picture-round">
-                {/* <img src="" alt="Sage picture" /> */}
+              {/* <div> */}
+                <img className="expert-card-picture-round" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1583176290/simon-migaj-b2qszO9C7sw-unsplash.jpg" alt="Sage picture" />
+              {/* </div> */}
+            </div>
+            <div className="expert-card-name">
+              {/* <div> */}
+                  <img id="expert-profile-pic-card" src={this.props.i.profilePic} />
+              {/* </div> */}
+              <div className="expert-card-name-survival">
+                <div>
+                  {this.displayTitle()}
+                </div>
+                <div id="card-kit-name">
+                  {this.props.i.name.firstName} {this.props.i.name.lastName}
+                </div>
               </div>
             </div>
           </div>
+         
         </Link>
       )
     }

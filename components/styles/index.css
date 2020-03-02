@@ -129,9 +129,9 @@ body {
 }
 
 .video {
-  margin-top: 2vh;
-  height: 49vh;
-  width: 100%;
+  margin-top: 8vh;
+  height: 250px;
+  width: auto;
   background-color: rgba(192, 192, 192, 0.4);
 }
 
@@ -822,21 +822,21 @@ background: none;
   width: 100%;
   display: flex;
   flex-direction: row;
-  /* border: 1px solid; */
-  /* justify-content: space-around; */
+  justify-content: space-between;
   /* align-items: baseline; */
 }
 .expert-div {
-  
-  align-self: baseline;
-  height: 400px;
-  width: 600px;
-  width: auto;
+  /* align-self: baseline; */
+  height: 100%;
+  width: 480px;
   background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1569352461/orange-bubble.svg");
-  background-size: 500px;
+  background-size: 470px;
   background-repeat: no-repeat;
+  background-position: right;
   /* padding: 100px; */
   /* margin-right: 5vw; */
+  display: flex;
+  align-items: center;
 }
 .expert-video {
   width: 30vw;
@@ -850,8 +850,8 @@ background: none;
   /* height: 45vh; */
   width: 40vw;
   height: auto;
-  position: relative;
-  top: 100px;
+  /* position: relative;
+  top: 100px; */
   text-align: right;
 }
 
@@ -890,8 +890,8 @@ background: none;
 .expert-card-section {
   display: flex;
   width: 100%;
-  justify-content: space-between;
-  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
 }
 
@@ -982,16 +982,38 @@ background: none;
 }
 
 .expert-card-container {
-  height: 170px;
+  /* height: 170px;
   width: 100%;  
   margin-bottom: 2vh;
   background-color: #f9f8f4;
   display: flex;
   flex-direction: row;
+  overflow: hidden; */
+  height: 300px;
+  width: 250px;
+  border-radius: 8%;
   overflow: hidden;
+
+}
+#expert-profile-pic-card {
+  height: 100%;
+  /* border-bottom-left-radius: 8%; */
+  border-right: 0.5px black;
+
+}
+.expert-card-picture-round {
+  height: 100%;
+}
+.expert-card-name-survival {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+  color: white;
+  font-size: 105%;
 }
 .expert-card-name {
-  width: 25%;
+  /* width: 25%;
   display: flex;
   justify-content: center;
   height: 65%;
@@ -1001,18 +1023,27 @@ background: none;
   align-content: center;
   align-items: center;
   justify-content: space-between;
-  font-family: "Hind";
+  font-family: "Hind"; */
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+  border-bottom-left-radius: 8%;
+  border-bottom-right-radius: 8%; 
+  width: 100%;
+  background-color: #3D676A;
+
+
 }
 #card-kit-title {
-font-size: 2.5vw;
+/* font-size: 2.5vw; */
 }
 #card-kit-name {
-font-size: 1.6vw;
+/* font-size: 1.6vw; */
 }
 #card-kit-category {
-  border-radius: 50%;
+  /* border-radius: 50%;
   height: 25px;
-  width: 25px;
+  width: 25px; */
 }
 
 /* //CATEGORY KIT COLORS */
@@ -1043,9 +1074,9 @@ font-size: 1.6vw;
   align-items: center;
   font-size: 18px;
 }
-.expert-card-picture-div {
+/* .expert-card-picture-div {
   width: 25%;
-}
+} */
 .expert-card-section-review {
   display: flex;
   height: 40vh;
@@ -1122,16 +1153,11 @@ height: 3vh;
   filter: none !important;
 
 }
-.expert-card-picture-round {
-  border: 1px solid;
-  height: 120%;
-  position: relative;
-  left: 5vw;
-  bottom: 2vh;
-  border-radius: 80%;
-  padding-left: 5vw;
-  background-image: url("https://images.gr-assets.com/authors/1201840056p8/566.jpg");
-  background-size: cover;
+.expert-card-picture-div {
+  border-top-right-radius: 8%;
+  border-top-left-radius: 8%;
+  height: 80%;
+  width: 100%;
 }
 
 #product-picture {
@@ -2636,16 +2662,47 @@ left: 1vw;
   height: 350px;
 }
 
+.rectangle-survival-title-picture {
+  width: 22%;
+}
 
+#review-survival-title {
+  color: white;
+}
+.review-survival-title {
+  font-family: Hind;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+}
+/* .bookmark-survival-title {
+  width: 13%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: 10px;
+  
+} */
+#survival-title-bookmark-image {
+  height: 20px;
+  position: relative;
+  top: 10px;
+  left: 80px;
+}
 .rectangle-survival-title {	
   height: 120px;	
   width: 100%;	
   border-radius: 2px;	
   /* background: radial-gradient(circle, blue 0%, #FFFBD5 99.08%, #FFFFFF 100%);	 */
-  background-color: #F66C4F;
+  background-color: #3D676A;
   box-shadow: 0 -6px 31px 0 rgba(0,0,0,0.08);
   /* opacity: 0.8; */
   margin-bottom: 1vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
 }
 .rectangle-title-div {
   display: flex;

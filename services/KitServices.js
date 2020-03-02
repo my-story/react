@@ -36,6 +36,15 @@ const getListTips = () => http.get('/kit/list/tips')
 const getProductSurvival = (id) => http.get(`/kit/product/${id}`)
   .then((res) => res.data)
 
+const getTipAdmin = (id) => http.get(`kit/admin/tip/${id}`)
+  .then((res) => res.data)
+
+const getTechniqueAdmin = (id) => http.get(`kit/admin/technique/${id}`)
+  .then((res) => res.data)
+
+const getSurvivalProductAdmin = (id) => http.get(`kit/admin/survival-product/${id}`)
+  .then((res) => res.data)
+
 export default {
     getKit,
     kitCreate,
@@ -48,6 +57,10 @@ export default {
     getListProducts,
     createSurvivalTip,
     getListTips,
-    getProductSurvival  
+    getProductSurvival,
+    getTipAdmin,
+    getTechniqueAdmin,
+    getSurvivalProductAdmin
+
 
 }
