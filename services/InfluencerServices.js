@@ -15,7 +15,7 @@ const getFilter = (search) => http.get(`/influencer/filter?search=${search}`)
 const searchFilter = (search) => http.get(`/influencer/filter/category?search=${search}`)
   .then((res) => res.data);
 
-const updateInfluencer = (data , id) => http.post(`/influencer/edit/${id}`, data)
+const updateInfluencer = (influencer , id) => http.post(`/influencer/edit/${id}`, influencer)
   .then((res) => res.data);
 
 const getOne = (id) => http.get(`/influencer/${id}`)

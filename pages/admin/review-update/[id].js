@@ -9,12 +9,8 @@ const { TextArea } = Input;
 class ReviewUpdate extends Component {
 
   state = {
-    title: "",
-    kit: "",
-    video: "",
-    voicenote: "",
-    influencer: "",
-    created: false
+    review: "",
+    reviewUpdate: false
   }
 
   static contextType = UserContext;
@@ -24,22 +20,15 @@ class ReviewUpdate extends Component {
   }
 
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    let { review } = this.state;
+    review[e.target.name] = e.target.value;
+    this.setState( {review} )
   };
 
 
   getReview = () => {
-    ReviewServices.getReview(this.props.id)
-      .then((review) =>{
-        this.setState({
-          title: review.title,
-          kit: review.kit._id,
-          video: review.video,
-          voicenote: review.voicenote,
-          influencer: review.influencer._id,
-          created: false
-        })
-      })
+    ReviewServices.getReviewAdmin(this.props.id)
+      .then((review) => this.setState({review}))
       .catch((error) => console.log(error));
   }
 
@@ -48,21 +37,12 @@ class ReviewUpdate extends Component {
   }
 
   handleSubmit = () => {
-    let id = this.state.influencer;
-    
-    const newReview = {
-      title: this.state.title,
-      influencer: this.state.influencer,
-      video: this.state.video,
-      kit: this.state.kit,
-      voicenote: this.state.voicenote,
-    }
-    
+    const id = this.state.review.influencer;
+    const {review} = this.state;
 
-    ReviewServices.editReview(newReview, id)
+    ReviewServices.editReview(review, id)
       .then(() => {
-        console.log("entered the then")
-        this.setState({ created: true });
+        this.setState({ reviewUpdate: true });
       })
       .catch(err => console.log(err));
   }
@@ -71,31 +51,30 @@ class ReviewUpdate extends Component {
 
   render() {
 
-    // console.log(this.props.oldReview.title)
-    if (this.context.user.role === "Admin" && !this.state.created) {
-      if(this.state.title){
-        return (
-          <div>
-            <Input name="title" defaultValue={this.state.title} placeholder="Please enter title " allowClear onChange={this.onChange} />
-            <Input name="influencer" defaultValue={this.state.influencer} placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
-            <Input name="kit" defaultValue={this.state.kit} placeholder="Please enter kit ID " allowClear onChange={this.onChange} />
-            <Input name="video" defaultValue={this.state.video} placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
-            <Input name="voicenote" defaultValue={this.state.voicenote} placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
-            <button onClick={this.handleSubmit}>Update</button>
-            {/* <p>saes</p> */}
-          </div>
-        );
+console.log(this.state)
+
+      if(this.state.review === ""){
+        return(<div>Loading...</div>)
+
       } else {
-        return(
-          <div>
-            <p>loading ....</p>
-          </div>
-        )
-      }
-    } else {
+
+        if (this.context.user.role === "Admin" && this.state.reviewUpdate === false) {
+          return (
+            <div>
+              <Input name="title" defaultValue={this.state.review.title} placeholder="Please enter title " allowClear onChange={this.onChange} />
+              <Input name="influencer" defaultValue={this.state.review.influencer} placeholder="Please enter infleuncer ID " allowClear onChange={this.onChange} />
+              <Input name="kit" defaultValue={this.state.review.kit} placeholder="Please enter kit ID " allowClear onChange={this.onChange} />
+              <Input name="video" defaultValue={this.state.review.video} placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
+              <Input name="voicenote" defaultValue={this.state.review.voicenote} placeholder="Please enter VOICENOTE URL CLOUDINARY " allowClear onChange={this.onChange} />
+              <button onClick={this.handleSubmit}>Update</button>
+              {/* <p>saes</p> */}
+            </div>
+          )
+      } else {
       Router.push('/admin/influencer-chart');
       return null;
     }
+  }
   }
 }
 
