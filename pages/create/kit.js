@@ -17,19 +17,11 @@ class KitCreate extends Component {
           title: "",
           influencer: false,
           products: [],
-          product: [],
-          comment: [],
           tips: [],
-          header: [],
-          description: [],
           techniques: [],
-          techniqueTitle: "",
-          techniqueHeader: [],
-          techniqueDescription: [],
           category: "",
           role: ""
         },
-        techniquesArray: [],
         selectedItems: [],
         kitCreate: false,
         fixedArrays: false
@@ -98,7 +90,6 @@ class KitCreate extends Component {
       const { kit, selectedItems } = this.state;
       const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
-      console.log(kit)
         return (
             <div className="create-survival-page">
             <div className="create-survival-kit-div">

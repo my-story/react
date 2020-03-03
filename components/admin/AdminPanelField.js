@@ -61,10 +61,7 @@ class AdminPanelField extends Component {
   }
 
   onClickKit = () => {
-    Router.push({
-      pathname:`/admin/kit-update/${this.state.kit._id}`,
-      props: this.state.kit._id
-    });
+    Router.push(`/admin/kit-update/${this.state.kit._id}`);
   }
 
   onClickInfluencer = () => {
@@ -75,41 +72,47 @@ class AdminPanelField extends Component {
     Router.push('/admin/review-update/' + this.props.influencer._id);
   }
 
-  allTips = () => {
-    const {tip} = this.state;
-    if(tip.length > 0) {
-      tip.map((tip,index) => {
-        console.log(tip)
+  render() {
+    const {tip, technique, survivalProduct} = this.state;
+
+    if (survivalProduct && tip && technique){
+    return(
+      <div className="admin-panel-influencer">
+        <h4>Click to update</h4>
+      <ul>
+        <li onClick={this.onClickInfluencer}>Influencer = {this.props.influencer.name.firstName} {this.props.influencer.name.lastName}. ID = {this.props.influencer._id}</li>
+        <li onClick={this.onClickKit}>KIT = {this.state.kit.title}. ID = {this.state.kit._id}</li>
+        {/* <li onClick={this.onClickProduct}>Product: {this.state.product[0].model}</li> */}
+        <li onClick={this.onClickReview}>REVIEW = {this.state.review.title}. ID = {this.state.review._id}</li>
+        {/* TIPS */}
+        {tip.map((tip,index) => {
         return(
           <div>
-          <Link href={`admin/tip-update/${tip._id}`} key={index}>
-            <p>{tip.header} hedaer</p>
+          <Link href={`/admin/tip-update/${tip._id}`} key={index}>
+            <li>TIP = {tip.header}. ID= {tip._id}</li>
           </Link>
           </div>
         )
-      })
-
-    } else {
-      return
-    }
-  };
-  //{this.props.influencer._id}
-  //{this.state.product[0]._id}
-  //{this.state.review._id}
-
-  render() {
-    console.log(this.state);
-
-    if (this.state.review && this.state.kit && this.state.tip){
-    return(
-      <div>
-      <ul>
-        <li onClick={this.onClickInfluencer}>Influencer: {this.props.influencer.name.firstName} {this.props.influencer.name.lastName}</li>
-        <li onClick={this.onClickKit}>Kit {this.state.kit._id}</li>
-        {/* <li onClick={this.onClickProduct}>Product: {this.state.product[0].model}</li> */}
-        <li onClick={this.onClickReview}>Review: {this.state.review.title}</li>
+      })}
+      {technique.map((technique,index) => {
+        return(
+          <div>
+          <Link href={`/admin/technique-update/${technique._id}`} key={index}>
+            <li>TECHNIQUE = {technique.title}. ID= {technique._id}</li>
+          </Link>
+          </div>
+        )
+      })}
+      {survivalProduct.map((survivalProduct,index) => {
+        return(
+          <div>
+          <Link href={`/admin/survival-product-update/${survivalProduct._id}`} key={index}>
+            <li>SurvivalProduct = {survivalProduct.comment}. ID= {survivalProduct._id}</li>
+          </Link>
+          </div>
+        )
+      })}
       </ul>
-        {this.allTips()}
       </div>
     )
     } else {

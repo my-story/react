@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Router from 'next/router';
 import * as toastr from 'toastr'
 import { Input, Select } from 'antd';
+import UserContext from '../../../components/contexts/UserContext';
 import ProductServices from '../../../services/ProductServices';
 
 const OPTIONS = ["Sports", "Music", "Tech", "Clothes"];
@@ -10,10 +11,12 @@ const { TextArea } = Input;
 class ProductUpdate extends Component {
 
   state = {
-    product: {},
+    product: "",
     selectedItems: [],
     productCreated: false
   };
+
+  static contextType = UserContext;
 
   static getInitialProps({ query: { id } }) {
     return { id };
@@ -21,21 +24,9 @@ class ProductUpdate extends Component {
 
   componentDidMount() {
     ProductServices.productDetail(this.props.id)
-      .then(product => {
-        this.setState(() => ({ 
-          product: {
-            model: product.model,
-            prize: product.prize,
-            description: product.description,
-            category: product.category,
-            images: product.images,
-            influencer: product.influencer,
-            influencerId: product.influencer._id,
-            total: product.total
-          }
-        }));
-      })
-  }
+      .then((product) => this.setState({product}))
+      .catch((error) => console.log(error))
+  };
 
   onChange = (e) => {
     let { product } = this.state
@@ -69,58 +60,64 @@ class ProductUpdate extends Component {
       return
     } else {
       this.addBackend();
-      console.log(this.state);
     }
   };
 
 
-  addBackend() {
-    let id = this.state.product.influencerId;
-    ProductServices.updateProduct(id, this.state.product)
+  addBackend = () => {
+
+    ProductServices.updateProduct(this.state.product._id, this.state.product)
       .then((product) => this.setState({ productCreated: true }))
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err))
   };
 
   render() {
-    const { selectedItems, product } = this.state;
+    const { selectedItems, product, productCreated} = this.state;
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
-    if (this.state.productCreated) {
-      Router.push('/admin/influencer-chart');
-      return null;
+    console.log(this.state.product);
+    
+    if (product === ""){
+      return(<div>Loading...</div>)
+    } else {
+      if (this.context.user.role === "Admin" && productCreated === false) {
+        return (
+          <div>
+            <h2>Create Product</h2>
+            <div className="create-card">
+              <Input name="model" defaultValue={this.state.product.model} placeholder="Please enter product name" onChange={this.onChange} />
+              <Input name="prize" defaultValue={this.state.product.prize} type="number" placeholder="Please enter product price" onChange={this.onChange} />
+              <Input name="total" defaultValue={this.state.product.total} type="number" placeholder="Please enter amount of products in stock" onChange={this.onChange} />
+              <TextArea name="images" defaultValue={this.state.product.images} rows={4} type="text" placeholder="Add Cloudinary images url separated by a space" onChange={this.onChangeImage} />
+              <TextArea name="description" defaultValue={this.state.product.description} rows={4} placeholder="Please enter product description" onChange={this.onChange} />
+              <Select
+                mode="multiple"
+                placeholder="Inserted are removed"
+                defaultValue={product.category}
+                onChange={this.handleChange}
+                style={{ width: '100%' }}
+              >
+                {filteredOptions.map(item => (
+                  <Select.Option key={item} value={item}>
+                    {item}
+                  </Select.Option>
+                ))}
+              </Select>
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <button onClick={this.onSubmit}>Submit</button>
+            </div>
+          </div>
+        ) 
+      } else {
+        Router.push('/admin/influencer-chart');
+        return null;
+      }
     }
-    return (
-
-      <div>
-        <h2>Create Product</h2>
-        <div className="create-card">
-          <Input name="model" value={this.state.product.model} placeholder="Please enter product name" onChange={this.onChange} />
-          <Input name="prize" value={this.state.product.prize} type="number" placeholder="Please enter product price" onChange={this.onChange} />
-          <Input name="total" value={this.state.product.total} type="number" placeholder="Please enter amount of products in stock" onChange={this.onChange} />
-          <TextArea name="images" value={this.state.product.images} rows={4} type="text" placeholder="Add Cloudinary images url separated by a space" onChange={this.onChangeImage} />
-          <TextArea name="description" value={this.state.product.description} rows={4} placeholder="Please enter product description" onChange={this.onChange} />
-          <Select
-            mode="multiple"
-            placeholder="Inserted are removed"
-            value={product.category}
-            onChange={this.handleChange}
-            style={{ width: '100%' }}
-          >
-            {filteredOptions.map(item => (
-              <Select.Option key={item} value={item}>
-                {item}
-              </Select.Option>
-            ))}
-          </Select>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <button onClick={this.onSubmit}>Submit</button>
-        </div>
-      </div>
-    )
+    
   }
 
 }

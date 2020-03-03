@@ -12,7 +12,7 @@ const kitProductBacked = (id) => http.get('/kit/popular', id)
 const getKitAdmin = (id) => http.get(`/kit/admin/${id}`)
   .then((res) => res.data);
 
-const updateKit = (kit, id) => http.post(`/kit/update/${id}`, kit)
+const updateKit = (kit, id) => http.post(`/kit/update/kit/${id}`, kit)
   .then((res) => res.data);
 
 const createTechnique = (technique) => http.post(`/kit/create/technique`, technique)
