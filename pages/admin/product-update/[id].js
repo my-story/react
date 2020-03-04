@@ -23,7 +23,7 @@ class ProductUpdate extends Component {
   }
 
   componentDidMount() {
-    ProductServices.productDetail(this.props.id)
+    ProductServices.getOneAdmin(this.props.id)
       .then((product) => this.setState({product}))
       .catch((error) => console.log(error))
   };

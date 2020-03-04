@@ -43,7 +43,7 @@ class Profile extends Component{
                         </div>
                     </div>
                 </div>
-                <div className="profile-option">
+                <div className="profile-dashboard-div">
 
                 </div>
             </div>
