@@ -35,24 +35,13 @@ class TechniqueCreate extends Component {
       };
 
     fixTechniques = () => {
-        // const {technique} = this.state;
-        const {recommendation, title} = this.state;
         const {description, header} = this.state.data;
 
-        // if (/[,\-]/.test(description) === true) { 
         const descriptions = description.split(',') ;
-        // } else {
-        //     const descriptions = description;
-        // }
         
-        
-
         let subheading = {
-          // title,
             header,
             descriptions
-        
-          // recommendation
         }
 
         let array = this.state.technique.subheading;
@@ -67,39 +56,21 @@ class TechniqueCreate extends Component {
 
       addTechniques = () => {
         const { technique } = this.state;
-        
-        // let newSubheading = technique.subheading.splice(0,1);
 
-// console.log("old", technique.subheading, "new" , newSubheading)
         KitServices.createTechnique({
           technique: {
             influencer: technique.influencer,
             title: technique.title,
             subheading: technique.subheading,
-            // recommendation: 
-
+            recommendation: technique.recommendation
           }
         })
         .then((res) => this.setState({ created: true, technique: res.data}))
         .catch((e) => console.log(e))
       }
 
-      // sendDataBack = () => {
-      //   // const { technique } = this.state;
-      //   const initialState = {
-      //     influencer: undefined,
-      //     title: "",
-      //     subheading : [{
-      //     }],
-      //     recommendation: "",
-      //   };
-
-      //   this.props.getData(this.state.technique)
-      //   this.setState({technique: initialState})
-      // };
 
     render() {
-
 
         return (
             <div>
@@ -114,8 +85,6 @@ class TechniqueCreate extends Component {
                 </div>
                 <button onClick={this.addTechniques}>Send technique</button>  
 
-                             
-                
             </div>
         );
     }

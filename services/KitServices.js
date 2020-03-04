@@ -45,6 +45,24 @@ const getTechniqueAdmin = (id) => http.get(`kit/admin/technique/${id}`)
 const getSurvivalProductAdmin = (id) => http.get(`kit/admin/survival-product/${id}`)
   .then((res) => res.data)
 
+const getSurvivalProductEdit = (id) => http.get(`kit/admin/survival-product/1/${id}`)
+  .then((res) => res.data)
+
+const editSurvivalKit = (id, product) => http.post(`kit/update/product/${id}`, product)
+  .then((res) => res.data)
+
+const getTipEdit = (id) => http.get(`kit/admin/tip/1/${id}`)
+  .then((res) => res.data)
+
+const editTipKit = (id, tip) => http.post(`kit/update/tip/${id}`, tip)
+  .then((res) => res.data)
+
+const getTechniqueEdit = (id) => http.get(`kit/admin/technique/1/${id}`)
+  .then((res) => res.data)
+
+const editTechniqueKit = (id, technique) => http.post(`kit/update/technique/${id}`, technique)
+  .then((res) => res.data)
+
 export default {
     getKit,
     kitCreate,
@@ -60,7 +78,11 @@ export default {
     getProductSurvival,
     getTipAdmin,
     getTechniqueAdmin,
-    getSurvivalProductAdmin
-
-
+    getSurvivalProductAdmin,
+    getSurvivalProductEdit,
+    editSurvivalKit,
+    editTipKit,
+    editTechniqueKit,
+    getTipEdit,
+    getTechniqueEdit
 }

@@ -69,13 +69,17 @@ class KitUpdate extends Component {
         let {kit} = this.state;
         const id = kit._id;
 
+        const techniques = kit.techniques.split(' , ');
+        const tips = kit.tips.split(' , ');
+        const products = kit.products.split(' , ');
+
         KitServices.updateKit({
           kit: {
             title: kit.title,
             influencer: kit.influencer,
-            products: kit.products,
-            tips: kit.tips,
-            techniques: kit.techniques,
+            products: products,
+            tips: tips,
+            techniques: techniques,
             category: kit.category[0]
           }
         }, id)
@@ -99,13 +103,19 @@ class KitUpdate extends Component {
           return (
             <div className="create-survival-page">
             <div className="create-survival-kit-div">
+                  <p>Title</p>
                  <Input name="title"  defaultValue={kit.title} placeholder="Please enter title"  onChange={this.onChange} />
+                 <p>Influencer</p>
                  <Input name="influencer" defaultValue={kit.influencer} placeholder="Please enter influencer id"  onChange={this.onChange} />
+                 <p>Techniques</p>
                  <Input name="techniques" defaultValue={kit.techniques} placeholder="add technique id separated by ',' " onChange={this.onChange} />
+                 <p>Tips</p> 
                  <Input name="tips"  defaultValue={kit.tips} placeholder="add tips id separated by ',' " onChange={this.onChange} />
+                 <p>Products</p>
                  <Input name="products" defaultValue={kit.products} placeholder="add products id separated by ',' " onChange={this.onChange} />
                  {/* <TechniqueCreate influencer={this.state.kit.influencer} getData={this.getTechnique}></TechniqueCreate> */}
                  {/* <Input name="category" placeholder="Please enter category"  onChange={this.onChange} /> */}
+                 
                  <Select
                     value={kit.category}
                     mode="multiple"

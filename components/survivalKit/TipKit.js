@@ -29,6 +29,8 @@ class TipKit extends Component {
 		};
 
 		showMore = () => {
+			const { tip } = this.state;
+			
 			if (this.state.size === "130px") {
 					return(
 					<div onClick={this.openCard} className="learn-more-survival-tip">
@@ -38,13 +40,13 @@ class TipKit extends Component {
 					)
 			} else {
 					return(
-						<div>
-							<p id="tip-kit-box-description">Description of tip. Loremipsum, lore loremp rep sim lorempsu susp.</p>
-							<div onClick={this.openCard} className="learn-more-survival-tip">
-								<p>Show less</p>
-								<img style={{transform:"rotate(-180deg)"}}id="arrow-down-kit-tip" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324512/chevron-left_2_copy_2.svg" alt="laern more arrow" />
-							</div>
+					<div>
+						<p id="tip-kit-box-description">{tip.description}.</p>
+						<div onClick={this.openCard} className="learn-more-survival-tip">
+							<p>Show less</p>
+							<img style={{transform:"rotate(-180deg)"}}id="arrow-down-kit-tip" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324512/chevron-left_2_copy_2.svg" alt="laern more arrow" />
 						</div>
+					</div>
 					)
 			}
 	};
@@ -78,8 +80,8 @@ class TipKit extends Component {
 						<img id="survival-image" id="tip-bulb" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1582921452/TECHNIQUES_FONTGUIDEAsset_4_300x.png"/>
 					</div>
 					<div className="tip-kit-description">
-						<p style={{fontSize:"25px", height: this.state.divSize}} id="tip-kit-header">
-							Create pools of sanity, one for good and one for bad.
+						<p style={{fontSize:"3.5vh", height: this.state.divSize}} id="tip-kit-header">
+							{tip.header}
 						</p>
 						{this.showMore()}
 

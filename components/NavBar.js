@@ -95,9 +95,8 @@ class NavBar extends Component {
 							{userLogged.firstName}
 							<img id="profile-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1582837688/Pngtree_silence_silent_alien_distortion_3922389.png" alt="Sage" />
 						</Dropdown.Toggle>
-
 						<Dropdown.Menu>
-							<Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
+							<Dropdown.Item href="/profile/dashboard">Profile</Dropdown.Item>
 							<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
 							<Dropdown.Item href="#/action-3">
 							<Logout {...this.props} >Logout</Logout>
