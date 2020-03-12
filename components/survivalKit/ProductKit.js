@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as toastr from 'toastr';
+
 import AuthServices from '../../services/AuthServices';
 import KitServices from '../../services/KitServices';
 import UserContext from '../../components/contexts/UserContext';

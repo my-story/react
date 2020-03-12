@@ -81,8 +81,6 @@ class InfluencerList extends Component {
           </div>
         </div>
         <h2 style={{paddingBottom: "20px", textAlign:"center"}}><b>Top Survival Kits</b></h2>
-        <div>
-        </div>
         <div className="expert-card-section">
         {influencers.map((i, index) => {
           return (
@@ -93,18 +91,13 @@ class InfluencerList extends Component {
         })}
         </div>
         <div className="heyhey-expert">
-          <div className="expert-circle-background">
-            {/* <img id="expert-circle" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565887285/3260_Converted_1.png" alt="expert-circle" /> */}
-            <div id="big-circle"></div>
-            
-            <div id="medium2-circle"></div>
-            <div id="medium-circle"></div>
-            
-            <div id="small-circle"></div>
-          </div>
+          
+          <img id="absurd-question-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1583447725/05.png" />
           <div className="heyhey-message">
-            <h1>Hey hey!</h1>
-            <p>Share your opinion!</p>
+            <div className="hey-message-div">
+            <h1>Hey! Your opinion really matters to us.</h1>
+            <p>Feel free to let us know what you feel about the website, or any Survival Tips you would like to see.</p>
+            </div>
             {/* <button><b>Share an opinion</b></button> */}
             <div> 
               <button onClick={this.onOpenModal}><b>Share an opinion</b></button>
@@ -175,6 +168,12 @@ class InfluencerList extends Component {
               <p><b>Comedian</b></p>
               <div id="dash-under"></div>
             </div>
+            <div id="categories-card">
+              {/* <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" /> */}
+              <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790797/icons8-comedy-100_2.png" alt="category" /></div>              
+              <p><b>Comedian</b></p>
+              <div id="dash-under"></div>
+            </div>
             {/* <div id="categories-card">
               <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
               <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567791082/icons8-music-notation-250.png" alt="category" /></div>              
@@ -188,6 +187,8 @@ class InfluencerList extends Component {
             <span id="category-bubble">Athlete</span>
             <span id="category-bubble">Author</span>
             <span id="category-bubble">Comedian</span>
+            <span id="category-bubble">Comedian</span>
+
             {/* <span id="category-bubble">Surprise</span>
             <span id="category-bubble">Coming Soon</span>
             <span id="category-bubble">Coming Soon</span>

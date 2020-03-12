@@ -119,6 +119,7 @@ class ProductDetail extends Component {
             <p id="product-number1">Product #</p>
             <p id="product-number">{this.state._id} should alter ID</p>
           </div> */}
+          <p style={{color: "gray"}}>Author: Matthew Walker</p>
           <div className="product-description-div">
             <p id="product-description-1">{this.state.description}</p>
           </div>
@@ -129,7 +130,7 @@ class ProductDetail extends Component {
           </div>
         </div>
         </section>
-        <div className="specification">
+        {/* <div className="specification">
           <h2><b>Specifications</b></h2>
           <div>
             <ul>
@@ -141,7 +142,7 @@ class ProductDetail extends Component {
               <li>You know that good good, it is good indeed boyy</li>
             </ul>
           </div>
-        </div>
+        </div> */}
         
         {/* Code function that gets bakced by list */}
         <div className="product-backed-by">
