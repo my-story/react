@@ -71,7 +71,7 @@ class ProductOne extends Component {
                 <img className="product-big-card-image-size" src={this.props.i.images[0]} alt={this.props.i.name} />
                <div className="p-product-info-div"> 
                   {/* <div className="p-product-big"> */}
-                  <span id="product-card-name">{this.props.i.model} fewf  fweffef fef</span>
+                  <span id="product-card-name">{this.props.i.model} fewf  fweffef dqwdqw dqwdqdfef</span>
                   {/* </div> */}
                   {/* <div className="p-product-big"> */}
                   <span id="product-card-price">${this.props.i.prize}</span>

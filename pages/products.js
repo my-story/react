@@ -115,7 +115,7 @@ class ProductList extends Component {
         <div className="product-card-section">
           {products.map((i, index) => {
             return (
-              <div>
+              <div className="product-card-1"> 
                 <ProductOne i={i} index={index} />
               </div>
             )

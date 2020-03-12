@@ -392,6 +392,43 @@
 					/* border-radius: 27px; */
 					background-color: #3D676A;
 				  }
-				
+				  .video {
+					  width: 90vw;
+					  height: auto;
+				  }
+				  .expert-message {
+					width: 90vw;
+					height: auto;
+					text-align: center;
+				  }
+				  #categories-card {
+					margin-bottom: 2vh;
+				  }
+				  .categories-container {
+					justify-content: center;	
+				  }
+				  .heyhey-expert {	
+					  	
+					height: 520px;
+					flex-direction: column;
+					align-items: center;
+					text-align: center;
+					margin: 5vh -0 5vh -0;
+					/* background-color: #f9f8f4; */
+				  }	
+				  .heyhey-expert h1 {
+					line-height: 7vh;
+				}
+				  .heyhey-expert p {
+					  text-align: left;
+				  }			  
+					#absurd-question-image{
+					/* height: 20vh; */
+					width: 220px;
+					padding-right: 20px;
+				}
+				.top-categories {
+					height: 700px;
+				  }
 				
   }
