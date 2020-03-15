@@ -49,10 +49,7 @@ class NavBar extends Component {
 					<MediaQuery maxDeviceWidth={490}>
 					<div  className="navbar-burder-div">
 					<Menu>
-						{/* <div clasName="menu-profile-div"> */}
-						<img className="menu-profile-image" src="public/images/Rebound Logo Colour-01.png" />
-							{/* <p id="menu-profile-name">User Lastname</p> */}
-						{/* </div> */}
+						<img id="logo-rebound-mobile" src={Logo} />										
 						<a id="home" className="menu-item" href="/">Home</a>
 						<a id="about" className="menu-item" href="/about">About</a>
 						<a id="about" className="menu-item" href="/podcasts">Podcasts</a>
@@ -65,8 +62,8 @@ class NavBar extends Component {
 				<MediaQuery minDeviceWidth={700}>		
 				<div className="nav-bar">
 					<div className="navbar-section">
-						<img id="logo-mystory" src="public/images/Rebound Logo Colour-01.png" alt="logo mystory" />
-						{/* <p id="mystory-name">My Story</p> */}
+						<img id="logo-rebound" src={Logo} />										
+						
 						<Link href="/">
 							<span>
 								<p>SAGES</p>
@@ -94,7 +91,7 @@ class NavBar extends Component {
 						<Dropdown>
 						<Dropdown.Toggle variant="success" id="dropdown-basic">
 							{userLogged.firstName}
-							<img id="profile-picture" src="public/images/Rebound Logo Colour-01.png" alt="Sage" />
+							<img id="profile-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1582837688/Pngtree_silence_silent_alien_distortion_3922389.png" alt="Sage" />
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
 							<Dropdown.Item href="/profile/dashboard">Profile</Dropdown.Item>
@@ -124,6 +121,7 @@ class NavBar extends Component {
 			<MediaQuery maxDeviceWidth={490}>
 			<div className="navbar-burder-div">
 			<Menu>
+				<img id="logo-rebound-mobile" src={Logo} />										
 				<a id="mobile-nav" className="menu-item" href="/">Sages</a>
 				<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
 				<a id="mobile-nav" className="menu-item" href="/products">Store</a>

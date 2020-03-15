@@ -61,18 +61,31 @@ class KitCreate extends Component {
       addBackend () {
         const {kit} = this.state;
 
-        const techniques = kit.techniques.split(' , ');
-        const tips = kit.tips.split(' , ');
-        const products = kit.products.split(' , ');
+        if (kit.techniques.length > 1) 
+        {
+          const techniques = kit.techniques.split(' , ');
+          this.setState({techniques})
+        } 
+        else if (kit.tips.length > 1) 
+        {
+          const tips = kit.tips.split(' , ');
+          this.setState({tips})
+        } 
+        else if (kit.products.length > 1) 
+        {
+          const products = kit.products.split(' , ');
+          this.setState({products})
+        } 
+        
 
 
         KitServices.kitCreate({
           kit: {
             title: kit.title,
             influencer: kit.influencer,
-            products: products,
-            tips: tips,
-            techniques: techniques,
+            products: kit.products,
+            tips: kit.tips,
+            techniques: kit.techniques,
             category: kit.category[0]
           }
         })

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Slider from "react-slick";
 import Link from 'next/link'
+import {Helmet} from 'react-helmet';
 import InfluencerServices from '../services/InfluencerServices';
 import SearchBar from '../components/influencer/SearchInfluencer';
 // import InfluencerItem from "../src/components/influencer/InfluencerItem";
@@ -61,6 +62,13 @@ class InfluencerList extends Component {
 
     return (
       <div className="index-page">
+        <Helmet>
+        <meta charSet="utf-8" />
+        <title>Rebound Sages</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/64/000000/circled-down.png" type="image/x-icon"></link>
+        </Helmet>
         <div className="expert-section">
           <div className="expert-video">
             <div>
@@ -84,7 +92,7 @@ class InfluencerList extends Component {
         <div className="expert-card-section">
         {influencers.map((i, index) => {
           return (
-            <div>
+            <div className="sage-outer-most-container">
               <InfluencerCard i={i} index={index} />
             </div> 
           )

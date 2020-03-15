@@ -389,7 +389,7 @@ body {
 
 /*    */
 .login-form-parent {
-  background-color: #5BA5A6;
+  background-color: #3d676a;
   height: 100vh;
   /* border: 3px solid black; */
   display: flex;
@@ -531,7 +531,7 @@ background: white;
   align-items: center;
 }
 .not-signup-container p {
-  font-size: 3vh;
+  font-size: 20px;
   
 }
 .not-signup-container button {
@@ -614,6 +614,9 @@ background: white;
   margin: 0 12vw 0 12vw;
   height: 150vh;
 }
+.product-all-page h1{
+  font-family: Hind;
+}
 .product-card {
   border: solid 1px black;
   width: 20vw;
@@ -693,6 +696,13 @@ background: none;
   width: auto;
   position: absolute;
   left: 5vw;
+}
+#logo-rebound-mobile{
+  height: 70px;
+  width: auto;
+  position: relative;
+  right: 40px;
+  margin-bottom: 10px;
 }
 #mystory-name {
   position: absolute;
@@ -831,6 +841,9 @@ background: none;
   justify-content: space-between;
   /* align-items: baseline; */
 }
+.sage-outer-most-container {
+margin: 0 10px 0 10px;
+}
 .expert-div {
   /* align-self: baseline; */
   height: 100%;
@@ -896,7 +909,7 @@ background: none;
 .expert-card-section {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -2631,7 +2644,7 @@ left: 1vw;
   letter-spacing: 0.2px;	
   line-height: 26px;
   border-radius: 27px;
-  background-color: #5BA5A6;
+  background-color: #3d676a;
 }
 .survival-kit-add-to-cart {
   box-sizing: border-box;	
@@ -2692,6 +2705,7 @@ left: 1vw;
 
 #review-survival-title {
   color: white;
+  font-size: 3vh;
 }
 .review-survival-title {
   font-family: Hind;
@@ -3089,7 +3103,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-family: Hind;
   font-weight: bold;
   margin-left: -40px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+
+  border-bottom: solid;
 
 }
 .navbar-burder-div {

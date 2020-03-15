@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AdminPanel from "../../components/admin/AdminPanel";
 import Link from 'next/link';
 
 class InfluencerChart extends Component {
@@ -21,7 +20,7 @@ class InfluencerChart extends Component {
           <Link href="/create/technique" as={`/create/technique`}>Technique</Link>
           <Link href="/create/tip" as={`/create/tip`}>Tip</Link>
         </div>
-        <AdminPanel></AdminPanel>
+        <Link href="admin/update/" as={`/admin/update`}></Link>
       </div>
     )
   }
