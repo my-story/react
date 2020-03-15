@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Helmet} from 'react-helmet';
 import ProductService from '../services/ProductServices';
 import SearchBar from '../components/influencer/SearchInfluencer';
 import ProductOne from "../components/products/ProductOne";
@@ -80,12 +81,20 @@ class ProductList extends Component {
 
     return (
       <div className="product-all-page">
+        <Helmet>
+        <meta charSet="utf-8" />
+        <title>Rebound Products</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Shop from a list of products that will imorove your lifestyle :)" />
+        {/* <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/64/000000/circled-down.png" type="image/x-icon"></link> */}
+        </Helmet>
         {/* <p>Products</p>
         <div>
           <SearchBar getFilter={this.searchBar} />
         </div> */}
         <div>
-          <h1>Products</h1>
+          <h1><b>Products</b></h1>
         </div>
         <div>
           <div className="category-bar"> 

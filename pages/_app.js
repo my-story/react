@@ -106,6 +106,7 @@ class MyApp extends App {
         <title>Rebound</title>
         <link rel="canonical" href="http://mysite.com/example" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="Uncover the tools you need for overcoming your mental barriers. Follow our Sage's advices, and create new positive habits. " />
         <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/64/000000/circled-down.png" type="image/x-icon"></link>
         </Helmet>
 

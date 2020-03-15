@@ -430,5 +430,8 @@
 				.top-categories {
 					height: 700px;
 				  }
+				  .sage-outer-most-container {
+					margin: 10px 0 10px 0;
+					}
 				
   }
