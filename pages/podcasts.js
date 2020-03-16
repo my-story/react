@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import PodcastServices from '../services/PodcastServices';
+import PodcastCard from '../components/podcast/PodcastCard';
+import CategoryBubbleOne from '../components/category/CategoryBubbleOne';
 
 class Podcasts extends Component {
   state = {
-    podcasts: []
+    podcasts: [],
+    category: [
+      "All","Sports", "Music", "Tech", "Clothes"
+    ],
   };
 
 
@@ -16,10 +21,28 @@ class Podcasts extends Component {
   };
 
   render() {
-    console.log(this.state)
+    const {podcasts , category} = this.state;
+
     return (
-        <div>
-            <h1>Hey</h1>
+        <div className="podcast-all-page">
+            <h1>The Rebound Podcasts</h1>
+            <div className="category-bar"> 
+            <p><b className="all-categories-p" >All Categories: </b></p>
+            <div>
+              {category.map((category, index) => {
+                return (
+                  <div>
+                    <CategoryBubbleOne searchbar={this.searchBar} category={category}></CategoryBubbleOne>
+                  </div>
+                )
+               })}
+            </div>
+          </div>
+            {podcasts.map((podcast, index) => {
+              return (
+                <PodcastCard podcast={podcast} index={index}></PodcastCard>
+              )
+            })}
         </div>
     )
  }
