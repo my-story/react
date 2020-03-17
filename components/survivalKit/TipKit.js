@@ -7,7 +7,9 @@ class TipKit extends Component {
     state = {
 				tip: {},
 				size: "130px",
-				divSize: "60px"
+				divSize: "60px",
+				tips: [],
+				kit: ""
 		}
 		
     static contextType = UserContext;
@@ -51,18 +53,33 @@ class TipKit extends Component {
 			}
 	};
 
+	checkSurvivalKit = () => {
+	const user = this.context.user;
+	if(user.kits.includes(this.props.kit._id) || this.state.kit === this.props.kit._id){
+		return
+	} else {
+		AuthServices.favoriteKit(user._id, this.props.kit._id)
+			.then(() => this.setState({kit: this.props.kit._id}))
+			.catch((error) => console.log(error));
+	}
+	};
+
 	addFavorite = () => {
 		const user = this.context.user;
+		const {tips} = this.state;
 
 		if (!this.context.islogged) {
 				return toastr.info('Log in to favorite');
 		} else {
-			if(user.tips.includes(this.props.tip._id)){
+			if(user.tips.includes(this.props.tip._id) || this.state.tips.includes(this.props.tip._id)){
 				return toastr.error(`${this.props.tip.header} has already been favorited!`)
 			} else {
+				this.checkSurvivalKit();
 				AuthServices.favoriteTip(user._id, this.props.tip._id)
 					.then(() => {
+							var joined = this.state.tips.concat(this.props.tip._id);
 							toastr.info(`${this.props.tip.header} was favorited!`);
+							this.setState({tips: joined})
 					})
 					.catch((error) => console.log(error));
 			}
@@ -71,8 +88,8 @@ class TipKit extends Component {
 };
 
     render() {
-        const {tip} = this.state;
-
+		const {tip} = this.state;
+	
         return (
             <div>
 				<div style={{height:this.state.size}} className="tip-kit-div-card">

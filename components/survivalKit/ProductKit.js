@@ -8,7 +8,9 @@ import UserContext from '../../components/contexts/UserContext';
 class ProductKit extends Component {
     state = {
         size: "150px",
-        product:{}
+        product:{},
+        products: [],
+        kit: ""
     }
 
     static contextType = UserContext;
@@ -46,13 +48,40 @@ class ProductKit extends Component {
         }
     };
 
+    checkSurvivalKit = () => {
+        const user = this.context.user;
+        if(user.kits.includes(this.props.kit._id) || this.state.kit === this.props.kit._id){
+            return
+        } else {
+            AuthServices.favoriteKit(user._id, this.props.kit._id)
+                .then(() => this.setState({kit: this.props.kit._id}))
+                .catch((error) => console.log(error));
+        }
+    };
+
     addFavorite = () => {
+        const user = this.context.user;
+        const {products} = this.state
+
         if (!this.context.islogged) {
             return toastr.info('Log in to favorite');
+        } else {
+            if(user.products.includes(this.props.p._id || products.includes(this.props.p._id))){
+                return toastr.error(`Product is already favorited!`);
+            } else {
+                this.checkSurvivalKit();
+                AuthServices.favoriteProduct(user._id, this.props.p._id)
+                .then(() => {
+                    toastr.info(`Product was favorited!`);
+                    var joined = this.state.products.concat(this.props.p._id);
+                    this.setState({products: joined})
+                })
+                .catch((error) => console.log(error));
+            }
+            
         }
-      
-        console.log(this.props.p._id)
-    }
+    };
+
     showMore = () => {
         if (this.state.size === "150px") {
             return(
@@ -71,18 +100,30 @@ class ProductKit extends Component {
         }
     };
 
+    checkSurvivalKit = () => {
+        const user = this.context.user;
+        if(user.kits.includes(this.props.kit._id) || this.state.kit === this.props.kit._id){
+            return
+        } else {
+            AuthServices.favoriteKit(user._id, this.props.kit._id)
+                .then(() => this.setState({kit: this.props.kit._id}))
+                .catch((error) => console.log(error));
+        }
+    };
+
     addFavorite = () => {
 		const user = this.context.user;
 
 		if (!this.context.islogged) {
 				return toastr.info('Log in to favorite');
 		} else {
-            if (user.products.includes(this.props.p._id)){
+            if (user.products.includes(this.props.p._id) || this.state.products.includes(this.props.p._id)){
                 return toastr.error('Product recommendation has already been favorited :)');
             } else {
+                this.checkSurvivalKit();
                 AuthServices.favoriteProduct(user._id, this.props.p._id)
                 .then(() => {
-                                toastr.info(`Product recommendation was favorited!`);
+                    toastr.info(`Product recommendation was favorited!`);
                 })
                 .catch((error) => console.log(error));
             }
@@ -93,7 +134,8 @@ class ProductKit extends Component {
         const product = this.props.product;
         const productMain = this.state.product.product;
         const p = this.props.p;
-    
+        
+        console.log(this.state)
 				
        if (productMain === undefined) {
            return(<div>waiting on product survival kit</div>)

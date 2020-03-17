@@ -3518,10 +3518,13 @@ color: black;
 }
 .podcast-description-div p {
   line-height: 15px;
+
 }
 .podcast-description-div p:first-child {
   font-size: 18px;
   font-weight: bold;
+  color: #3d676a;
+
 }
 .podcast-heading-div {
   padding-right: 10px;

@@ -103,11 +103,11 @@ class MyApp extends App {
           {/* TITLE, DESCRIPTION,Logo of page. */}
         <Helmet>
         <meta charSet="utf-8" />
-        <title>Rebound</title>
+        <title>Rebound | Embrace Adversity</title>
         <link rel="canonical" href="http://mysite.com/example" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="description" content="Uncover the tools you need for overcoming your mental barriers. Follow our Sage's advices, and create new positive habits. " />
-        <link rel="shortcut icon" href="https://img.icons8.com/ios-filled/64/000000/circled-down.png" type="image/x-icon"></link>
+        <link rel="shortcut icon" href="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1584463817/ReboundIconSquare-01.png" type="image/x-icon"></link>
         </Helmet>
 
           <QtyProvider value={{ getQtyState: this.state.getQty, updateQty: this.updateQty }}>

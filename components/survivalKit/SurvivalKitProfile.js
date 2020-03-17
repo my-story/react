@@ -5,23 +5,19 @@ import ProductKit from './ProductKit';
 import TechniqueKit from './TechniqueKit';
 import TipKit from './TipKit';
 
-class SurvivalKit extends Component {
+class SurvivalKitProfile extends Component {
 
     state = {
         kit : {}
     };  
     
-    static getInitialProps({ query: { id } }) {
-        return { id };
-    }
+    // static getInitialProps({ query: { id } }) {
+    //     return { id };
+    // }
 
     componentDidMount = () => {
-        KitServices.getKit(this.props.id)
-        .then((kit) => {
-            this.setState({kit})
-        })
-        .catch((err) => console.log(err))
-        }
+        this.setState({kit: this.props.kit})
+    }
 
 
 //Add three dots ... after a certain length of the string.
@@ -40,7 +36,7 @@ class SurvivalKit extends Component {
     }
     render(){
         const {kit} = this.state || {};
-        console.log("KIT - SurvivalKit", kit)
+        console.log(kit)
         
         if (kit === undefined || kit.products === undefined || kit.techniques === undefined) {
             return(<div>...</div>)
@@ -170,4 +166,4 @@ class SurvivalKit extends Component {
             }
 }
 
-export default SurvivalKit;
+export default SurvivalKitProfile;

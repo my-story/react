@@ -277,7 +277,7 @@ class ReviewOne extends Component {
         <div style={{height:"350vh"}} className="review-outer-page">
           <div className="review-page">
             <div>
-              <div>
+              <div className="review-heading-div">
                 <img src={influencer.profilePic} alt="Expert Image" className="influencer-pic" />
                 <p className="heading" >{review.title}</p>
               </div>
