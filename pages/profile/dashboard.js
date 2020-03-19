@@ -6,13 +6,12 @@ import UserContext from '../../components/contexts/UserContext';
 class Profile extends Component{
     state = {
         user: {},
-        kits: ""
     }
 
 	static contextType = UserContext;
 
 	componentDidMount = () => {
-		this.setState({user:this.context.user, kits:this.context.user.kits})
+		this.setState({user:this.context.user})
     }
 
     // getKitsProfile = () => {
@@ -21,8 +20,9 @@ class Profile extends Component{
     // }
     
     render() {
-        console.log(this.state)
-        if(!this.state.user || this.state.kits === "") {
+        const { user } = this.context;
+
+        if(!this.state.user) {
             return(<div>Loading...</div>)
         } else {
             return (
@@ -54,9 +54,9 @@ class Profile extends Component{
                         </div>
                     </div>
                     <div className="profile-dashboard-div">
-                        {this.state.kits.map((kit, index) => {
+                        {user.kits.map((kit, index) => {  
                             return(
-                            <SurvivalKitProfile kit={kit}></SurvivalKitProfile>
+                            <SurvivalKitProfile kit={kit} user={user}></SurvivalKitProfile>
                             )
                         })}
                     </div>

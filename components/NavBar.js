@@ -50,11 +50,12 @@ class NavBar extends Component {
 					<div  className="navbar-burder-div">
 					<Menu>
 						<img id="logo-rebound-mobile" src={Logo} />										
-						<a id="home" className="menu-item" href="/">Home</a>
-						<a id="about" className="menu-item" href="/about">About</a>
-						<a id="about" className="menu-item" href="/podcasts">Podcasts</a>
-						<a id="contact" className="menu-item" href="/contact">Contact</a>
-						<a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+						<a id="mobile-nav" className="menu-item" href="/">Home</a>
+						<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
+						<a id="mobile-nav" className="menu-item" href="/products">Store</a>
+						<a id="mobile-nav" className="menu-item" href="/about">About Us</a>
+						<a id="mobile-nav" className="menu-item" href="/contact-us">Contact</a>
+						<p style={{color: "white", borderBottom: "solid", marginLeft: "-40px", marginTop: "25px"}}id="mobile-nav logout" className="menu-item" ><Logout {...this.props} ><b>Logout</b></Logout></p>
 					</Menu>
 					</div>
 					</MediaQuery>
@@ -79,9 +80,12 @@ class NavBar extends Component {
 								<p>PRODUCTS</p>
 							</span>
 						</Link>
+						<Link href="/about">
 						<span>
 							<p>ABOUT</p>
 						</span>
+						</Link>
+
 						<Link href="/contact-us">
 						<span>
 							<p>CONTACT</p>
@@ -122,7 +126,7 @@ class NavBar extends Component {
 			<div className="navbar-burder-div">
 			<Menu>
 				<img id="logo-rebound-mobile" src={Logo} />										
-				<a id="mobile-nav" className="menu-item" href="/">Sages</a>
+				<a id="mobile-nav" className="menu-item" href="/">Home</a>
 				<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
 				<a id="mobile-nav" className="menu-item" href="/products">Store</a>
 				<a id="mobile-nav" className="menu-item" href="/about">About Us</a>

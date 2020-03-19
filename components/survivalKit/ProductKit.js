@@ -134,8 +134,6 @@ class ProductKit extends Component {
         const product = this.props.product;
         const productMain = this.state.product.product;
         const p = this.props.p;
-        
-        console.log(this.state)
 				
        if (productMain === undefined) {
            return(<div>waiting on product survival kit</div>)
