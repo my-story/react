@@ -101,15 +101,15 @@ class ProductDetail extends Component {
           <div id="product-pictures">
             <div id="product-pictures-circle">
             <img className="main-image" src={this.state.images[0]} alt="the product" />
-            <div id="image-circle">
+            {/* <div id="image-circle">
               <img id="options-pictures" src={this.state.images[0]} alt="options-pictures" />
-            </div>
-            <div id="image-circle2">
+            </div> */}
+            {/* <div id="image-circle2">
               <img id="options-pictures" src={this.state.images[0]} alt="options-pictures" />
-            </div>
-            <div id="image-circle3">
+            </div> */}
+            {/* <div id="image-circle3">
               <img id="options-pictures" src={this.state.images[0]} alt="options-pictures" />
-            </div>
+            </div> */}
             </div>
         </div>
         <div id="product-description">

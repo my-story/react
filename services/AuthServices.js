@@ -21,6 +21,9 @@ const favoriteTip = (id, tip) => http.post(`api/add/tip/${id}/${tip}`)
 const favoriteProduct = (id, product) => http.post(`api/add/product/${id}/${product}`)
   .then((res) => res.data)
 
+const favoriteKit = (id, kit) => http.post(`api/add/kit/${id}/${kit}`)
+  .then((res) => res.data)
+
 export default {
   signup,
   login,
@@ -28,5 +31,6 @@ export default {
   loggedin,
   favoriteTechnique,
   favoriteTip,
-  favoriteProduct
+  favoriteProduct,
+  favoriteKit
 }

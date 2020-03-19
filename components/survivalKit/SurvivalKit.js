@@ -49,27 +49,24 @@ class SurvivalKit extends Component {
                 <div className="product-kit-page">
                 {kit.products.map((p, index) => {
                     let product = p.product;
-    
                     return(
-                    <ProductKit p={p} product={product}></ProductKit>
+                    <ProductKit p={p} product={product} kit={kit} ></ProductKit>
                     )
                 })}
     
                 {/* //Techniques DESIGN FIGURE OUT How to dispaly all of them */}
                 {kit.techniques.map((technique , index) => {
-            
                     return(
-                        <TechniqueKit technique={technique}></TechniqueKit>
+                        <TechniqueKit technique={technique} kit={kit}></TechniqueKit>
                     )
                 })
                 }
 
                 {/* TIPS MAP */}
                 {kit.tips.map(( tip, index ) => {
-                    
                     return(
                         <div key={index}>
-                            <TipKit tip={tip}></TipKit>
+                            <TipKit tip={tip} kit={kit} key={index}></TipKit>
                         </div>
                     )
                 })}

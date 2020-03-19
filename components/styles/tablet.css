@@ -15,4 +15,20 @@
     .not-signup-container p {
         margin-left: 4vw;
     }
+    .review-page {
+     margin: 0 5vw 0 5vw;
+    }
+    .heading {
+    /* position: relative; */
+    width: 600px;
+    margin-left: 150px;
+    /* left: 50px; */
+    }
+    .influencer-pic {
+    position: absolute;
+    left: 5vw;
+    height: 140px;
+    width: 140px;
+    border-radius: 200px;
+    }
   }

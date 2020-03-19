@@ -25,7 +25,7 @@ class Podcasts extends Component {
 
     return (
         <div className="podcast-all-page">
-            <h1>The Rebound Podcasts</h1>
+            <h1><b>The Rebound Podcasts</b></h1>
             <div className="category-bar"> 
             <p><b className="all-categories-p" >All Categories: </b></p>
             <div>
