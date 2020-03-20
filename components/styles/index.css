@@ -1275,6 +1275,10 @@ height: 3vh;
 /* Categories Section */
 .top-categories {
   height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .categories-container {
   height: 40vh;
@@ -1290,7 +1294,7 @@ height: 3vh;
   justify-content: center;
   align-items: center;
   width: 220px;
-  /* margin-right: 18px; */
+  margin-right: 10px;
   margin-bottom: 20px;
   background-color: #f9f8f4;
   height: 260px;
@@ -1349,7 +1353,7 @@ height: 3vh;
 }
 
 .category-bar p {
-  font-size: 2.6vh;
+  font-size: 1.6vh;
   padding-right: 1vw;
 }
 
