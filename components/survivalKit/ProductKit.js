@@ -59,29 +59,7 @@ class ProductKit extends Component {
         }
     };
 
-    addFavorite = () => {
-        const user = this.context.user;
-        const {products} = this.state
-
-        if (!this.context.islogged) {
-            return toastr.info('Log in to favorite');
-        } else {
-            if(user.products.includes(this.props.p._id || products.includes(this.props.p._id))){
-                return toastr.error(`Product is already favorited!`);
-            } else {
-                this.checkSurvivalKit();
-                AuthServices.favoriteProduct(user._id, this.props.p._id)
-                .then(() => {
-                    toastr.info(`Product was favorited!`);
-                    var joined = this.state.products.concat(this.props.p._id);
-                    this.setState({products: joined})
-                })
-                .catch((error) => console.log(error));
-            }
-            
-        }
-    };
-
+ 
     showMore = () => {
         if (this.state.size === "150px") {
             return(
@@ -112,23 +90,28 @@ class ProductKit extends Component {
     };
 
     addFavorite = () => {
-		const user = this.context.user;
+        const user = this.context.user;
+        const {products} = this.state
 
-		if (!this.context.islogged) {
-				return toastr.info('Log in to favorite');
-		} else {
-            if (user.products.includes(this.props.p._id) || this.state.products.includes(this.props.p._id)){
-                return toastr.error('Product recommendation has already been favorited :)');
+        if (!this.context.islogged) {
+            return toastr.info('Log in to favorite');
+        } else {
+            if(user.products.includes(this.props.p._id || products.includes(this.props.p._id))){
+                return toastr.error(`Product is already favorited!`);
             } else {
                 this.checkSurvivalKit();
                 AuthServices.favoriteProduct(user._id, this.props.p._id)
                 .then(() => {
-                    toastr.info(`Product recommendation was favorited!`);
+                    toastr.info(`Product was favorited!`);
+                    var joined = this.state.products.concat(this.props.p._id);
+                    this.setState({products: joined})
                 })
                 .catch((error) => console.log(error));
             }
-		}
-	};
+            
+        }
+    };
+
 
     render(){
         const product = this.props.product;

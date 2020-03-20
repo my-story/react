@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import SurvivalKitProfile from '../../components/survivalKit/SurvivalKitProfile';
+import SurvivalKitProfile from '../../components/profile/SurvivalKitProfile';
 import {QtyConsumer} from '../../components/contexts/QtyContext';
 import UserContext from '../../components/contexts/UserContext';
 
@@ -54,6 +54,7 @@ class Profile extends Component{
                         </div>
                     </div>
                     <div className="profile-dashboard-div">
+                        <h1>Survival Kits</h1>
                         {user.kits.map((kit, index) => {  
                             return(
                             <SurvivalKitProfile kit={kit} user={user}></SurvivalKitProfile>
