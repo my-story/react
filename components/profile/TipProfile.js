@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AuthServices from '../../services/AuthServices';
 
 class TipProfile extends Component {
     state = {
@@ -10,6 +11,7 @@ class TipProfile extends Component {
     componentDidMount() {
         this.setState({tip: this.props.tip})
     }
+
 
 
     shrinkParagraph = (p) => {
@@ -56,12 +58,22 @@ class TipProfile extends Component {
         }
 };
 
+    unfavorite = () => {
+        const { tip } = this.state;
+        const {user} = this.props;
+        
+        AuthServices.unfavoriteTip(user._id, tip._id)
+            .then(() => this.setState({tip: ""}))
+            .catch((err) => console.log(err))
+
+    };
+
     render() {
         const { tip } = this.state;
-
+    
         if (tip === "") {
             return(
-                <div>Loading...</div>
+                <div></div>
             )
         } else {
             return (
@@ -80,7 +92,8 @@ class TipProfile extends Component {
                 <div className="line-2"></div>
             <div className="tip-survival-prize-div">
                     <div className="survival-save-favorite">
-                        <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+                       
+                        <img onClick={this.unfavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1584740221/icons8-close-window-32.png" alt="bookmark" />
                     </div>
                 </div>
             </div>

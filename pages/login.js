@@ -236,8 +236,7 @@ class Login extends Component {
               </div>
               <div className="inputs-login">
                 <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />
-                
-                <input placeholder="Password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
+                <input placeholder="Password" type="password" className="inputs-login-styling margin-input-login" name="password" onChange={e => this.handleChange(e)} />
                 <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img>
               <button type="submit" className="login-button"><span className="login-font">Log in</span></button>
               </div>              

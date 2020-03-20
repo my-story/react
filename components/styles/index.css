@@ -127,10 +127,17 @@ body {
   display: flex;
   flex-direction: row;
 }
-
+.expert-message-p-div {
+  width: 96%;
+  text-justify: justify;
+}
 .video {
+  position: relative;
+  top: 10vh;
+  left: -5vw;
   margin-top: 8vh;
-  height: 250px;
+  margin-right: 100px;
+  height: 310px;
   width: auto;
   background-color: rgba(192, 192, 192, 0.4);
 }
@@ -439,6 +446,8 @@ background: white;
 
 .inputs-login{
   height: 4vh;
+  width: 100px;
+  border: solid;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -830,17 +839,18 @@ background: none;
 
 /* Index */
 .index-page {
-  margin: 0 12vw 0 12vw;
+  margin: 0 10vw 0 10vw;
   height: 380vh;
 }
 /* Expert Section */
 .expert-section {
-  height: 60vh;
+  height: 90vh;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   /* align-items: baseline; */
+
 }
 .sage-outer-most-container {
 margin: 0 10px 0 10px;
@@ -859,7 +869,7 @@ margin: 0 10px 0 10px;
   align-items: center;
 }
 .expert-video {
-  width: 30vw;
+  width: 40vw;
 }
 #expert-message-description {
   font-size: 3vh;
@@ -868,7 +878,7 @@ margin: 0 10px 0 10px;
 }
 .expert-message {
   /* height: 45vh; */
-  width: 40vw;
+  width: 50vw;
   height: auto;
   /* position: relative;
   top: 100px; */
@@ -3444,7 +3454,11 @@ color: black;
   display: flex;
   flex-direction: row;
 }
-
+.category-card {
+  background-color: red;
+  border-radius: 100%;
+  height: 30px;
+}
 .profile-profile-menu {
   width: 28%;
   border: solid;

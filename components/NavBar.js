@@ -49,7 +49,8 @@ class NavBar extends Component {
 					<MediaQuery maxDeviceWidth={490}>
 					<div  className="navbar-burder-div">
 					<Menu>
-						<img id="logo-rebound-mobile" src={Logo} />										
+						<img id="logo-rebound-mobile" src={Logo} />	
+						<a id="mobile-nav" className="menu-item" href="/profile/dashboard">Profile</a>															
 						<a id="mobile-nav" className="menu-item" href="/">Home</a>
 						<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
 						<a id="mobile-nav" className="menu-item" href="/products">Store</a>
@@ -58,6 +59,7 @@ class NavBar extends Component {
 						<p style={{color: "white", borderBottom: "solid", marginLeft: "-40px", marginTop: "25px"}}id="mobile-nav logout" className="menu-item" ><Logout {...this.props} ><b>Logout</b></Logout></p>
 					</Menu>
 					</div>
+				
 					</MediaQuery>
 
 				<MediaQuery minDeviceWidth={700}>		
@@ -134,6 +136,7 @@ class NavBar extends Component {
 				<a id="mobile-nav" className="menu-item" href="/login">Log in</a>
 			</Menu>
 			</div>
+
 			</MediaQuery>
 			<MediaQuery minDeviceWidth={700}>
 				<div className="nav-bar">

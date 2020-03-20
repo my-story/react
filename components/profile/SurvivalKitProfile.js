@@ -15,9 +15,7 @@ class SurvivalKitProfile extends Component {
         tips: ""
     };  
     
-    // static getInitialProps({ query: { id } }) {
-    //     return { id };
-    // }
+ 
 
     componentDidMount = () => {
         this.setState({user:this.props.user});
@@ -29,6 +27,7 @@ class SurvivalKitProfile extends Component {
         .catch((err) => console.log(err))
     };
 
+    
 
     showMore = () => {
         if (this.state.size === "150px") {
@@ -105,7 +104,7 @@ class SurvivalKitProfile extends Component {
                     if (user.tips.includes(tip._id))
                     {
                       return (
-                        <TipProfile tip={tip}></TipProfile>
+                        <TipProfile user={user} tip={tip}></TipProfile>
                       )
                        
                     }

@@ -1,17 +1,17 @@
-// import React, { Component } from 'react';
-// // import AnchorLink from 'react-anchor-link-smooth-scroll';
-// import OrderReview from '../components/cart/OrderReview';
+import React, { Component } from 'react';
+// import AnchorLink from 'react-anchor-link-smooth-scroll';
+import OrderReview from '../components/cart/OrderReview';
 
-// class Test extends Component {
+class Test extends Component {
 
-//     render(){
+    render(){
 
-//         return(
-//             <div className="terms-page">
-//                 <OrderReview></OrderReview>
-//             </div>
-//         )
-//     }
-// }
+        return(
+            <div className="terms-page">
+                <OrderReview></OrderReview>
+            </div>
+        )
+    }
+}
 
-// export default Test;
+export default Test;

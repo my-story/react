@@ -79,10 +79,12 @@ class InfluencerList extends Component {
             <div className="expert-div">
             <div className="expert-message">
               <p> Find the tools to overcome your adversities.</p>
+              <div className="expert-message-p-div">
               <p id="expert-message-description">
               We talk to professionals that have dealt with tremendous adversity, and find out what tips, 
               techniques and products they used especifically for overcoming that problem.
               </p>
+              </div>
               <button id="survival-kit-button">SEE SURVIVAL KITS</button>
             </div>
               {/* <img id="expert-illustration" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565380238/3260_Converted.png" alt="expert illustration" /> */}
