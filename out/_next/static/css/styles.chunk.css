@@ -710,7 +710,7 @@ body {
 
 /*    */
 .login-form-parent {
-  background-color: #5BA5A6;
+  background-color: #3d676a;
   height: 100vh;
   /* border: 3px solid black; */
   display: flex;
@@ -852,7 +852,7 @@ background: white;
   align-items: center;
 }
 .not-signup-container p {
-  font-size: 3vh;
+  font-size: 20px;
   
 }
 .not-signup-container button {
@@ -935,6 +935,9 @@ background: white;
   margin: 0 12vw 0 12vw;
   height: 150vh;
 }
+.product-all-page h1{
+  font-family: Hind;
+}
 .product-card {
   border: solid 1px black;
   width: 20vw;
@@ -998,6 +1001,7 @@ background: white;
   margin: 5vh 2vw 5vh 2vw;
   font-family: "Hind", sans-serif;
 }
+
 #logout-button {
   padding: 0;
 border: none;
@@ -1014,6 +1018,13 @@ background: none;
   width: auto;
   position: absolute;
   left: 5vw;
+}
+#logo-rebound-mobile{
+  height: 70px;
+  width: auto;
+  position: relative;
+  right: 40px;
+  margin-bottom: 10px;
 }
 #mystory-name {
   position: absolute;
@@ -1152,6 +1163,9 @@ background: none;
   justify-content: space-between;
   /* align-items: baseline; */
 }
+.sage-outer-most-container {
+margin: 0 10px 0 10px;
+}
 .expert-div {
   /* align-self: baseline; */
   height: 100%;
@@ -1217,7 +1231,7 @@ background: none;
 .expert-card-section {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
 }
@@ -1582,6 +1596,10 @@ height: 3vh;
 /* Categories Section */
 .top-categories {
   height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .categories-container {
   height: 40vh;
@@ -1597,7 +1615,7 @@ height: 3vh;
   justify-content: center;
   align-items: center;
   width: 220px;
-  /* margin-right: 18px; */
+  margin-right: 10px;
   margin-bottom: 20px;
   background-color: #f9f8f4;
   height: 260px;
@@ -1656,7 +1674,7 @@ height: 3vh;
 }
 
 .category-bar p {
-  font-size: 2.6vh;
+  font-size: 1.6vh;
   padding-right: 1vw;
 }
 
@@ -2087,7 +2105,7 @@ test cards new ones - REVIEW
 .about-worker-name {
   padding-left: 1vw;
 }
-.about-worker-name h5{
+.about-worker-name h1{
   font-family: Hind;
   line-height: 34px;
   font-weight: bold;
@@ -2110,10 +2128,10 @@ test cards new ones - REVIEW
   width: 90%;
 }
 .main-image{
-  height: 28vh;
+  height: 300px;
   width: auto;
-  position: relative;
-  left: 7vw;
+  /* position: relative; */
+  /* left: 7vw; */
 }
 #image-circle {
   height: 10vh;
@@ -2226,7 +2244,7 @@ justify-content: space-between;
   flex-direction: row;
 }
 #product-prize {
-  font-size: 2.8vh;
+  font-size: 3vh;
   font-weight: bold;
   color: #F66C4F;
   font-family: Arial, Helvetica, san-serif;
@@ -2540,13 +2558,9 @@ margin-right: 1vw
 }
 .tip-card-image-div {
   width: 160px;
-  /* border: solid; */
   position: relative;
   left: -2vw;
-  /* bottom: 5px; */
-  /* bottom: 8vh; */
   height: 200%;
-  /* border-right: 1px solid;  */
   border-radius:50%;
   background-color: #f7f7f7;
   display: flex;
@@ -2624,7 +2638,7 @@ margin-right: 1vw
   padding-right: 10px;
 }
 #survival-image {
-  height: 10vh;
+  height: 8vh;
   width: auto;
 }
 #technique-name{
@@ -2648,10 +2662,8 @@ margin-right: 1vw
   font-size: 12px;
 }
 .technique-rebound-kit-description-div {
-
   height: 90%;
   width: 280px;
-  /* padding-left: 30px; */
   margin-left: -10px;
   font-family: "Hind";
   display: flex;
@@ -2659,13 +2671,18 @@ margin-right: 1vw
   justify-content: space-around;
 }
 .technique-survival-prize-div {
-  margin-left: 1vw;
+  /* margin-left: 1vw; */
   display: flex;
   align-content: center;
-  flex-direction: column;
-  margin-right: 5px;
-  height: 100%;
-  width: 240px;
+  justify-content: center;
+  width: 50px;
+}
+.tip-survival-prize-div {
+  /* margin-left: 1vw; */
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 50px;
 }
 .recomendation-technique-survival-prize-div {
   margin-left: 1vw;
@@ -2883,16 +2900,7 @@ left: 1vw;
   height: 100%;
 }
 
-.technique-survival-prize-div {
-  margin-left: 1vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  /* flex-direction: column; */
-  padding-right: 1vw;
-  height: 100%;
-  width: 50px;
-}
+
 
 .tip-save-div {
   margin-bottom: 15px;
@@ -2911,8 +2919,7 @@ left: 1vw;
   padding:0;
 }
 #tip-bulb {
-  /* background-color: red; */
-  height: 100px;
+  height: 12vh;
   padding-left: 10px; 
 }
 #survival-prize {
@@ -2952,7 +2959,7 @@ left: 1vw;
   letter-spacing: 0.2px;	
   line-height: 26px;
   border-radius: 27px;
-  background-color: #5BA5A6;
+  background-color: #3d676a;
 }
 .survival-kit-add-to-cart {
   box-sizing: border-box;	
@@ -3013,6 +3020,7 @@ left: 1vw;
 
 #review-survival-title {
   color: white;
+  font-size: 3vh;
 }
 .review-survival-title {
   font-family: Hind;
@@ -3410,7 +3418,10 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-family: Hind;
   font-weight: bold;
   margin-left: -40px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+
+  border-bottom: solid;
 
 }
 .navbar-burder-div {
@@ -3788,440 +3799,677 @@ color: black;
   align-items: center;
   padding-top: 15px;
 }
+.podcast-all-page {
+  margin: 0 12vw 0 12vw;
+}
+.podcast-image-div {
+  width: 25%;
+  height: 100%;
+  border-top-right-radius: 120px;
+  border-bottom-right-radius: 120px;
+  overflow: hidden;
+}
+#podcast-thumbnail-image {
+  width: 100%;
+}
+.podcast-outer-card {
+  width: 100%;
+  height: 135px ;
+  display: flex;
+  flex-direction: row;
+  background-color: #F7F7F7;
+  margin-bottom: 2vh;
+}
+.podcast-information {
+  width: 75%;
+  height: 100%;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.podcast-description-div {
+  height: 60%;
+}
+.podcast-description-div p {
+  line-height: 15px;
+
+}
+.podcast-description-div p:first-child {
+  font-size: 18px;
+  font-weight: bold;
+  color: #3d676a;
+}
+.podcast-heading-div {
+  padding-right: 10px;
+  padding-top: 10px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+.podcast-heading-div h2 {
+  font-family: "Hind";
+  /* font-weight: bold; */
+  font-size: 30px;
+}
+.profile-tip-div {
+  height: 200px;
+  width: 200px;
+  border: solid;
+}
 @media only screen and (max-width: 480px) {
-			.review-page {
-				margin: 0 5vw 0 5vw;
-			}
-			.book-card {
-				margin-top: 2vh;
-			}
-			.book-container {
-				justify-content: center;
-			}
-			.heading {
-				display: flex;
-				flex-direction: column;				
-				flex-wrap: wrap;
-				color: #000000;
-				font-family: "Hind", sans-serif;
-				font-size: 20px;
-				font-weight: bold;
-				line-height: 28px;
-				margin-bottom: 0;
-				padding-top: 0;
-			}
-			.influencer-pic {
-				position: relative;
-				left: 0;
-				height: 80px;
-				width: auto;
-				border-radius: 200px;
-				margin: 0;
-			}
-			.subheading {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				width: 100%;
-				padding-top: 1vh;
-			}
-			.login-form-parent {
-				margin-right: 0;
-			}
-			.orange-login-rectangle {
-				min-width: 100vw;
-				margin: 0;
-			}
-			.orange-signup-rectangle {
-				min-width: 100vw;
-				margin: 0;
-
-			}	
-			.about-heading {
-				height: 10vh;
-				width: 100%;
-			}
-			.about-heading span{
-				font-size: 20px;	
-			}
-			.about-description {
-				height: 30vh;
-				min-width: 20vw;
-				display: flex;
-				justify-content: center;
-			  }
-			  .about-description {
-				/* height: 10vh; */
-				min-width: 25vw;
-				/* margin-bottom: 8vh; */
-			  }
-			  .description {
-				width: 80%;
-				margin: 0 1vw 0 1vw;
-			  }
-			  .mobile-login-page {
-				  display: flex;
-				  justify-content: center;
-				  background-color: #3d676a;
-				  height: 90vh;
-			  }
-			  .mobile-login-form {
-				  margin-top: 5vh;
-				  height: 70vh;
-				  width: 80%;
-				  background-color: white;
-			  }
-			  .p-login-header {
-				  display: flex;
-				  flex-direction: column;
-				  height: 15px;
-				  width: 100%;
-			  }
-			  .p-login {
-				  margin-top: 0;
-			  }
-			  .new-login {	
-				font-size: 2.5vh;	
-				font-weight: normal;		
-				text-align: center;
-			  }
-			  .inputs-login {
-				  margin-top: 20vh;
-				  display: flex;
-				  flex-direction: row;
-				  max-width: 85%;
-			  }
-			  .inputs-login-styling{
-				width: 90%;
-				height: 8vh;
-			  }
-			  .login-button {
-				margin-top: 0;
-				width: 55vw;
-			  }
-			  .remember-div {
-				  /* height: 11vh; */
-				  margin-top: 25vh;
-				  font-size: 90%;
-				  display: flex;
-				  flex-direction: column;
-				  justify-content: space-around;
-			  }
-			  .mail-image{
-				left: -7vw;
-			  }
-			  .signup {
-				  color: #F66C4F;
-			  }
-			  .signup:hover {
-				border-bottom: 1px #F66C4F;
-			}
-			.new-signup {	
-				font-size: 3vh;	
-				font-weight: normal;		
-				text-align: center;
-				font-family: "Hind";
-			  }
-			  .name-last-container {
-				  /* border: 1px solid; */
-				  margin-right: 12px;
-				  min-width: 235px;
-				height: 50px;
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-			
-			  }
-			  .name-last-container input {
-				width: 45%;
-				height: 48px;
-			  }
-			  .remember-div {
-				  font-family: "Hind";
-				  height: 20px;
-				  margin-top: 200px;
-				  display: flex;
-				align-items: center;
-			  }
-			  #account-log-in {
-				  color: #F66C4F;
-				  font-weight: bold;
-			  }
-			  .terms-page {
-				margin: 0 5vw 0 5vw;
-			  }
-			  .terms-first-p {
-				font-family: Arial, Helvetica, san-serif;
-				color: #3D676A;
-				width: 100%;
-				font-size: 2vh;
-				margin-right: 14vw;
-				text-align: justify;
-			  }
-			  .terms-inform {
-				width: 80%;
-				margin-right: 0vw;
-				font-size: 2vh;
-			  }
-			  .terms-content {
-				margin-top: 30px;
-				margin-left: -5px;
-				width: 11.2%;
-			  }
-			  #content-content {
-				  font-weight: bold;
-			  }
-			  #content-head {
-				font-size: 105%;
-			  }
-
-			  .footer-container {
-				display: flex;
-				flex-direction: column;
-				left: 0;
-				height: 35vh;
-				width: 100%;
-				background-color: #f3f2eb;
-				font-family: "Hind", sans-serif;
-			  }
-			  .nav-footer {
-				/* margin-left: 50px; */
-				width: 100%;
-				display: flex;
-				/* justify-content: center; */
-				font-family: Hind;
-				align-items: center;
-				font-size: 80%;
-				}
-				.logo-div {
-					width: 100px;
-					/* padding-left: 2vw; */
-				}
-				.logo-copywrite {
-					width: 100px;
-					display: flex;
-					flex-direction: row;
-					font-size: 60%;
-				}
-				.important-info {
-					width: 100%;
-					margin-top: 10px;
-					display: flex;
-				  	justify-content: space-between;
-					align-items: center;
-					align-self: center;
-				}
-				.product-first-section{
-					height: 80vh;
-					display: flex;
-					flex-direction:  row;
-					justify-content: space-between;
-					align-content: center;
-				}
-				#product-description {
-					display: flex;
-					width: 100%;
-					justify-content: center;
-				  }
-
-				#product-description-1 {
-					/* border: 1px solid; */
-					min-width: 85vw;
-
-				}
-				.product-model-div {
-					width: 100%;
-					height: 90vh;
-		
-				}
-				#product-model {
-					font-size: 6vh;
-				  }
-				.product-pictures {
-					height: 15vh;
-					width: 100%;
-					/* border: 1px solid  black; */
-				}
-				#product-pictures-circle {
-					height: 60vh;
-					width: 90vw;
-					border-radius: 50%;
-					background-color: #F9F8F4;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					position: relative;
-					top: 15vh;
-					left: 5vw; 
-					}
-				  #image-circle {			
-					left: -26vw;
-					top: 25vh;
-					width: 15vw;
-			
-					}
-				  #image-circle2 {			
-					left: -22vw;
-					top: 30vh;					
-					width: 15vw;			
-				  }
-				  #image-circle3 {			
-					left: -18vw;
-					top: 25vh;					
-					width: 15vw;			
-				  }
-				  #options-pictures {
-					height: 7vh;
-					width: auto;
-				  }
-				  .main-image {
-					position: relative;
-					left: 22vw;
-				  }
-				  .product-price-add {
-					display: flex;
-					flex-direction: row;
-					justify-content: space-between;
-				  }
-				  .add-to-cart {
-					width: 100px;
-				  }
-				  .specification {
-					width: 90vw;
-					display: flex;
-					flex-direction: column;
-					margin-left: 7vw;
-				  }
-				  .specification ul {
-					margin-left: -7vw;
-				  }
-				  .product-detail-page {
-					height: 180vh;
-				  }
-				  .product-backed-by {
-					width: 90%;
-  					margin: 0 12vw;
-				  }
-				  #expert-quote-picture {
-					height: 8vh;
-				  }
-				  .index-page {
-					margin: 0 5vw 0 5vw;
-				  }
-				  .expert-card-paragraph p {
-					font-size: 80%;
-				  }
-				  .best-book-pictures {
-					width: 100%;
-					display: flex;
-					flex-direction: row;
-					height: 200px; 
-					justify-content: center;
-				  }
-
-					#best-book-cover {
-					height: auto;
-					border-radius: 25px;
-					width: 65%;
-					/* padding-right: 60px;
-					padding-left: 30px; */
-					background-color: #F7F7F7;
-					}
-					#best-book-author {
-					height: 100px;
-					width: auto;
-					border-radius: 25px;
-					/* border-radius: 50%; */
-					position: relative;
-					top: 50px;
-					right: 20px;
-					}
-				  .best-book-info-div {
-					flex-direction: column;
-					
-				  }
-				  .best-book-title-div {
-					margin-top: 2vh;
-					max-width: 100%;
-				  }
-				  .expert-section {
-					height: 100vh;
-					display: flex;
-					flex-direction: column;
-					justify-content: space-between;
-				  }
-				  .expert-div {
-					width: 100%;
-					background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1569352461/orange-bubble.svg");
-					background-size: 100%;	
-					height: 80vh;
-
-				  }
-				  #expert-message-description {
-					width: 100%;
-				  }
-				  .expert-message {
-					/* height: 45vh; */
-					width: 100%;
-					height: auto;
-					/* position: relative;
-					top: 100px; */
-					text-align: right;
-				  }
-				  #survival-kit-button {
-					margin-right: 22vw;
-					box-sizing: border-box;	
-					height: 52px;	
-					width: 180px;	
-					border: 1px solid white;
-					color: white;	
-					font-size: 14px;	
-					font-weight: bold;	
-					letter-spacing: 0.2px;	
-					line-height: 26px;
-					/* border-radius: 27px; */
-					background-color: #3D676A;
-				  }
-				  .video {
-					  width: 90vw;
-					  height: auto;
-				  }
-				  .expert-message {
-					width: 90vw;
-					height: auto;
-					text-align: center;
-				  }
-				  #categories-card {
-					margin-bottom: 2vh;
-				  }
-				  .categories-container {
-					justify-content: center;	
-				  }
-				  .heyhey-expert {	
-					  	
-					height: 520px;
-					flex-direction: column;
-					align-items: center;
-					text-align: center;
-					margin: 5vh -0 5vh -0;
-					/* background-color: #f9f8f4; */
-				  }	
-				  .heyhey-expert h1 {
-					line-height: 7vh;
-				}
-				  .heyhey-expert p {
-					  text-align: left;
-				  }			  
-					#absurd-question-image{
-					/* height: 20vh; */
-					width: 220px;
-					padding-right: 20px;
-				}
-				.top-categories {
-					height: 700px;
-				  }
-				
+  .review-page {
+    margin: 0 5vw 0 5vw;
   }
+  .book-card {
+    margin-top: 2vh;
+  }
+  .book-container {
+    justify-content: center;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: #000000;
+    font-family: "Hind", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+  .influencer-pic {
+    position: relative;
+    left: 0;
+    height: 80px;
+    width: auto;
+    border-radius: 200px;
+    margin: 0;
+  }
+  .subheading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 1vh;
+  }
+  .login-form-parent {
+    margin-right: 0;
+  }
+  .orange-login-rectangle {
+    min-width: 100vw;
+    margin: 0;
+  }
+  .orange-signup-rectangle {
+    min-width: 100vw;
+    margin: 0;
+  }
+  .about-heading {
+    height: 10vh;
+    width: 100%;
+  }
+  .about-heading span {
+    font-size: 20px;
+  }
+  .about-description {
+    height: 30vh;
+    min-width: 20vw;
+    display: flex;
+    justify-content: center;
+  }
+  .about-description {
+    /* height: 10vh; */
+    min-width: 25vw;
+    /* margin-bottom: 8vh; */
+  }
+  .description {
+    width: 80%;
+    margin: 0 1vw 0 1vw;
+  }
+  .mobile-login-page {
+    display: flex;
+    justify-content: center;
+    background-color: #3d676a;
+    height: 90vh;
+  }
+  .mobile-login-form {
+    margin-top: 5vh;
+    height: 70vh;
+    width: 80%;
+    background-color: white;
+  }
+  .p-login-header {
+    display: flex;
+    flex-direction: column;
+    height: 15px;
+    width: 100%;
+  }
+  .p-login {
+    margin-top: 0;
+  }
+  .new-login {
+    font-size: 2.5vh;
+    font-weight: normal;
+    text-align: center;
+  }
+  .inputs-login {
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: row;
+    max-width: 85%;
+  }
+  .inputs-login-styling {
+    width: 90%;
+    height: 8vh;
+  }
+  .login-button {
+    margin-top: 0;
+    width: 55vw;
+  }
+  .remember-div {
+    /* height: 11vh; */
+    margin-top: 25vh;
+    font-size: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  .mail-image {
+    left: -7vw;
+  }
+  .signup {
+    color: #f66c4f;
+  }
+  .signup:hover {
+    border-bottom: 1px #f66c4f;
+  }
+  .new-signup {
+    font-size: 3vh;
+    font-weight: normal;
+    text-align: center;
+    font-family: "Hind";
+  }
+  .name-last-container {
+    /* border: 1px solid; */
+    margin-right: 12px;
+    min-width: 235px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .name-last-container input {
+    width: 45%;
+    height: 48px;
+  }
+  .remember-div {
+    font-family: "Hind";
+    height: 20px;
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+  }
+  #account-log-in {
+    color: #f66c4f;
+    font-weight: bold;
+  }
+  .terms-page {
+    margin: 0 5vw 0 5vw;
+  }
+  .terms-first-p {
+    font-family: Arial, Helvetica, san-serif;
+    color: #3d676a;
+    width: 100%;
+    font-size: 2vh;
+    margin-right: 14vw;
+    text-align: justify;
+  }
+  .terms-inform {
+    width: 80%;
+    margin-right: 0vw;
+    font-size: 2vh;
+  }
+  .terms-content {
+    margin-top: 30px;
+    margin-left: -5px;
+    width: 11.2%;
+  }
+  #content-content {
+    font-weight: bold;
+  }
+  #content-head {
+    font-size: 105%;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    height: 35vh;
+    width: 100%;
+    background-color: #f3f2eb;
+    font-family: "Hind", sans-serif;
+  }
+  .nav-footer {
+    /* margin-left: 50px; */
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    font-family: Hind;
+    align-items: center;
+    font-size: 80%;
+  }
+  .logo-div {
+    width: 100px;
+    /* padding-left: 2vw; */
+  }
+  .logo-copywrite {
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    font-size: 60%;
+  }
+  .important-info {
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+  }
+  .product-all-page h1{
+    font-size: 35px;
+  }
+  .all-categories-p {
+    font-size: 10px;
+  }
+  .product-first-section {
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+  }
+  #product-description {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
+  #product-description-1 {
+    /* border: 1px solid; */
+    min-width: 85vw;
+  }
+  .product-model-div {
+    width: 100%;
+    height: 90vh;
+  }
+  #product-model {
+    font-size: 6vh;
+  }
+  .product-pictures {
+    height: 15vh;
+    width: 100%;
+    /* border: 1px solid  black; */
+  }
+  #product-pictures-circle {
+    height: 60vh;
+    width: 90vw;
+    border-radius: 50%;
+    background-color: #f9f8f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 15vh;
+    left: 5vw;
+  }
+  #image-circle {
+    left: -26vw;
+    top: 25vh;
+    width: 15vw;
+  }
+  #image-circle2 {
+    left: -22vw;
+    top: 30vh;
+    width: 15vw;
+  }
+  #image-circle3 {
+    left: -18vw;
+    top: 25vh;
+    width: 15vw;
+  }
+  #options-pictures {
+    height: 7vh;
+    width: auto;
+  }
+  .main-image {
+    height: 150px;
+    margin-top: 50px;
+  }
+  .product-price-add {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .add-to-cart {
+    width: 100px;
+  }
+  .specification {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    margin-left: 7vw;
+  }
+  .specification ul {
+    margin-left: -7vw;
+  }
+  .product-detail-page {
+    height: 180vh;
+  }
+  .product-backed-by {
+    width: 90%;
+    margin: 0 12vw;
+  }
+  #expert-quote-picture {
+    height: 8vh;
+  }
+  .index-page {
+    margin: 0 5vw 0 5vw;
+    height: 650vh;
+  }
+  .expert-card-paragraph p {
+    font-size: 80%;
+  }
+  .best-book-pictures {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    justify-content: center;
+  }
+
+  #best-book-cover {
+    height: auto;
+    border-radius: 25px;
+    width: 65%;
+    /* padding-right: 60px;
+					padding-left: 30px; */
+    background-color: #f7f7f7;
+  }
+  #best-book-author {
+    height: 100px;
+    width: auto;
+    border-radius: 25px;
+    /* border-radius: 50%; */
+    position: relative;
+    top: 50px;
+    right: 20px;
+  }
+  .best-book-info-div {
+    flex-direction: column;
+  }
+  .best-book-title-div {
+    margin-top: 2vh;
+    max-width: 100%;
+  }
+  .expert-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .expert-div {
+    width: 100%;
+    background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1569352461/orange-bubble.svg");
+    background-size: 100%;
+    height: 80vh;
+  }
+  #expert-message-description {
+    width: 100%;
+  }
+  .expert-message {
+    /* height: 45vh; */
+    width: 100%;
+    height: auto;
+    /* position: relative;
+					top: 100px; */
+    text-align: right;
+  }
+  #survival-kit-button {
+    margin-right: 22vw;
+    box-sizing: border-box;
+    height: 52px;
+    width: 180px;
+    border: 1px solid white;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    line-height: 26px;
+    /* border-radius: 27px; */
+    background-color: #3d676a;
+  }
+  .video {
+    width: 90vw;
+    height: auto;
+  }
+  .expert-message {
+    width: 90vw;
+    height: auto;
+    text-align: center;
+  }
+  #categories-card {
+    margin-bottom: 2vh;
+  }
+  .categories-container {
+    justify-content: center;
+  }
+  .heyhey-expert {
+    height: 520px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 5vh -0 5vh -0;
+    /* background-color: #f9f8f4; */
+  }
+  .heyhey-expert h1 {
+    line-height: 7vh;
+  }
+  .heyhey-expert p {
+    text-align: left;
+  }
+  #absurd-question-image {
+    /* height: 20vh; */
+    width: 220px;
+    padding-right: 20px;
+  }
+  .top-categories {
+    height: 700px;
+  }
+  .sage-outer-most-container {
+    margin: 10px 0 10px 0;
+  }
+  .podcast-all-page {
+    margin: 0 5vw 0 5vw;
+  }
+  .podcast-all-page h1 {
+    font-size: 30px;
+  }
+  .podcast-heading-div h2 {
+    font-size: 20px;
+  }
+  .podcast-information {
+    justify-content: space-between;
+  }
+  .podcast-description-div p:last-child {
+    display: none;
+  }
+  .podcast-description-div p:first-child {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3d676a;
+  }
+  .podcast-image-div {
+    width: 35%;
+    height: 100%;
+    border-top-right-radius: 120px;
+    border-bottom-right-radius: 120px;
+    overflow: hidden;
+  }
+  .podcast-heading-div p {
+    font-size: 14px;
+    padding-top: 1px;
+  }
+  #podcast-thumbnail-image {
+    width: 100%;
+    height: 100%;
+  }
+  .tip-card-image-div {
+    width: 80px;
+    position: relative;
+    left: -2vw;
+  }
+  #technique-name{  
+    font-size: 16px;
+  }
+  .technique-steps {
+    font-size: 8px;
+    line-height: 9px;
+    margin: 0;
+    padding: 0;
+  }
+  .technique-steps p{
+    margin: 0;
+    padding: 0;
+  }
+  #tip-bulb {
+    height: 60px;
+  }
+  #survival-image {
+    height: 60px;
+    width: auto;
+  }
+  .technique-header-div {
+    font-size: 10px;
+  }
+  .technique-survival-prize-div {
+    width: 50px;
+  }
+  .tip-survival-prize-div {
+    width: 25px;
+  }
+  .video-section {
+    height: 85vh;
+    /* position: absolute; */
+    left: 5vw;
+    right: 5vw;
+    margin: 5vh 0 5vh 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  .video-message {
+    /* border: 1px solid; */
+    padding: 50px 0 0 35px;
+    height: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .video-message h1 {
+    width: 100%;
+  }
+  .video-message p {
+    height: none;
+    width: 100%;
+  }
+  #video-about-us-container {
+    margin: 0 0 0 0;
+    width: 100%;
+  }
+  #video-start {
+    height: 50px;
+    position: relative;
+    top: 90px;
+    left: 80px;
+  }
+  #about-us-video {
+    height: 200px;
+    width: auto;
+    margin-left: 30px;
+  }
+
+.about-who-are-we {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#who-title {
+  font-size: 5vh;
+  font-family: Hind;
+  width: 80%;
+  margin-left: 12vw;
+}
+#who-description {
+  width: 90%;
+  height: 150px;
+ align-self: center;
+ margin-left: 0;
+  text-align: justify;
+  line-height: 20px;
+
+}
+.about-workers-container {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2vh 12vw 0 12vw;
+}
+#about-picture {
+  height: 170px;	
+  width: auto;
+}
+.about-workers-card {
+  width: 100%;
+  margin: 15px;
+}
+.about-worker-name {
+  padding-left: 10px;
+}
+.about-worker-name h1{
+  line-height: 34px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.about-worker-name p {
+  font-size: 10px;
+}
+.categories-container {
+  height: 70vh;
+  justify-content: space-between;
+  padding-top: 10px;
+  width: 95%;
+}
+#categories-card {
+  width: 40vw;
+  margin-bottom: 1vh;
+  background-color: #f9f8f4;
+  height: 160px;
+}
+
+#categories-card p {
+  text-align: center;
+  font-size: 12px;
+}
+}
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .orange-login-rectangle {
@@ -4239,6 +4487,22 @@ color: black;
     }
     .not-signup-container p {
         margin-left: 4vw;
+    }
+    .review-page {
+     margin: 0 5vw 0 5vw;
+    }
+    .heading {
+    /* position: relative; */
+    width: 600px;
+    margin-left: 150px;
+    /* left: 50px; */
+    }
+    .influencer-pic {
+    position: absolute;
+    left: 5vw;
+    height: 140px;
+    width: 140px;
+    border-radius: 200px;
     }
   }
 /*!
@@ -39062,124 +39326,6 @@ button.toast-close-button {
   cursor: default;
   display: block;
   padding: 8px 10px;
-}
-
-body.react-confirm-alert-body-element {
-  overflow: hidden;
-}
-
-.react-confirm-alert-blur {
-  filter: url(#gaussian-blur);
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
-}
-
-.react-confirm-alert-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99;
-  background: rgba(255, 255, 255, 0.9);
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  justify-content: center;
-  -ms-align-items: center;
-  align-items: center;
-  opacity: 0;
-  -webkit-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
-  -moz-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
-  -o-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
-  animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
-}
-
-.react-confirm-alert-body {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 400px;
-  padding: 30px;
-  text-align: left;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 20px 75px rgba(0, 0, 0, 0.13);
-  color: #666;
-}
-
-.react-confirm-alert-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.react-confirm-alert-body > h1 {
-  margin-top: 0;
-}
-
-.react-confirm-alert-body > h3 {
-  margin: 0;
-  font-size: 16px;
-}
-
-.react-confirm-alert-button-group {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  justify-content: flex-start;
-  margin-top: 20px;
-}
-
-.react-confirm-alert-button-group > button {
-  outline: none;
-  background: #333;
-  border: none;
-  display: inline-block;
-  padding: 6px 18px;
-  color: #eee;
-  margin-right: 10px;
-  border-radius: 5px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-@-webkit-keyframes react-confirm-alert-fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-moz-keyframes react-confirm-alert-fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@-o-keyframes react-confirm-alert-fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes react-confirm-alert-fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 
