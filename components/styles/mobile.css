@@ -477,6 +477,7 @@
   }
   #technique-name{  
     font-size: 16px;
+    line-height: normal;
   }
   .technique-steps {
     font-size: 8px;
@@ -625,5 +626,14 @@
 .profile-dashboard-div {
   border: solid red;
   width: 100%;
+}
+.kit-description-div {
+  width: 350px; 
+}
+.technique-kit-description-p {
+  width: 240px;
+}
+.survival-card-image-div {
+  width: 80px;
 }
 }

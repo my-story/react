@@ -27,6 +27,12 @@ const favoriteKit = (id, kit) => http.post(`api/add/kit/${id}/${kit}`)
 const unfavoriteTip = (id, tip) => http.post(`api/unfavorite/tip/${id}/${tip}`)
   .then((res) => res.data)
 
+const unfavoriteTechnique = (id, technique) => http.post(`api/unfavorite/technique/${id}/${technique}`)
+  .then((res) => res.data)
+
+const unfavoriteProduct = (id, product) => http.post(`api/unfavorite/product/${id}/${product}`)
+  .then((res) => res.data)
+
 export default {
   signup,
   login,
@@ -36,5 +42,7 @@ export default {
   favoriteTip,
   favoriteProduct,
   favoriteKit,
-  unfavoriteTip
+  unfavoriteTip,
+  unfavoriteTechnique,
+  unfavoriteProduct
 }
