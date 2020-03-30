@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import KitServices from '../../services/KitServices';
+import AuthServices from '../../services/AuthServices';
 
 class ProductKitProfile extends Component {
     state = {
@@ -60,12 +61,22 @@ class ProductKitProfile extends Component {
     };
 
 
+    
+    unfavorite = () => {
+        const { product } = this.state;
+        const {user} = this.props;
+        
+        AuthServices.unfavoriteProduct(user._id, product._id)
+            .then(() => this.setState({product: ""}))
+            .catch((err) => console.log(err))
+    };
+
     render() {
         const { product } = this.state;
-        console.log(this.state);
+        
 
         if (product === "") {
-            return(<div>waiting on product survival kit</div>)
+            return(<div></div>)
         } else {
          return(
              <div style={{height:this.state.size}} className="survival-kit-card">
@@ -90,7 +101,7 @@ class ProductKitProfile extends Component {
              <div className="line-2"></div>
              <div className="survival-prize-div">
              <div className="survival-save-favorite">
-                 <img onClick={this.addFavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+                <img onClick={this.unfavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1584740221/icons8-close-window-32.png" alt="bookmark" />     
              </div>
                  <p id="survival-prize">${product.prize}</p>
                  <button className="survival-kit-add-to-cart">Add to card</button>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AuthServices from '../../services/AuthServices';
 
 class TechniqueProfile extends Component {
     state = {
@@ -9,13 +10,22 @@ class TechniqueProfile extends Component {
         this.setState({technique: this.props.technique})
     }
 
+    unfavorite = () => {
+        const { technique } = this.state;
+        const {user} = this.props;
+        
+        AuthServices.unfavoriteTechnique(user._id, technique._id)
+            .then(() => this.setState({technique: ""}))
+            .catch((err) => console.log(err))
+    };
+
     render() {
         const { technique } = this.state;
-
+        console.log(technique)
         if (technique === "") 
         {
             return(
-                <div>Loading...</div>
+                <div></div>
             )
         }
         else
@@ -71,7 +81,7 @@ class TechniqueProfile extends Component {
                             <div className="line-2"></div>
                         <div className="technique-survival-prize-div">
                         <div className="survival-save-favorite">
-                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+                            <img onClick={this.unfavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1584740221/icons8-close-window-32.png" alt="bookmark" />     
                         </div>
                             
                         </div>

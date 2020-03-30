@@ -88,7 +88,7 @@ class SurvivalKitProfile extends Component {
                     if (user.products.includes(product._id))
                     {
                         return(
-                            <ProductKitProfile product={product}></ProductKitProfile>
+                            <ProductKitProfile user={user} product={product}></ProductKitProfile>
                         )
                     } 
                     })}
@@ -96,7 +96,7 @@ class SurvivalKitProfile extends Component {
 						if (user.techniques.includes(technique._id))
 						{
 							return(
-                                <TechniqueProfile technique={technique}></TechniqueProfile>
+                                <TechniqueProfile user={user} technique={technique}></TechniqueProfile>
                             ) 
 						} 
                     })}

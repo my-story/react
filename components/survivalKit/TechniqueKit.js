@@ -6,7 +6,7 @@ import UserContext from '../../components/contexts/UserContext';
 class TechniqueKit extends Component {
     state = {
         technique:{},
-        techniques: [],
+        techniques: ["0"],
         kit: ""
     }
 
@@ -34,7 +34,7 @@ class TechniqueKit extends Component {
         if (!this.context.islogged) {
             return toastr.info('Log in to favorite');
         } else {
-            if(user.techniques.includes(this.props.technique._id || techniques.includes(this.props.technique._id))){
+            if(user.techniques.includes(this.props.technique._id)){
                 return toastr.error(`${this.props.technique.title} is already favorited!`);
             } else {
                 this.checkSurvivalKit();
