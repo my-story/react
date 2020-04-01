@@ -1,5 +1,8 @@
 import http from './BaseServices';
 
+const getAll = () => http.get("/kit")
+  .then((res) => res.data);
+
 const getKit = (id) => http.get(`/kit/survival/${id}`)
   .then((res) => res.data);
 
@@ -88,5 +91,6 @@ export default {
     editTechniqueKit,
     getTipEdit,
     getTechniqueEdit,
-    getKitProfile
+    getKitProfile,
+    getAll
 }
