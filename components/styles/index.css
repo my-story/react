@@ -855,6 +855,11 @@ background: none;
 .sage-outer-most-container {
 margin: 0 10px 0 10px;
 }
+.sage-outer-most-container:hover .expert-card-picture-round {
+  transform: scale(1.1);
+  transition: transform .3s ease;
+  overflow: hidden;
+}
 .expert-div {
   /* align-self: baseline; */
   height: 100%;
@@ -1184,6 +1189,7 @@ height: 3vh;
   border-top-left-radius: 8%;
   height: 80%;
   width: 100%;
+  overflow: hidden;
 }
 
 #product-picture {
@@ -2343,12 +2349,12 @@ margin-right: 1vw
   justify-content: space-around;
 }
 .technique-steps {
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Avenir Next" !important;
 }
 .technique-header-div p {
   font-family: "Hind";
-  font-size: 12px;
+  font-size: 14px;
 }
 .technique-rebound-kit-description-div {
   height: 90%;
@@ -3511,6 +3517,13 @@ color: black;
   background-color: #F7F7F7;
   margin-bottom: 2vh;
 }
+.podcast-outer-card:hover {
+  cursor: pointer;
+}
+.podcast-outer-card:hover #podcast-thumbnail-image {
+  transform: scale(1.2);
+  transition: transform .5s ease;
+}
 .podcast-information {
   width: 75%;
   height: 100%;
@@ -3549,4 +3562,67 @@ color: black;
   height: 200px;
   width: 200px;
   border: solid;
+}
+.podcast-detail-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.video-youtube-podcast {
+  width: 80%;
+  height: 70vh;
+}
+.podcast-header-div {
+  margin-top: 2vh;
+  padding: 0 10vw 0 10vw;
+  width: 100%;
+  height: 15vh;
+  line-height: 15px;
+  background-color: #f9f8f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.podcast-header-div h1 {
+  font-size: 30px;
+  font-family: "Hind";
+  font-weight: bold;
+}
+#categories-podcast {
+  font-size: 15px;
+  color: #3d676a;
+}
+.podcast-header-div h2 {
+  font-size: 20px;
+  font-family: "Hind";
+  font-weight: bold;
+}
+.name-and-share {
+  display: flex;
+  justify-content: space-between;
+}
+.podcast-detail-description-div {
+  margin-top: 5vh;
+  width: 80%;
+}
+.podcast-detail-kit-div {
+  /* margin: 0 12vw 0 12vw; */
+  width: 50%;
+}
+#survival-kit-word {
+  text-align: center;
+  font-size: 20px;
+  border-bottom: 1.5px solid #f66c4f;
+
+}
+.kits-all-page {
+    margin: 0 12vw 0 12vw;
+    height: 150vh;
+}
+.kits-all-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
 }

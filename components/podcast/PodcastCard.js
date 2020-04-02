@@ -37,10 +37,10 @@ class PodcastCard extends Component {
         //     return(<div></div>)
         // } else {
             return (
-                <div key={this.props.index} className="podcast-outer-card">
                 <Link href="/podcast/[id]" as={`/podcast/${this.props.podcast._id}`} key={this.props.index} prefetch>
+                <div className="podcast-outer-card">
                     <div className="podcast-image-div">
-                        <img id="podcast-thumbnail-image"src="https://i.ytimg.com/vi/duJNVv9m2NY/maxresdefault.jpg" alt="" />
+                        <img id="podcast-thumbnail-image" src="https://i.ytimg.com/vi/duJNVv9m2NY/maxresdefault.jpg" alt="" />
                     </div>
                     <div className="podcast-information">
                         <div className="podcast-heading-div">
@@ -53,8 +53,8 @@ class PodcastCard extends Component {
                         {this.shrinkParagraph(this.props.podcast.description)}
                         </div>
                     </div>
-                </Link>
                 </div>
+                </Link>
             );
         
 

@@ -47,6 +47,20 @@ class SurvivalKit extends Component {
         } else {
             return (
                 <div className="product-kit-page">
+                <div className="rectangle-survival-title">
+                <img className="rectangle-survival-title-picture" src={kit.influencer.profilePic}/>
+                <div className="review-survival-title">
+                  <div>
+                    <h2 id="review-survival-title"><b>{kit.title}</b></h2>
+                  </div>
+                  <div>
+                     <h4 id="review-survival-title">{kit.influencer.name.firstName} {kit.influencer.name.lastName}</h4>
+                  </div>
+                </div>
+            
+				<img id="survival-title-bookmark-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+            
+            </div>
                 {kit.products.map((p, index) => {
                     let product = p.product;
                     return(
@@ -118,51 +132,6 @@ class SurvivalKit extends Component {
 
             </div>
         </div>
-        {/* fwefwefwef */}
-
-                <div className="techniques-kit-card">
-                    <div className="tip-image-div">
-                        <img id="survival-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1576256025/cloud.svg"/>
-                    </div>
-                    <div className="kit-description-div">
-                        <p id="tip-name"><b>This is the name of the technique</b></p>
-                        <p style={{color:"#F66C4F"}}>Technique</p>
-                        <div className="kit-category-bubble">
-                            <div>
-                                <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324090/heart-kit.svg"alt="" />
-                                <span>Category</span>
-                            </div>
-                            <div>
-                                <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324090/heart-kit.svg"alt="" />
-                                <span>Category</span>
-                            </div>
-                        </div>
-                        <p id="tip-intro-description">Brief descriptin, yea yea , jajajaj esta tecnica es para energitarse despues de la siesta.</p>
-                                <div className="learn-more">
-                                    <div className="learn-word">
-                            <span>Learn more</span>
-                            <img id="arrow-down-kit" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324512/chevron-left_2_copy_2.svg" alt="laern more arrow" />
-                            </div>
-                            <div className="learn-div">
-                            <div className="learn-technique"> 
-                            <p id="follow-these-steps"><b>Follow these steps:</b></p>
-                            <ol style={{paddingLeft: "15px" }}>
-                                <li>Drink 8 water drinks</li>
-                                <li>Workout</li>
-                                <li>Do it for the vine</li>
-                            </ol>
-                            </div>
-                                                </div>
-                        </div>
-                    </div>
-                    {/* <div className="line-2"></div> */}
-                    <div className="tip-save-div">
-                        <div className="survival-save-favorite technique">
-                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
-                            <span>save to favorites</span>
-                        </div>
-                    </div>
-                </div>
                 </div>
             )    
 

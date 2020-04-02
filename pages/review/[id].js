@@ -178,26 +178,6 @@ class ReviewOne extends Component {
     }
   }
 
-  saidNo = () => {
-    toastr.error("didn't delete the review");
-  }
-
-  submit = () => {
-    confirmAlert({
-      title: 'Confirm to delete this review',
-      message: 'Are you sure to do this.',
-      buttons: [
-        {
-          label: 'Yes',
-          onClick: () => this.delete()
-        },
-        {
-          label: 'No',
-          onClick: () => this.saidNo()
-        }
-      ]
-    });
-  };
 
   isDownvoted = () => this.state.review.downvotes && this.state.review.downvotes.find(vote => vote.author === this.context.user._id);
 
@@ -335,35 +315,6 @@ class ReviewOne extends Component {
               <section className="survival-habits-heading">
                 <button className="clicked-show">SURVIVAL KITS</button>
               </section>
-              <div className="rectangle-survival-title">
-                {/* <div className="rectangle-title-div">
-                  <h3>{kit.title}</h3>
-                </div>  
-                <div className="rectangle-subtitle-div">
-                  <div className="rectangle-sage-div">
-                    <img className="rectangle-sage-picture " src={influencer.profilePic} alt="Sage Picture" />
-                    <span>By {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</span>
-                  </div>
-                  <div className="rectangle-add-all-div">
-                    <p>Favorite all</p>
-                    <button className="recangle-add-button">
-                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
-                    </button>
-                  </div>
-                </div>    */}
-                <img className="rectangle-survival-title-picture" src={influencer.profilePic}/>
-                <div className="review-survival-title">
-                  <div>
-                    <h2 id="review-survival-title"><b>{kit.title}</b></h2>
-                  </div>
-                  <div>
-                     <h4 id="review-survival-title">{influencer.name.firstName} {influencer.name.lastName}</h4>
-                  </div>
-                </div>
-                {/* <div className="bookmark-survival-title"> */}
-							<img id="survival-title-bookmark-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
-                {/* </div> */}
-            </div>
               
               {/* <div> */}
                 <SurvivalKit id={influencer._id}></SurvivalKit>

@@ -9,13 +9,16 @@ const getOne = (id) => http.get(`/podcast/detail/${id}`)
 const create = (data) => http.post(`/podcast/create`, data)
   .then(response => response.data);
   
-const edit = (data, id) => http.post(`podcast/${id}`, data)
+const edit = (data, id) => http.post(`/podcast/${id}`, data)
   .then(response => response.data);
 
+const searchPodcast = (search) => http.get(`/podcast/filter?search=${search}`)
+  .then((res) => res.data);
 
 export default {
   getAll,
   getOne,
   create,
-  edit
+  edit,
+  searchPodcast
 }

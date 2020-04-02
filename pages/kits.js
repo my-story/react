@@ -19,19 +19,21 @@ class Kits extends Component {
     };
 
     render () {
-        console.log(this.state.kits[0])
-        if (this.state.kits == [] || this.state.kits == undefined){
+        
+        if (this.state.kits === [] || this.state.kits === undefined){
             return ( 
-                <div><p>loadingg...</p></div>
+                <div><p></p></div>
             )
         } else {
         return (
-            <div>
+            <div className="kits-all-page">
+                <div className="kits-all-section">
                 {this.state.kits.map((i, index) => {
                 return (
                     <KitCard kit={i} key={index}/>
                 )
                 })}
+                </div>
             </div>
         )
     }
