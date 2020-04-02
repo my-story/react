@@ -64,8 +64,7 @@ class SurvivalKitProfile extends Component {
 
     render(){
         const {kit, user } = this.state || {};
-        
-        console.log(this.state);
+
 
         if (kit === undefined || kit.influencer === undefined ) {
             return(<div>...</div>)

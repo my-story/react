@@ -1,4 +1,5 @@
 import React, { Component } from 'react'; 
+import Router from 'next/router';
 import SurvivalKitProfile from '../../components/profile/SurvivalKitProfile';
 import {QtyConsumer} from '../../components/contexts/QtyContext';
 import UserContext from '../../components/contexts/UserContext';
@@ -21,10 +22,8 @@ class Profile extends Component{
     
     render() {
         const { user } = this.context;
-
-        if(!this.state.user) {
-            return(<div>Loading...</div>)
-        } else {
+        console.log(user)
+        if (user) {
             return (
                 <div className="profile-page">
                     <div className="profile-profile-menu">
@@ -63,9 +62,13 @@ class Profile extends Component{
                     </div>
                 </div>
             )
+
+        } else {
+            Router.push('/');
+            return null;
         }
-        
-    }
+            
+        }
 }
 
 export default Profile

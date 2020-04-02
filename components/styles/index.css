@@ -625,9 +625,7 @@ background: white;
   margin: 0 12vw 0 12vw;
   height: 150vh;
 }
-.product-all-page h1{
-  font-family: Hind;
-}
+
 .product-card {
   border: solid 1px black;
   width: 20vw;
@@ -2433,7 +2431,7 @@ margin-right: 1vw
   justify-content: center;
 }
 .technique-kit-name-category {
-  height: 35%;
+  height: 40%;
   color: #f66c4f;
 }
 .technique-kit-name-category p {
@@ -2458,8 +2456,8 @@ margin-right: 1vw
   padding-top: 1vh;
 }
 .technique-kit-description-p {
-  height: 40%;
-  line-height: 2px;
+  /* height: 55%; */
+  line-height: 1px;
 }
 
 .kit-description-p {
@@ -3252,9 +3250,7 @@ margin-bottom: 2vh;
   margin-top: 5%;
 }
 
-.product-kit-page{
-  min-height: 120vh;
-}
+
 
 #checkout-input2 {
   margin-right: 100px;
@@ -3527,7 +3523,7 @@ color: black;
   height: 60%;
 }
 .podcast-description-div p {
-  line-height: 15px;
+  line-height: 19px;
 
 }
 .podcast-description-div p:first-child {

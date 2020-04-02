@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
 import PodcastServices from '../../services/PodcastServices';
 
 class PodcastCard extends Component {
 
     state = {
-        podcast: ""
+        // podcast: ""
     }
 
-    componentDidMount() {
-        this.setState({podcast: this.props.podcast})
-    }
+    // componentDidMount() {
+    //     this.setState({podcast: this.props.podcast})
+    // }
 
     shrinkParagraph = (p) => {
         // const {kit} = this.state;
@@ -28,32 +29,34 @@ class PodcastCard extends Component {
     };
 
     render() {
-        const {podcast} = this.state;
+        // const {podcast} = this.props;
 
-        console.log(podcast);
+        console.log(this.props.podcast._id);
 
-        if (podcast === ""){
-            return(<div>Loading....</div>)
-        } else {
+        // if (podcast === ""){
+        //     return(<div></div>)
+        // } else {
             return (
-                <div className="podcast-outer-card">
+                <div key={this.props.index} className="podcast-outer-card">
+                <Link href="/podcast/[id]" as={`/podcast/${this.props.podcast._id}`} key={this.props.index} prefetch>
                     <div className="podcast-image-div">
                         <img id="podcast-thumbnail-image"src="https://i.ytimg.com/vi/duJNVv9m2NY/maxresdefault.jpg" alt="" />
                     </div>
                     <div className="podcast-information">
                         <div className="podcast-heading-div">
-                            <h2>{podcast.influencer.name.firstName} {podcast.influencer.name.lastName}</h2>
-                            <p>{podcast.time}</p>
+                            <h2>{this.props.podcast.influencer.name.firstName} {this.props.podcast.influencer.name.lastName}</h2>
+                            <p>{this.props.podcast.time}</p>
                         </div>
                         <div className="podcast-description-div">
-                        <p>{podcast.title}</p>
+                        <p>{this.props.podcast.title}</p>
                         {/* <p>{podcast.description}</p> */}
-                        {this.shrinkParagraph(podcast.description)}
+                        {this.shrinkParagraph(this.props.podcast.description)}
                         </div>
                     </div>
+                </Link>
                 </div>
             );
-        }
+        
 
     }
 }
