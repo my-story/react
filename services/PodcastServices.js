@@ -1,12 +1,12 @@
 import http from './BaseServices';
 
-const getAll = (data)  => http.get('/podcast', data)
+const getAll = () => http.get('/podcast/all')
   .then(response => response.data);
 
-const getOne = (id)  => http.get(`/podcast/${id}`)
-  .then(response => response).data;
+const getOne = (id) => http.get(`/podcast/detail/${id}`)
+  .then(response => response.data);
 
-const create = (data)  => http.post(`/podcast/create`, data)
+const create = (data) => http.post(`/podcast/create`, data)
   .then(response => response.data);
   
 const edit = (data, id) => http.post(`podcast/${id}`, data)

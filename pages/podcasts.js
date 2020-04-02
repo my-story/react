@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
 import PodcastServices from '../services/PodcastServices';
 import PodcastCard from '../components/podcast/PodcastCard';
 import CategoryBubbleOne from '../components/category/CategoryBubbleOne';
@@ -12,22 +13,27 @@ class Podcasts extends Component {
   };
 
 
-  componentDidMount() {
+  fetchPodcasts = () => {
     PodcastServices.getAll()
-      .then((res) => this.setState({
-        podcasts: res
-      }))
-      .catch(err => console.log(err))
+    .then((podcasts) => this.setState({
+      ...this.state,
+      podcasts
+    }))
+    .catch(err => console.log(err))
+  }
+  componentDidMount() {
+    this.fetchPodcasts();
   };
 
   render() {
     const {podcasts , category} = this.state;
+    console.log(podcasts);
 
     return (
         <div className="podcast-all-page">
             <h1><b>The Rebound Podcasts</b></h1>
             <div className="category-bar"> 
-            <p><b className="all-categories-p" >All Categories: </b></p>
+            <p><b className="all-categories-p">All Categories: </b></p>
             <div>
               {category.map((category, index) => {
                 return (
@@ -38,11 +44,19 @@ class Podcasts extends Component {
                })}
             </div>
           </div>
+          <div>
             {podcasts.map((podcast, index) => {
+              
               return (
+                // <Link prefetch href="podcast/[id]" as={`podcast/${podcast._id}`} key={index} >
+                // <a>
+                // <div>
                 <PodcastCard podcast={podcast} index={index}></PodcastCard>
+                // </div>
+                // </Link>
               )
             })}
+            </div>
         </div>
     )
  }
