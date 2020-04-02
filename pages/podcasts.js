@@ -25,6 +25,16 @@ class Podcasts extends Component {
     this.fetchPodcasts();
   };
 
+  searchBar = (e) => {
+    if(e === "All"){
+      this.fetchPodcasts()
+    } else {
+      PodcastServices.searchPodcast(e)
+      .then((podcasts) => this.setState({ podcasts }))
+      .catch((err) => console.log(err))
+    }
+  };
+  
   render() {
     const {podcasts , category} = this.state;
     console.log(podcasts);

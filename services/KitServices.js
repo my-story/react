@@ -1,6 +1,6 @@
 import http from './BaseServices';
 
-const getAll = () => http.get("/kit")
+const getAll = () => http.get("/kit/all")
   .then((res) => res.data);
 
 const getKit = (id) => http.get(`/kit/survival/${id}`)
