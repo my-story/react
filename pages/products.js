@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Helmet} from 'react-helmet';
 import ProductService from '../services/ProductServices';
-import SearchBar from '../components/influencer/SearchInfluencer';
+// import SearchBar from '../components/influencer/SearchInfluencer';
 import ProductOne from "../components/products/ProductOne";
 import CategoryBubbleOne from '../components/category/CategoryBubbleOne';
 import { Menu, Dropdown, Icon } from 'antd';

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[38],{OLfq:function(n,p){},epQR:function(n,p,w){(window.__NEXT_P=window.__NEXT_P||[]).push(["/shipping_rate",function(){return w("OLfq")}])}},[["epQR",1]]]);
