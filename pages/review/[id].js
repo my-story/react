@@ -75,15 +75,6 @@ class ReviewOne extends Component {
     })
   }
 
-  delete = () => {
-    let { id } = this.props;
-
-    ReviewServices.deleteReview(this.context.user, id)
-      .then(() => {
-        toastr.success("deleted the review");
-      })
-      .catch(err => console.log(err))
-  }
 
   upvote = () => {
     if (!this.context.islogged) {
@@ -240,6 +231,7 @@ class ReviewOne extends Component {
 
 
   render() {
+    console.log(this.props.id)
     const review = this.state.review || {};
     const influencer = this.state.review.influencer || {};
     const influencers = this.state.influencers;
@@ -263,11 +255,14 @@ class ReviewOne extends Component {
               </div>
               <div className="subheading">
                 <div className="category-name">
-                  <p className="author">by: {influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-                  <div className="category-card">
+                  <p className="author">{influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+                  {/* <div className="category-card">
                     <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567710375/icons8-comedy-100_1.png" alt="the product" className="icon"/>
                     <span className="photography">{influencer.expertise}</span>
-                  </div>
+                  </div> */}
+        
+              <span id="category-bubble-review">Athlete</span>
+                  
                 </div>
                 <div className="profile-instagram">
                   <p className="profile-name">{influencer.name && influencer.name.firstName}'s profile</p>
@@ -286,14 +281,14 @@ class ReviewOne extends Component {
                {influencer.description}
                 </p>
                 <div className="books-section">
-                 <h5>BOOKS:</h5>
+                 <h2>BOOKS</h2>
                  <div className="book-container">
                    <div className="book-card">
-                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
-                     <p><b>Title of Book jajaa Es largo vamos a ver</b></p>
+                     <img height="auto" width="100%" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                     {/* <p><b>The Happiness Hypothesis: Jonathan Haidt</b></p> */}
                      <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
                    </div>
-                   <div className="book-card">
+                   {/* <div className="book-card">
                      <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
                      <p><b>Title of Book</b></p>
                      <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
@@ -307,7 +302,7 @@ class ReviewOne extends Component {
                      <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
                      <p><b>Title of Book www  wef</b></p>
                      <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
-                   </div>
+                   </div> */}
    
                    
                  </div>

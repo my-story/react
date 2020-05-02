@@ -54,7 +54,7 @@ class SurvivalKit extends Component {
                     <h2 id="review-survival-title"><b>{kit.title}</b></h2>
                   </div>
                   <div>
-                     <h4 id="review-survival-title">{kit.influencer.name.firstName} {kit.influencer.name.lastName}</h4>
+                     <h4 id="review-survival-title-name">{kit.influencer.name.firstName} {kit.influencer.name.lastName}</h4>
                   </div>
                 </div>
             
@@ -85,7 +85,7 @@ class SurvivalKit extends Component {
                     )
                 })}
 
-        <div className="technique-survival-kit-card">
+        {/* <div className="technique-survival-kit-card">
             <div className="survival-card-image-div">
                 <img id="survival-image"/>
             </div>
@@ -110,7 +110,7 @@ class SurvivalKit extends Component {
                     </div>
                 </div>
             </div>
-            {/* <div className="line-2"></div> */}
+            <div className="line-2"></div>
             <div className="recomendation-technique-survival-prize-div">
                 <div className="recommend-div">
                     <p>Rebound Recommends</p>
@@ -131,7 +131,7 @@ class SurvivalKit extends Component {
                 </div>
 
             </div>
-        </div>
+        </div> */}
                 </div>
             )    
 

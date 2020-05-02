@@ -54,8 +54,8 @@ class NavBar extends Component {
 						<a id="mobile-nav" className="menu-item" href="/">Home</a>
 						<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
 						<a id="mobile-nav" className="menu-item" href="/products">Store</a>
+						<a id="mobile-nav" className="menu-item" href="/kits">Kits</a>
 						<a id="mobile-nav" className="menu-item" href="/about">About Us</a>
-						<a id="mobile-nav" className="menu-item" href="/contact-us">Contact</a>
 						<p style={{color: "white", borderBottom: "solid", marginLeft: "-40px", marginTop: "25px"}}id="mobile-nav logout" className="menu-item" ><Logout {...this.props} ><b>Logout</b></Logout></p>
 					</Menu>
 					</div>
@@ -82,17 +82,18 @@ class NavBar extends Component {
 								<p>PRODUCTS</p>
 							</span>
 						</Link>
+						<Link href="/kits">
+						<span>
+							<p>KITS</p>
+						</span>
+						</Link>
 						<Link href="/about">
 						<span>
 							<p>ABOUT</p>
 						</span>
 						</Link>
 
-						<Link href="/contact-us">
-						<span>
-							<p>CONTACT</p>
-						</span>
-						</Link>
+		
 					<div className="dropdown-account-nav">
 						<Dropdown>
 						<Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -131,8 +132,8 @@ class NavBar extends Component {
 				<a id="mobile-nav" className="menu-item" href="/">Home</a>
 				<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
 				<a id="mobile-nav" className="menu-item" href="/products">Store</a>
+				<a id="mobile-nav" className="menu-item" href="/kits">Kits</a>
 				<a id="mobile-nav" className="menu-item" href="/about">About Us</a>
-				<a id="mobile-nav" className="menu-item" href="/contact-us">Contact</a>
 				<a id="mobile-nav" className="menu-item" href="/login">Log in</a>
 			</Menu>
 			</div>
@@ -157,16 +158,17 @@ class NavBar extends Component {
 								<p>PRODUCTS</p>
 							</span>
 						</Link>
+						<Link href="/kits">
+						<span>
+							<p>KITS</p>
+						</span>
+						</Link>
 						<Link href="/about">
 						<span>
 							<p>ABOUT</p>
 						</span>
 						</Link>
-						<Link href="/contact-us">
-						<span>
-							<p>CONTACT</p>
-						</span>
-						</Link>
+	
 				
 					<Link href="/login">
 						<span id="login-nav">
