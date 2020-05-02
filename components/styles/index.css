@@ -55,12 +55,17 @@ body {
   flex-direction: row;
   justify-content: space-between;
   width: 51vw;
+  border-bottom: 0.8px solid gray;
+  margin-bottom: 10px;
+
 }
 
 .category-name {
   display: flex;
   flex-direction: row;
-
+  align-items: baseline;
+  /* border: 1px solid red; */
+  /* width: 50%; */
 }
 .author {
   justify-content: flex-end;
@@ -89,7 +94,6 @@ body {
   color: #ffffff;
   /* font-family: Hind */
   font-family: "Hind", sans-serif;
-;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0.2px;
@@ -839,7 +843,7 @@ background: none;
 
 /* Index */
 .index-page {
-  margin: 0 10vw 0 10vw;
+  margin: 0;
   height: 380vh;
 }
 /* Expert Section */
@@ -850,7 +854,8 @@ background: none;
   flex-direction: row;
   justify-content: space-between;
   /* align-items: baseline; */
-
+  background-image: url("https://images.unsplash.com/photo-1544811655-bc18e440b9e6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80expert-message");
+  /* margin: 0vh -10vw 0vh -10vw; */
 }
 .sage-outer-most-container {
 margin: 0 10px 0 10px;
@@ -862,19 +867,22 @@ margin: 0 10px 0 10px;
 }
 .expert-div {
   /* align-self: baseline; */
-  height: 100%;
-  width: 480px;
-  background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1569352461/orange-bubble.svg");
+  height: 82%;
+  width: 40%;
+  /* background-image: url("https://res.cloudinary.com/dpt8pbi8n/image/upload/v1569352461/orange-bubble.svg"); */
   background-size: 470px;
   background-repeat: no-repeat;
   background-position: right;
   /* padding: 100px; */
-  /* margin-right: 5vw; */
+  margin-right: 5vw;
   display: flex;
   align-items: center;
+  /* border: solid; */
+  
 }
 .expert-video {
   width: 40vw;
+  margin-left: 10vw;
 }
 #expert-message-description {
   font-size: 3vh;
@@ -883,7 +891,7 @@ margin: 0 10px 0 10px;
 }
 .expert-message {
   /* height: 45vh; */
-  width: 50vw;
+  width: 100%;
   height: auto;
   /* position: relative;
   top: 100px; */
@@ -930,18 +938,8 @@ margin: 0 10px 0 10px;
   flex-wrap: wrap;
 }
 
-.category-bubble{
-  outline: none;
-  height: 23px;
-  width: 100px;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  border-radius: 20px;
-  position: relative;
-  top: -5px;
-  left: -5px;
-}
+
+
 
 
 
@@ -1017,18 +1015,10 @@ margin: 0 10px 0 10px;
 }
 
 .expert-card-container {
-  /* height: 170px;
-  width: 100%;  
-  margin-bottom: 2vh;
-  background-color: #f9f8f4;
-  display: flex;
-  flex-direction: row;
-  overflow: hidden; */
   height: 300px;
   width: 250px;
   border-radius: 8%;
   overflow: hidden;
-
 }
 #expert-profile-pic-card {
   height: 100%;
@@ -1041,7 +1031,7 @@ margin: 0 10px 0 10px;
 }
 .expert-card-name-survival {
   max-height: 100%;
-  width: 182px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1058,8 +1048,9 @@ margin: 0 10px 0 10px;
   border-bottom-right-radius: 8%; 
   width: 100%;
   background-color: #5BA5A6;
-
-
+}
+.expert-card-name div {
+max-width: 100%;
 }
 #card-kit-title {
 font-size: 15px;
@@ -1203,7 +1194,7 @@ height: 3vh;
   height: 45vh;
   display: flex;
   flex-direction: row;
-  margin: 5vh -10vw 5vh -10vw;
+  margin: 5vh -0 5vh -0;
   background-color: #f9f8f4;
 }
 
@@ -1290,6 +1281,7 @@ height: 3vh;
 
 /* Categories Section */
 .top-categories {
+  margin-top: 5vh;
   height: 50vh;
   display: flex;
   flex-direction: column;
@@ -1340,8 +1332,9 @@ height: 3vh;
 .category-bar {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: baseline;
-  /* width: 100%; */
+  width: 100%;
   margin-top: 4vh;
 }
 
@@ -1350,22 +1343,24 @@ height: 3vh;
   flex-direction: row;
 }
 
-.category-bar span {
-  font-size: 75%;
-  font-family: "Hind", sans-serif;
+
+.category-bubble{
+  font-family: "Hind";
+  font-size: 15px;
   padding: 0 1.5vw 0 1.5vw;
   color: black;
   background-color: #f9f8f4;
-  height: 4vh;
-  width: auto;
-  border-radius: 30px;
-  text-decoration: none;
-  border: none;
+  height: 23px;
+  width: 90px;
+  border-radius: 20px;
+  /* text-decoration: none; */
+  /* border: none; */
   font-weight: 600;
   margin-left: 0.7vw;
   display: flex;
-  align-content: center;
-  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .category-bar p {
@@ -1402,6 +1397,26 @@ height: 3vh;
   display: flex;
   align-items: center;
 }
+
+#category-bubble-review {
+  display: flex;
+  align-items: center;
+  font-family: "Hind", sans-serif;
+  padding: 0 1.5vw 0 1.5vw;
+  color: black;
+  background-color: #f66c4f;
+  height: 4vh;
+  width: auto;
+  border-radius: 30px;
+  text-decoration: none;
+  border: none;
+  font-weight: 600;
+  margin-left: 0.7vw;
+  display: flex;
+  align-content: center;
+  justify-items: center;
+}
+
 
 /* Video Section */
 .video-section {
@@ -2231,7 +2246,8 @@ margin-right: 1vw
   width: 36vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  /* align-items: center; */
 }
 #tip-kit-header{
   font-size: 1px;	  
@@ -2348,13 +2364,24 @@ margin-right: 1vw
   flex-direction: column;
   justify-content: space-around;
 }
-.technique-steps {
+/* .technique-steps {
   font-size: 14px;
   font-family: "Avenir Next" !important;
+} */
+.technique-steps p{
+  font-size: 14px;
+  font-family: "Avenir Next" !important;
+  line-height: 12px;
+}
+.technique-header-div {
+  margin-top: 10px;
+  width: 100%;
 }
 .technique-header-div p {
   font-family: "Hind";
   font-size: 14px;
+  line-height: normal;
+  margin-bottom: 2px;
 }
 .technique-rebound-kit-description-div {
   height: 90%;
@@ -2378,6 +2405,25 @@ margin-right: 1vw
   align-content: center;
   justify-content: center;
   width: 50px;
+}
+#category-bubble-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  font-family: "Hind", sans-serif;
+  font-size: 12px;
+  color: white;
+  background-color: #f66c4f;
+  height: 25px;
+  width: 80px;
+  border-radius: 30px;
+  font-weight: 600;
+}
+.technique-with-category-div {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 .recomendation-technique-survival-prize-div {
   margin-left: 1vw;
@@ -2672,9 +2718,14 @@ left: 1vw;
 .books-section {
   margin-top: 5vh;
 }
+.books-section h2 {
+  font-size: 25px;
+  text-align: center;
+}
 .book-button {
-  width: 90px;
+  width: 130px;
   height:35px;
+  margin-top: 5px;
 }
 .book-button-recommend {
   width: 90px;
@@ -2685,10 +2736,11 @@ left: 1vw;
 }
 .book-container {
   margin-top: 2vh;
-  max-width: 700px;
+  /* max-width: 700px; */
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .book-card {
   /* padding: 2px 0 6px 0; */
@@ -2702,7 +2754,7 @@ left: 1vw;
 .book-card p {
   font-size: 12px;
   text-align: center;
-  width: 70%;
+  width: 100%;
   /* padding: 0 1vw 0 1vw; */
 }
 .open {
@@ -2717,12 +2769,16 @@ left: 1vw;
   color: white;
   font-size: 3vh;
 }
+#review-survival-title-name {
+  color: white;
+  font-size: 2vh;
+}
 .review-survival-title {
   font-family: Hind;
   width: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   padding-left: 20px;
 }
 /* .bookmark-survival-title {
@@ -3365,9 +3421,12 @@ margin-bottom: 2vh;
   font-weight: 500;
 }
 .index-best-book-div {
-  height: 50vh;
+  height: 60vh;
   width: 100%;
-  margin-top: 8vh;
+  /* margin-top: 8vh; */
+  margin: 10vh 0 10vh 0;
+
+  
 }
 .best-book-header {
   text-align: center;
@@ -3456,15 +3515,17 @@ color: black;
   margin: 0 12vw 0 12vw;
   border: solid;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .category-card {
   background-color: red;
   border-radius: 100%;
   height: 30px;
+  width: 90px;
+  display: flex;
 }
 .profile-profile-menu {
-  width: 28%;
+  width: 100%;
   border: solid;
 }
 .profile-dashboard-div {
@@ -3624,5 +3685,6 @@ color: black;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+  /* align-content: center; */
 }

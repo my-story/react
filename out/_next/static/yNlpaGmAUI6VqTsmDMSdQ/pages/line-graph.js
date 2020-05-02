@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[26],{"2GZB":function(n,w,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/line-graph",function(){return o("NX0R")}])},NX0R:function(n,w){}},[["2GZB",1]]]);

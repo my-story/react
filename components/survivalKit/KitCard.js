@@ -1,20 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Link from 'next/link';
 
 class KitCard extends Component {
     render () {
-        if (!this.props.kit.title) {
+        if (!this.props.kit.title || !this.props.kit) {
             return(<div></div>)
         } else {
             return (
-                /* <Link href="review/[id]" as={`review/${this.props.i._id}`} key={this.props.index} prefetch>   */
+            <Link href="review/[id]" as={`review/${this.props.kit.influencer._id}`} key={this.props.key} prefetch>  
                 <div className="expert-card-container">
                     <div className="expert-card-picture-div">
                         <img className="expert-card-picture-round" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1583176290/simon-migaj-b2qszO9C7sw-unsplash.jpg" alt="Sage picture" />
                     </div>
                     <div className="expert-card-name">
-                    <div> 
+                
                         <img id="expert-profile-pic-card" src={this.props.kit.influencer.profilePic} /> 
-                    </div> 
+                   
                     <div className="expert-card-name-survival">
                         <div>
                             <div id="card-kit-title"><b>{this.props.kit.title}</b></div>
@@ -25,6 +26,7 @@ class KitCard extends Component {
                     </div>
                     </div>
                 </div>
+                </Link>
                 )
         }
 

@@ -1,0 +1,1119 @@
+webpackHotUpdate("static\\development\\pages\\index.js",{
+
+/***/ "./components/influencer/InfluencerCard.js":
+false,
+
+/***/ "./pages/index.js":
+/*!************************!*\
+  !*** ./pages/index.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
+/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/lib/Helmet.js");
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_helmet__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _services_InfluencerServices__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/InfluencerServices */ "./services/InfluencerServices.js");
+/* harmony import */ var _components_influencer_SearchInfluencer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/influencer/SearchInfluencer */ "./components/influencer/SearchInfluencer.js");
+/* harmony import */ var _services_KitServices__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../services/KitServices */ "./services/KitServices.js");
+/* harmony import */ var react_responsive_modal__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-responsive-modal */ "./node_modules/react-responsive-modal/lib/index.es.js");
+
+var _jsxFileName = "C:\\Users\\sebas\\Desktop\\code\\rebound\\react\\pages\\index.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+ // import Slider from "react-slick";
+
+
+
+
+ // import InfluencerItem from "../src/components/influencer/InfluencerItem";
+// import InfluencerCard from '../components/influencer/InfluencerCard';
+
+
+
+
+
+class InfluencerList extends react__WEBPACK_IMPORTED_MODULE_1__["Component"] {
+  constructor(...args) {
+    super(...args);
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "state", {
+      influencers: [],
+      category: ["Athlete", "Musician", "Tech", "Artist"],
+      search_expert: [],
+      open: false
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchInfluencer", () => {
+      _services_InfluencerServices__WEBPACK_IMPORTED_MODULE_4__["default"].getAll().then(influencers => this.setState(_objectSpread({}, this.state, {
+        influencers
+      }))).catch(err => console.log(err));
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "fetchKits", () => {
+      _services_KitServices__WEBPACK_IMPORTED_MODULE_6__["default"].getAll().then(kits => this.setState({
+        kits: kits
+      })).catch(error => console.log(error));
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "filterCategory", e => {
+      _services_InfluencerServices__WEBPACK_IMPORTED_MODULE_4__["default"].searchFilter(e.target.value).then(res => this.setState({
+        influencers: res
+      })).catch(err => console.log(err));
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onOpenModal", () => {
+      this.setState({
+        open: true
+      });
+    });
+
+    Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "onCloseModal", () => {
+      this.setState({
+        open: false
+      });
+    });
+  }
+
+  componentDidMount() {
+    this.fetchInfluencer();
+  }
+
+  render() {
+    const {
+      influencers,
+      open
+    } = this.state;
+
+    if (influencers !== "") {
+      return __jsx("div", {
+        className: "index-page",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 74,
+          columnNumber: 9
+        }
+      }, __jsx(react_helmet__WEBPACK_IMPORTED_MODULE_3__["Helmet"], {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 75,
+          columnNumber: 11
+        }
+      }, __jsx("meta", {
+        charSet: "utf-8",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 76,
+          columnNumber: 11
+        }
+      }), __jsx("title", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 77,
+          columnNumber: 11
+        }
+      }, "Rebound Sages"), __jsx("link", {
+        rel: "canonical",
+        href: "http://mysite.com/example",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 78,
+          columnNumber: 11
+        }
+      }), __jsx("meta", {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 79,
+          columnNumber: 11
+        }
+      }), __jsx("link", {
+        rel: "shortcut icon",
+        href: "https://img.icons8.com/ios-filled/64/000000/circled-down.png",
+        type: "image/x-icon",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 80,
+          columnNumber: 11
+        }
+      })), __jsx("div", {
+        className: "expert-section",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 82,
+          columnNumber: 11
+        }
+      }, __jsx("div", {
+        className: "expert-video",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 84,
+          columnNumber: 13
+        }
+      }, __jsx("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 85,
+          columnNumber: 15
+        }
+      }, __jsx("video", {
+        className: "video",
+        controls: true,
+        src: "https://res.cloudinary.com/dpt8pbi8n/video/upload/v1567711319/y2mate.com_-_joe_rogan_where_does_freedom_of_speech_end_jCPfU45L3iM_1080p.mp4",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 86,
+          columnNumber: 15
+        }
+      }))), __jsx("div", {
+        className: "expert-div",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89,
+          columnNumber: 13
+        }
+      }, __jsx("div", {
+        className: "expert-message",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 90,
+          columnNumber: 13
+        }
+      }, __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 91,
+          columnNumber: 15
+        }
+      }, " Find the tools to overcome your adversities."), __jsx("div", {
+        className: "expert-message-p-div",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 92,
+          columnNumber: 15
+        }
+      }, __jsx("p", {
+        id: "expert-message-description",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 93,
+          columnNumber: 15
+        }
+      }, "We talk to professionals that have dealt with tremendous adversity, and find out what tips, techniques and products they used especifically for overcoming that problem.")), __jsx("button", {
+        id: "survival-kit-button",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 98,
+          columnNumber: 15
+        }
+      }, "SEE SURVIVAL KITS")))), __jsx("h2", {
+        style: {
+          paddingBottom: "20px",
+          textAlign: "center"
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 105,
+          columnNumber: 11
+        }
+      }, __jsx("b", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 105,
+          columnNumber: 67
+        }
+      }, "Top Survival Kits")), __jsx("div", {
+        className: "expert-card-section",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 106,
+          columnNumber: 11
+        }
+      }, influencers.map((i, index) => {
+        return __jsx("div", {
+          className: "sage-outer-most-container",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 109,
+            columnNumber: 15
+          }
+        }, __jsx(InfluencerCard, {
+          i: i,
+          index: index,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 110,
+            columnNumber: 17
+          }
+        }));
+      })), __jsx("div", {
+        className: "heyhey-expert",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 115,
+          columnNumber: 11
+        }
+      }, __jsx("img", {
+        id: "absurd-question-image",
+        src: "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1583447725/05.png",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 117,
+          columnNumber: 13
+        }
+      }), __jsx("div", {
+        className: "heyhey-message",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 118,
+          columnNumber: 13
+        }
+      }, __jsx("div", {
+        className: "hey-message-div",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 119,
+          columnNumber: 15
+        }
+      }, __jsx("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 120,
+          columnNumber: 15
+        }
+      }, "Hey! Your opinion really matters to us."), __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 121,
+          columnNumber: 15
+        }
+      }, "Feel free to let us know what you feel about the website, or any Survival Tips you would like to see.")), __jsx("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 124,
+          columnNumber: 15
+        }
+      }, __jsx("button", {
+        onClick: this.onOpenModal,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 125,
+          columnNumber: 17
+        }
+      }, __jsx("b", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 125,
+          columnNumber: 52
+        }
+      }, "Share an opinion")), __jsx(react_responsive_modal__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        id: "pop-up-css",
+        className: "modal",
+        open: open,
+        onClose: this.onCloseModal,
+        center: true,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 126,
+          columnNumber: 17
+        }
+      }, __jsx("div", {
+        className: "heading-pop-up",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 127,
+          columnNumber: 19
+        }
+      }, __jsx("h2", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 128,
+          columnNumber: 19
+        }
+      }, __jsx("b", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 128,
+          columnNumber: 23
+        }
+      }, "Share your opinion")), __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 129,
+          columnNumber: 19
+        }
+      }, "We greatly appreciate you feedback!")), __jsx("ol", {
+        className: "questions-pop-up",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 131,
+          columnNumber: 19
+        }
+      }, __jsx("li", {
+        id: "question-modal",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 132,
+          columnNumber: 21
+        }
+      }, "Have you enjoyed the overall experience of the application?"), __jsx("div", {
+        id: "number-bar",
+        className: "btn-group mr-2",
+        role: "group",
+        "aria-label": "First group",
+        clicked: true,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 133,
+          columnNumber: 21
+        }
+      }, __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 134,
+          columnNumber: 23
+        }
+      }, "1"), __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 135,
+          columnNumber: 23
+        }
+      }, "2"), __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 136,
+          columnNumber: 23
+        }
+      }, "3"), __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 137,
+          columnNumber: 23
+        }
+      }, "4"), __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 138,
+          columnNumber: 23
+        }
+      }, "5"), __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 139,
+          columnNumber: 23
+        }
+      }, "6"), __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 140,
+          columnNumber: 23
+        }
+      }, "7"), __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 141,
+          columnNumber: 23
+        }
+      }, "8"), __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 142,
+          columnNumber: 23
+        }
+      }, "9"), __jsx("button", {
+        type: "button",
+        id: "pop-up-bttn",
+        className: "btn btn-secondary",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 143,
+          columnNumber: 23
+        }
+      }, "10")), __jsx("li", {
+        id: "question-modal",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 145,
+          columnNumber: 21
+        }
+      }, "Have you encountered any problems when using our site?"), __jsx("div", {
+        className: "yes-no",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 146,
+          columnNumber: 21
+        }
+      }, __jsx("div", {
+        class: "form-check",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 147,
+          columnNumber: 23
+        }
+      }, __jsx("input", {
+        class: "form-check-input",
+        type: "radio",
+        name: "exampleRadios",
+        id: "exampleRadios1",
+        value: "option1",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 148,
+          columnNumber: 25
+        }
+      }), __jsx("label", {
+        class: "form-check-label",
+        for: "exampleRadios1",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 149,
+          columnNumber: 25
+        }
+      }, "Yes")), __jsx("div", {
+        class: "form-check",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 153,
+          columnNumber: 23
+        }
+      }, __jsx("input", {
+        class: "form-check-input",
+        type: "radio",
+        name: "exampleRadios",
+        id: "exampleRadios2",
+        value: "option2",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 154,
+          columnNumber: 25
+        }
+      }), __jsx("label", {
+        class: "form-check-label",
+        for: "exampleRadios2",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 155,
+          columnNumber: 25
+        }
+      }, "No"))), __jsx("li", {
+        id: "question-modal",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 160,
+          columnNumber: 21
+        }
+      }, "If you would like to see something improve in this page what would it be?"), __jsx("textarea", {
+        class: "form-control",
+        id: "exampleFormControlTextarea1",
+        rows: "3",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 161,
+          columnNumber: 21
+        }
+      })), __jsx("div", {
+        className: "button-div",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 163,
+          columnNumber: 19
+        }
+      }, __jsx("button", {
+        className: "feedback-submit-button",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 164,
+          columnNumber: 19
+        }
+      }, __jsx("span", {
+        className: "login-font",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 164,
+          columnNumber: 62
+        }
+      }, "Submit"))))))), __jsx("div", {
+        className: "top-categories",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 171,
+          columnNumber: 11
+        }
+      }, __jsx("h2", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 172,
+          columnNumber: 13
+        }
+      }, __jsx("b", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 172,
+          columnNumber: 17
+        }
+      }, "Top Categories")), __jsx("div", {
+        className: "categories-container",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 174,
+          columnNumber: 13
+        }
+      }, __jsx("div", {
+        id: "categories-card",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 175,
+          columnNumber: 15
+        }
+      }, __jsx("div", {
+        id: "blue-dash",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 177,
+          columnNumber: 17
+        }
+      }, __jsx("img", {
+        id: "category-on-dash",
+        src: "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790965/icons8-sport-96_1.png",
+        alt: "category",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 177,
+          columnNumber: 37
+        }
+      })), __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 178,
+          columnNumber: 17
+        }
+      }, __jsx("b", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 178,
+          columnNumber: 20
+        }
+      }, "Athlete")), __jsx("div", {
+        id: "dash-under",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 179,
+          columnNumber: 17
+        }
+      })), __jsx("div", {
+        id: "categories-card",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 181,
+          columnNumber: 15
+        }
+      }, __jsx("div", {
+        id: "blue-dash",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 183,
+          columnNumber: 17
+        }
+      }, __jsx("img", {
+        id: "category-on-dash",
+        src: "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790640/icons8-paragraph-96_1.png",
+        alt: "category",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 183,
+          columnNumber: 37
+        }
+      })), __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 184,
+          columnNumber: 17
+        }
+      }, __jsx("b", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 184,
+          columnNumber: 20
+        }
+      }, "Author")), __jsx("div", {
+        id: "dash-under",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 185,
+          columnNumber: 17
+        }
+      })), __jsx("div", {
+        id: "categories-card",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 187,
+          columnNumber: 15
+        }
+      }, __jsx("div", {
+        id: "blue-dash",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 189,
+          columnNumber: 17
+        }
+      }, __jsx("img", {
+        id: "category-on-dash",
+        src: "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790797/icons8-comedy-100_2.png",
+        alt: "category",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 189,
+          columnNumber: 37
+        }
+      })), __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 190,
+          columnNumber: 17
+        }
+      }, __jsx("b", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 190,
+          columnNumber: 20
+        }
+      }, "Comedian")), __jsx("div", {
+        id: "dash-under",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 191,
+          columnNumber: 17
+        }
+      })), __jsx("div", {
+        id: "categories-card",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 193,
+          columnNumber: 15
+        }
+      }, __jsx("div", {
+        id: "blue-dash",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 195,
+          columnNumber: 17
+        }
+      }, __jsx("img", {
+        id: "category-on-dash",
+        src: "https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790797/icons8-comedy-100_2.png",
+        alt: "category",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 195,
+          columnNumber: 37
+        }
+      })), __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 196,
+          columnNumber: 17
+        }
+      }, __jsx("b", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 196,
+          columnNumber: 20
+        }
+      }, "Comedian")), __jsx("div", {
+        id: "dash-under",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 197,
+          columnNumber: 17
+        }
+      }))), __jsx("div", {
+        className: "category-bar",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 206,
+          columnNumber: 13
+        }
+      }, __jsx("p", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 207,
+          columnNumber: 13
+        }
+      }, __jsx("b", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 207,
+          columnNumber: 16
+        }
+      }, "All Categories: ")), __jsx("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 208,
+          columnNumber: 13
+        }
+      }, __jsx("span", {
+        id: "category-bubble",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 209,
+          columnNumber: 15
+        }
+      }, "Athlete"), __jsx("span", {
+        id: "category-bubble",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 210,
+          columnNumber: 15
+        }
+      }, "Author"), __jsx("span", {
+        id: "category-bubble",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 211,
+          columnNumber: 15
+        }
+      }, "Comedian"), __jsx("span", {
+        id: "category-bubble",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 212,
+          columnNumber: 15
+        }
+      }, "Comedian")))), __jsx("div", {
+        className: "index-best-book-div",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 237,
+          columnNumber: 15
+        }
+      }, __jsx("div", {
+        className: "best-book-header",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 238,
+          columnNumber: 15
+        }
+      }, __jsx("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 239,
+          columnNumber: 17
+        }
+      }, "The Best Book This Week")), __jsx("div", {
+        className: "best-book-info-div",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 241,
+          columnNumber: 15
+        }
+      }, __jsx("div", {
+        className: "best-book-pictures",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 242,
+          columnNumber: 17
+        }
+      }, __jsx("img", {
+        id: "best-book-cover",
+        src: "https://miro.medium.com/max/3000/1*r6rpoanJHbvwZpSW7mZjzg.jpeg",
+        alt: "Book Cover",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 243,
+          columnNumber: 19
+        }
+      }), __jsx("img", {
+        id: "best-book-author",
+        src: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Robert_Greene_B%26W.jpg",
+        alt: "Author Picture",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 244,
+          columnNumber: 19
+        }
+      })), __jsx("div", {
+        className: "best-book-title-div",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 246,
+          columnNumber: 17
+        }
+      }, __jsx("h2", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 247,
+          columnNumber: 19
+        }
+      }, "The Alchemist, 25th Anniversary: A Fable About Following Your Dream "), __jsx("p", {
+        id: "best-author-p",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 248,
+          columnNumber: 19
+        }
+      }, "Paulo Coelho | #86 in Books on Amazon"), __jsx("p", {
+        id: "best-description-p",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 249,
+          columnNumber: 19
+        }
+      }, "Paulo Coelho's enchanting novel has inspired a devoted following around the world. This story, dazzling in its powerful simplicity and soul-stirring wisdom, is about an Andalusian shepherd boy named Santiago who travels from his homeland in Spain to the Egyptian desert in search of a treasure buried near the Pyramids. Along the way he meets a Gypsy woman, a man who calls himself king, and an alchemist, all of whom point Santiago in the direction of his quest. No one knows what the treasure is, or if Santiago will be able to surmount the obstacles in his path. But what starts out as a journey to find worldly goods turns into a discovery of the treasure found within. Lush, evocative, and deeply humane, the story of Santiago."), __jsx("button", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 252,
+          columnNumber: 19
+        }
+      }, "Get the Book")))));
+    }
+  }
+
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (InfluencerList);
+
+/***/ }),
+
+/***/ "./services/KitServices.js":
+/*!*********************************!*\
+  !*** ./services/KitServices.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BaseServices__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BaseServices */ "./services/BaseServices.js");
+
+
+const getAll = () => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("/kit/all").then(res => res.data);
+
+const getKit = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("/kit/survival/".concat(id)).then(res => res.data);
+
+const kitCreate = kit => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].post('/kit/create', kit).then(res => res.data);
+
+const kitProductBacked = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get('/kit/popular', id).then(res => res.data);
+
+const getKitAdmin = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("/kit/admin/".concat(id)).then(res => res.data);
+
+const updateKit = (kit, id) => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].post("/kit/update/kit/".concat(id), kit).then(res => res.data);
+
+const createTechnique = technique => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].post("/kit/create/technique", technique).then(res => res.data);
+
+const getListTechnique = () => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get('/kit/list/techniques').then(res => res.data);
+
+const createSurvivalProduct = product => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].post('/kit/create/product', product).then(res => res.data);
+
+const getListProducts = () => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get('/kit/list/products').then(res => res.data);
+
+const createSurvivalTip = tip => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].post('/kit/create/tip', tip).then(res => res.data);
+
+const getListTips = () => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get('/kit/list/tips').then(res => res.data);
+
+const getProductSurvival = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("/kit/product/".concat(id)).then(res => res.data);
+
+const getTipAdmin = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("kit/admin/tip/".concat(id)).then(res => res.data);
+
+const getTechniqueAdmin = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("kit/admin/technique/".concat(id)).then(res => res.data);
+
+const getSurvivalProductAdmin = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("kit/admin/survival-product/".concat(id)).then(res => res.data);
+
+const getSurvivalProductEdit = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("kit/admin/survival-product/1/".concat(id)).then(res => res.data);
+
+const editSurvivalKit = (id, product) => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].post("kit/update/product/".concat(id), product).then(res => res.data);
+
+const getTipEdit = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("kit/admin/tip/1/".concat(id)).then(res => res.data);
+
+const editTipKit = (id, tip) => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].post("kit/update/tip/".concat(id), tip).then(res => res.data);
+
+const getTechniqueEdit = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("kit/admin/technique/1/".concat(id)).then(res => res.data);
+
+const editTechniqueKit = (id, technique) => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].post("kit/update/technique/".concat(id), technique).then(res => res.data);
+
+const getKitProfile = id => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("/kit/profile/".concat(id)).then(res => res.data);
+
+const searchKit = search => _BaseServices__WEBPACK_IMPORTED_MODULE_0__["default"].get("/kit/filter?search=".concat(search)).then(res => res.data);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  getKit,
+  kitCreate,
+  kitProductBacked,
+  getKitAdmin,
+  updateKit,
+  createTechnique,
+  getListTechnique,
+  createSurvivalProduct,
+  getListProducts,
+  createSurvivalTip,
+  getListTips,
+  getProductSurvival,
+  getTipAdmin,
+  getTechniqueAdmin,
+  getSurvivalProductAdmin,
+  getSurvivalProductEdit,
+  editSurvivalKit,
+  editTipKit,
+  editTechniqueKit,
+  getTipEdit,
+  getTechniqueEdit,
+  getKitProfile,
+  getAll,
+  searchKit
+});
+
+/***/ }),
+
+/***/ "./services/ReviewServices.js":
+false
+
+})
+//# sourceMappingURL=index.js.d6c71c7cdb6669c27ba3.hot-update.js.map

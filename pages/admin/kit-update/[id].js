@@ -69,9 +69,18 @@ class KitUpdate extends Component {
         let {kit} = this.state;
         const id = kit._id;
 
-        const techniques = kit.techniques.split(' , ');
-        const tips = kit.tips.split(' , ');
-        const products = kit.products.split(' , ');
+        if (kit.techniques.length > 1) 
+        {
+          const techniques = kit.techniques.split(' , ');
+        }
+        if (kit.tips.length > 1) 
+        {
+          const tips = kit.tips.split(' , ');
+        }
+        if (kit.products.length > 1) 
+        {
+          const products = kit.products.split(' , ');
+        }
 
         KitServices.updateKit({
           kit: {

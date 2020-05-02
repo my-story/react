@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AuthServices from '../services/AuthServices';
-import Signup from './signup';
 import Link from 'next/link';
 import Router from 'next/router';
 import validator from 'email-validator';

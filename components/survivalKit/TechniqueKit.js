@@ -61,16 +61,14 @@ class TechniqueKit extends Component {
                 <img id="survival-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1582921481/TECHNIQUES_FONTGUIDEAsset_6_300x.png"/>
             </div>
             <div className="technique-kit-description-div">
-                <div className="technique-kit-name-category">
-                    <p id="technique-name"><b>{technique.title}</b></p>
-                    <p id="technique-word">Technique</p>
-                    <div className="technique-kit-category-bubble">
-                        <div>
-                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324090/heart-kit.svg"alt="" />
-                            <span>Category</span>
+            <div className="technique-kit-name-category">
+                        <p id="technique-name"><b>{technique.title}</b></p>
+                        <div className="technique-with-category-div">
+                        <p id="technique-word">Technique</p>
+                        <span id="category-bubble-profile">Athlete</span>
+
                         </div>
                     </div>
-                </div>
                     {technique.subheading.map((t ,index) => {
                         if(t.descriptions.length > 0){
                             return(

@@ -69,6 +69,9 @@ const editTechniqueKit = (id, technique) => http.post(`kit/update/technique/${id
 const getKitProfile = (id) => http.get(`/kit/profile/${id}`)
   .then((res) => res.data);
 
+const searchKit = (search) => http.get(`/kit/filter?search=${search}`)
+  .then((res) => res.data);
+
 export default {
     getKit,
     kitCreate,
@@ -92,5 +95,6 @@ export default {
     getTipEdit,
     getTechniqueEdit,
     getKitProfile,
-    getAll
+    getAll,
+    searchKit
 }
