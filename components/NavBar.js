@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Link from 'next/link';
 import {Icon} from 'antd';	
+import PhoneNavBar from './PhoneNavBar';
 import MediaQuery from 'react-responsive';
 import {ButtonToolbar, Dropdown,DropdownButton, SplitButton} from 'react-bootstrap';
 import { slide as Menu } from 'react-burger-menu'
@@ -8,7 +9,7 @@ import Logout from './auth/Logout';
 // import InfluencerServices from '../services/InfluencerServices';
 import {QtyConsumer} from './contexts/QtyContext';
 import UserContext from './contexts/UserContext';
-import Logo from '../public/images/reboundLogo01.png'
+import Logo from '../public/images/reboundLogo01.png';
 // import SearchBar from './influencer/SearchInfluencer';
 
 
@@ -38,7 +39,6 @@ class NavBar extends Component {
 	}
 
 
-
 	render() {
 		const {userLogged} = this.state;
 		
@@ -47,19 +47,8 @@ class NavBar extends Component {
 			return(
 				<div>
 					<MediaQuery maxDeviceWidth={490}>
-					<div  className="navbar-burder-div">
-					<Menu>
-						<img id="logo-rebound-mobile" src={Logo} />	
-						<a id="mobile-nav" className="menu-item" href="/profile/dashboard">Profile</a>															
-						<a id="mobile-nav" className="menu-item" href="/">Home</a>
-						<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
-						<a id="mobile-nav" className="menu-item" href="/products">Store</a>
-						<a id="mobile-nav" className="menu-item" href="/kits">Kits</a>
-						<a id="mobile-nav" className="menu-item" href="/about">About Us</a>
-						<p style={{color: "white", borderBottom: "solid", marginLeft: "-40px", marginTop: "25px"}}id="mobile-nav logout" className="menu-item" ><Logout {...this.props} ><b>Logout</b></Logout></p>
-					</Menu>
-					</div>
-				
+					<PhoneNavBar loggedIn={true}></PhoneNavBar>
+
 					</MediaQuery>
 
 				<MediaQuery minDeviceWidth={700}>		
@@ -126,17 +115,8 @@ class NavBar extends Component {
 		return(
 			<div>
 			<MediaQuery maxDeviceWidth={490}>
-			<div className="navbar-burder-div">
-			<Menu>
-				<img id="logo-rebound-mobile" src={Logo} />										
-				<a id="mobile-nav" className="menu-item" href="/">Home</a>
-				<a id="mobile-nav" className="menu-item" href="/podcasts">Podcasts</a>
-				<a id="mobile-nav" className="menu-item" href="/products">Store</a>
-				<a id="mobile-nav" className="menu-item" href="/kits">Kits</a>
-				<a id="mobile-nav" className="menu-item" href="/about">About Us</a>
-				<a id="mobile-nav" className="menu-item" href="/login">Log in</a>
-			</Menu>
-			</div>
+			<PhoneNavBar loggedIn={false}></PhoneNavBar>
+
 
 			</MediaQuery>
 			<MediaQuery minDeviceWidth={700}>

@@ -30,30 +30,13 @@ class Profile extends Component{
                         <div>
                               <img id="profile-picture" src="https://www.pikpng.com/pngl/m/286-2863567_contact-profile-user-default-female-suit-comments-profile.png" alt="Sage" />                        
                             {/* <div> */}
-                                <h4>Name</h4>
+                                <p>{user.firstName}</p>
                             {/* </div> */}
                         </div>
-                        <div>
-                            <div>
-                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="profile-glyph" />
-                            <button>Order History</button>
-                            </div>
-                            <div>
-                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="profile-glyph" />
-                            <button>Order History</button>
-                            </div>
-                            <div>
-                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="profile-glyph" />
-                            <button>Order History</button>
-                            </div>
-                            <div>
-                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="profile-glyph" />
-                            <button>Order History</button>
-                            </div>
-                        </div>
+                    
                     </div>
                     <div className="profile-dashboard-div">
-                        <h1>Survival Kits</h1>
+                        <h1>My Survival Kits</h1>
                         {user.kits.map((kit, index) => {  
                             return(
                             <SurvivalKitProfile kit={kit} user={user}></SurvivalKitProfile>

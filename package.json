@@ -29,6 +29,7 @@
     "react-slick": "^0.24.0",
     "react-stripe-elements": "^3.0.0",
     "react-vis": "^1.11.7",
+    "reactstrap": "^8.4.1",
     "slick-carousel": "^1.8.1",
     "toastr": "^2.1.4",
     "universal-cookie": "^4.0.3"
