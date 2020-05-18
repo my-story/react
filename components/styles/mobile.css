@@ -101,7 +101,7 @@
     max-width: 85%;
   }
   .inputs-login-styling {
-    width: 90%;
+    width: 370px;
     height: 8vh;
   }
   .login-button {
@@ -620,17 +620,14 @@
 }
 .profile-page {
   margin: 0 5vw 0 5vw;
-  border: solid;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 .profile-profile-menu {
   width: 100%;
-  border: solid;
 }
 .profile-dashboard-div {
-  border: solid red;
   width: 100%;
 }
 .kit-description-div {
@@ -711,6 +708,13 @@
 .survival-card-image-div {
   display: none;
 }
+#survival-title-bookmark-image {
+  height: 25px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
 .technique-with-category-div {
   display: flex;
   /* justify-content: baseline; */
@@ -723,5 +727,11 @@
 }
 .expert-card-container {
   transform: scale(0.65);
+}
+.tip-card-image-div {
+  display: none;
+}
+.tip-kit-description {
+  width: 75%;
 }
 }

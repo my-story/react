@@ -711,12 +711,19 @@ background: none;
   position: absolute;
   left: 5vw;
 }
+#profile-glyph {
+  height: 50px;
+  width: auto;
+}
+
 #logo-rebound-mobile{
-  height: 70px;
+  height: 50px;
   width: auto;
   position: relative;
-  right: 40px;
-  margin-bottom: 10px;
+  /* right: 40px; */
+  left: 10px;
+  top: 0;
+  /* margin-bottom: 10px; */
 }
 #mystory-name {
   position: absolute;
@@ -2761,6 +2768,23 @@ left: 1vw;
   height: 350px;
 }
 
+.kit-close-exit-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 100%;
+  width: 50px;
+}
+.kit-close-exit-div p {
+  color: white;
+}
+.kit-close-exit-div p:hover {
+  background-color: rgb(48, 89, 90);
+  border-radius: 2px;
+}
 .rectangle-survival-title-picture {
   width: 22%;
 }
@@ -2775,7 +2799,7 @@ left: 1vw;
 }
 .review-survival-title {
   font-family: Hind;
-  width: 60%;
+  width: 77%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -2789,12 +2813,7 @@ left: 1vw;
   padding-top: 10px;
   
 } */
-#survival-title-bookmark-image {
-  height: 20px;
-  position: relative;
-  top: 10px;
-  left: 80px;
-}
+
 .rectangle-survival-title {	
   height: 120px;	
   width: 100%;	
@@ -3068,7 +3087,7 @@ flex-direction: row;
 }
 
 #rebound-footer-logo {
-height: 80px;
+height: 50px;
 width: auto;
 }
 .logo-copywrite {
@@ -3513,7 +3532,6 @@ color: black;
 
 .profile-page {
   margin: 0 12vw 0 12vw;
-  border: solid;
   display: flex;
   flex-direction: column;
 }
@@ -3525,12 +3543,15 @@ color: black;
   display: flex;
 }
 .profile-profile-menu {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  border: solid;
 }
 .profile-dashboard-div {
-  border: solid red;
   width: 72%;
+}
+.profile-dashboard-div h1 {
+  font-size: 30px;
 }
 .video-youtube {
   width: 100%;

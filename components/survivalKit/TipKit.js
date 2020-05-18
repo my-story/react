@@ -42,7 +42,7 @@ class TipKit extends Component {
 		}
 
 		openCard = () => {
-			let newSize = this.state.size === '130px' ? '180px' : '130px';
+			let newSize = this.state.size === '130px' ? '200px' : '130px';
 			let newDivSize = this.state.divSize === '60px' ? '110px' : '60px';
 			this.setState({ size: newSize, divSize:newDivSize });
 		};

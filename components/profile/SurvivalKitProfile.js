@@ -5,6 +5,7 @@ import KitServices from '../../services/KitServices';
 import TechniqueProfile from '../profile/TechniqueProfile';
 import TipProfile from './TipProfile';
 import ProductKitProfile from './ProductKitProfile';
+import AuthServices from '../../services/AuthServices';
 // import TipKit from '../survivalKit/TipKit';
 
 class SurvivalKitProfile extends Component {
@@ -12,9 +13,9 @@ class SurvivalKitProfile extends Component {
     state = {
         user: "",
         kit: "",
-        tips: ""
+        tips: "",
     };  
-    
+
  
 
     componentDidMount = () => {
@@ -27,47 +28,24 @@ class SurvivalKitProfile extends Component {
         .catch((err) => console.log(err))
     };
 
-    
+    unfavorite = () => {
+        const { kit } = this.state;
+        const {user} = this.props;
+        
+        AuthServices.unfavoriteKit(user._id, kit._id)
+            .then(() => this.setState({kit: ""}))
+            .catch((err) => console.log(err))
 
-    showMore = () => {
-        if (this.state.size === "150px") {
-            return(
-            <div onClick={this.openCard} className="learn-more-survival">
-                <p>Show more</p>
-                <img id="arrow-down-kit" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324512/chevron-left_2_copy_2.svg" alt="laern more arrow" />
-            </div>
-            )
-        } else {
-            return(
-                <div onClick={this.openCard} className="learn-more-survival">
-                <p>Show less</p>
-                <img style={{transform:"rotate(-180deg)"}}id="arrow-down-kit" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324512/chevron-left_2_copy_2.svg" alt="laern more arrow" />
-            </div>
-            )
-        }
     };
 
-    //Add three dots ... after a certain length of the string.
-    shrinkParagraph = (p) => {
-        // const {kit} = this.state;
-        const length = p.length;
-         if (length > 100){
-             return(
-                 <p>{p.substring(0,100)} ...</p>
-             )
-         } else {
-            return(
-                <p>{p}...</p>
-            )
-         }
-    };
 
     render(){
         const {kit, user } = this.state || {};
 
+  
 
         if (kit === undefined || kit.influencer === undefined ) {
-            return(<div>...</div>)
+            return(<div></div>)
         } else {
             return (
                 <div className="product-kit-page">
@@ -81,8 +59,12 @@ class SurvivalKitProfile extends Component {
                         <h4 id="review-survival-title">{kit.influencer.name.firstName} {kit.influencer.name.lastName}</h4>
                     </div>
                     </div>
-                        <img id="survival-title-bookmark-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
-                </div>     
+                        <div className="kit-close-exit-div">
+                        <img id="survival-title-bookmark-image" onClick={this.unfavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1584740221/icons8-close-window-32.png" alt="bookmark" />
+                        {/* <p onClick={this.hideList}>(hide)</p> */}
+                        </div>
+                </div>  
+                <div>   
                     {kit.products.map((product , index) => { 
                     if (user.products.includes(product._id))
                     {
@@ -132,7 +114,7 @@ class SurvivalKitProfile extends Component {
                         </div>
                     )
                 })} */}
-
+                </div>
                 </div>
             )    
 

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Logo from '../public/images/reboundLogo01.png';
 import Link from 'next/link';
 
 class Footer extends Component{
@@ -7,9 +8,9 @@ class Footer extends Component{
 			<footer className="footer-container">
 				<div className="logo-div">
 					<div className="logo-copywrite">
-					<img id="rebound-footer-logo" src="https://pngmafia.net/image/2019/01/3529520_0-min.png" alt="Rebound-Logo"/>
+					<img id="rebound-footer-logo" src={Logo} alt="Rebound-Logo"/>										
+			
 					<div className="logo-copywrite">
-						<p>Rebound</p>
 						<p>Copyright @ 2019 Rebound</p>
 					</div>
 					</div>
