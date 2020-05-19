@@ -45,7 +45,7 @@ class Kits extends Component {
             <div className="kits-all-page">
             <div className="category-bar"> 
             <p><b className="all-categories-p" >All Categories: </b></p>
-            <div>
+            <div className="bar-categories-div">
               {category.map((category, index) => {
                 return (
                   <div>
@@ -55,14 +55,14 @@ class Kits extends Component {
                })}
             </div>
             </div>
-                <div className="kits-all-section">
+              <div className="kits-all-section">
                 {this.state.kits.map((i, index) => {
                     
                 return (
                     <KitCard kit={i} key={index}/>
                 )
                 })}
-                </div>
+              </div>
             </div>
         )
     }

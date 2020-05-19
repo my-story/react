@@ -508,9 +508,9 @@
   .technique-survival-prize-div {
     width: 50px;
   }
-  .tip-survival-prize-div {
-    width: 25px;
-  }
+  /* .tip-survival-prize-div {
+    width: 30px;
+  } */
   .video-section {
     height: 85vh;
     /* position: absolute; */
@@ -734,4 +734,5 @@
 .tip-kit-description {
   width: 75%;
 }
+
 }

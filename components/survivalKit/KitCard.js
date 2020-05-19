@@ -7,7 +7,7 @@ class KitCard extends Component {
             return(<div></div>)
         } else {
             return (
-            <Link href="review/[id]" as={`review/${this.props.kit.influencer._id}`} key={this.props.key} prefetch>  
+            <Link href="review/[id]" as={`review/${this.props.kit.influencer._id}`} key={this.props.index} prefetch>  
                 <div className="expert-card-container">
                     <div className="expert-card-picture-div">
                         <img className="expert-card-picture-round" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1583176290/simon-migaj-b2qszO9C7sw-unsplash.jpg" alt="Sage picture" />
