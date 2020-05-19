@@ -280,6 +280,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .votes-container {
@@ -314,11 +315,12 @@ body {
 }
 
 .share-buttons {
-  width: 13vw;
+  /* width: 13vw; */
   /* border: solid 1px; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -1343,11 +1345,25 @@ height: 3vh;
   align-items: baseline;
   width: 100%;
   margin-top: 4vh;
+  height: 10vh;
 }
-
-.category-bar div {
+.category-bar-index {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  width: 90%;
+  margin-top: 4vh;
+  height: 10vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+
+}
+.bar-categories-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 
@@ -1360,10 +1376,9 @@ height: 3vh;
   height: 23px;
   width: 90px;
   border-radius: 20px;
-  /* text-decoration: none; */
-  /* border: none; */
   font-weight: 600;
-  margin-left: 0.7vw;
+  /* margin-left: 0.7vw; */
+  margin: 0 0.5vw 2vh 0.5vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1376,6 +1391,11 @@ height: 3vh;
 }
 
 .category-bar span:hover {
+  color: white;
+  background-color: #f66c4f;
+  cursor: pointer;
+}
+.category-bubble:hover {
   color: white;
   background-color: #f66c4f;
   cursor: pointer;
@@ -2667,7 +2687,7 @@ left: 1vw;
   padding:0;
 }
 #tip-bulb {
-  height: 12vh;
+  height: 10vh;
   padding-left: 10px; 
 }
 #survival-prize {

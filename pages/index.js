@@ -4,9 +4,10 @@ import Link from 'next/link'
 import {Helmet} from 'react-helmet';
 import InfluencerServices from '../services/InfluencerServices';
 import SearchBar from '../components/influencer/SearchInfluencer';
+import CategoryBubbleOne from '../components/category/CategoryBubbleOne';
 // import InfluencerItem from "../src/components/influencer/InfluencerItem";
 // import InfluencerCard from '../components/influencer/InfluencerCard';
-
+import KitServices from '../services/KitServices';
 import Modal from "react-responsive-modal";
 import KitMap from '../components/survivalKit/KitMap';
 
@@ -19,6 +20,10 @@ class InfluencerList extends Component {
     ],
     search_expert:[],
     open: false
+  }
+
+  componentDidMount(){
+    this.fetchKits();
   }
   
 
@@ -38,6 +43,7 @@ class InfluencerList extends Component {
   }
 
 
+
   onOpenModal = () => {
     this.setState({ open: true });
   };
@@ -47,7 +53,7 @@ class InfluencerList extends Component {
   };
 
   render() {
-    const { open } = this.state
+    const { open, category, kits } = this.state
 
       return (
         <div className="index-page">
@@ -119,20 +125,21 @@ class InfluencerList extends Component {
                 <div id="dash-under"></div>
               </div> */}
             </div>
-            <div className="category-bar"> 
-            <p><b>All Categories: </b></p>
-            <div>
-              <span id="category-bubble">Athlete</span>
-              <span id="category-bubble">Author</span>
-              <span id="category-bubble">Comedian</span>
-              <span id="category-bubble">Comedian</span>
-  
-              {/* <span id="category-bubble">Surprise</span>
-              <span id="category-bubble">Coming Soon</span>
-              <span id="category-bubble">Coming Soon</span>
-              <span id="category-bubble">Coming Soon</span> */}
-  
-            </div>
+
+
+
+          </div>
+          <div className="category-bar-index"> 
+            <p><b className="all-categories-p">All Categories: </b></p>
+            <div className="bar-categories-div">
+              {category.map((category, index) => {
+                return (
+                  <div>
+                    {/* <CategoryBubbleOne searchbar={this.searchBar} category={category}></CategoryBubbleOne> */}
+                    <span key={index} className="category-bubble" title={category}>{category}</span>
+                  </div>
+                )
+               })}
             </div>
           </div>
   

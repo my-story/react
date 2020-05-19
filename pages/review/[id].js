@@ -12,7 +12,8 @@ import CartBubble from '../../components/cart/CartBubble';
 import Votes from '../../components/votes/Votes';
 import InfluencerCard from '../../components/influencer/InfluencerCard';
 import SurvivalKit from '../../components/survivalKit/SurvivalKit';
-import KitServices from '../../services/KitServices'
+import KitCard from '../../components/survivalKit/KitCard';
+import KitServices from '../../services/KitServices';
 
 class ReviewOne extends Component {
   
@@ -22,6 +23,7 @@ class ReviewOne extends Component {
     kit: {},
     disableVoteButtons: false,
     update: false,
+    kits:[]
   }
 
   static contextType = UserContext;
@@ -34,6 +36,7 @@ class ReviewOne extends Component {
 
   componentDidMount() {
     this.fetchInfluencer();
+    this.fetchKits();
 
     const { id } = this.props;
 
@@ -58,7 +61,11 @@ class ReviewOne extends Component {
       .catch(() => toastr.error('Error occured while fetching. Please try later.'));
   }
 
-
+  fetchKits = () => {
+    KitServices.getLast()
+      .then(kits => this.setState({kits}))
+      .catch((err) => console.log(err))
+  };
 
   fetchInfluencer = () => {
     InfluencerServices.getAll()
@@ -205,6 +212,7 @@ class ReviewOne extends Component {
   //     </div>
   //   )
   // }
+  
 
   videoDraw = () => {
 
@@ -231,11 +239,13 @@ class ReviewOne extends Component {
 
 
   render() {
-    console.log(this.props.id)
-    const review = this.state.review || {};
+
+    // const review = this.state.review || {};
     const influencer = this.state.review.influencer || {};
-    const influencers = this.state.influencers;
-    const kit = this.state.kit;
+    // const influencers = this.state.influencers;
+    // const kit = this.state.kit;
+    const {kits , kit, influencers, review} = this.state;
+
 
     if(this.state.kit === {} || this.state.kit === undefined || this.state.review.influencer === undefined){
       return(
@@ -336,16 +346,15 @@ class ReviewOne extends Component {
               {/* <CartBubble product={product}/> */}
             </div>
             <div className="expert-card-section-review">
-            <div className="div-review-cards">
             <h2><b>Similar Sages</b></h2>
-            </div>
-            <div className="cards-review">
-            {influencers.map((i, index) => {
-              return (
-                <InfluencerCard review="yes" i={i} index={index} />
-              )
-            })}
-            </div>
+            <div className="kits-all-section">
+                {kits.map((i, index) => {
+                return (
+                    <KitCard kit={i} key={index}/>
+                )
+                })}
+              </div>
+
           </div>
           </div>
       );

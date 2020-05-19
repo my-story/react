@@ -3,6 +3,9 @@ import http from './BaseServices';
 const getAll = () => http.get("/kit/all")
   .then((res) => res.data);
 
+const getLast = () => http.get("/kit/last")
+  .then((res) => res.data);
+
 const getKit = (id) => http.get(`/kit/survival/${id}`)
   .then((res) => res.data);
 
@@ -96,5 +99,6 @@ export default {
     getTechniqueEdit,
     getKitProfile,
     getAll,
-    searchKit
+    searchKit,
+    getLast
 }

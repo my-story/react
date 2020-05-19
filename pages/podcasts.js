@@ -44,7 +44,7 @@ class Podcasts extends Component {
             <h1><b>The Rebound Podcasts</b></h1>
             <div className="category-bar"> 
             <p><b className="all-categories-p">All Categories: </b></p>
-            <div>
+            <div className="bar-categories-div">
               {category.map((category, index) => {
                 return (
                   <div>
