@@ -256,7 +256,7 @@ class ReviewOne extends Component {
     } else {
         return (
 
-        <div style={{height:"350vh"}} className="review-outer-page">
+        <div className="review-outer-page">
           <div className="review-page">
             <div>
               <div className="review-heading-div">

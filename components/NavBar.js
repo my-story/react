@@ -10,6 +10,8 @@ import Logout from './auth/Logout';
 import {QtyConsumer} from './contexts/QtyContext';
 import UserContext from './contexts/UserContext';
 import Logo from '../public/images/reboundLogo01.png';
+import ProfileGlyph from '../public/images/user-circle-solid.svg';
+
 // import SearchBar from './influencer/SearchInfluencer';
 
 
@@ -87,7 +89,7 @@ class NavBar extends Component {
 						<Dropdown>
 						<Dropdown.Toggle variant="success" id="dropdown-basic">
 							{userLogged.firstName}
-							<img id="profile-picture" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1582837688/Pngtree_silence_silent_alien_distortion_3922389.png" alt="Sage" />
+							{/* <img id="profile-glyph" src={ProfileGlyph} /> */}
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
 							<Dropdown.Item href="/profile/dashboard">Profile</Dropdown.Item>

@@ -42,13 +42,7 @@ class PodcastDetail extends Component {
         } else {
             return(
                 <div className="podcast-detail-page">
-                    <iframe src={'https://www.youtube.com/embed/E7wJTI-1dvQ'}
-                    frameBorder='0'
-                    allow='autoplay; encrypted-media'
-                    allowFullScreen
-                    title='video'
-                    className='video-youtube-podcast' 
-                    />
+
                     <div className="podcast-header-div">
                             <p id="categories-podcast">Categories </p>
                 
