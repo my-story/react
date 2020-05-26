@@ -601,6 +601,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .votes-container {
@@ -635,11 +636,12 @@ body {
 }
 
 .share-buttons {
-  width: 13vw;
+  /* width: 13vw; */
   /* border: solid 1px; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -1032,12 +1034,19 @@ background: none;
   position: absolute;
   left: 5vw;
 }
+#profile-glyph {
+  height: 50px;
+  width: auto;
+}
+
 #logo-rebound-mobile{
-  height: 70px;
+  height: 50px;
   width: auto;
   position: relative;
-  right: 40px;
-  margin-bottom: 10px;
+  /* right: 40px; */
+  left: 10px;
+  top: 0;
+  /* margin-bottom: 10px; */
 }
 #mystory-name {
   position: absolute;
@@ -1573,7 +1582,7 @@ height: 3vh;
   flex-direction: column;
   align-content: center;
   justify-content: space-around;
-  padding-right: 2vw;
+  /* padding-right: 2vw; */
 
 }
 .heyhey-message h1 {
@@ -1657,11 +1666,25 @@ height: 3vh;
   align-items: baseline;
   width: 100%;
   margin-top: 4vh;
+  height: 10vh;
 }
-
-.category-bar div {
+.category-bar-index {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  width: 90%;
+  margin-top: 4vh;
+  height: 10vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+
+}
+.bar-categories-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 
@@ -1674,22 +1697,29 @@ height: 3vh;
   height: 23px;
   width: 90px;
   border-radius: 20px;
-  /* text-decoration: none; */
-  /* border: none; */
   font-weight: 600;
-  margin-left: 0.7vw;
+  /* margin-left: 0.7vw; */
+  margin: 0 0.5vw 2vh 0.5vw;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
-
+ #profile-glyph {
+   height: 20px;
+   /* padding-left: 4px; */
+ }
 .category-bar p {
   font-size: 1.6vh;
   padding-right: 1vw;
 }
 
 .category-bar span:hover {
+  color: white;
+  background-color: #f66c4f;
+  cursor: pointer;
+}
+.category-bubble:hover {
   color: white;
   background-color: #f66c4f;
   cursor: pointer;
@@ -2981,7 +3011,7 @@ left: 1vw;
   padding:0;
 }
 #tip-bulb {
-  height: 12vh;
+  height: 10vh;
   padding-left: 10px; 
 }
 #survival-prize {
@@ -3082,6 +3112,23 @@ left: 1vw;
   height: 350px;
 }
 
+.kit-close-exit-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  text-align: center;
+  height: 100%;
+  width: 50px;
+}
+.kit-close-exit-div p {
+  color: white;
+}
+.kit-close-exit-div p:hover {
+  background-color: rgb(48, 89, 90);
+  border-radius: 2px;
+}
 .rectangle-survival-title-picture {
   width: 22%;
 }
@@ -3096,7 +3143,7 @@ left: 1vw;
 }
 .review-survival-title {
   font-family: Hind;
-  width: 60%;
+  width: 77%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -3110,12 +3157,7 @@ left: 1vw;
   padding-top: 10px;
   
 } */
-#survival-title-bookmark-image {
-  height: 20px;
-  position: relative;
-  top: 10px;
-  left: 80px;
-}
+
 .rectangle-survival-title {	
   height: 120px;	
   width: 100%;	
@@ -3389,7 +3431,7 @@ flex-direction: row;
 }
 
 #rebound-footer-logo {
-height: 80px;
+height: 50px;
 width: auto;
 }
 .logo-copywrite {
@@ -3834,7 +3876,6 @@ color: black;
 
 .profile-page {
   margin: 0 12vw 0 12vw;
-  border: solid;
   display: flex;
   flex-direction: column;
 }
@@ -3846,12 +3887,22 @@ color: black;
   display: flex;
 }
 .profile-profile-menu {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  border: solid;
 }
 .profile-dashboard-div {
-  border: solid red;
-  width: 72%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-kit-page {
+  width: 700px;
+}
+
+.profile-dashboard-div h1 {
+  font-size: 30px;
 }
 .video-youtube {
   width: 100%;
@@ -3890,6 +3941,7 @@ color: black;
 }
 #podcast-thumbnail-image {
   width: 100%;
+  padding-bottom: 50px;
 }
 .podcast-outer-card {
   width: 100%;
@@ -4112,7 +4164,7 @@ color: black;
     max-width: 85%;
   }
   .inputs-login-styling {
-    width: 90%;
+    width: 370px;
     height: 8vh;
   }
   .login-button {
@@ -4519,9 +4571,9 @@ color: black;
   .technique-survival-prize-div {
     width: 50px;
   }
-  .tip-survival-prize-div {
-    width: 25px;
-  }
+  /* .tip-survival-prize-div {
+    width: 30px;
+  } */
   .video-section {
     height: 85vh;
     /* position: absolute; */
@@ -4631,17 +4683,14 @@ color: black;
 }
 .profile-page {
   margin: 0 5vw 0 5vw;
-  border: solid;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
 }
 .profile-profile-menu {
   width: 100%;
-  border: solid;
 }
 .profile-dashboard-div {
-  border: solid red;
   width: 100%;
 }
 .kit-description-div {
@@ -4722,6 +4771,13 @@ color: black;
 .survival-card-image-div {
   display: none;
 }
+#survival-title-bookmark-image {
+  height: 25px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
 .technique-with-category-div {
   display: flex;
   /* justify-content: baseline; */
@@ -4735,6 +4791,13 @@ color: black;
 .expert-card-container {
   transform: scale(0.65);
 }
+.tip-card-image-div {
+  display: none;
+}
+.tip-kit-description {
+  width: 75%;
+}
+
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
