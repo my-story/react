@@ -1261,7 +1261,7 @@ height: 3vh;
   flex-direction: column;
   align-content: center;
   justify-content: space-around;
-  padding-right: 2vw;
+  /* padding-right: 2vw; */
 
 }
 .heyhey-message h1 {
@@ -1384,7 +1384,10 @@ height: 3vh;
   justify-content: center;
   text-align: center;
 }
-
+ #profile-glyph {
+   height: 20px;
+   /* padding-left: 4px; */
+ }
 .category-bar p {
   font-size: 1.6vh;
   padding-right: 1vw;
@@ -3568,8 +3571,15 @@ color: black;
   width: 100%;
 }
 .profile-dashboard-div {
-  width: 72%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+.product-kit-page {
+  width: 700px;
+}
+
 .profile-dashboard-div h1 {
   font-size: 30px;
 }
@@ -3610,6 +3620,7 @@ color: black;
 }
 #podcast-thumbnail-image {
   width: 100%;
+  padding-bottom: 50px;
 }
 .podcast-outer-card {
   width: 100%;

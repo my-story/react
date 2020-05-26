@@ -40,7 +40,7 @@ class PodcastCard extends Component {
                 <Link href="/podcast/[id]" as={`/podcast/${this.props.podcast._id}`} key={this.props.index} prefetch>
                 <div className="podcast-outer-card">
                     <div className="podcast-image-div">
-                        <img id="podcast-thumbnail-image" src="https://i.ytimg.com/vi/duJNVv9m2NY/maxresdefault.jpg" alt="" />
+                        <img id="podcast-thumbnail-image" src={this.props.podcast.image} alt="Podcast Thumbnail" />
                     </div>
                     <div className="podcast-information">
                         <div className="podcast-heading-div">

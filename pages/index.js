@@ -22,9 +22,6 @@ class InfluencerList extends Component {
     open: false
   }
 
-  componentDidMount(){
-    this.fetchKits();
-  }
   
 
   //		.then((res) => this.setState({influencers:res.data}))
