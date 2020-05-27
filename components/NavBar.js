@@ -60,7 +60,7 @@ class NavBar extends Component {
 						
 						<Link href="/">
 							<span>
-								<p>SAGES</p>
+								<p>HOME</p>
 							</span>
 						</Link>
 						<Link href="/podcasts">
@@ -89,23 +89,25 @@ class NavBar extends Component {
 						<Dropdown>
 						<Dropdown.Toggle variant="success" id="dropdown-basic">
 							{userLogged.firstName}
-							{/* <img id="profile-glyph" src={ProfileGlyph} /> */}
+							<img id="profile-glyph" src={ProfileGlyph} />
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
 							<Dropdown.Item href="/profile/dashboard">Profile</Dropdown.Item>
-							<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+							<Dropdown.Item href="/settings">Settings</Dropdown.Item>
 							<Dropdown.Item href="#/action-3">
 							<Logout {...this.props} >Logout</Logout>
 							</Dropdown.Item>
 						</Dropdown.Menu>
 						</Dropdown>
 					</div>
-					<Link href="/cart">
+
+					{/* CART LINK */}
+					{/* <Link href="/cart">
 						<div className="cart-div"> 
 						<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" />
 						<QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
 						</div>
-					</Link>
+					</Link> */}
 					{/* </div> */}
 					</div>
 
@@ -127,7 +129,7 @@ class NavBar extends Component {
 						<img id="logo-rebound" src={Logo} />						
 						<Link href="/">
 							<span>
-								<p>SAGES</p>
+								<p>HOME</p>
 							</span>
 						</Link>
 						<Link href="/podcasts">
@@ -157,11 +159,13 @@ class NavBar extends Component {
 						<p >LOG IN</p>
 						</span>
 					</Link>
-					<Link href="/cart">
+
+					{/* CART LINK */}
+					{/* <Link href="/cart">
 						<div className="cart-div">
 							<img id="shopping-cart" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566514790/cart_icon_1.svg" /><QtyConsumer>{(obj) => obj.getQtyState}</QtyConsumer>
 						</div>
-					</Link>
+					</Link> */}
 				
 					</div>						
 				</div>

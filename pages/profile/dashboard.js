@@ -22,7 +22,7 @@ class Profile extends Component{
     
     render() {
         const { user } = this.context;
-        console.log(user)
+  
         if (user) {
             return (
                 <div className="profile-page">
