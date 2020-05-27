@@ -716,6 +716,7 @@ background: none;
 #profile-glyph {
   height: 50px;
   width: auto;
+  padding-left: 5px;
 }
 
 #logo-rebound-mobile{
@@ -3570,14 +3571,16 @@ color: black;
   justify-content: center;
   width: 100%;
 }
+
 .profile-dashboard-div {
-  width: 100%;
+  width: 77%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: center;
 }
 .product-kit-page {
-  width: 700px;
+  width: 100%;
 }
 
 .profile-dashboard-div h1 {
@@ -3739,4 +3742,39 @@ color: black;
   width: 100%;
   justify-content: center;
   /* align-content: center; */
+}
+.settings-container {
+
+  width: 70%;
+}
+.settings-div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 0.5px solid;
+}
+.opened {
+  height: 150px;
+}
+.settings-options-div {
+  display: flex;
+  flex-direction: row;
+  width: 68%;
+  justify-content: space-between;
+}
+.settings-input {
+  display: flex;
+  align-items: baseline;
+
+}
+.settings-option-name {
+  width: 30%;
+}
+#button-save {
+  background-color: #5BA5A6;
+  color: white;
+}
+#email-settings {
+  color: gray;
 }
