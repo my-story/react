@@ -1030,6 +1030,13 @@ margin: 0 10px 0 10px;
   border-radius: 8%;
   overflow: hidden;
 }
+.expert-card-container-profile {
+  height: 280px;
+  width: 220px;
+  border-radius: 8%;
+  overflow: hidden;
+  /* transform: scale(0.8); */
+}
 #expert-profile-pic-card {
   height: 100%;
   /* border-bottom-left-radius: 8%; */
@@ -2248,7 +2255,10 @@ margin-right: 1vw
 }
 
 .technique-survival-kit-card {
-  height: 230px;
+  overflow: auto;
+  height: 250px;
+  /* max-height: 500px; */
+
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -3573,7 +3583,7 @@ color: black;
 }
 
 .profile-dashboard-div {
-  width: 77%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -3740,8 +3750,14 @@ color: black;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
   /* align-content: center; */
+}
+.profile-dashboard-kits {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 .settings-container {
 
@@ -3774,6 +3790,7 @@ color: black;
 #button-save {
   background-color: #5BA5A6;
   color: white;
+  margin-right: 20px;
 }
 #email-settings {
   color: gray;

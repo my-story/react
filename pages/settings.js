@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { Input } from 'antd';
+import * as toastr from 'toastr';
+import AuthServices from '../services/AuthServices';
 import UserContext from '../components/contexts/UserContext';
+import Link from 'next/link';
+import PasswordChange from '../components/password/PasswordChange';
 
 class Settings extends Component {
     state= {
         user: {},
+        unchangedUser: {},
         editName: false,
         newUser: {}
-        
+
     }
 
 	static contextType = UserContext;
@@ -19,12 +24,25 @@ class Settings extends Component {
     };
 
     componentDidMount = () => {
-		this.setState({user:this.context.user})
+		this.setState({user:this.context.user, unchangedUser:this.context.user})
 
+    };
+
+    saveName = () => {
+        const {user} = this.state;
+
+        AuthServices.editUser(user._id, user)
+        .then(() => {
+            toastr.info('Name change successful!');
+            this.editData();
+        })
+        .catch(() => {
+            toastr.error('Problem with server. Try Again Later.');
+        })
     }
 
     nameDiv = () => {
-        const {editName, user} = this.state;
+        const {editName, unchangedUser, user} = this.state;
         if (editName === false) {
             return(
                 <div onClick={this.editData} className="settings-div">
@@ -32,7 +50,7 @@ class Settings extends Component {
                     <p>Name</p>
                 </div>
                 <div className="settings-options-div">
-                    <p>{user.firstName} {user.lastName}</p>
+                    <p>{unchangedUser.firstName} {unchangedUser.lastName}</p>
                     <p>Edit</p>
                 </div>
             </div>
@@ -55,9 +73,8 @@ class Settings extends Component {
                             <Input name="lastName" placeholder={user.lastName} allowClear onChange={this.onChange} />
                         </div>
                         <div className="settings-input">
-                            <button id="button-save">Save</button>
+                            <button onClick={this.saveName} id="button-save">Save</button>
                             <button onClick={this.editData}>Cancel</button>
-
                         </div>
                     </div>
                     <p>Edit</p>
@@ -70,12 +87,13 @@ class Settings extends Component {
 
 
     editData = () => {
+        const {user, unchangedUser} = this.state;
         let name = this.state.editName === false ? true : false;
         this.setState({ editName: name });
     };
 
     render () {
-        const { user} = this.state;
+        const { user, unchangedUser} = this.state;
 
         return (
             <div className="settings-page">
@@ -90,9 +108,10 @@ class Settings extends Component {
                             <p id="email-settings">{user.username}</p>
                         </div>
                     </div>
+                    <PasswordChange></PasswordChange>
 
                 </div>
-                
+                <Link href="/profile/dashboard">Go back to Profile</Link>
             </div>
         )
     }

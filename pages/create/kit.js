@@ -9,7 +9,7 @@ import TipsList from '../../components/survivalKit/TipsList';
 const { TextArea } = Input;
 
 
-const OPTIONS = ["Addiction", "Sleep", "Spirituality"];
+const OPTIONS = ["Addiction", "Sleep", "Spirituality", "Cognitive Skills"];
 //Kit/create = route. Needs Authentication 
 class KitCreate extends Component {
     state = {
