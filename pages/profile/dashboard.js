@@ -3,6 +3,7 @@ import Router from 'next/router';
 import SurvivalKitProfile from '../../components/profile/SurvivalKitProfile';
 import {QtyConsumer} from '../../components/contexts/QtyContext';
 import UserContext from '../../components/contexts/UserContext';
+import KitCardProfile from '../../components/profile/KitCardProfile';
 
 class Profile extends Component{
     state = {
@@ -22,7 +23,7 @@ class Profile extends Component{
     
     render() {
         const { user } = this.context;
-  
+        console.log(user);
         if (user) {
             return (
                 <div className="profile-page">
@@ -36,12 +37,24 @@ class Profile extends Component{
                     
                     </div>
                     <div className="profile-dashboard-div">
-                        <h1>My Survival Kits</h1>
+                        <h1>Survival Kits</h1>
+                        <div className="profile-dashboard-kits">
+
+                        {user.kits.map((kit, index) => {  
+                            return(
+                            
+                            <KitCardProfile kit={kit} key={index}></KitCardProfile>
+                        )})}
+                        </div>
+
+
+                        <h1>Favorited (bookmark emoji)</h1>
                         {user.kits.map((kit, index) => {  
                             return(
                             <SurvivalKitProfile kit={kit} user={user}></SurvivalKitProfile>
                             )
                         })}
+                        
                     </div>
                 </div>
             )

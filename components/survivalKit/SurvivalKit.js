@@ -47,7 +47,7 @@ class SurvivalKit extends Component {
         } else {
             return (
                 <div className="product-kit-page">
-                <div className="rectangle-survival-title">
+                {/* <div className="rectangle-survival-title">
                 <img className="rectangle-survival-title-picture" src={kit.influencer.profilePic}/>
                 <div className="review-survival-title">
                   <div>
@@ -60,7 +60,7 @@ class SurvivalKit extends Component {
             
 				<img id="survival-title-bookmark-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
             
-            </div>
+            </div> */}
                 {kit.products.map((p, index) => {
                     let product = p.product;
                     return(

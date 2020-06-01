@@ -630,6 +630,9 @@
 .profile-dashboard-div {
   width: 100%;
 }
+.product-kit-page {
+  width: 100%;
+}
 .kit-description-div {
   width: 350px; 
 }
@@ -727,6 +730,19 @@
 }
 .expert-card-container {
   transform: scale(0.65);
+}
+.expert-card-container-profile {
+  height: 220px;
+  width: 160px;
+}
+#card-kit-title {
+  font-size: 9px;
+}
+#card-kit-name {
+  font-size: 9px;
+}
+.expert-card-name{
+  font-size: 3px;
 }
 .tip-card-image-div {
   display: none;

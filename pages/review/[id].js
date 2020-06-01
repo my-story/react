@@ -290,33 +290,7 @@ class ReviewOne extends Component {
               <p>
                {influencer.description}
                 </p>
-                <div className="books-section">
-                 <h2>BOOKS</h2>
-                 <div className="book-container">
-                   <div className="book-card">
-                     <img height="auto" width="100%" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
-                     {/* <p><b>The Happiness Hypothesis: Jonathan Haidt</b></p> */}
-                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
-                   </div>
-                   {/* <div className="book-card">
-                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
-                     <p><b>Title of Book</b></p>
-                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
-                   </div>
-                   <div className="book-card">
-                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
-                     <p><b>Title of Book fwefwe </b></p>
-                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
-                   </div>
-                   <div className="book-card">
-                     <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
-                     <p><b>Title of Book www  wef</b></p>
-                     <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
-                   </div> */}
-   
-                   
-                 </div>
-              </div>
+
               <section className="survival-habits-heading">
                 <button className="clicked-show">SURVIVAL KITS</button>
               </section>
@@ -327,6 +301,33 @@ class ReviewOne extends Component {
                 
             </div>
             {this.audioDraw()}
+            <div className="books-section">
+                <h2>BOOKS</h2>
+                <div className="book-container">
+                  <div className="book-card">
+                    <img height="auto" width="100%" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                    {/* <p><b>The Happiness Hypothesis: Jonathan Haidt</b></p> */}
+                    <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                  </div>
+                  {/* <div className="book-card">
+                    <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                    <p><b>Title of Book</b></p>
+                    <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                  </div>
+                  <div className="book-card">
+                    <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                    <p><b>Title of Book fwefwe </b></p>
+                    <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                  </div>
+                  <div className="book-card">
+                    <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                    <p><b>Title of Book www  wef</b></p>
+                    <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                  </div> */}
+  
+                  
+                 </div>
+              </div>
             <div className="bottom-review-container">
               <Votes
                 isDownvoted={this.isDownvoted()}
