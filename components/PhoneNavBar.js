@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from '../public/images/reboundLogo01.png';
 import ProfileGlyph from '../public/images/icons8-name-90.png';
+import Logout from './auth/Logout';
 
 
 const PhoneNavBar = (props) => {
@@ -34,6 +35,10 @@ if (props.loggedIn === true) {
                 </NavItem>
                 <NavItem>
                   <NavLink href="/about">About us</NavLink>
+                </NavItem>
+                <NavItem>
+                  {/* <NavLink href="/logout">Logout</NavLink> */}
+                  <Logout {...this.props} >Logout</Logout>
                 </NavItem>
    
               </Nav>
