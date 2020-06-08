@@ -7,15 +7,18 @@ import {FacebookShareButton, TwitterShareButton,  WhatsappShareButton} from "rea
 import ReviewServices from '../../services/ReviewServices';
 import InfluencerServices from '../../services/InfluencerServices';
 import UserContext from '../../components/contexts/UserContext';
-import ReviewUpdate from '../../components/reviews/ReviewUpdate';
-import CartBubble from '../../components/cart/CartBubble';
+// import ReviewUpdate from '../../components/reviews/ReviewUpdate';
+// import CartBubble from '../../components/cart/CartBubble';
 import Votes from '../../components/votes/Votes';
-import InfluencerCard from '../../components/influencer/InfluencerCard';
-import SurvivalKit from '../../components/survivalKit/SurvivalKit';
+// import InfluencerCard from '../../components/influencer/InfluencerCard';
+// import SurvivalKit from '../../components/survivalKit/SurvivalKit';
+import TechniqueKit from '../../components/survivalKit/TechniqueKit';
 import KitCard from '../../components/survivalKit/KitCard';
 import KitServices from '../../services/KitServices';
 
-class ReviewOne extends Component {
+
+
+class CuriositaKit extends Component {
   
   state = {
     influencers: [],
@@ -29,18 +32,13 @@ class ReviewOne extends Component {
   static contextType = UserContext;
 
 
-  static getInitialProps({ query: { id } }) {
-    return { id };
-  }
-
-
   componentDidMount() {
     this.fetchInfluencer();
     this.fetchKits();
 
-    const { id } = this.props;
+    // const { id } = this.props;
 
-    ReviewServices.getReview(id)
+    ReviewServices.getReview("5ede6eb7a2c1971864825b3b")
       .then((review) => {
         this.setState({
           review: review
@@ -48,11 +46,11 @@ class ReviewOne extends Component {
       })
       .catch(() => toastr.error('Error occured while fetching. Please try later.'));
       
-      this.getkit(id)
+      this.getkit()
   }
 
-  getkit = (id) => {
-    KitServices.getKit(id)
+  getkit = () => {
+    KitServices.getKit("5ede6eb7a2c1971864825b3b")
       .then((kit) => {
           this.setState({
               kit: kit
@@ -245,9 +243,9 @@ class ReviewOne extends Component {
     // const influencers = this.state.influencers;
     // const kit = this.state.kit;
     const {kits , kit, influencers, review} = this.state;
+    // console.log(this.state.kit.techniques)
 
-
-    if(this.state.kit === {} || this.state.kit === undefined || this.state.review.influencer === undefined){
+    if(this.state.kit === {} || this.state.kit.tips === undefined || this.state.kit.techniques === undefined || this.state.review.influencer === undefined){
       return(
         <div>
           <p>Loadingg........</p>
@@ -261,7 +259,7 @@ class ReviewOne extends Component {
             <div>
               <div className="review-heading-div">
                 <img src={influencer.profilePic} alt="Expert Image" className="influencer-pic" />
-                <p className="heading" >{review.title}</p>
+                <p className="heading" >{kit.title}</p>
               </div>
               <div className="subheading">
                 <div className="category-name">
@@ -291,12 +289,26 @@ class ReviewOne extends Component {
                {influencer.description}
                 </p>
 
-              <section className="survival-habits-heading">
-                <button className="clicked-show">SURVIVAL KITS</button>
-              </section>
               
               {/* <div> */}
-                <SurvivalKit id={influencer._id}></SurvivalKit>
+              <div className="product-kit-page">
+                {/* <h1>Curiosita</h1>
+                <p>Leonardo had an insatiable curiosity and was unrelenting
+in his quest to keep learning, knowing and growing. 
+<span style={{color: "#ff0000"}}> He
+focused his life singularly on the search for truth and beauty,
+and had an intense desire to understand how everything
+worked, from why a bird could fly, to why we see lightning
+before we hear thunder.</span> 
+Curiosita requires that you constantly ask great questions
+at the heart of important quality-of-life issues, then search
+intensely for answers.</p> */}
+                <TechniqueKit technique={kit.techniques[0]} kit={kit}></TechniqueKit>
+                <TechniqueKit technique={kit.techniques[1]} kit={kit}></TechniqueKit>
+
+
+              </div>
+                {/* <SurvivalKit id={kit._id}></SurvivalKit> */}
               {/* </div> */}
                 
             </div>
@@ -363,4 +375,4 @@ class ReviewOne extends Component {
       }
 }
 
-export default ReviewOne;
+export default CuriositaKit;

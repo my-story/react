@@ -23,7 +23,7 @@ class KitCardProfile extends Component {
             return(<div></div>)
         } else {
             return (
-            <Link href="/review/[id]" as={`/review/${this.state.kit.influencer._id}`} prefetch>  
+            <Link href="/review/[id]" as={`/review/${this.state.kit._id}`} prefetch>  
                 <div className="expert-card-container-profile">
                     <div className="expert-card-picture-div">
                         <img className="expert-card-picture-round" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1583176290/simon-migaj-b2qszO9C7sw-unsplash.jpg" alt="Sage picture" />

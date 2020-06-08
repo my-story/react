@@ -9,7 +9,6 @@ const { TextArea } = Input;
 
 class ReviewForm extends Component {
     state= {
-      title:"",
       kit: "",
       influencer:this.props.influencer,
       video:"",
@@ -27,7 +26,6 @@ class ReviewForm extends Component {
 
     handleSubmit = () => {
       ReviewServices.createReview({
-          title: this.state.title,
           influencer: this.state.influencer,
           video: this.state.video,
           kit: this.state.kit,
@@ -49,7 +47,6 @@ class ReviewForm extends Component {
         } else {
           return (
             <div>  
-              <Input name="title" placeholder="Please enter title " allowClear onChange={this.onChange} />
               <Input name="influencer" placeholder="Please enter infleuncer ID "  allowClear onChange={this.onChange} />
               <Input name="video" placeholder="Please enter VIDEO URL YOUTUBE " allowClear onChange={this.onChange} />
               <Input name="kit" placeholder="Please enter kit id" allowClear  onChange={this.onChange} />
