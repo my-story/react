@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import KitServices from '../../services/KitServices';
-import { Input } from 'antd';
+import { Input, Select } from 'antd';
 const { TextArea } = Input;
+
+const OPTIONS = ["Addiction", "Sleep", "Spirituality", "Cognitive Skills"];
 
 class TechniqueCreate extends Component {
 
@@ -13,12 +15,14 @@ class TechniqueCreate extends Component {
             subheading : [{
             }],
             recommendation: "",
+            category: "",
         },
         data: {
           header: "",
           description: [],
         },
         techniqueDescription: [],
+        selectedItems: [],
     }
     
 
@@ -32,6 +36,16 @@ class TechniqueCreate extends Component {
         let { technique } = this.state;
         technique[e.target.name] = e.target.value
         this.setState( {technique} )
+      };
+
+    categoryChange = (selectedItems) => {
+        this.setState({
+          technique : {
+            ...this.state.technique,
+            category: selectedItems
+
+          }
+        })
       };
 
     fixTechniques = () => {
@@ -71,6 +85,8 @@ class TechniqueCreate extends Component {
 
 
     render() {
+      const {selectedItems} = this.state;
+      const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
 
         return (
             <div>
@@ -83,6 +99,18 @@ class TechniqueCreate extends Component {
                   </div>
                   <button onClick={this.fixTechniques}>Add more subheadings</button> 
                 </div>
+                <Select
+                    mode="multiple"
+                    placeholder="This is the Category. ADMIN can create new categories"
+                    name="category"
+                    onChange={this.categoryChange}
+                    style={{ width: '100%' }}>
+                    {filteredOptions.map(item => (  
+                  <Select.Option key={item} value={item}>
+                    {item}
+                  </Select.Option>
+                ))}
+              </Select>
                 <button onClick={this.addTechniques}>Send technique</button>  
 
             </div>
