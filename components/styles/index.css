@@ -1397,7 +1397,7 @@ height: 3vh;
   color: black;
   background-color: #f9f8f4;
   height: 23px;
-  width: 90px;
+  /* width: 90px; */
   border-radius: 20px;
   font-weight: 600;
   /* margin-left: 0.7vw; */

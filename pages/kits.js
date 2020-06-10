@@ -8,9 +8,13 @@ class Kits extends Component {
     state = {
         kits: [],
         category: [
-            "All","Sports", "Music", "Tech", "Clothes"
+           "All", "Addiction","Cognitive Skills", "Spirituality"
           ],
       };
+
+    static getInitialProps({ query: { info } }) {
+        return { info };
+    }
 
     fetchKits = () => {
         KitServices.getAll()
@@ -31,10 +35,18 @@ class Kits extends Component {
 
     componentDidMount(){
         this.fetchKits();
+        if (this.props.info) {
+          KitServices.searchKit(this.props.info)
+            .then((res) => this.setState({ kits: res }))
+            .catch((err) => console.log(err))
+        } else {
+          return
+        }
     };
 
     render () {
         const { category } = this.state;
+        console.log(this.props)
 
         if (this.state.kits.length === 0 || this.state.kits === undefined){
             return ( 
