@@ -37,6 +37,9 @@ const unfavoriteTechnique = (id, technique) => http.post(`api/unfavorite/techniq
 const unfavoriteProduct = (id, product) => http.post(`api/unfavorite/product/${id}/${product}`)
   .then((res) => res.data)
 
+const editUser = (id, user) => http.post(`api/edit/${id}`, user)
+  .then((res) => res.data)
+
 export default {
   signup,
   login,
@@ -49,5 +52,6 @@ export default {
   unfavoriteTip,
   unfavoriteTechnique,
   unfavoriteProduct,
-  unfavoriteKit
+  unfavoriteKit,
+  editUser
 }

@@ -39,14 +39,14 @@ class SurvivalKit extends Component {
     }
     render(){
         const {kit} = this.state || {};
-        console.log("KIT - SurvivalKit", kit)
+        console.log(this.state)
         
         if (kit === undefined || kit.products === undefined || kit.techniques === undefined) {
             return(<div>...</div>)
         } else {
             return (
                 <div className="product-kit-page">
-                <div className="rectangle-survival-title">
+                {/* <div className="rectangle-survival-title">
                 <img className="rectangle-survival-title-picture" src={kit.influencer.profilePic}/>
                 <div className="review-survival-title">
                   <div>
@@ -59,18 +59,18 @@ class SurvivalKit extends Component {
             
 				<img id="survival-title-bookmark-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
             
-            </div>
+            </div> */}
                 {kit.products.map((p, index) => {
                     let product = p.product;
                     return(
-                    <ProductKit p={p} product={product} kit={kit} ></ProductKit>
+                    <ProductKit key={index} p={p} product={product} kit={kit} ></ProductKit>
                     )
                 })}
     
                 {/* //Techniques DESIGN FIGURE OUT How to dispaly all of them */}
                 {kit.techniques.map((technique , index) => {
                     return(
-                        <TechniqueKit technique={technique} kit={kit}></TechniqueKit>
+                        <TechniqueKit key={index} technique={technique} kit={kit}></TechniqueKit>
                     )
                 })
                 }
@@ -78,9 +78,9 @@ class SurvivalKit extends Component {
                 {/* TIPS MAP */}
                 {kit.tips.map(( tip, index ) => {
                     return(
-                        <div key={index}>
-                            <TipKit tip={tip} kit={kit} key={index}></TipKit>
-                        </div>
+                        
+                            <TipKit key={index} tip={tip} kit={kit} key={index}></TipKit>
+                       
                     )
                 })}
                 </div>

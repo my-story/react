@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import Link from 'next/link';
 import * as toastr from 'toastr';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import {FacebookShareButton, TwitterShareButton,  WhatsappShareButton} from "react-share";
 import ReviewServices from '../../services/ReviewServices';
 import InfluencerServices from '../../services/InfluencerServices';
 import UserContext from '../../components/contexts/UserContext';
+// import ReviewUpdate from '../../components/reviews/ReviewUpdate';
+// import CartBubble from '../../components/cart/CartBubble';
 import Votes from '../../components/votes/Votes';
-import SurvivalKit from '../../components/survivalKit/SurvivalKit';
+// import InfluencerCard from '../../components/influencer/InfluencerCard';
+// import SurvivalKit from '../../components/survivalKit/SurvivalKit';
+import TechniqueKit from '../../components/survivalKit/TechniqueKit';
 import KitCard from '../../components/survivalKit/KitCard';
 import KitServices from '../../services/KitServices';
 
-class ReviewOne extends Component {
+
+
+class CuriositaKit extends Component {
   
   state = {
     influencers: [],
@@ -24,18 +32,13 @@ class ReviewOne extends Component {
   static contextType = UserContext;
 
 
-  static getInitialProps({ query: { id } }) {
-    return { id };
-  }
-
-
   componentDidMount() {
     this.fetchInfluencer();
     this.fetchKits();
 
-    const { id } = this.props;
+    // const { id } = this.props;
 
-    ReviewServices.getReview(id)
+    ReviewServices.getReview("5ede6eb7a2c1971864825b3b")
       .then((review) => {
         this.setState({
           review: review
@@ -43,11 +46,11 @@ class ReviewOne extends Component {
       })
       .catch(() => toastr.error('Error occured while fetching. Please try later.'));
       
-      this.getkit(id)
+      this.getkit()
   }
 
-  getkit = (id) => {
-    KitServices.getKit(id)
+  getkit = () => {
+    KitServices.getKit("5ede6eb7a2c1971864825b3b")
       .then((kit) => {
           this.setState({
               kit: kit
@@ -200,6 +203,15 @@ class ReviewOne extends Component {
     };
   };
 
+  // instagramRedirect = () => {
+  //   return(
+  //     <div>
+  //       <Link href="instagram.com/kingjames"></Link>
+  //     </div>
+  //   )
+  // }
+  
+
   videoDraw = () => {
 
     if (this.state.review.video === "") {
@@ -209,6 +221,7 @@ class ReviewOne extends Component {
     } else {
       return(
         <div>
+            {/* <video className="video" controls src={review.video} /> */}
           <iframe src={'https://www.youtube.com/embed/E7wJTI-1dvQ'}
             frameBorder='0'
             allow='autoplay; encrypted-media'
@@ -224,11 +237,15 @@ class ReviewOne extends Component {
 
 
   render() {
+
+    // const review = this.state.review || {};
     const influencer = this.state.review.influencer || {};
-    const {kits, review} = this.state;
+    // const influencers = this.state.influencers;
+    // const kit = this.state.kit;
+    const {kits , kit, influencers, review} = this.state;
+    // console.log(this.state.kit.techniques)
 
-
-    if(this.state.kit === {} || this.state.kit === undefined || this.state.review.influencer === undefined){
+    if(this.state.kit === {} || this.state.kit.tips === undefined || this.state.kit.techniques === undefined || this.state.review.influencer === undefined){
       return(
         <div>
           <p>Loadingg........</p>
@@ -242,11 +259,15 @@ class ReviewOne extends Component {
             <div>
               <div className="review-heading-div">
                 <img src={influencer.profilePic} alt="Expert Image" className="influencer-pic" />
-                <p className="heading" >{review.title}</p>
+                <p className="heading" >{kit.title}</p>
               </div>
               <div className="subheading">
                 <div className="category-name">
                   <p className="author">{influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
+                  {/* <div className="category-card">
+                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567710375/icons8-comedy-100_1.png" alt="the product" className="icon"/>
+                    <span className="photography">{influencer.expertise}</span>
+                  </div> */}
         
               <span id="category-bubble-review">Athlete</span>
                   
@@ -266,28 +287,59 @@ class ReviewOne extends Component {
             <h5>Few words about {influencer.name && influencer.name.firstName}</h5>
               <p>
                {influencer.description}
-              </p>
-              </div>
-              <section className="survival-habits-heading">
-                <button className="clicked-show">SURVIVAL KITS</button>
-              </section>
+                </p>
+
               
               {/* <div> */}
-                <SurvivalKit id={influencer._id}></SurvivalKit>
+              <div className="product-kit-page">
+                {/* <h1>Curiosita</h1>
+                <p>Leonardo had an insatiable curiosity and was unrelenting
+in his quest to keep learning, knowing and growing. 
+<span style={{color: "#ff0000"}}> He
+focused his life singularly on the search for truth and beauty,
+and had an intense desire to understand how everything
+worked, from why a bird could fly, to why we see lightning
+before we hear thunder.</span> 
+Curiosita requires that you constantly ask great questions
+at the heart of important quality-of-life issues, then search
+intensely for answers.</p> */}
+                <TechniqueKit technique={kit.techniques[0]} kit={kit}></TechniqueKit>
+                <TechniqueKit technique={kit.techniques[1]} kit={kit}></TechniqueKit>
+
+
+              </div>
+                {/* <SurvivalKit id={kit._id}></SurvivalKit> */}
               {/* </div> */}
                 
             </div>
-              <div className="books-section">
+            {this.audioDraw()}
+            <div className="books-section">
                 <h2>BOOKS</h2>
                 <div className="book-container">
                   <div className="book-card">
-                  <img height="auto" width="100%" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                    <img height="auto" width="100%" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
                     {/* <p><b>The Happiness Hypothesis: Jonathan Haidt</b></p> */}
-                  <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                    <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
                   </div>
+                  {/* <div className="book-card">
+                    <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                    <p><b>Title of Book</b></p>
+                    <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                  </div>
+                  <div className="book-card">
+                    <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                    <p><b>Title of Book fwefwe </b></p>
+                    <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                  </div>
+                  <div className="book-card">
+                    <img height="150" width="auto" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                    <p><b>Title of Book www  wef</b></p>
+                    <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                  </div> */}
+  
+                  
+                 </div>
               </div>
-                 
-            {this.audioDraw()}
             <div className="bottom-review-container">
               <Votes
                 isDownvoted={this.isDownvoted()}
@@ -323,4 +375,4 @@ class ReviewOne extends Component {
       }
 }
 
-export default ReviewOne;
+export default CuriositaKit;

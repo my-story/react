@@ -108,17 +108,34 @@
     margin-top: 0;
     width: 55vw;
   }
+  .login-button-signup {
+    margin-top: 25px;
+    width: 55vw;
+  }
   .remember-div {
     /* height: 11vh; */
     margin-top: 25vh;
     font-size: 90%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
+  
+      font-family: "Hind";
+      height: 20px;
+      
+     
+      align-items: center;
+
   }
   .mail-image {
-    left: -7vw;
+    left: 90px;
+    bottom: 60px;
   }
+  #sign-up-redirect-bttn {
+    text-decoration: none;
+    border: none;
+    background: none;
+  } 
   .signup {
     color: #f66c4f;
   }
@@ -144,16 +161,13 @@
     width: 45%;
     height: 48px;
   }
-  .remember-div {
-    font-family: "Hind";
-    height: 20px;
-    margin-top: 200px;
-    display: flex;
-    align-items: center;
-  }
+
+
   #account-log-in {
     color: #f66c4f;
     font-weight: bold;
+    background: none;
+    border: none;
   }
   .terms-page {
     margin: 0 5vw 0 5vw;
@@ -433,7 +447,9 @@
     height: 700px;
   }
   .sage-outer-most-container {
-    margin: 10px 0 10px 0;
+    margin: 0;
+    transform: scale(0.80);
+
   }
   .podcast-all-page {
     margin: 0 5vw 0 5vw;
@@ -629,6 +645,15 @@
 }
 .profile-dashboard-div {
   width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.profile-dashboard-kits {
+  width: 100%;
+}
+.product-kit-page {
+  width: 100%;
 }
 .kit-description-div {
   width: 350px; 
@@ -725,8 +750,19 @@
 #review-survival-title {
   font-size: 20px;
 }
-.expert-card-container {
-  transform: scale(0.65);
+
+.expert-card-container-profile {
+  height: 220px;
+  width: 160px;
+}
+#card-kit-title {
+  font-size: 9px;
+}
+#card-kit-name {
+  font-size: 9px;
+}
+.expert-card-name{
+  font-size: 3px;
 }
 .tip-card-image-div {
   display: none;

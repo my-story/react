@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import Slider from "react-slick";
-import Link from 'next/link'
+import Link from 'next/link';
+import Router from 'next/router';
 import {Helmet} from 'react-helmet';
 import InfluencerServices from '../services/InfluencerServices';
 import SearchBar from '../components/influencer/SearchInfluencer';
@@ -16,7 +17,7 @@ class InfluencerList extends Component {
   state = {
     influencers: [],
     category: [
-      "Athlete", "Musician", "Tech", "Artist"
+      "All", "Addiction","Cognitive Skills", "Spirituality"
     ],
     search_expert:[],
     open: false
@@ -89,52 +90,38 @@ class InfluencerList extends Component {
   
           <div className="top-categories">
             <h2><b>Top Categories</b></h2>
-  
             <div className="categories-container">
+            <Link href={{ pathname: '/kits', query: { info: 'Addiction' } }}>
               <div id="categories-card">
-                {/* <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" /> */}
                 <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790965/icons8-sport-96_1.png" alt="category" /></div>
-                <p><b>Athlete</b></p>
+                <p><b>Addiction</b></p>
                 <div id="dash-under"></div>
               </div>
+            </Link>
+            <Link href={{ pathname: '/kits', query: { info: 'Cognitive Skills' } }}>
               <div id="categories-card">
-                {/* <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" /> */}
                 <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790640/icons8-paragraph-96_1.png" alt="category" /></div>             
-                <p><b>Author</b></p>
+                <p><b>Cognitive Skills</b></p>
                 <div id="dash-under"></div>
               </div>
+              </Link>
+            <Link href={{ pathname: '/kits', query: { info: 'Spirituality' } }}>
               <div id="categories-card">
-                {/* <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" /> */}
                 <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790797/icons8-comedy-100_2.png" alt="category" /></div>              
-                <p><b>Comedian</b></p>
+                <p><b>Spirituality</b></p>
                 <div id="dash-under"></div>
               </div>
-              <div id="categories-card">
-                {/* <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" /> */}
-                <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790797/icons8-comedy-100_2.png" alt="category" /></div>              
-                <p><b>Comedian</b></p>
-                <div id="dash-under"></div>
-              </div>
-              {/* <div id="categories-card">
-                <img id="category-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566178040/Deco-Design/icons8-colosseum-48_1.png" alt="category-image" />
-                <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567791082/icons8-music-notation-250.png" alt="category" /></div>              
-                <p><b>Musician</b></p>
-                <div id="dash-under"></div>
-              </div> */}
+            </Link>
             </div>
-
-
-
           </div>
           <div className="category-bar-index"> 
             <p><b className="all-categories-p">All Categories: </b></p>
             <div className="bar-categories-div">
               {category.map((category, index) => {
                 return (
-                  <div>
-                    {/* <CategoryBubbleOne searchbar={this.searchBar} category={category}></CategoryBubbleOne> */}
+                  <Link href={{ pathname: '/kits', query: { info: category } }}>
                     <span key={index} className="category-bubble" title={category}>{category}</span>
-                  </div>
+                  </Link>
                 )
                })}
             </div>

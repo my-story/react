@@ -10,6 +10,7 @@ const PhoneNavBar = (props) => {
   const toggleNavbar = () => setCollapsed(!collapsed);
  
 
+
 if (props.loggedIn === true) {
   // console.log(props)
     return (

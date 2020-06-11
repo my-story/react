@@ -7,7 +7,7 @@ import UserContext from '../contexts/UserContext';
 import InfluencerServices from '../../services/InfluencerServices';
 
 
-const OPTIONS = ["Athlete", "Musician", "Tech", "Artist", "Runner"];
+const OPTIONS = ["Athlete", "Musician", "Tech", "Artist", "Runner", "Author"];
 
 class InfluencerForm extends Component {
 

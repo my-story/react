@@ -65,7 +65,7 @@ class TechniqueKit extends Component {
                         <p id="technique-name"><b>{technique.title}</b></p>
                         <div className="technique-with-category-div">
                         <p id="technique-word">Technique</p>
-                        <span id="category-bubble-profile">Athlete</span>
+                        {/* <span id="category-bubble-profile">{technique.category}</span> */}
 
                         </div>
                     </div>

@@ -171,11 +171,11 @@ class Login extends Component {
                 <input placeholder="Re-type password" type="password" className="inputs-login-styling margin-input-login" name="password2" onChange={e => this.handleChange(e)} />
                 
                 {/* <img className="mail-image" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567525727/lock.svg" alt="a lock"></img> */}
-              <button type="submit" className="login-button"><span className="login-font">Sign up</span></button>
+              <button type="submit" className="login-button-signup"><span className="login-font">Sign up</span></button>
               </div>              
               <div className="remember-div">
                 <span>Already have an account?</span>
-                <Link href="login" as={`login`}><span id="account-log-in">Log in</span></Link>
+                <button onClick={this.switchStateBack} id="account-log-in">Log in</button>
               </div>
             </form>
           </div>
@@ -231,7 +231,7 @@ class Login extends Component {
               <div className="p-login-header">
               <p className="p-login">Log in</p>             
               <p className="new-login">New to Rebound?</p>    
-              <Link href="/signup" as={`/signup`}><p className="new-login signup">SIGN UP FOR FREE!</p></Link>
+              <button id="sign-up-redirect-bttn" onClick={this.switchState}><p className="new-login signup">SIGN UP FOR FREE!</p></button>
               </div>
               <div className="inputs-login">
                 <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />

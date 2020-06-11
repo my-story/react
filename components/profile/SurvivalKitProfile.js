@@ -49,7 +49,8 @@ class SurvivalKitProfile extends Component {
         } else {
             return (
                 <div className="product-kit-page">
-                <div className="rectangle-survival-title">
+                    
+                {/* <div className="rectangle-survival-title">
                     <img className="rectangle-survival-title-picture" src={kit.influencer.profilePic}/>
                     <div className="review-survival-title">
                     <div>
@@ -61,15 +62,16 @@ class SurvivalKitProfile extends Component {
                     </div>
                         <div className="kit-close-exit-div">
                         <img id="survival-title-bookmark-image" onClick={this.unfavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1584740221/icons8-close-window-32.png" alt="bookmark" />
-                        {/* <p onClick={this.hideList}>(hide)</p> */}
+                        
                         </div>
-                </div>  
+                </div>   */}
+                
                 <div>   
                     {kit.products.map((product , index) => { 
                     if (user.products.includes(product._id))
                     {
                         return(
-                            <ProductKitProfile user={user} product={product}></ProductKitProfile>
+                            <ProductKitProfile key={index} user={user} product={product}></ProductKitProfile>
                         )
                     } 
                     })}
@@ -77,7 +79,7 @@ class SurvivalKitProfile extends Component {
 						if (user.techniques.includes(technique._id))
 						{
 							return(
-                                <TechniqueProfile user={user} technique={technique}></TechniqueProfile>
+                            <TechniqueProfile key={index} user={user} technique={technique}></TechniqueProfile>
                             ) 
 						} 
                     })}
@@ -85,7 +87,7 @@ class SurvivalKitProfile extends Component {
                     if (user.tips.includes(tip._id))
                     {
                       return (
-                        <TipProfile user={user} tip={tip}></TipProfile>
+                        <TipProfile key={index} user={user} tip={tip}></TipProfile>
                       )
                        
                     }

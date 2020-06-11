@@ -21,7 +21,6 @@ class TechniqueProfile extends Component {
 
     render() {
         const { technique } = this.state;
-        console.log(technique)
         if (technique === "") 
         {
             return(
