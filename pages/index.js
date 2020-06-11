@@ -104,7 +104,7 @@ class InfluencerList extends Component {
                 <p><b>Cognitive Skills</b></p>
                 <div id="dash-under"></div>
               </div>
-              </Link>
+            </Link>
             <Link href={{ pathname: '/kits', query: { info: 'Spirituality' } }}>
               <div id="categories-card">
                 <div id="blue-dash"><img id="category-on-dash" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567790797/icons8-comedy-100_2.png" alt="category" /></div>              

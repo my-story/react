@@ -39,7 +39,7 @@ if (props.loggedIn === true) {
                 </NavItem>
                 <NavItem>
                   {/* <NavLink href="/logout">Logout</NavLink> */}
-                  <Logout {...this.props} >Logout</Logout>
+                  <Logout {...props} >Logout</Logout>
                 </NavItem>
    
               </Nav>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import Router from 'next/router';
+import Link from 'next/link';
 import SurvivalKitProfile from '../../components/profile/SurvivalKitProfile';
-import {QtyConsumer} from '../../components/contexts/QtyContext';
 import UserContext from '../../components/contexts/UserContext';
 import KitCardProfile from '../../components/profile/KitCardProfile';
 
@@ -23,7 +23,7 @@ class Profile extends Component{
     
     render() {
         const { user } = this.context;
-        console.log(user);
+       
         if (user) {
             return (
                 <div className="profile-page">
@@ -32,7 +32,9 @@ class Profile extends Component{
                               <img id="profile-picture" src="https://www.pikpng.com/pngl/m/286-2863567_contact-profile-user-default-female-suit-comments-profile.png" alt="Sage" />                        
                             {/* <div> */}
                                 <p>{user.firstName} {user.lastName}</p>
+                                <Link href="/settings"><p>Edit Profile</p></Link>
                             {/* </div> */}
+                                
                         </div>
                     
                     </div>
