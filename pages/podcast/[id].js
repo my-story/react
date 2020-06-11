@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import PodcastServices from "../../services/PodcastServices";
 import KitServices from "../../services/KitServices";
-import SurvivalKit from "../../components/survivalKit/SurvivalKit";
-
+// import SurvivalKit from "../../components/survivalKit/SurvivalKit";
+import KitCard from "../../components/survivalKit/KitCard";
 class PodcastDetail extends Component {
     state = {
         podcast: "",
-        kit: ""
+        kits: ""
     }
 
     static getInitialProps({ query: { id } }) {
@@ -25,9 +25,9 @@ class PodcastDetail extends Component {
     };
 
     fetchKits = (id) => {
-        KitServices.getKit(id)
-            .then((kit) => this.setState({kit}))
-            .then((err) => console.log(err))
+        KitServices.getKits(id)
+            .then((kits) => this.setState({kits}))
+            .catch((err) => console.log(err))
     };
 
     componentDidMount() {
@@ -36,8 +36,8 @@ class PodcastDetail extends Component {
 
     render(){
         const {podcast} = this.state;
-
-        if (podcast === "") {
+        console.log(this.state)
+        if (podcast === "" || this.state.kits === "") {
             return(<div></div>)
         } else {
             return(
@@ -63,7 +63,13 @@ class PodcastDetail extends Component {
                     </div>
                     <div className="podcast-detail-kit-div">
                         <p id="survival-kit-word">SURVIVAL KITS</p>
-                       <SurvivalKit id={podcast.influencer._id}></SurvivalKit>
+                        <div className="kits-all-section">
+                            {this.state.kits.map((i, index) => {
+                                return (
+                                    <KitCard kit={i} key={index}/>
+                                )
+                            })}
+                        </div>
                     </div>
                 </div>
             )

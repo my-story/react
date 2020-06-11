@@ -49,7 +49,7 @@ class NavBar extends Component {
 			return(
 				<div>
 					<MediaQuery maxDeviceWidth={490}>
-					<PhoneNavBar loggedIn={true}></PhoneNavBar>
+					<PhoneNavBar loggedIn={true} {...this.props}></PhoneNavBar>
 
 					</MediaQuery>
 

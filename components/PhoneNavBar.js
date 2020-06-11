@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import Logo from '../public/images/reboundLogo01.png';
 import ProfileGlyph from '../public/images/icons8-name-90.png';
-
+import Logout from './auth/Logout';
 
 const PhoneNavBar = (props) => {
   const [collapsed, setCollapsed] = useState(true);
 
   const toggleNavbar = () => setCollapsed(!collapsed);
-
+ 
 
 if (props.loggedIn === true) {
+  // console.log(props)
     return (
         <div>
           <Navbar color="faded" light>
@@ -35,7 +36,9 @@ if (props.loggedIn === true) {
                 <NavItem>
                   <NavLink href="/about">About us</NavLink>
                 </NavItem>
-   
+                <NavItem>
+                  <Logout {...props}>Logout</Logout>
+                </NavItem>
               </Nav>
 
             </Collapse>
