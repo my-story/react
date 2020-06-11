@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import { confirmAlert } from 'react-confirm-alert';
-import Link from 'next/link';
 import * as toastr from 'toastr';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import {FacebookShareButton, TwitterShareButton,  WhatsappShareButton} from "react-share";
 import ReviewServices from '../../services/ReviewServices';
 import InfluencerServices from '../../services/InfluencerServices';
 import UserContext from '../../components/contexts/UserContext';
-// import ReviewUpdate from '../../components/reviews/ReviewUpdate';
-// import CartBubble from '../../components/cart/CartBubble';
 import Votes from '../../components/votes/Votes';
-// import InfluencerCard from '../../components/influencer/InfluencerCard';
-// import SurvivalKit from '../../components/survivalKit/SurvivalKit';
+import SurvivalKit from '../../components/survivalKit/SurvivalKit';
 import TechniqueKit from '../../components/survivalKit/TechniqueKit';
 import KitCard from '../../components/survivalKit/KitCard';
 import KitServices from '../../services/KitServices';
@@ -200,15 +195,6 @@ class ReviewOne extends Component {
     };
   };
 
-  // instagramRedirect = () => {
-  //   return(
-  //     <div>
-  //       <Link href="instagram.com/kingjames"></Link>
-  //     </div>
-  //   )
-  // }
-  
-
   videoDraw = () => {
 
     if (this.state.review.video === "") {
@@ -218,7 +204,6 @@ class ReviewOne extends Component {
     } else {
       return(
         <div>
-            {/* <video className="video" controls src={review.video} /> */}
           <iframe src={'https://www.youtube.com/embed/E7wJTI-1dvQ'}
             frameBorder='0'
             allow='autoplay; encrypted-media'
@@ -234,13 +219,9 @@ class ReviewOne extends Component {
 
 
   render() {
-
-    // const review = this.state.review || {};
     const influencer = this.state.review.influencer || {};
-    // const influencers = this.state.influencers;
-    // const kit = this.state.kit;
     const {kits , kit, influencers, review} = this.state;
-    // console.log(this.state.kit.techniques)
+
 
     if(this.state.kit === {} || this.state.kit.tips === undefined || this.state.kit.techniques === undefined || this.state.review.influencer === undefined){
       return(
@@ -261,10 +242,6 @@ class ReviewOne extends Component {
               <div className="subheading">
                 <div className="category-name">
                   <p className="author">{influencer.name && influencer.name.firstName + ' ' + influencer.name.lastName}</p>
-                  {/* <div className="category-card">
-                    <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1567710375/icons8-comedy-100_1.png" alt="the product" className="icon"/>
-                    <span className="photography">{influencer.expertise}</span>
-                  </div> */}
         
               <span id="category-bubble-review">Athlete</span>
                   
@@ -284,8 +261,11 @@ class ReviewOne extends Component {
             <h5>Few words about {influencer.name && influencer.name.firstName}</h5>
               <p>
                {influencer.description}
-                </p>
-
+              </p>
+              </div>
+              <section className="survival-habits-heading">
+                <button className="clicked-show">SURVIVAL KITS</button>
+              </section>
               
               {/* <div> */}
               <div className="product-kit-page">
@@ -307,6 +287,16 @@ intensely for answers.</p>
               {/* </div> */}
                 
             </div>
+              <div className="books-section">
+                <h2>BOOKS</h2>
+                <div className="book-container">
+                  <div className="book-card">
+                  <img height="auto" width="100%" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
+                    {/* <p><b>The Happiness Hypothesis: Jonathan Haidt</b></p> */}
+                  <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
+                  </div>
+              </div>
+                 
             {this.audioDraw()}
             <div className="books-section">
                 <h2>BOOKS</h2>
