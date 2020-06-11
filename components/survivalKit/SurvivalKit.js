@@ -1,5 +1,4 @@
 import React,{ Component } from 'react';
-import * as toastr from 'toastr';
 import KitServices from '../../services/KitServices';
 import ProductKit from './ProductKit';
 import TechniqueKit from './TechniqueKit';
@@ -84,54 +83,6 @@ class SurvivalKit extends Component {
                        
                     )
                 })}
-
-        {/* <div className="technique-survival-kit-card">
-            <div className="survival-card-image-div">
-                <img id="survival-image"/>
-            </div>
-            <div className="technique-rebound-kit-description-div">
-                <div className="technique-kit-name-category">
-                    <p id="technique-name"><b>Name of Technique</b></p>
-                    <p id="technique-word">Technique</p>
-                    <div className="technique-kit-category-bubble">
-                        <div>
-                            <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575324090/heart-kit.svg"alt="" />
-                            <span>Category</span>
-                        </div>
-                    </div>
-                </div>
-                <div className="technique-kit-description-p">
-                    <div className="technique-header-div">
-                        <p><b>Header</b></p>
-                    </div>
-                    <div className="technique-steps">
-                        <p>- description</p><br></br>
-                        <p>- description</p><br></br>        
-                    </div>
-                </div>
-            </div>
-            <div className="line-2"></div>
-            <div className="recomendation-technique-survival-prize-div">
-                <div className="recommend-div">
-                    <p>Rebound Recommends</p>
-                </div>
-                <div className="recommend-div-product">
-                    <img id="recommend-product" src="https://prodimage.images-bn.com/pimages/9780062315007_p0_v2_s1200x630.jpg" alt="" />
-                    <div className="recommend-div-description"> 
-                        <h4><b>Title of product</b></h4>
-                        <p>Euismod tincidunt ut laoreet
-                            dolore magna Lorem ipsum
-                            dolor sit amet.
-                        </p>
-                        <p id="recommend-price">$300.00</p>
-                     <button className="book-button-recommend add-to-cart"><b>Add to Cart</b></button>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </div> */}
                 </div>
             )    
 

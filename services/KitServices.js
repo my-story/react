@@ -75,8 +75,12 @@ const getKitProfile = (id) => http.get(`/kit/profile/${id}`)
 const searchKit = (search) => http.get(`/kit/filter?search=${search}`)
   .then((res) => res.data);
 
+const getKits = (id) => http.get(`/kit/influencer/${id}`)
+  .then((res) => res.data);
+
 export default {
     getKit,
+    getKits,
     kitCreate,
     kitProductBacked,
     getKitAdmin,
