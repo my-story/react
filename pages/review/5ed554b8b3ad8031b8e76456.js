@@ -286,18 +286,7 @@ intensely for answers.</p>
                 {/* <SurvivalKit id={kit._id}></SurvivalKit> */}
               {/* </div> */}
                 
-            </div>
-              <div className="books-section">
-                <h2>BOOKS</h2>
-                <div className="book-container">
-                  <div className="book-card">
-                  <img height="auto" width="100%" src="https://prodimage.images-bn.com/pimages/9780802125088_p0_v6_s550x406.jpg" alt="Book" />
-                    {/* <p><b>The Happiness Hypothesis: Jonathan Haidt</b></p> */}
-                  <button className="book-button add-to-cart"><b>Buy on Amazon</b></button>
-                  </div>
-              </div>
-                 
-            {this.audioDraw()}
+            </div>              
             <div className="books-section">
                 <h2>BOOKS</h2>
                 <div className="book-container">
@@ -338,7 +327,6 @@ intensely for answers.</p>
                 <WhatsappShareButton url={"zapos.com"}><img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1565290822/instagram.svg" alt="instagram button"/></WhatsappShareButton>
                 <FacebookShareButton url={"headspace.com"}><img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566411204/facebook.svg" alt="facebook button"/></FacebookShareButton>
                 <TwitterShareButton url={"amazon.com"}><img className="instagram" src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1566411510/twitter.svg" alt="twitter button"/></TwitterShareButton>
-              </div>
               </div>
               </div>
               {/* <CartBubble product={product}/> */}

@@ -472,10 +472,8 @@
     color: #3d676a;
   }
   .podcast-image-div {
-    width: 35%;
+    width: 40%;
     height: 100%;
-    border-top-right-radius: 120px;
-    border-bottom-right-radius: 120px;
     overflow: hidden;
   }
   .podcast-heading-div p {
@@ -484,7 +482,6 @@
   }
   #podcast-thumbnail-image {
     width: 100%;
-    height: 100%;
   }
   .tip-card-image-div {
     width: 80px;
