@@ -77,7 +77,6 @@ class Settings extends Component {
                             <button onClick={this.editData}>Cancel</button>
                         </div>
                     </div>
-                    <p>Edit</p>
                 </div>
                 </div>
             )

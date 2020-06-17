@@ -1043,6 +1043,7 @@ margin: 0 10px 0 10px;
   width: 250px;
   border-radius: 8%;
   overflow: hidden;
+  margin: 10px 0 10px 0;
 }
 .expert-card-container-profile {
   height: 280px;
@@ -1314,14 +1315,14 @@ height: 3vh;
 /* Categories Section */
 .top-categories {
   margin-top: 5vh;
-  height: 50vh;
+  /* height: 50vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 }
 .categories-container {
-  height: 40vh;
+  /* height: 40vh; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1368,7 +1369,7 @@ height: 3vh;
   align-items: baseline;
   width: 100%;
   margin-top: 4vh;
-  height: 10vh;
+  min-height: 100px;
 }
 .category-bar-index {
   display: flex;
@@ -1393,14 +1394,12 @@ height: 3vh;
 .category-bubble{
   font-family: "Hind";
   font-size: 15px;
-  padding: 0 1.5vw 0 1.5vw;
+  padding: 0 10px 0 10px;
   color: black;
   background-color: #f9f8f4;
   height: 23px;
-  /* width: 90px; */
   border-radius: 20px;
   font-weight: 600;
-  /* margin-left: 0.7vw; */
   margin: 0 0.5vw 2vh 0.5vw;
   display: flex;
   align-items: center;
@@ -1408,7 +1407,7 @@ height: 3vh;
   text-align: center;
 }
  #profile-glyph {
-   height: 20px;
+   height: 50px;
    /* padding-left: 4px; */
  }
 .category-bar p {
@@ -3489,7 +3488,7 @@ margin-bottom: 2vh;
   font-weight: 500;
 }
 .index-best-book-div {
-  height: 60vh;
+  min-height: 60vh;
   width: 100%;
   /* margin-top: 8vh; */
   margin: 10vh 0 10vh 0;
@@ -3772,6 +3771,7 @@ color: black;
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-evenly;
+  margin-top: 10px;
   /* align-content: center; */
 }
 .profile-dashboard-kits {
@@ -3784,7 +3784,6 @@ color: black;
   align-items: center;
 }
 .settings-container {
-
   width: 70%;
 }
 .settings-div {
@@ -3794,6 +3793,14 @@ color: black;
   align-items: center;
   border-bottom: 0.5px solid;
 }
+.settings-div-password {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 0.5px solid;
+  height: 280px;
+}
 .opened {
   height: 150px;
 }
@@ -3801,8 +3808,16 @@ color: black;
   display: flex;
   flex-direction: row;
   width: 68%;
+  justify-content: space-around;
+}
+
+.settings-options-div-password {
+  display: flex;
+  flex-direction: row;
+  width: 68%;
   justify-content: space-between;
 }
+
 .settings-input {
   display: flex;
   align-items: baseline;

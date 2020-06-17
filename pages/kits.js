@@ -34,13 +34,12 @@ class Kits extends Component {
       };
 
     componentDidMount(){
-        this.fetchKits();
         if (this.props.info) {
           KitServices.searchKit(this.props.info)
             .then((res) => this.setState({ kits: res }))
             .catch((err) => console.log(err))
         } else {
-          return
+          this.fetchKits();
         }
     };
 

@@ -706,9 +706,17 @@
   border-radius: 30px;
   font-weight: 600;
 }
-
+.best-book-header h1 {
+  font-size: 30px;
+}
+.best-book-title-div h2 {
+  font-size: 25px;
+}
+.settings-container {
+  width: 90%;
+}
 .category-bubble{
-  width: 70px;
+  min-width: 70px;
 }
 .technique-kit-description-div {
   height: 90%;
