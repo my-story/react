@@ -52,7 +52,6 @@ class TechniqueKit extends Component {
     
     render() {
         const {technique} = this.props;
-        console.log(this.state)
     
         return (
             <div>
@@ -62,7 +61,7 @@ class TechniqueKit extends Component {
             </div>
             <div className="technique-kit-description-div">
             <div className="technique-kit-name-category">
-                        <p id="technique-name"><b>{technique.title}</b></p>
+                        <h1 id="technique-name"><b>{technique.title}</b></h1>
                         <div className="technique-with-category-div">
                         <p id="technique-word">Technique</p>
                         {/* <span id="category-bubble-profile">{technique.category}</span> */}
@@ -101,7 +100,6 @@ class TechniqueKit extends Component {
                     <p id="survival-prize">$150</p>
                     <button className="survival-kit-add-to-cart">Add to card</button>
                 </div> */}
-                        <div className="line-2"></div>
                     <div className="technique-survival-prize-div">
                     <div className="survival-save-favorite">
                         <img onClick={this.addFavorite} src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />

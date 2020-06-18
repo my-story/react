@@ -1,4 +1,4 @@
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 765px) {
   .review-page {
     margin: 0 5vw 0 5vw;
   }
@@ -489,7 +489,7 @@
     left: -2vw;
   }
   #technique-name{  
-    font-size: 16px;
+    font-size: 20px;
     line-height: normal;
     margin-bottom: 0;
   }
@@ -686,9 +686,7 @@
   font-size: 25px;
   line-height: 2px;
 }
-.technique-survival-kit-card{
-    height: 300px;
-}
+
 #category-bubble-profile {
   display: flex;
   justify-content: center;
@@ -727,8 +725,8 @@
   height: 25%;
   color: #f66c4f;
 }
-.technique-kit-name-category p {
-  font-size: 20px;
+.technique-kit-name-category h1 {
+  font-size: 45px;
   line-height: 5px;
 }
 .technique-kit-name-category p {

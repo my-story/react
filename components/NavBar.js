@@ -47,7 +47,7 @@ class NavBar extends Component {
 	if (this.context.user.length !== 0) {
 		// if (userLogged.length > 0) {
 			return(
-				<div>
+				<div className="nav-bar-background">
 					<MediaQuery maxDeviceWidth={490}>
 					<PhoneNavBar loggedIn={true} {...this.props}></PhoneNavBar>
 
@@ -117,7 +117,7 @@ class NavBar extends Component {
 			);
 	}	else {
 		return(
-			<div>
+			<div className="nav-bar-background">
 			<MediaQuery maxDeviceWidth={490}>
 			<PhoneNavBar loggedIn={false}></PhoneNavBar>
 
