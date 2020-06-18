@@ -115,7 +115,7 @@ class InfluencerList extends Component {
             </div>
           </div>
           <div className="category-bar-index"> 
-            <p><b className="all-categories-p">All Categories: </b></p>
+            {/* <p><b className="all-categories-p">All Categories: </b></p> */}
             <div className="bar-categories-div">
               {category.map((category, index) => {
                 return (

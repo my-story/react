@@ -51,7 +51,7 @@ class TechniqueCreate extends Component {
     fixTechniques = () => {
         const {description, header} = this.state.data;
 
-        const descriptions = description.split(',') ;
+        const descriptions = description.split('-') ;
         
         let subheading = {
             header,
