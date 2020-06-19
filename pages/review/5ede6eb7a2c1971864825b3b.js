@@ -303,8 +303,8 @@ before we hear thunder.</span>
 Curiosita requires that you constantly ask great questions
 at the heart of important quality-of-life issues, then search
 intensely for answers.</p> */}
-                <TechniqueKit technique={kit.techniques[0]} kit={kit}></TechniqueKit>
-                <TechniqueKit technique={kit.techniques[1]} kit={kit}></TechniqueKit>
+                {/* <TechniqueKit technique={kit.techniques[0]} kit={kit}></TechniqueKit> */}
+                {/* <TechniqueKit technique={kit.techniques[1]} kit={kit}></TechniqueKit> */}
 
 
               </div>

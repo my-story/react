@@ -22,6 +22,11 @@ class PasswordChange extends Component {
         newUser[e.target.name] = e.target.value;
         this.setState({ newUser });
     };
+    handleChange = (e) => {
+        // let { newUser } = this.state;
+        let password = e.target.value;
+        this.setState({ password });
+    };
 
 	static contextType = UserContext;
 
@@ -36,14 +41,15 @@ class PasswordChange extends Component {
     };
 
     confirmPassword = () => {
-        const {password, newPassword, confirmPassword} = this.state;
+        const {password, newPassword, confirmPassword, user} = this.state;
 
-        const user = {
+        const userHandle = {
             username: this.state.user.username,
             password: password
         };
+        console.log(user);
 
-        AuthServices.login(user)
+        AuthServices.login(userHandle)
         .then(response => {
           if (response.status === 200) {
             if (newPassword === confirmPassword){
@@ -87,7 +93,7 @@ class PasswordChange extends Component {
                     <div>
                         <div className="settings-input">
                           
-                            <Input name="password" placeholder="Old Password" allowClear onChange={this.onChange} />
+                            <Input name="password" placeholder="Old Password" allowClear onChange={this.handleChange} />
                         </div>
                         <div className="settings-input">
                       

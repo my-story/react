@@ -50,7 +50,10 @@ class Profile extends Component{
                         </div>
 
                         <div className="profile-dashboard-favorited">
-                        <h1>Favorited (bookmark emoji)</h1>
+                        <div className="profile-dashboard-favorites-div">
+                        <h1>Favorited</h1>
+                        <img src="https://res.cloudinary.com/dpt8pbi8n/image/upload/v1575401603/Bookmark__Copy.svg" alt="bookmark" />
+                        </div>
                         {user.kits.map((kit, index) => {  
                             return(
                             <SurvivalKitProfile kit={kit} user={user}></SurvivalKitProfile>

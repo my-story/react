@@ -231,7 +231,7 @@ class Login extends Component {
               <div className="p-login-header">
               <p className="p-login">Log in</p>             
               <p className="new-login">New to Rebound?</p>    
-              <button id="sign-up-redirect-bttn" onClick={this.switchState}><p className="new-login signup">SIGN UP FOR FREE!</p></button>
+              <p id="sign-up-redirect-bttn" onClick={this.switchState} className="new-login signup">SIGN UP FOR FREE!</p>
               </div>
               <div className="inputs-login">
                 <input placeholder="Email" className="inputs-login-styling margin-input-login" type="text" name="username" onChange={e => this.handleChange(e)} />

@@ -753,7 +753,9 @@
 #review-survival-title {
   font-size: 20px;
 }
-
+.expert-card-container {
+  transform: scale(0.8);
+}
 .expert-card-container-profile {
   height: 220px;
   width: 160px;

@@ -2271,6 +2271,10 @@ margin-right: 1vw
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
   margin-bottom: 2vh;
 }
+.profile-dashboard-favorites-div {
+  display: flex;
+  flex-direction: row;
+}
 
 .technique-survival-kit-card {
   overflow: auto;
@@ -3618,6 +3622,7 @@ color: black;
 
 .profile-dashboard-div h1 {
   font-size: 30px;
+  margin-right: 10px; 
 }
 .video-youtube {
   width: 100%;
